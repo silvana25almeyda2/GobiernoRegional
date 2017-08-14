@@ -25,9 +25,8 @@ import java.util.GregorianCalendar;
 import javax.swing.*;
 import javax.swing.Timer;
 import modelos.Usuario;
-import servicios.Conexion;
+import Servicios.Conexion;
 
-import static vista.Principal.fechaActual;
 
 /**
  *
@@ -679,8 +678,8 @@ String hora, minutos, segundos, ampm;
                tiempo.stop();
                esconder();
                
-                PrincipalMDI pmdi = new PrincipalMDI();
-                PrincipalMDI.lblUsu.setText(usuario);
+                Principal pmdi = new Principal();
+                Principal.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
            }
         }
@@ -694,75 +693,52 @@ String hora, minutos, segundos, ampm;
            if(cont1==101){
                tiempo1.stop();
                esconder();
-                PrincipalMDI pmdi = new PrincipalMDI();
-                PrincipalMDI.lblUsu.setText(usuario);
+                Principal pmdi = new Principal();
+                Principal.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
-                
-                PrincipalMDI.btnAdmCentral.setEnabled(false);
-                PrincipalMDI.btnAdmCentral.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnAdmEme.setEnabled(false);
-                PrincipalMDI.btnAdmEme.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnCaja.setEnabled(false);
-                PrincipalMDI.btnCaja.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnCostos.setEnabled(false);
-                PrincipalMDI.btnCostos.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnHospitalizacion.setEnabled(false);
-                PrincipalMDI.btnHospitalizacion.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnLaboratorio.setEnabled(false);
-                PrincipalMDI.btnLaboratorio.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnRayosX.setEnabled(false);
-                PrincipalMDI.btnRayosX.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnEcografia.setEnabled(false);
-                PrincipalMDI.btnEcografia.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnConExt.setEnabled(false);
-                PrincipalMDI.btnConExt.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnInvBact.setEnabled(false);
-                PrincipalMDI.btnInvBact.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnAlmacen.setEnabled(false);
-                PrincipalMDI.btnAlmacen.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnPersonal.setEnabled(false);
-                PrincipalMDI.btnPersonal.setForeground(new Color(155,155,155));
-                PrincipalMDI.btnConfiguracion.setEnabled(false);
-                PrincipalMDI.btnConfiguracion.setForeground(new Color(155,155,155));
+
+                Principal.btnCaja.setEnabled(false);
+                Principal.btnCaja.setForeground(new Color(155,155,155));
+               ;
                 if(filtroModulo==1){
-                  PrincipalMDI.btnAdmCentral.setEnabled(true);
-                  PrincipalMDI.btnAdmCentral.setForeground(new Color(255,255,255));
+                  Principal.btnAdmCentral.setEnabled(true);
+                  Principal.btnAdmCentral.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==2){
-                PrincipalMDI.btnAdmEme.setEnabled(true);
-                 PrincipalMDI.btnAdmEme.setForeground(new Color(255,255,255));
+                Principal.btnAdmEme.setEnabled(true);
+                 Principal.btnAdmEme.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==3){
-                 PrincipalMDI.btnCaja.setEnabled(true);
-                 PrincipalMDI.btnCaja.setForeground(new Color(255,255,255));
+                 Principal.btnCaja.setEnabled(true);
+                 Principal.btnCaja.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==4){
-                PrincipalMDI.btnCostos.setEnabled(true);
-                 PrincipalMDI.btnCostos.setForeground(new Color(255,255,255));
+                Principal.btnCostos.setEnabled(true);
+                 Principal.btnCostos.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==5){
-                PrincipalMDI.btnHospitalizacion.setEnabled(true);
-                 PrincipalMDI.btnHospitalizacion.setForeground(new Color(255,255,255));
+                Principal.btnHospitalizacion.setEnabled(true);
+                 Principal.btnHospitalizacion.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==6){
-                PrincipalMDI.btnLaboratorio.setEnabled(true);
-                 PrincipalMDI.btnLaboratorio.setForeground(new Color(255,255,255));
+                Principal.btnLaboratorio.setEnabled(true);
+                 Principal.btnLaboratorio.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==7){
-                 PrincipalMDI.btnRayosX.setEnabled(true);
-                 PrincipalMDI.btnRayosX.setForeground(new Color(255,255,255));
+                 Principal.btnRayosX.setEnabled(true);
+                 Principal.btnRayosX.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==8){
-                 PrincipalMDI.btnEcografia.setEnabled(true);
-                 PrincipalMDI.btnEcografia.setForeground(new Color(255,255,255));
+                 Principal.btnEcografia.setEnabled(true);
+                 Principal.btnEcografia.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==9){
-                 PrincipalMDI.btnConExt.setEnabled(true);
-                 PrincipalMDI.btnConExt.setForeground(new Color(255,255,255));
+                 Principal.btnConExt.setEnabled(true);
+                 Principal.btnConExt.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==10){
-                 PrincipalMDI.btnInvBact.setEnabled(true);
-                 PrincipalMDI.btnInvBact.setForeground(new Color(255,255,255));
+                 Principal.btnInvBact.setEnabled(true);
+                 Principal.btnInvBact.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==11){
-                 PrincipalMDI.btnAlmacen.setEnabled(true);
-                 PrincipalMDI.btnAlmacen.setForeground(new Color(255,255,255));
+                 Principal.btnAlmacen.setEnabled(true);
+                 Principal.btnAlmacen.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==12){
-                 PrincipalMDI.btnPersonal.setEnabled(true);
-                 PrincipalMDI.btnPersonal.setForeground(new Color(255,255,255));
+                 Principal.btnPersonal.setEnabled(true);
+                 Principal.btnPersonal.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==13){
-                 PrincipalMDI.btnConfiguracion.setEnabled(true);
-                 PrincipalMDI.btnConfiguracion.setForeground(new Color(255,255,255));
+                 Principal.btnConfiguracion.setEnabled(true);
+                 Principal.btnConfiguracion.setForeground(new Color(255,255,255));
                 }
            }
         }
