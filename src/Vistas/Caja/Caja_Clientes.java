@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import modelo.Caja.Caja_Cliente;
+import modelo.Caja.Caja_NuevaVenta;
 
 /**
  *
@@ -111,9 +112,8 @@ byte tgm;
     }
     
     public void NUEVO_REGISTRO(){
-       if((txtDOC.getText().equals("")) ||  txtNom.getText().equals("")){
+       if((txtDOC.getText().equals(""))){
             cargareliminar.setVisible(true);        
-            btnguardar.setEnabled(false);
             cargareliminar.setBackground(new Color(255,91,70)); 
             Mensaje.setText("Debe completar los campos requeridos");
             eli.setVisible(true);
@@ -121,7 +121,7 @@ byte tgm;
             tgm=0;                 
         } else {
                 Caja_Cliente cno1 = new Caja_Cliente();
-                cno1.setDNI(Integer.parseInt(txtDOC.getText()));
+                cno1.setDNI(txtDOC.getText());
                 cno1.setNOMBRES(txtNom.getText());
                 cno1.setAPELLIDO_PATERNO(txtApeP.getText());
                 cno1.setAPELLIDO_MATERNO(txtApeM.getText());
@@ -137,20 +137,28 @@ byte tgm;
                 cno1.setTIPO_DOCUMENTO(cbxTipoDoc.getSelectedItem().toString());
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.NUEVO_CLIENTE()==true){
-                        cargareliminar.setVisible(true);
-                        cargareliminar.setBackground(new Color(0,153,102)); 
-                        Mensaje.setText("Datos Guardados de forma correcta");
-                        eli.setText("OK");
-                        eli.setVisible(true);
-                        noeli.setVisible(false);
-                        tgm=1;
-                        btnguardar.setEnabled(false);
-                        btneditar.setEnabled(false);
-                        btneliminar.setEnabled(true);
-                        Caja_Cliente A = new Caja_Cliente();
-                        A.LISTA_CLIENTES("",tb_Clientes);
-                        jLabel33.setText("Listado");
-                        Paginas.setSelectedIndex(0);
+                        if(lblTipoR.getText().equals("N")){
+                            cargareliminar.setVisible(true);
+                            cargareliminar.setBackground(new Color(0,153,102)); 
+                            Mensaje.setText("Datos Guardados de forma correcta");
+                            eli.setText("OK");
+                            eli.setVisible(true);
+                            noeli.setVisible(false);
+                            tgm=1;
+                            btnguardar.setEnabled(false);
+                            btneditar.setEnabled(false);
+                            btneliminar.setEnabled(true);
+                            Caja_Cliente A = new Caja_Cliente();
+                            A.LISTA_CLIENTES("",tb_Clientes);
+                            jLabel33.setText("Listado");
+                            Paginas.setSelectedIndex(0);
+                        }else if(lblTipoR.getText().equals("C")){
+                            Caja_NuevaVenta CNC = new Caja_NuevaVenta();
+                            CNC.ULTIMO_CLIENTE_REGISTRADO(lblusu.getText());
+                            dispose();
+                            
+                        }
+                        
                     } else {
                         cargareliminar.setVisible(true);
                         cargareliminar.setBackground(new Color(255,91,70)); 
@@ -164,7 +172,7 @@ byte tgm;
        
                 Caja_Cliente cno1 = new Caja_Cliente();
                 cno1.setID_CLIENTE(Integer.parseInt(lblID.getText()));
-                cno1.setDNI(Integer.parseInt(txtDOC.getText()));
+                cno1.setDNI(txtDOC.getText());
                 cno1.setNOMBRES(txtNom.getText());
                 cno1.setAPELLIDO_PATERNO(txtApeP.getText());
                 cno1.setAPELLIDO_MATERNO(txtApeM.getText());
@@ -245,6 +253,7 @@ byte tgm;
         btnBuscarPaciente = new javax.swing.JButton();
         lbldetalle = new javax.swing.JLabel();
         btnLista = new javax.swing.JButton();
+        btnCaja = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         Paginas = new javax.swing.JTabbedPane();
@@ -294,6 +303,7 @@ byte tgm;
             panelCPT13 = new javax.swing.JPanel();
             txtDireccion = new javax.swing.JTextField();
             jLabel20 = new javax.swing.JLabel();
+            lblTipoR = new javax.swing.JLabel();
             cargareliminar = new javax.swing.JPanel();
             Mensaje = new javax.swing.JLabel();
             eli = new javax.swing.JButton();
@@ -441,30 +451,44 @@ byte tgm;
                 }
             });
 
+            btnCaja.setText("CAJA");
+            btnCaja.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnCajaActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
             jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(24, 24, 24)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbldetalle)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(19, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(24, 24, 24)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbldetalle)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(40, 40, 40)
+                                    .addComponent(btnCaja)))
+                            .addGap(0, 9, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,6 +512,8 @@ byte tgm;
                     .addComponent(btneliminar)
                     .addGap(18, 18, 18)
                     .addComponent(btnLista)
+                    .addGap(18, 18, 18)
+                    .addComponent(btnCaja)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblusu)
                     .addContainerGap())
@@ -1148,6 +1174,8 @@ byte tgm;
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
+            lblTipoR.setText("jLabel2");
+
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
             jPanel3Layout.setHorizontalGroup(
@@ -1165,7 +1193,9 @@ byte tgm;
                             .addComponent(txtT2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblJuridica)
-                            .addGap(103, 103, 103))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTipoR)
+                            .addGap(79, 79, 79))
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1180,7 +1210,8 @@ byte tgm;
                         .addComponent(txtT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblNatural)
-                        .addComponent(lblJuridica))
+                        .addComponent(lblJuridica)
+                        .addComponent(lblTipoR))
                     .addGap(0, 0, 0)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1275,6 +1306,7 @@ byte tgm;
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         tg = 1;
+        lblTipoR.setText("N");
         btnNuevo.setEnabled(true);
         btnguardar.setEnabled(true);
         btneditar.setEnabled(false);
@@ -1297,18 +1329,19 @@ byte tgm;
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        if(tg==1){
-             NUEVO_REGISTRO();  
-        }
-        if(tg==2){
-           cargareliminar.setVisible(true);
-           cargareliminar.setBackground(new Color(255,153,51)); 
-           Mensaje.setText("Desea Actualizar el Registro ?");
-           eli.setText("Si");
-           eli.setVisible(true);
-           noeli.setVisible(true); 
-           tgm=3;
-        }
+
+            if(tg==1){
+                 NUEVO_REGISTRO();  
+            }
+            if(tg==2){
+               cargareliminar.setVisible(true);
+               cargareliminar.setBackground(new Color(255,153,51)); 
+               Mensaje.setText("Desea Actualizar el Registro ?");
+               eli.setText("Si");
+               eli.setVisible(true);
+               noeli.setVisible(true); 
+               tgm=3;
+            }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -1622,6 +1655,22 @@ byte tgm;
         
     }//GEN-LAST:event_btnListaMouseClicked
 
+    private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
+        tg = 1;
+        lblTipoR.setText("C");
+        btnNuevo.setEnabled(true);
+        btnguardar.setEnabled(true);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+        btnNuevo.setEnabled(false);
+        jPanel7.setVisible(false);
+        jPanel6.setVisible(false);
+        jPanel8.setVisible(false);
+        LIMPIAR();
+        HABILITAR(true);
+        Paginas.setSelectedIndex(1);
+    }//GEN-LAST:event_btnCajaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1661,6 +1710,7 @@ byte tgm;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JTabbedPane Paginas;
     private javax.swing.JButton btnBuscarPaciente;
+    public static javax.swing.JButton btnCaja;
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneditar;
@@ -1698,6 +1748,7 @@ byte tgm;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblJuridica;
     private javax.swing.JLabel lblNatural;
+    private javax.swing.JLabel lblTipoR;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;

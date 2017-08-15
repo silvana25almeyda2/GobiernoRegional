@@ -306,6 +306,31 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
         }
     }
 
+    public void CIERRE_DETALLE_APERTURA(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre.lblID_APERTURA.setText(r.getString(1)); 
+                Caja_Cierre.lblSerie.setText(r.getString(3)); 
+                Caja_Cierre.lblFechaA.setText(r.getString(4)); 
+                Caja_Cierre.lblHoraA.setText(r.getString(5));
+                Caja_Cierre.lblTerminalA.setText(r.getString(6)); 
+                Caja_Cierre.lblBaseA.setText(r.getString(7));
+                Caja_Cierre.lblIDSESION_A.setText(r.getString(9)); 
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: PC: " + e.getMessage());
+        }
+    }
+   
+
 public void Caja_Verificar_Apertura_C(String usu,JTable tabla){
     String consulta="";
         try {

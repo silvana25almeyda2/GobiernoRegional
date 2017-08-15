@@ -22,7 +22,7 @@ public class Caja_Cliente {
 DefaultTableModel m;
 private Connection cn;
 private int ID_CLIENTE;
-private int DNI;
+private String DNI;
 private String NOMBRES;
 private String APELLIDO_PATERNO;
 private String APELLIDO_MATERNO;
@@ -44,7 +44,7 @@ Conexion con = new Conexion();
             String sql = "exec CAJA_CLIENTES_NUEVO "
                         + "?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getDNI());
+            cmd.setString(1, getDNI());
             cmd.setString(2, getNOMBRES());
             cmd.setString(3, getAPELLIDO_PATERNO());
             cmd.setString(4, getAPELLIDO_MATERNO());
@@ -77,7 +77,7 @@ Conexion con = new Conexion();
                         + "?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CLIENTE());
-            cmd.setInt(2, getDNI());
+            cmd.setString(2, getDNI());
             cmd.setString(3, getNOMBRES());
             cmd.setString(4, getAPELLIDO_PATERNO());
             cmd.setString(5, getAPELLIDO_MATERNO());
@@ -194,11 +194,11 @@ Conexion con = new Conexion();
         this.ID_CLIENTE = ID_CLIENTE;
     }
 
-    public int getDNI() {
+    public String getDNI() {
         return DNI;
     }
 
-    public void setDNI(int DNI) {
+    public void setDNI(String DNI) {
         this.DNI = DNI;
     }
 
