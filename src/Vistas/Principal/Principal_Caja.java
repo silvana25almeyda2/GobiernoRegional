@@ -6,7 +6,13 @@
 package Vistas.Principal;
 
 import Vistas.Caja.Caja_Cierre;
+import Vistas.Caja.Caja_Ventas;
+import static Vistas.Principal.Principal.PaginasP;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
@@ -49,7 +55,15 @@ private Dimension DimensionBarra = null;
         lblIDSESION = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         PanelCaja = new javax.swing.JPanel();
-        btnCaja = new javax.swing.JButton();
+        btnVentas = new javax.swing.JButton();
+        PanelCPT = new javax.swing.JPanel();
+        btnCPT = new javax.swing.JButton();
+        PanelCaja2 = new javax.swing.JPanel();
+        btnCaja2 = new javax.swing.JButton();
+        PanelCaja3 = new javax.swing.JPanel();
+        btnCaja3 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         ibiIDAPERTURA = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -111,7 +125,7 @@ private Dimension DimensionBarra = null;
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblIDSESION, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PanelSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,33 +142,38 @@ private Dimension DimensionBarra = null;
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+        });
 
         PanelCaja.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCaja.setBackground(new java.awt.Color(102, 102, 102));
-        btnCaja.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnCaja.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"))); // NOI18N
-        btnCaja.setText("Ventas");
-        btnCaja.setContentAreaFilled(false);
-        btnCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCaja.setFocusPainted(false);
-        btnCaja.setFocusable(false);
-        btnCaja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCaja.setIconTextGap(30);
-        btnCaja.setVerifyInputWhenFocusTarget(false);
-        btnCaja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVentas.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnVentas.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"))); // NOI18N
+        btnVentas.setText("Ventas");
+        btnVentas.setContentAreaFilled(false);
+        btnVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas.setFocusPainted(false);
+        btnVentas.setFocusable(false);
+        btnVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas.setIconTextGap(30);
+        btnVentas.setVerifyInputWhenFocusTarget(false);
+        btnVentas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCajaMouseClicked(evt);
+                btnVentasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCajaMouseEntered(evt);
+                btnVentasMouseEntered(evt);
             }
         });
-        btnCaja.addActionListener(new java.awt.event.ActionListener() {
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCajaActionPerformed(evt);
+                btnVentasActionPerformed(evt);
             }
         });
 
@@ -162,11 +181,157 @@ private Dimension DimensionBarra = null;
         PanelCaja.setLayout(PanelCajaLayout);
         PanelCajaLayout.setHorizontalGroup(
             PanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
         );
         PanelCajaLayout.setVerticalGroup(
             PanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(btnVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCPT.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCPT.setBackground(new java.awt.Color(102, 102, 102));
+        btnCPT.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCPT.setForeground(new java.awt.Color(51, 51, 51));
+        btnCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"))); // NOI18N
+        btnCPT.setText("CPT");
+        btnCPT.setContentAreaFilled(false);
+        btnCPT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCPT.setFocusPainted(false);
+        btnCPT.setFocusable(false);
+        btnCPT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCPT.setIconTextGap(30);
+        btnCPT.setVerifyInputWhenFocusTarget(false);
+        btnCPT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCPT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCPTMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCPTMouseEntered(evt);
+            }
+        });
+        btnCPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCPTActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCPTLayout = new javax.swing.GroupLayout(PanelCPT);
+        PanelCPT.setLayout(PanelCPTLayout);
+        PanelCPTLayout.setHorizontalGroup(
+            PanelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCPTLayout.setVerticalGroup(
+            PanelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCaja2.setBackground(new java.awt.Color(102, 102, 102));
+        btnCaja2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCaja2.setForeground(new java.awt.Color(51, 51, 51));
+        btnCaja2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
+        btnCaja2.setText("Clientes");
+        btnCaja2.setContentAreaFilled(false);
+        btnCaja2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja2.setFocusPainted(false);
+        btnCaja2.setFocusable(false);
+        btnCaja2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaja2.setIconTextGap(30);
+        btnCaja2.setVerifyInputWhenFocusTarget(false);
+        btnCaja2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCaja2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCaja2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCaja2MouseEntered(evt);
+            }
+        });
+        btnCaja2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaja2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja2Layout = new javax.swing.GroupLayout(PanelCaja2);
+        PanelCaja2.setLayout(PanelCaja2Layout);
+        PanelCaja2Layout.setHorizontalGroup(
+            PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCaja2Layout.setVerticalGroup(
+            PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCaja3.setBackground(new java.awt.Color(102, 102, 102));
+        btnCaja3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCaja3.setForeground(new java.awt.Color(51, 51, 51));
+        btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
+        btnCaja3.setText("Precios");
+        btnCaja3.setContentAreaFilled(false);
+        btnCaja3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja3.setFocusPainted(false);
+        btnCaja3.setFocusable(false);
+        btnCaja3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaja3.setIconTextGap(30);
+        btnCaja3.setVerifyInputWhenFocusTarget(false);
+        btnCaja3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCaja3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCaja3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCaja3MouseEntered(evt);
+            }
+        });
+        btnCaja3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaja3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja3Layout = new javax.swing.GroupLayout(PanelCaja3);
+        PanelCaja3.setLayout(PanelCaja3Layout);
+        PanelCaja3Layout.setHorizontalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCaja3Layout.setVerticalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(127, 140, 141));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Atrás-30.png"))); // NOI18N
+        jLabel1.setText("Volver");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
         );
 
         ibiIDAPERTURA.setForeground(new java.awt.Color(51, 51, 51));
@@ -176,24 +341,37 @@ private Dimension DimensionBarra = null;
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(26, 26, 26)
                         .addComponent(ibiIDAPERTURA)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ibiIDAPERTURA)
-                .addGap(13, 13, 13)
-                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,18 +396,31 @@ private Dimension DimensionBarra = null;
      
     }//GEN-LAST:event_PanelSesionMouseEntered
 
-    private void btnCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseClicked
+    private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCajaMouseClicked
+    }//GEN-LAST:event_btnVentasMouseClicked
 
-    private void btnCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseEntered
+    private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
+        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64 (1).png"));
+        btnVentas.setIcon(CambioV);
+        btnVentas.setForeground(new Color(255,255,255)); 
+        PanelCaja.setBackground(new Color(127,140,141)); 
+        
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
+        btnCPT.setIcon(CambioC);
+        btnCPT.setForeground(new Color(51,51,51)); 
+        PanelCPT.setBackground(new Color(255,255,255)); 
+    }//GEN-LAST:event_btnVentasMouseEntered
 
-    }//GEN-LAST:event_btnCajaMouseEntered
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
+        Caja_Ventas CT = new Caja_Ventas();
+        CT.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        CT.lblusu.setText(u);
+        CT.lblID_SESION.setText(lblIDSESION.getText());
+        CT.lblSESION.setText(ibiIDAPERTURA.getText());
 
-    private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
-
-
-    }//GEN-LAST:event_btnCajaActionPerformed
+    }//GEN-LAST:event_btnVentasActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
             Caja_Cierre frmCIERRE = new Caja_Cierre();
@@ -237,17 +428,88 @@ private Dimension DimensionBarra = null;
             frmCIERRE.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void btnCPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPTMouseClicked
+
+    private void btnCPTMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseEntered
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64 (1).png"));
+        btnCPT.setIcon(CambioC);
+        btnCPT.setForeground(new Color(255,255,255)); 
+        PanelCPT.setBackground(new Color(127,140,141)); 
+        
+        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
+        btnVentas.setIcon(CambioV);
+        btnVentas.setForeground(new Color(51,51,51)); 
+        PanelCaja.setBackground(new Color(255,255,255)); 
+    }//GEN-LAST:event_btnCPTMouseEntered
+
+    private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPTActionPerformed
+
+    private void btnCaja2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja2MouseClicked
+
+    private void btnCaja2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja2MouseEntered
+
+    private void btnCaja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja2ActionPerformed
+
+    private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja3MouseClicked
+
+    private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja3MouseEntered
+
+    private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja3ActionPerformed
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
+        btnVentas.setIcon(CambioV);
+        btnVentas.setForeground(new Color(51,51,51)); 
+        PanelCaja.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
+        btnCPT.setIcon(CambioC);
+        btnCPT.setForeground(new Color(51,51,51)); 
+        PanelCPT.setBackground(new Color(255,255,255)); 
+        
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+       this.dispose();
+       Principal.PaginasP.setSelectedIndex(0);
+       
+    }//GEN-LAST:event_jLabel1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelCPT;
     private javax.swing.JPanel PanelCaja;
+    private javax.swing.JPanel PanelCaja2;
+    private javax.swing.JPanel PanelCaja3;
     private javax.swing.JPanel PanelSesion;
-    public static javax.swing.JButton btnCaja;
+    public static javax.swing.JButton btnCPT;
+    public static javax.swing.JButton btnCaja2;
+    public static javax.swing.JButton btnCaja3;
+    public static javax.swing.JButton btnVentas;
     public static javax.swing.JLabel ibiIDAPERTURA;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public static javax.swing.JLabel lblIDSESION;
     // End of variables declaration//GEN-END:variables
 }
