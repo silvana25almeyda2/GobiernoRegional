@@ -11,4 +11,6 @@ package modelo.Personal;
  */
 public class Personal {
     
+    
+    
 }

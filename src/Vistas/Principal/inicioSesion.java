@@ -24,7 +24,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.*;
 import javax.swing.Timer;
-import modelos.Usuario;
+
 import Servicios.Conexion;
 
 
