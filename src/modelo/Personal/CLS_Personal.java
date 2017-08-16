@@ -217,6 +217,67 @@ public class CLS_Personal {
         return resp;
     }
     
+    public boolean PERSONAL_MODIFICAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCod_per());
+            cmd.setString(2, getDNI_per());
+            cmd.setString(3, getApe_pat_per());
+            cmd.setString(4, getApe_mat_per());
+            cmd.setString(5, getNombres_per());
+            cmd.setString(6, getFec_nac_per());
+            cmd.setString(7, getSexo());
+            cmd.setString(8, getCod_dis());
+            cmd.setInt(9, getUE_ID());
+            cmd.setString(10, getDireccion_per());
+            cmd.setString(11, getTelefono());
+            cmd.setString(12, getCelular());
+            cmd.setString(13, getCorreo_electronico());
+            cmd.setString(14, getEstado_civil());
+            cmd.setString(15, getUsu_Codigo());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar personal: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public int DNI(String DNI)
+    {
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT DNI_PER FROM PERSONAL where DNI_per=? AND estado_personal = 'A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, DNI);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
     public Connection getCn() {
         return cn;
     }

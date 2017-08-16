@@ -62,6 +62,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         RB_M.setSelected(true);
         
         MOSTRAR_PERSONAL();
+        
+        btnguardar.setEnabled(false);
+        btnmodificar.setEnabled(false);
     }
 
     /**
@@ -1143,58 +1146,88 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         LBL_GM.setText("G");
         TXT_DNI.requestFocus();
         buscartodo.setText("");
-        
-        LIMPIAR_GUARDAR();
-        
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
+        btnguardar.setEnabled(true);
+        LIMPIAR_GUARDAR();
+        habilitar();
+      
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        
+        LBL_GM.setText("M");
+        habilitar();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-//        ImageIcon i=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/guardar16x16.png"));  
+//        ImageIcon i=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/guardar16x16.png"));
+        CLS_Personal cc = new CLS_Personal();
         if(LBL_GM.getText().equalsIgnoreCase("G")){
-            if(TXT_DNI.getText().equalsIgnoreCase("") || TXT_APE_PAT.getText().equalsIgnoreCase("")
-                    || TXT_APE_MAT.getText().equalsIgnoreCase("") || TXT_NOMBRES.getText().equalsIgnoreCase("")
-                    || FECHA_NACIMIENTO.getDate().equals("") || CBX_DEPARTAMENTO.getSelectedIndex()==0
-                    || CBX_PROVINCIA.getSelectedIndex()==0 || CBX_DISTRITO.getSelectedIndex()==0
-                    || TXT_DIRECCION.getText().equalsIgnoreCase("")
-                    || TXT_TELEFONO.getText().equalsIgnoreCase("") || TXT_CELULAR.getText().equalsIgnoreCase("")
-                    || TXT_CORREO_ELECTRONICO.getText().equalsIgnoreCase("")
-                    || validateEmail(TXT_CORREO_ELECTRONICO.getText())==false){
-                
-//                JOptionPane.showMessageDialog(this, "complete los campos");
-                
-                cargareliminar1.setVisible(true);        
-//                btnguardar.setEnabled(false);
-                cargareliminar1.setBackground(new Color(255,91,70)); 
-                Mensaje1.setText("Debe completar los campos requeridos o \n ingresar un correo electronico valido");
-                eli1.setVisible(true);
-                noeli1.setVisible(false);
-                
-            }else{
-                
-                         GUARDAR_PERSONAL();
-                         cargareliminar1.setVisible(true);
-                         cargareliminar1.setBackground(new Color(0,153,102)); 
-                         Mensaje1.setText("Datos Guardados de forma correcta");
-                         eli1.setText("OK");
-                         eli1.setVisible(true);
-                         noeli1.setVisible(false);
-                         
-                         MOSTRAR_PERSONAL();
-//                         mostrar_ACTIVIDADES_ACT();
-//                         
-                
-            }
+                if(TXT_DNI.getText().equalsIgnoreCase("") || TXT_APE_PAT.getText().equalsIgnoreCase("")
+                        || TXT_APE_MAT.getText().equalsIgnoreCase("") || TXT_NOMBRES.getText().equalsIgnoreCase("")
+                        || FECHA_NACIMIENTO.getDate().equals("") || CBX_DEPARTAMENTO.getSelectedIndex()==0
+                        || CBX_PROVINCIA.getSelectedIndex()==0 || CBX_DISTRITO.getSelectedIndex()==0
+                        || TXT_DIRECCION.getText().equalsIgnoreCase("")
+                        || valida_Email(TXT_CORREO_ELECTRONICO.getText())==false){
+
+                    cargareliminar1.setVisible(true);        
+                    cargareliminar1.setBackground(new Color(255,91,70)); 
+                    Mensaje1.setText("Debe completar los campos requeridos o \n ingresar un correo electrónico valido");
+                    eli1.setVisible(true);
+                    noeli1.setVisible(false);
+
+                }else{
+                    if(cc.DNI(TXT_DNI.getText())>0){
+                        
+                        cargareliminar1.setVisible(true);        
+                        cargareliminar1.setBackground(new Color(255,91,70)); 
+                        Mensaje1.setText("El DNI ya existe en la Base de Datos");
+                        eli1.setVisible(false);
+                        noeli1.setVisible(false);
+                        
+                    }else{
+                             GUARDAR_PERSONAL();
+                             cargareliminar1.setVisible(true);
+                             cargareliminar1.setBackground(new Color(0,153,102)); 
+                             Mensaje1.setText("Datos Guardados de forma correcta");
+                             eli1.setText("OK");
+                             eli1.setVisible(true);
+                             noeli1.setVisible(false);
+
+                             MOSTRAR_PERSONAL();
+                    }
+
+                }
         }else{
             if(LBL_GM.getText().equalsIgnoreCase("M")){
-                
+                if(TXT_DNI.getText().equalsIgnoreCase("") || TXT_APE_PAT.getText().equalsIgnoreCase("")
+                        || TXT_APE_MAT.getText().equalsIgnoreCase("") || TXT_NOMBRES.getText().equalsIgnoreCase("")
+                        || FECHA_NACIMIENTO.getDate().equals("") || CBX_DEPARTAMENTO.getSelectedIndex()==0
+                        || CBX_PROVINCIA.getSelectedIndex()==0 || CBX_DISTRITO.getSelectedIndex()==0
+                        || TXT_DIRECCION.getText().equalsIgnoreCase("")
+                        || valida_Email(TXT_CORREO_ELECTRONICO.getText())==false){
+
+                    cargareliminar1.setVisible(true);        
+                    cargareliminar1.setBackground(new Color(255,91,70)); 
+                    Mensaje1.setText("Debe completar los campos requeridos o \n ingresar un correo electrónico valido");
+                    eli1.setVisible(true);
+                    noeli1.setVisible(false);
+
+                }else{
+
+                             MODIFICAR_PERSONAL();
+                             cargareliminar1.setVisible(true);
+                             cargareliminar1.setBackground(new Color(0,153,102)); 
+                             Mensaje1.setText("Datos Modificados de forma correcta");
+                             eli1.setText("OK");
+                             eli1.setVisible(true);
+                             noeli1.setVisible(false);
+                             LBL_GM.setText("G");
+                             MOSTRAR_PERSONAL();
+
+                }
             }
-            
+
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -1221,6 +1254,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jTabbedPane1.setSelectedIndex(0);
         MOSTRAR_PERSONAL();
         buscartodo.requestFocus();
+        btnguardar.setEnabled(false);
+        btnmodificar.setEnabled(false);
+        btneliminar.setEnabled(true);
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void TXT_DNICaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_DNICaretUpdate
@@ -1470,7 +1506,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         if(eli1.getText().equalsIgnoreCase("OK")){
             cargareliminar1.setVisible(false); 
             jTabbedPane1.setSelectedIndex(0);
-            
+            btnguardar.setEnabled(false);
             MOSTRAR_PERSONAL();
         }else{
             if(Mensaje1.getText().equalsIgnoreCase("Desea Eliminar este registro?")){
@@ -1637,10 +1673,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         String MES = new SimpleDateFormat("MM").format(FECHA_NACIMIENTO.getDate());
         String ANIO = new SimpleDateFormat("yyy").format(FECHA_NACIMIENTO.getDate());
 
-        String COD_DIS = CBX_DISTRITO.getSelectedItem().toString();
-//        String PROVINCIA = TXT_CODIGO_PROVINCIA.getText();
+        String COD_DIS = CBX_DISTRITO.getSelectedItem().toString();      
         String prov = CBX_PROVINCIA.getSelectedItem().toString();
         String unidad_eje = CBX_UNIDAD_EJECUTORA.getSelectedItem().toString();
+        String provincia = CP4.PERSONAL_COD_provincia(prov);
         
         CP.setDNI_per(TXT_DNI.getText());
         CP.setApe_pat_per(TXT_APE_PAT.getText());
@@ -1656,8 +1692,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         }
         
-        String provincia = CP4.PERSONAL_COD_provincia(prov);
-        
         CP.setCod_dis(CP1.PERSONAL_COD_DISTRITO(COD_DIS,provincia));
         CP.setUE_ID(Integer.parseInt(CP2.PERSONAL_COD_UNIDAD_EJECUTORA(unidad_eje)));
         CP.setDireccion_per(TXT_DIRECCION.getText());
@@ -1668,6 +1702,51 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         CP.setUsu_Codigo(CP3.PERSONAL_COD_USUARIO(lblusu.getText()));
      
         CP.PERSONAL_INSERTAR();
+    }
+    
+    public void MODIFICAR_PERSONAL(){
+        
+        CLS_Personal MP = new CLS_Personal();
+        CLS_Personal MP1 = new CLS_Personal();
+        CLS_Personal MP2 = new CLS_Personal();
+        CLS_Personal MP3 = new CLS_Personal();
+        CLS_Personal MP4 = new CLS_Personal();
+        
+        String DIAM = new SimpleDateFormat("dd").format(FECHA_NACIMIENTO.getDate());
+        String MESM = new SimpleDateFormat("MM").format(FECHA_NACIMIENTO.getDate());
+        String ANIOM = new SimpleDateFormat("yyy").format(FECHA_NACIMIENTO.getDate());
+        
+        String COD_DIS = CBX_DISTRITO.getSelectedItem().toString();      
+        String prov = CBX_PROVINCIA.getSelectedItem().toString();
+        String unidad_eje = CBX_UNIDAD_EJECUTORA.getSelectedItem().toString();
+        String provincia = MP4.PERSONAL_COD_provincia(prov);
+        
+        MP.setCod_per(Integer.parseInt(TXT_CODIGO_PERSONAL.getText()));
+        MP.setDNI_per(TXT_DNI.getText());
+        MP.setApe_pat_per(TXT_APE_PAT.getText());
+        MP.setApe_mat_per(TXT_APE_MAT.getText());
+        MP.setNombres_per(TXT_NOMBRES.getText());
+        MP.setFec_nac_per(DIAM + "/" + MESM + "/" + ANIOM);
+        
+        if(RB_M.isSelected()==true){
+            MP.setSexo("M");
+        }else{
+            if(RB_F.isSelected()==true){
+                MP.setSexo("F");
+            }
+        }
+        
+        MP.setCod_dis(MP1.PERSONAL_COD_DISTRITO(COD_DIS,provincia));
+        MP.setUE_ID(Integer.parseInt(MP2.PERSONAL_COD_UNIDAD_EJECUTORA(unidad_eje)));
+        MP.setDireccion_per(TXT_DIRECCION.getText());
+        MP.setTelefono(TXT_TELEFONO.getText());
+        MP.setCelular(TXT_CELULAR.getText());
+        MP.setCorreo_electronico(TXT_CORREO_ELECTRONICO.getText());
+        MP.setEstado_civil(CBX_ESTADO_CIVIL.getSelectedItem().toString());
+        MP.setUsu_Codigo(MP3.PERSONAL_COD_USUARIO(lblusu.getText()));
+        
+        MP.PERSONAL_MODIFICAR();
+        
     }
     
     public DefaultComboBoxModel departamento(){
@@ -1841,7 +1920,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }
     
     
-    public static boolean validateEmail(String email) {
+    public static boolean valida_Email(String email) {
  
         // Compiles the given regular expression into a pattern.
         Pattern pattern = Pattern.compile(PATTERN_EMAIL);
@@ -1893,6 +1972,27 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         TXT_CORREO_ELECTRONICO.setEditable(false);
         CBX_ESTADO_CIVIL.setEditable(false);
     }
+    
+    public void habilitar(){
+        TXT_DNI.setEditable(true);
+        TXT_APE_PAT.setEditable(true);
+        TXT_APE_MAT.setEditable(true);
+        TXT_NOMBRES.setEditable(true);
+        FECHA_NACIMIENTO.setEnabled(true);
+        RB_F.setEnabled(true);
+        RB_M.setEnabled(true);
+        CBX_DEPARTAMENTO.setEditable(true);
+        CBX_PROVINCIA.setEditable(true);
+        CBX_DISTRITO.setEditable(true);
+        CBX_UNIDAD_EJECUTORA.setEditable(true);
+        TXT_DIRECCION.setEditable(true);
+        TXT_TELEFONO.setEditable(true);
+        TXT_CELULAR.setEditable(true);
+        TXT_CORREO_ELECTRONICO.setEditable(true);
+        CBX_ESTADO_CIVIL.setEditable(true);
+    }
+    
+    
     
     /**
      * @param args the command line arguments
