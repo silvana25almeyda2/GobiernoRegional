@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
@@ -30,12 +30,9 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel3" min="-2" pref="282" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel6" pref="871" max="32767" attributes="0"/>
+                  <Component id="jPanel6" pref="1108" max="32767" attributes="0"/>
                   <Component id="jTabbedPane1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="cargareliminar1" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="cargareliminar1" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -401,7 +398,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="LBL_GM" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="TXT_CODIGO_PERSONAL" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -425,8 +424,11 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="35" max="32767" attributes="0"/>
-                          <Component id="LBL_GM" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="LBL_GM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TXT_CODIGO_PERSONAL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -476,6 +478,8 @@
             <Property name="text" type="java.lang.String" value="G"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="TXT_CODIGO_PERSONAL">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -503,7 +507,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="866" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="1103" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -570,6 +574,14 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TB_PERSONALMouseClicked"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TB_PERSONALKeyPressed"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TB_PERSONALKeyReleased"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="TB_PERSONAL = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -592,7 +604,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -601,36 +613,40 @@
                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanel24" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="jPanel31" min="-2" pref="357" max="-2" attributes="0"/>
+                          <Component id="CBX_ESTADO_CIVIL" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="CBX_DISTRITO" min="-2" pref="190" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                                  <Component id="CBX_UNIDAD_EJECUTORA" min="-2" pref="190" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel29" min="-2" pref="190" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Component id="jPanel30" pref="191" max="32767" attributes="0"/>
+                                  <Component id="jPanel30" pref="197" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jPanel28" alignment="1" pref="569" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jPanel25" alignment="0" pref="356" max="32767" attributes="0"/>
-                                  <Component id="jPanel26" alignment="0" pref="356" max="32767" attributes="0"/>
-                                  <Component id="jPanel27" alignment="0" pref="356" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="CBX_DEPARTAMENTO" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="FECHA_NACIMIENTO" alignment="0" pref="190" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="CBX_DISTRITO" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="jPanel28" alignment="1" pref="575" max="32767" attributes="0"/>
+                              <Component id="jPanel25" alignment="0" pref="575" max="32767" attributes="0"/>
+                              <Component id="jPanel26" alignment="0" pref="575" max="32767" attributes="0"/>
+                              <Component id="jPanel27" alignment="0" pref="575" max="32767" attributes="0"/>
+                              <Component id="jPanel24" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="CBX_DEPARTAMENTO" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="FECHA_NACIMIENTO" alignment="0" pref="190" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -638,27 +654,20 @@
                                           <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                           <Component id="RB_M" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                           <Component id="RB_F" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="CBX_PROVINCIA" min="-2" pref="190" max="-2" attributes="0"/>
-                                              <Component id="CBX_UNIDAD_EJECUTORA" min="-2" pref="190" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="CBX_PROVINCIA" min="-2" pref="190" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jPanel31" min="-2" pref="357" max="-2" attributes="0"/>
-                          <Component id="CBX_ESTADO_CIVIL" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace pref="350" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -689,10 +698,10 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel22" max="32767" attributes="0"/>
                           <Component id="FECHA_NACIMIENTO" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel23" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="RB_M" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="RB_F" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="RB_F" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -700,21 +709,21 @@
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="CBX_PROVINCIA" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="jLabel25" min="-2" pref="26" max="-2" attributes="0"/>
-                                      </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel25" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="CBX_PROVINCIA" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="CBX_DEPARTAMENTO" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
@@ -726,7 +735,7 @@
                               <Component id="CBX_UNIDAD_EJECUTORA" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel28" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel27" min="-2" pref="28" max="-2" attributes="0"/>
@@ -752,7 +761,7 @@
                           <Component id="jLabel31" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="CBX_ESTADO_CIVIL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -860,7 +869,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="TXT_APE_PAT" pref="342" max="32767" attributes="0"/>
+                          <Component id="TXT_APE_PAT" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1152,6 +1161,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="CBX_DISTRITOItemStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>

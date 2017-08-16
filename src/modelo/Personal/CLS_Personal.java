@@ -69,7 +69,7 @@ public class CLS_Personal {
         {
             Connection con;
             con = getCn(); 
-            String sql = "SELECT SELECT cod_prov FROM SISTEMA_PROVINCIA WHERE nombre_provincia = ?";
+            String sql = "SELECT cod_prov FROM SISTEMA_PROVINCIA WHERE nombre_provincia = ?";
             PreparedStatement cmd = con.prepareStatement(sql);
             cmd.setString(1, descrip);
             ResultSet rs = cmd.executeQuery();
@@ -87,15 +87,16 @@ public class CLS_Personal {
         return cod;
     }
     
-    public String PERSONAL_COD_DISTRITO(String descrip){
+    public String PERSONAL_COD_DISTRITO(String descrip, String cod_prov){
         String cod="";
         try
         {
             Connection con;
             con = getCn(); 
-            String sql = "SELECT cod_dis FROM SISTEMA_DISTRITO WHERE nombre_distrito = ?";
+            String sql = "SELECT cod_dis FROM SISTEMA_DISTRITO WHERE nombre_distrito = ? AND cod_prov = ?";
             PreparedStatement cmd = con.prepareStatement(sql);
             cmd.setString(1, descrip);
+            cmd.setString(2, cod_prov);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
@@ -190,6 +191,28 @@ public class CLS_Personal {
         catch(Exception ex)
         {
             System.out.println("Error guardar personal: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean PERSONAL_ELIMINAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCod_per());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ELIMINAR PERSONAL: " + ex.getMessage());
         }
         return resp;
     }
