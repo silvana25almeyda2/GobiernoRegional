@@ -522,7 +522,7 @@ DefaultTableModel m1, m2;
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(TXT_APE_PAT, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addComponent(TXT_APE_PAT)
                 .addContainerGap())
         );
         jPanel25Layout.setVerticalGroup(
@@ -919,10 +919,9 @@ DefaultTableModel m1, m2;
                             .addGap(21, 21, 21)
                             .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                         .addComponent(jPanel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                            .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                            .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
+                        .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                        .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                        .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -972,10 +971,11 @@ DefaultTableModel m1, m2;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RB_M)
-                        .addComponent(RB_F)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(RB_F, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RB_M))))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -989,7 +989,6 @@ DefaultTableModel m1, m2;
                                     .addGap(3, 3, 3)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -1088,9 +1087,7 @@ DefaultTableModel m1, m2;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(cargareliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(cargareliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1693,7 +1690,6 @@ DefaultTableModel m1, m2;
     private javax.swing.JComboBox CBX_UNIDAD_EJECUTORA;
     private com.toedter.calendar.JDateChooser FECHA_NACIMIENTO;
     private javax.swing.JLabel LBL_GM;
-    private javax.swing.JLabel Mensaje;
     private javax.swing.JLabel Mensaje1;
     private javax.swing.JRadioButton RB_F;
     private javax.swing.JRadioButton RB_M;
@@ -1714,9 +1710,7 @@ DefaultTableModel m1, m2;
     private javax.swing.JButton btnmodificar;
     public static javax.swing.JTextField buscartodo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JPanel cargareliminar;
     private javax.swing.JPanel cargareliminar1;
-    private javax.swing.JButton eli;
     private javax.swing.JButton eli1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1756,7 +1750,6 @@ DefaultTableModel m1, m2;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
-    private javax.swing.JButton noeli;
     private javax.swing.JButton noeli1;
     // End of variables declaration//GEN-END:variables
 }
