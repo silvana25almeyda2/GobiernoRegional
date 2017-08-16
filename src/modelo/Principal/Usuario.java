@@ -90,7 +90,7 @@ public boolean guardarUsuario()
         boolean resp = false;
         try
         {
-            String sql = "exec SP_USUARIO_Eliminar ?";
+            String sql = "exec SP_USUARIO_eliminar ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getCodigo());
             if(!cmd.execute())
@@ -134,14 +134,15 @@ public boolean guardarUsuario()
         return cod;
     }
     
-    public int ver_usuario(String usu)
+    public int ver_usuario(String usu,String tipo)
     {
         int resultado=0;
         try
         {
-            String sql = "SELECT * FROM SISTEMA_USUARIO where usu_usuario=? ";
+            String sql = "exec SP_USUARIO_VALIDAR ?,? ";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
+            cmd.setString(2, tipo);
             ResultSet rs = cmd.executeQuery();
             for (int i=0; rs.next (); i++)
             {
@@ -163,7 +164,7 @@ public boolean guardarUsuario()
         String cod="";
         try
         {
-            String sql = "SELECT Usu_Codigo FROM Usuario where usu_usuario=?";
+            String sql = "SELECT Usu_Codigo FROM SISTEMA_USUARIO where usu_usuario=?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
             ResultSet rs = cmd.executeQuery();

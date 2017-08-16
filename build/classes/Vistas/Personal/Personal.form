@@ -638,6 +638,7 @@
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="jPanel30" pref="197" max="32767" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
                               <Component id="jPanel28" alignment="1" pref="575" max="32767" attributes="0"/>
                               <Component id="jPanel25" alignment="0" pref="575" max="32767" attributes="0"/>
                               <Component id="jPanel26" alignment="0" pref="575" max="32767" attributes="0"/>
@@ -647,6 +648,19 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="CBX_DEPARTAMENTO" alignment="0" max="32767" attributes="0"/>
                                       <Component id="FECHA_NACIMIENTO" alignment="0" pref="190" max="32767" attributes="0"/>
+=======
+                              <Component id="jPanel28" alignment="1" pref="569" max="32767" attributes="0"/>
+                              <Component id="jPanel25" alignment="0" pref="356" max="32767" attributes="0"/>
+                              <Component id="jPanel26" alignment="0" pref="356" max="32767" attributes="0"/>
+                              <Component id="jPanel27" alignment="0" pref="356" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="CBX_DEPARTAMENTO" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="FECHA_NACIMIENTO" alignment="0" pref="190" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="CBX_DISTRITO" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+>>>>>>> 4a0d14b896ef9c8b7bc426ed51013f15fd1e652d
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -698,10 +712,19 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel22" max="32767" attributes="0"/>
                           <Component id="FECHA_NACIMIENTO" max="32767" attributes="0"/>
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel23" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="RB_M" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RB_F" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="RB_F" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel23" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="RB_M" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+>>>>>>> 4a0d14b896ef9c8b7bc426ed51013f15fd1e652d
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -723,7 +746,10 @@
                               </Group>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+=======
+>>>>>>> 4a0d14b896ef9c8b7bc426ed51013f15fd1e652d
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
