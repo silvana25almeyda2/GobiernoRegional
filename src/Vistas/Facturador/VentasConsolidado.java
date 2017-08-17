@@ -20,11 +20,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import modelos.Caja.Caja_NuevaVenta;
-import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
-import modelos.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
-import servicios.Conexion;
-import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
+import modelo.Caja.Caja_NuevaVenta;
+//import modelo.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
+//import modelo.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
+import Servicios.Conexion;
+//import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
 
 /**
  *
@@ -36,7 +36,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
     static java.sql.Connection conexion=null;
     Conexion c=new Conexion();
     public static boolean Facturado= false;
-    CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//    CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
     public VentasConsolidado() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -46,8 +46,8 @@ public class VentasConsolidado extends javax.swing.JFrame {
         cbxActoMedico.setBackground(Color.white);
         cbxActoMedico.setBackground(Color.white);
         conexion = c.conectar();
-        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
-        txtDni.setDocument(limitDNI);
+//        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
+//        txtDni.setDocument(limitDNI);
         cbxActoMedico.setVisible(false);
         lblMensajeActoMedico.setVisible(false);
         lblIdCabecera.setVisible(false);
@@ -82,90 +82,90 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
     }
     
-    public void buscarVentas(){
-        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-        if (!txtDni.getText().equals("")){
-            cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
-//            lblApellidos.setText(String.valueOf(tbCabecera.getValueAt(0, 5)));
-//            lblHC.setText(String.valueOf(tbCabecera.getValueAt(0, 4)));
-            lblDNI.setText(String.valueOf(tbCabecera.getValueAt(0, 3)));
-            if(tbCabecera.getRowCount()==0){
-            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
-            lblIdCabecera.setVisible(true);
-            limpiparTabla(tbRayos);
-            limpiparTabla(tbFarmacia);
-            limpiparTabla(tbEcografias);
-            limpiparTabla(tbLaboratorio);
-            limpiparTabla(tbProcedimientos);
-        } else {
-            lblIdCabecera.setVisible(false);
-        }
-            if(tbCabecera.getRowCount()!=0){
-                pnlVentas.setVisible(true);
-                btnFacturarPorDocumento.setVisible(true);
-                int fila = tbCabecera.getSelectedRow();
-                tbCabecera.getSelectionModel().setSelectionInterval (0,0) ;
-                tbCabecera.requestFocus();
-                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(0, 14)),"CJ");
-                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(0, 14)),"EC");
-                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(0, 14)),"FR");
-                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(0, 14)),"LA");
-                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(0, 14)),"RX");
-                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(0, 14)));
-                btnFacturarEcografias.setEnabled(false);
-                btnFacturarFarmacia.setEnabled(false);
-                btnFacturarLaboratorio.setEnabled(false);
-                btnFacturarProcedimientos.setEnabled(false);
-                btnFacturarRayos.setEnabled(false);
-            } else {
-                pnlVentas.setVisible(false);
-                btnFacturarPorDocumento.setVisible(false);
-            }
-        }
-        if (txtDni.getText().length()==0){
-            pnlVentas.setVisible(false);
-                btnFacturarPorDocumento.setVisible(false);
-        }     
-    }
+//    public void buscarVentas(){
+//        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//        if (!txtDni.getText().equals("")){
+//            cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+////            lblApellidos.setText(String.valueOf(tbCabecera.getValueAt(0, 5)));
+////            lblHC.setText(String.valueOf(tbCabecera.getValueAt(0, 4)));
+//            lblDNI.setText(String.valueOf(tbCabecera.getValueAt(0, 3)));
+//            if(tbCabecera.getRowCount()==0){
+//            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
+//            lblIdCabecera.setVisible(true);
+////            limpiparTabla(tbRayos);
+////            limpiparTabla(tbFarmacia);
+////            limpiparTabla(tbEcografias);
+////            limpiparTabla(tbLaboratorio);
+////            limpiparTabla(tbProcedimientos);
+//        } else {
+//            lblIdCabecera.setVisible(false);
+//        }
+//            if(tbCabecera.getRowCount()!=0){
+//                pnlVentas.setVisible(true);
+//                btnFacturarPorDocumento.setVisible(true);
+//                int fila = tbCabecera.getSelectedRow();
+//                tbCabecera.getSelectionModel().setSelectionInterval (0,0) ;
+//                tbCabecera.requestFocus();
+////                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(0, 14)),"CJ");
+////                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(0, 14)),"EC");
+////                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(0, 14)),"FR");
+////                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(0, 14)),"LA");
+////                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(0, 14)),"RX");
+////                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(0, 14)));
+////                btnFacturarEcografias.setEnabled(false);
+////                btnFacturarFarmacia.setEnabled(false);
+////                btnFacturarLaboratorio.setEnabled(false);
+////                btnFacturarProcedimientos.setEnabled(false);
+////                btnFacturarRayos.setEnabled(false);
+//            } else {
+//                pnlVentas.setVisible(false);
+//                btnFacturarPorDocumento.setVisible(false);
+//            }
+//        }
+//        if (txtDni.getText().length()==0){
+//            pnlVentas.setVisible(false);
+//                btnFacturarPorDocumento.setVisible(false);
+//        }     
+//    }
     
-    public static void listarActoMedico(String dni){
+    public static void listarSerieCorrelativo(String dni){
         try {
             Statement sta=conexion.createStatement();
-            ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTAR_ACTO_MEDICO '"+dni+"'");
+            ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTA_SERIE_CORRELATIVO '"+dni+"'");
             VentasConsolidado.cbxActoMedico.removeAllItems();
             while(rs.next()){
-                VentasConsolidado.cbxActoMedico.addItem(rs.getInt("NUM_ACTOMEDICO"));
+                VentasConsolidado.cbxActoMedico.addItem(rs.getString("SERIE"));
             }
         } catch (SQLException e) {
-                System.out.println("Error: listarActoMedico:" + e.getMessage());
+                System.out.println("Error: listarSerieCorrelativo:" + e.getMessage());
         }
         }
     
-         public void actualizarEstadoFacturacion(JTable tabla){
-            CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-            int fila = tabla.getSelectedRow();
-            if(cabecera1.actualizarEstadoFacturacion(String.valueOf(tabla.getValueAt(fila,11)),"F")){
+//         public void actualizarEstadoFacturacion(JTable tabla){
+//            CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//            int fila = tabla.getSelectedRow();
+//            if(cabecera1.actualizarEstadoFacturacion(String.valueOf(tabla.getValueAt(fila,11)),"F")){
 
 //               cabecera1.listarPorFacturar(Facturador.tbFacturacion,txtActoMedico.getText());
-
-               cabecera1.listarPorFacturar(Facturador.tbFacturacion,lblDNI.getText());
-
-               cabecera1.ventasConsolidadoDetalles(tbProcedimientos,lblIdCabecera.getText(),"CJ");
-                cabecera1.ventasConsolidadoDetalles(tbEcografias,lblIdCabecera.getText(),"EC");
-                cabecera1.ventasConsolidadoDetalles(tbFarmacia,lblIdCabecera.getText(),"FR");
-                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,lblIdCabecera.getText(),"LA");
-                cabecera1.ventasConsolidadoDetalles(tbRayos,lblIdCabecera.getText(),"RX");
-
-//                cabecera1.calcularPrecioVenta(txtActoMedico.getText());
-                cabecera1.calculoValorVenta(lblDNI.getText(), "5");
-                cabecera1.calculoValorVenta(lblDNI.getText(), "T");
-                cabecera1.calcularPrecioVenta(lblDNI.getText());
-                Facturador.btnGuardar.doClick();
-                Facturador.lblDNI.setText(lblDNI.getText());
-            } else {
-               JOptionPane.showMessageDialog(null,"No se puedo generar esta factura");
-            }
-        }
+//
+//               cabecera1.listarPorFacturar(Facturador.tbFacturacion,lblDNI.getText());
+//
+//               cabecera1.ventasConsolidadoDetalles(tbProcedimientos,lblIdCabecera.getText(),"CJ");
+//                cabecera1.ventasConsolidadoDetalles(tbEcografias,lblIdCabecera.getText(),"EC");
+//                cabecera1.ventasConsolidadoDetalles(tbFarmacia,lblIdCabecera.getText(),"FR");
+//                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,lblIdCabecera.getText(),"LA");
+//                cabecera1.ventasConsolidadoDetalles(tbRayos,lblIdCabecera.getText(),"RX");
+//
+////                cabecera1.calcularPrecioVenta(txtActoMedico.getText());
+//                cabecera1.calculoValorVenta(lblDNI.getText(), "5");
+//                cabecera1.calculoValorVenta(lblDNI.getText(), "T");
+//                cabecera1.calcularPrecioVenta(lblDNI.getText());
+//                Facturador.btnGuardar.doClick();
+//                Facturador.lblDNI.setText(lblDNI.getText());
+//            } else {
+//               JOptionPane.showMessageDialog(null,"No se puedo generar esta factura");
+//            }
+//        }
     
          public void limpiparTabla(JTable tabla){
              DefaultTableModel modelo1 = (DefaultTableModel)tabla.getModel(); 
@@ -584,7 +584,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                 jPanel9.setLayout(jPanel9Layout);
                                 jPanel9Layout.setHorizontalGroup(
                                     jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                    .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                                 );
                                 jPanel9Layout.setVerticalGroup(
                                     jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,7 +594,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
 
-                                T3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                T3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
                                 T3.setToolTipText("");
                                 T3.setContentAreaFilled(false);
                                 T3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -663,19 +663,18 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                         .addComponent(lblMensajeActoMedico)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(lblCantidadActoMedico))
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                                        .addComponent(cbxActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(cbxActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
                                                 .addComponent(btnAM)))
-                                        .addContainerGap(23, Short.MAX_VALUE))
+                                        .addContainerGap())
                                 );
                                 jPanel1Layout.setVerticalGroup(
                                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,7 +750,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
                                 btnFacturarPorDocumento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                                 btnFacturarPorDocumento.setForeground(new java.awt.Color(255, 255, 255));
-                                btnFacturarPorDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Casilla de verificación marcada 2-32.png"))); // NOI18N
                                 btnFacturarPorDocumento.setText("<html>Agregar Detalles<br>a Factura</html>");
                                 btnFacturarPorDocumento.setContentAreaFilled(false);
                                 btnFacturarPorDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -936,9 +934,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
         
         try {
-            CuentasPorPagarVentasConsolidadoCabecera cab = new CuentasPorPagarVentasConsolidadoCabecera();
+//            CuentasPorPagarVentasConsolidadoCabecera cab = new CuentasPorPagarVentasConsolidadoCabecera();
             if(!txtDni.getText().equals("")){
-                listarActoMedico(txtDni.getText());
+                listarSerieCorrelativo(txtDni.getText());
                 lblCantidadActoMedico.setText("("+String.valueOf(cbxActoMedico.getItemCount())+")");
                 if(cbxActoMedico.getItemCount()!=0){
                     cbxActoMedico.setVisible(true);
@@ -951,7 +949,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                     lblHC.setForeground(new Color(204,204,204));
                     txtActoMedico.setForeground(new Color(204,204,204));
                     txtActoMedico.setVisible(true);
-                    cab.datosHC(txtDni.getText());
+//                    cab.datosHC(txtDni.getText());
                     txtDni.setEditable(false);
                 } else {
                     cbxActoMedico.setVisible(false);
@@ -991,25 +989,25 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_T3ActionPerformed
 
     private void tbCabeceraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMouseClicked
-        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-        int fila = tbCabecera.getSelectedRow();
-        if(evt.getClickCount()==1){
-                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"CJ");
-                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(fila, 14)),"EC");
-                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(fila, 14)),"FR");
-                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(fila, 14)),"LA");
-                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"RX");
-                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(fila, 14)));
-                btnFacturarEcografias.setEnabled(false);
-                btnFacturarFarmacia.setEnabled(false);
-                btnFacturarLaboratorio.setEnabled(false);
-                btnFacturarProcedimientos.setEnabled(false);
-                btnFacturarRayos.setEnabled(false);
-        }
-        if(evt.getClickCount()==2){
-            btnFacturarPorDocumento.doClick();
-            Facturador.btnGuardar.doClick();
-            }
+//        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//        int fila = tbCabecera.getSelectedRow();
+//        if(evt.getClickCount()==1){
+//                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"CJ");
+//                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(fila, 14)),"EC");
+//                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(fila, 14)),"FR");
+//                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(fila, 14)),"LA");
+//                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"RX");
+//                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(fila, 14)));
+//                btnFacturarEcografias.setEnabled(false);
+//                btnFacturarFarmacia.setEnabled(false);
+//                btnFacturarLaboratorio.setEnabled(false);
+//                btnFacturarProcedimientos.setEnabled(false);
+//                btnFacturarRayos.setEnabled(false);
+//        }
+//        if(evt.getClickCount()==2){
+//            btnFacturarPorDocumento.doClick();
+//            Facturador.btnGuardar.doClick();
+//            }
     }//GEN-LAST:event_tbCabeceraMouseClicked
 
     private void tbCabeceraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMousePressed
@@ -1033,7 +1031,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_tb_Grupo8KeyPressed
 
     private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
-        buscarVentas();
+//        buscarVentas();
     }//GEN-LAST:event_txtActoMedicoCaretUpdate
 
     private void cbxActoMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxActoMedicoItemStateChanged
@@ -1076,20 +1074,20 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     private void txtActoMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMedicoKeyPressed
         if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-                buscarVentas();
+//                buscarVentas();
         }
     }//GEN-LAST:event_txtActoMedicoKeyPressed
 
     private void tbCabeceraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyReleased
-        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-        int fila = tbCabecera.getSelectedRow();
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
-                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"CJ");
-                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(fila, 14)),"EC");
-                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(fila, 14)),"FR");
-                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(fila, 14)),"LA");
-                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"RX");
-        }
+//        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//        int fila = tbCabecera.getSelectedRow();
+//        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+////                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"CJ");
+////                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(fila, 14)),"EC");
+////                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(fila, 14)),"FR");
+////                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(fila, 14)),"LA");
+////                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"RX");
+//        }
     }//GEN-LAST:event_tbCabeceraKeyReleased
 
     private void txtBuscarCPTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCPTCaretUpdate
@@ -1171,38 +1169,38 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnFacturarPorDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarPorDocumentoActionPerformed
-        if(Facturado==false){
-             Facturador fac=  new Facturador();
-            fac.setVisible(true);
-            Facturado= true;
-        } else {
-            Facturador.tbFacturacion.requestFocus();
-            Facturador.btnGuardar.doClick();
-        }
-            CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-            cabecera1.actualizarestadoFacturacionPorDocumento(lblIdCabecera.getText());
-            cabecera1.listarPorFacturar(Facturador.tbFacturacion,lblDNI.getText());
-                    cabecera1.calculoValorVenta(lblDNI.getText(), "5");
-                    cabecera1.calculoValorVenta(lblDNI.getText(), "T");
-            cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
-            Facturador.btnGuardar.doClick();
-            pnlDetalle.setVisible(true);
-            btnFacturarPorDocumento.setVisible(false);
-            Facturador.lblDNI.setText(lblDNI.getText());
-        if(tbCabecera.getRowCount()==0){
-            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
-            lblIdCabecera.setVisible(true);
-            limpiparTabla(tbRayos);
-            limpiparTabla(tbFarmacia);
-            limpiparTabla(tbEcografias);
-            limpiparTabla(tbLaboratorio);
-            limpiparTabla(tbProcedimientos);
-            listarActoMedico(txtDni.getText());
-            lblCantidadActoMedico.setText("("+String.valueOf(cbxActoMedico.getItemCount())+")");
-            btnAM.doClick();
-        } else {
-            lblIdCabecera.setVisible(false);
-        }
+//        if(Facturado==false){
+//             Facturador fac=  new Facturador();
+//            fac.setVisible(true);
+//            Facturado= true;
+//        } else {
+//            Facturador.tbFacturacion.requestFocus();
+//            Facturador.btnGuardar.doClick();
+//        }
+//            CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+//            cabecera1.actualizarestadoFacturacionPorDocumento(lblIdCabecera.getText());
+//            cabecera1.listarPorFacturar(Facturador.tbFacturacion,lblDNI.getText());
+//                    cabecera1.calculoValorVenta(lblDNI.getText(), "5");
+//                    cabecera1.calculoValorVenta(lblDNI.getText(), "T");
+//            cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+//            Facturador.btnGuardar.doClick();
+//            pnlDetalle.setVisible(true);
+//            btnFacturarPorDocumento.setVisible(false);
+//            Facturador.lblDNI.setText(lblDNI.getText());
+//        if(tbCabecera.getRowCount()==0){
+//            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
+//            lblIdCabecera.setVisible(true);
+//            limpiparTabla(tbRayos);
+//            limpiparTabla(tbFarmacia);
+//            limpiparTabla(tbEcografias);
+//            limpiparTabla(tbLaboratorio);
+//            limpiparTabla(tbProcedimientos);
+//            listarActoMedico(txtDni.getText());
+//            lblCantidadActoMedico.setText("("+String.valueOf(cbxActoMedico.getItemCount())+")");
+//            btnAM.doClick();
+//        } else {
+//            lblIdCabecera.setVisible(false);
+//        }
     }//GEN-LAST:event_btnFacturarPorDocumentoActionPerformed
 
     private void btnAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAMActionPerformed
@@ -1307,7 +1305,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlVentas;
     private javax.swing.JScrollPane spCabecera;
-    private javax.swing.JScrollPane spCabecera1;
     private javax.swing.JScrollPane spDetalle;
     private javax.swing.JTable tbCabecera;
     private javax.swing.JTable tbCabecera1;

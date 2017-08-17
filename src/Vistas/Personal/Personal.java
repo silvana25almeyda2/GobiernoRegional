@@ -1157,6 +1157,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         LBL_GM.setText("M");
         habilitar();
+        btnguardar.setEnabled(true);
+        
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
@@ -1276,7 +1278,24 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_DNIKeyReleased
 
     private void TXT_DNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DNIKeyTyped
-        
+        //permite escribir solo numeros
+        try {        
+
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+                evt.consume();
+                getToolkit().beep();            
+            }
+            
+            if (TXT_DNI.getText().length()>7)
+            {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }//GEN-LAST:event_TXT_DNIKeyTyped
 
     private void TXT_APE_PATCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_APE_PATCaretUpdate
@@ -1292,7 +1311,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_PATKeyPressed
 
     private void TXT_APE_PATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyReleased
-        // TODO add your handling code here:
+       TXT_APE_PAT.setText(TXT_APE_PAT.getText().toUpperCase());
     }//GEN-LAST:event_TXT_APE_PATKeyReleased
 
     private void TXT_APE_PATKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyTyped
@@ -1312,7 +1331,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_MATKeyPressed
 
     private void TXT_APE_MATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyReleased
-        // TODO add your handling code here:
+        TXT_APE_MAT.setText(TXT_APE_MAT.getText().toUpperCase());
     }//GEN-LAST:event_TXT_APE_MATKeyReleased
 
     private void TXT_APE_MATKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyTyped
@@ -1332,7 +1351,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_NOMBRESKeyPressed
 
     private void TXT_NOMBRESKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyReleased
-        // TODO add your handling code here:
+        TXT_NOMBRES.setText(TXT_NOMBRES.getText().toUpperCase());
     }//GEN-LAST:event_TXT_NOMBRESKeyReleased
 
     private void TXT_NOMBRESKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyTyped
@@ -1352,7 +1371,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_DIRECCIONKeyPressed
 
     private void TXT_DIRECCIONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DIRECCIONKeyReleased
-        // TODO add your handling code here:
+        TXT_DIRECCION.setText(TXT_DIRECCION.getText().toUpperCase());
     }//GEN-LAST:event_TXT_DIRECCIONKeyReleased
 
     private void TXT_DIRECCIONKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DIRECCIONKeyTyped
@@ -1376,7 +1395,26 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_TELEFONOKeyReleased
 
     private void TXT_TELEFONOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_TELEFONOKeyTyped
-        // TODO add your handling code here:
+        //permite escribir solo numeros
+        try {        
+
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !='-'){
+                evt.consume();            
+            }
+            if(tecla =='-' && TXT_TELEFONO.getText().contains("-")){
+                evt.consume();            
+            }
+            
+            if (TXT_TELEFONO.getText().length()>9)
+            {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }//GEN-LAST:event_TXT_TELEFONOKeyTyped
 
     private void TXT_CELULARCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_CELULARCaretUpdate
@@ -1396,7 +1434,24 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_CELULARKeyReleased
 
     private void TXT_CELULARKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CELULARKeyTyped
-        // TODO add your handling code here:
+        //permite escribir solo numeros
+        try {        
+
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+                evt.consume();
+                getToolkit().beep();            
+            }
+            
+            if (TXT_CELULAR.getText().length()>8)
+            {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }//GEN-LAST:event_TXT_CELULARKeyTyped
 
     private void TXT_CORREO_ELECTRONICOCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_CORREO_ELECTRONICOCaretUpdate
@@ -1412,7 +1467,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_CORREO_ELECTRONICOKeyPressed
 
     private void TXT_CORREO_ELECTRONICOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CORREO_ELECTRONICOKeyReleased
-        // TODO add your handling code here:
+        TXT_CORREO_ELECTRONICO.setText(TXT_CORREO_ELECTRONICO.getText().toUpperCase());
     }//GEN-LAST:event_TXT_CORREO_ELECTRONICOKeyReleased
 
     private void TXT_CORREO_ELECTRONICOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CORREO_ELECTRONICOKeyTyped
@@ -1520,7 +1575,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_eli1ActionPerformed
 
     private void noeli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeli1ActionPerformed
-//        cargareliminar.setVisible(false);
+        cargareliminar1.setVisible(false);
     }//GEN-LAST:event_noeli1ActionPerformed
 
     private void buscartodoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartodoKeyReleased
