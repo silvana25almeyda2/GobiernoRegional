@@ -26,6 +26,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 import Servicios.Conexion;
+import modelo.Principal.Usuario;
 
 
 /**
@@ -60,7 +61,7 @@ String hora, minutos, segundos, ampm;
     public inicioSesion() {
         
         initComponents();
-        lblFecha.setText(fechaActual());
+        
         txtUsuario.requestFocus();
         this.getContentPane().setBackground(Color.lightGray);
         setLocationRelativeTo(null);//en el centro
@@ -604,7 +605,7 @@ String hora, minutos, segundos, ampm;
         if(txtUsuario.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");     
             panelRecuperar.setVisible(false);
-        } else if(u.ver_usuario(txtUsuario.getText())==0){
+        } else if(u.ver_usuario(txtUsuario.getText(),"1")==0){
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
         }

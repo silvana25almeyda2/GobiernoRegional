@@ -24,6 +24,7 @@ import modelo.Caja.Caja_NuevaVenta;
 //import modelo.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
 //import modelo.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 import Servicios.Conexion;
+import modelo.Facturador.CuentasPorPagarVentasConsolidadoCabecera;
 //import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
 
 /**
@@ -43,15 +44,15 @@ public class VentasConsolidado extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);
         txtDni.requestFocus();
         pnlVentas.setVisible(false);
-        cbxActoMedico.setBackground(Color.white);
-        cbxActoMedico.setBackground(Color.white);
+        cbxSerie_Correlativo.setBackground(Color.white);
+        cbxSerie_Correlativo.setBackground(Color.white);
         conexion = c.conectar();
 //        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
 //        txtDni.setDocument(limitDNI);
-        cbxActoMedico.setVisible(false);
+        cbxSerie_Correlativo.setVisible(false);
         lblMensajeActoMedico.setVisible(false);
         lblIdCabecera.setVisible(false);
-        lblCantidadActoMedico.setVisible(false);
+        lblCantidadSerie.setVisible(false);
         btnAM.setVisible(false);
         btnFacturarPorDocumento.setVisible(false);
         //BOTON CERRAR
@@ -82,59 +83,57 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
     }
     
-//    public void buscarVentas(){
-//        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
-//        if (!txtDni.getText().equals("")){
-//            cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
-////            lblApellidos.setText(String.valueOf(tbCabecera.getValueAt(0, 5)));
-////            lblHC.setText(String.valueOf(tbCabecera.getValueAt(0, 4)));
-//            lblDNI.setText(String.valueOf(tbCabecera.getValueAt(0, 3)));
-//            if(tbCabecera.getRowCount()==0){
-//            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
-//            lblIdCabecera.setVisible(true);
-////            limpiparTabla(tbRayos);
-////            limpiparTabla(tbFarmacia);
-////            limpiparTabla(tbEcografias);
-////            limpiparTabla(tbLaboratorio);
-////            limpiparTabla(tbProcedimientos);
-//        } else {
-//            lblIdCabecera.setVisible(false);
-//        }
-//            if(tbCabecera.getRowCount()!=0){
-//                pnlVentas.setVisible(true);
-//                btnFacturarPorDocumento.setVisible(true);
-//                int fila = tbCabecera.getSelectedRow();
-//                tbCabecera.getSelectionModel().setSelectionInterval (0,0) ;
-//                tbCabecera.requestFocus();
-////                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(0, 14)),"CJ");
-////                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(0, 14)),"EC");
-////                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(0, 14)),"FR");
-////                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(0, 14)),"LA");
-////                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(0, 14)),"RX");
-////                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(0, 14)));
-////                btnFacturarEcografias.setEnabled(false);
-////                btnFacturarFarmacia.setEnabled(false);
-////                btnFacturarLaboratorio.setEnabled(false);
-////                btnFacturarProcedimientos.setEnabled(false);
-////                btnFacturarRayos.setEnabled(false);
-//            } else {
-//                pnlVentas.setVisible(false);
-//                btnFacturarPorDocumento.setVisible(false);
-//            }
-//        }
-//        if (txtDni.getText().length()==0){
-//            pnlVentas.setVisible(false);
-//                btnFacturarPorDocumento.setVisible(false);
-//        }     
-//    }
+    public void buscarVentas(){
+        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+        if (!txtDni.getText().equals("")){
+            cabecera1.ventasConsolidadoCabecera(TB_CABECERA,txtActoMedico.getText());
+//            lblApellidos.setText(String.valueOf(tbCabecera.getValueAt(0, 5)));
+//            lblHC.setText(String.valueOf(tbCabecera.getValueAt(0, 4)));
+            lblDNI.setText(String.valueOf(TB_CABECERA.getValueAt(0, 3)));
+            if(TB_CABECERA.getRowCount()==0){
+            lblIdCabecera.setText("No hay registro por facturar del acto médico " + txtActoMedico.getText());
+            lblIdCabecera.setVisible(true);
+            limpiparTabla(TB_FARMACIA);
+            limpiparTabla(TB_TUPA);
+            
+        } else {
+            lblIdCabecera.setVisible(false);
+        }
+            if(TB_CABECERA.getRowCount()!=0){
+                pnlVentas.setVisible(true);
+                btnFacturarPorDocumento.setVisible(true);
+                int fila = TB_CABECERA.getSelectedRow();
+                TB_CABECERA.getSelectionModel().setSelectionInterval (0,0) ;
+                TB_CABECERA.requestFocus();
+//                cabecera1.ventasConsolidadoDetalles(tbProcedimientos,String.valueOf(tbCabecera.getValueAt(0, 14)),"CJ");
+//                cabecera1.ventasConsolidadoDetalles(tbEcografias,String.valueOf(tbCabecera.getValueAt(0, 14)),"EC");
+//                cabecera1.ventasConsolidadoDetalles(tbFarmacia,String.valueOf(tbCabecera.getValueAt(0, 14)),"FR");
+//                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(0, 14)),"LA");
+//                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(0, 14)),"RX");
+//                lblIdCabecera.setText(String.valueOf(tbCabecera.getValueAt(0, 14)));
+//                btnFacturarEcografias.setEnabled(false);
+//                btnFacturarFarmacia.setEnabled(false);
+//                btnFacturarLaboratorio.setEnabled(false);
+//                btnFacturarProcedimientos.setEnabled(false);
+//                btnFacturarRayos.setEnabled(false);
+            } else {
+                pnlVentas.setVisible(false);
+                btnFacturarPorDocumento.setVisible(false);
+            }
+        }
+        if (txtDni.getText().length()==0){
+            pnlVentas.setVisible(false);
+                btnFacturarPorDocumento.setVisible(false);
+        }     
+    }
     
     public static void listarSerieCorrelativo(String dni){
         try {
             Statement sta=conexion.createStatement();
             ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTA_SERIE_CORRELATIVO '"+dni+"'");
-            VentasConsolidado.cbxActoMedico.removeAllItems();
+            VentasConsolidado.cbxSerie_Correlativo.removeAllItems();
             while(rs.next()){
-                VentasConsolidado.cbxActoMedico.addItem(rs.getString("SERIE"));
+                VentasConsolidado.cbxSerie_Correlativo.addItem(rs.getString("SERIE"));
             }
         } catch (SQLException e) {
                 System.out.println("Error: listarSerieCorrelativo:" + e.getMessage());
@@ -216,32 +215,33 @@ public class VentasConsolidado extends javax.swing.JFrame {
                         txtDni = new javax.swing.JTextField();
                         T3 = new javax.swing.JButton();
                         lbldetalle = new javax.swing.JLabel();
-                        cbxActoMedico = new javax.swing.JComboBox();
+                        cbxSerie_Correlativo = new javax.swing.JComboBox();
                         lblMensajeActoMedico = new javax.swing.JLabel();
                         btnNuevo = new javax.swing.JButton();
-                        lblCantidadActoMedico = new javax.swing.JLabel();
+                        lblCantidadSerie = new javax.swing.JLabel();
                         btnAM = new javax.swing.JButton();
                         pnlDatos = new javax.swing.JPanel();
                         lblApellidos = new javax.swing.JLabel();
                         jLabel3 = new javax.swing.JLabel();
                         jLabel5 = new javax.swing.JLabel();
                         lblDNI = new javax.swing.JLabel();
-                        jLabel4 = new javax.swing.JLabel();
-                        lblHC = new javax.swing.JLabel();
                         txtActoMedico = new javax.swing.JTextField();
                         lblIdCabecera = new javax.swing.JLabel();
                         btnFacturarPorDocumento = new javax.swing.JButton();
                         pnlVentas = new javax.swing.JPanel();
-                        spDetalle = new javax.swing.JScrollPane();
-                        tbCabecera1 = new javax.swing.JTable(){
+                        TB_FARMACIASSSSS = new javax.swing.JScrollPane();
+                        TB_FARMACIA = new javax.swing.JTable(){
                             public boolean isCellEditable(int rowIndex, int colIndex){
                                 return false; //Disallow the editing of any cell
                             }};
                             spCabecera = new javax.swing.JScrollPane();
-                            tbCabecera = new javax.swing.JTable(){
+                            TB_CABECERA = new javax.swing.JTable(){
                                 public boolean isCellEditable(int rowIndex, int colIndex){
                                     return false; //Disallow the editing of any cell
                                 }};
+                                lblProcedimientos = new javax.swing.JLabel();
+                                jScrollPane1 = new javax.swing.JScrollPane();
+                                TB_TUPA = new javax.swing.JTable();
 
                                 jScrollPane9.setBorder(null);
 
@@ -608,12 +608,12 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                 lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
                                 lbldetalle.setText("Ingrese el DNI del paciente");
 
-                                cbxActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                                cbxActoMedico.setForeground(new java.awt.Color(51, 51, 51));
-                                cbxActoMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Acto Médico" }));
-                                cbxActoMedico.addItemListener(new java.awt.event.ItemListener() {
+                                cbxSerie_Correlativo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                cbxSerie_Correlativo.setForeground(new java.awt.Color(51, 51, 51));
+                                cbxSerie_Correlativo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Acto Médico" }));
+                                cbxSerie_Correlativo.addItemListener(new java.awt.event.ItemListener() {
                                     public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                        cbxActoMedicoItemStateChanged(evt);
+                                        cbxSerie_CorrelativoItemStateChanged(evt);
                                     }
                                 });
 
@@ -637,9 +637,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                     }
                                 });
 
-                                lblCantidadActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                                lblCantidadActoMedico.setForeground(new java.awt.Color(51, 51, 51));
-                                lblCantidadActoMedico.setText("1");
+                                lblCantidadSerie.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                                lblCantidadSerie.setForeground(new java.awt.Color(51, 51, 51));
+                                lblCantidadSerie.setText("1");
 
                                 btnAM.setText("jButton1");
                                 btnAM.addActionListener(new java.awt.event.ActionListener() {
@@ -662,8 +662,8 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addComponent(lblMensajeActoMedico)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lblCantidadActoMedico))
-                                                    .addComponent(cbxActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lblCantidadSerie))
+                                                    .addComponent(cbxSerie_Correlativo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -690,9 +690,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         .addGap(52, 52, 52)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(lblMensajeActoMedico)
-                                            .addComponent(lblCantidadActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lblCantidadSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbxActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbxSerie_Correlativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnNuevo)
                                         .addGap(18, 18, 18)
@@ -708,7 +708,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
                                 jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                                 jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-                                jLabel3.setText("Acto Médico");
+                                jLabel3.setText("Serie");
 
                                 jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                                 jLabel5.setForeground(new java.awt.Color(204, 204, 204));
@@ -717,14 +717,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                 lblDNI.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                                 lblDNI.setForeground(new java.awt.Color(204, 204, 204));
                                 lblDNI.setText("  ");
-
-                                jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                                jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-                                jLabel4.setText("Nº H.C.");
-
-                                lblHC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                                lblHC.setForeground(new java.awt.Color(204, 204, 204));
-                                lblHC.setText("  ");
 
                                 txtActoMedico.setEditable(false);
                                 txtActoMedico.setBackground(new java.awt.Color(43, 43, 43));
@@ -770,20 +762,16 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                     .addGroup(pnlDatosLayout.createSequentialGroup()
                                         .addContainerGap()
                                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblApellidos)
                                             .addGroup(pnlDatosLayout.createSequentialGroup()
                                                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel5)
-                                                    .addComponent(jLabel4))
-                                                .addGap(105, 105, 105)
-                                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(lblDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                                                    .addComponent(lblHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                                .addComponent(jLabel3)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(jLabel5))
                                                 .addGap(77, 77, 77)
-                                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblApellidos))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                                                 .addComponent(btnFacturarPorDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -808,18 +796,14 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(jLabel5)
-                                                    .addComponent(lblDNI))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(lblHC)
-                                                    .addComponent(jLabel4)))
+                                                    .addComponent(lblDNI)))
                                             .addComponent(btnFacturarPorDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
 
-                                spDetalle.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+                                TB_FARMACIASSSSS.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-                                tbCabecera1.setModel(new javax.swing.table.DefaultTableModel(
+                                TB_FARMACIA.setModel(new javax.swing.table.DefaultTableModel(
                                     new Object [][] {
                                         {null, null, null, null},
                                         {null, null, null, null},
@@ -830,31 +814,31 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         "Title 1", "Title 2", "Title 3", "Title 4"
                                     }
                                 ));
-                                tbCabecera1.setGridColor(new java.awt.Color(255, 255, 255));
-                                tbCabecera1.setRowHeight(25);
-                                tbCabecera1.setSelectionBackground(new java.awt.Color(41, 127, 184));
-                                tbCabecera1.getTableHeader().setReorderingAllowed(false);
-                                tbCabecera1.addMouseListener(new java.awt.event.MouseAdapter() {
+                                TB_FARMACIA.setGridColor(new java.awt.Color(255, 255, 255));
+                                TB_FARMACIA.setRowHeight(25);
+                                TB_FARMACIA.setSelectionBackground(new java.awt.Color(41, 127, 184));
+                                TB_FARMACIA.getTableHeader().setReorderingAllowed(false);
+                                TB_FARMACIA.addMouseListener(new java.awt.event.MouseAdapter() {
                                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                        tbCabecera1MouseClicked(evt);
+                                        TB_FARMACIAMouseClicked(evt);
                                     }
                                     public void mousePressed(java.awt.event.MouseEvent evt) {
-                                        tbCabecera1MousePressed(evt);
+                                        TB_FARMACIAMousePressed(evt);
                                     }
                                 });
-                                tbCabecera1.addKeyListener(new java.awt.event.KeyAdapter() {
+                                TB_FARMACIA.addKeyListener(new java.awt.event.KeyAdapter() {
                                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                                        tbCabecera1KeyPressed(evt);
+                                        TB_FARMACIAKeyPressed(evt);
                                     }
                                     public void keyReleased(java.awt.event.KeyEvent evt) {
-                                        tbCabecera1KeyReleased(evt);
+                                        TB_FARMACIAKeyReleased(evt);
                                     }
                                 });
-                                spDetalle.setViewportView(tbCabecera1);
+                                TB_FARMACIASSSSS.setViewportView(TB_FARMACIA);
 
                                 spCabecera.setBorder(null);
 
-                                tbCabecera.setModel(new javax.swing.table.DefaultTableModel(
+                                TB_CABECERA.setModel(new javax.swing.table.DefaultTableModel(
                                     new Object [][] {
                                         {null, null, null, null},
                                         {null, null, null, null},
@@ -865,27 +849,42 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         "Title 1", "Title 2", "Title 3", "Title 4"
                                     }
                                 ));
-                                tbCabecera.setGridColor(new java.awt.Color(255, 255, 255));
-                                tbCabecera.setRowHeight(25);
-                                tbCabecera.setSelectionBackground(new java.awt.Color(41, 127, 184));
-                                tbCabecera.getTableHeader().setReorderingAllowed(false);
-                                tbCabecera.addMouseListener(new java.awt.event.MouseAdapter() {
+                                TB_CABECERA.setGridColor(new java.awt.Color(255, 255, 255));
+                                TB_CABECERA.setRowHeight(25);
+                                TB_CABECERA.setSelectionBackground(new java.awt.Color(41, 127, 184));
+                                TB_CABECERA.getTableHeader().setReorderingAllowed(false);
+                                TB_CABECERA.addMouseListener(new java.awt.event.MouseAdapter() {
                                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                        tbCabeceraMouseClicked(evt);
+                                        TB_CABECERAMouseClicked(evt);
                                     }
                                     public void mousePressed(java.awt.event.MouseEvent evt) {
-                                        tbCabeceraMousePressed(evt);
+                                        TB_CABECERAMousePressed(evt);
                                     }
                                 });
-                                tbCabecera.addKeyListener(new java.awt.event.KeyAdapter() {
+                                TB_CABECERA.addKeyListener(new java.awt.event.KeyAdapter() {
                                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                                        tbCabeceraKeyPressed(evt);
+                                        TB_CABECERAKeyPressed(evt);
                                     }
                                     public void keyReleased(java.awt.event.KeyEvent evt) {
-                                        tbCabeceraKeyReleased(evt);
+                                        TB_CABECERAKeyReleased(evt);
                                     }
                                 });
-                                spCabecera.setViewportView(tbCabecera);
+                                spCabecera.setViewportView(TB_CABECERA);
+
+                                lblProcedimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/proc.png"))); // NOI18N
+
+                                jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+                                TB_TUPA.setModel(new javax.swing.table.DefaultTableModel(
+                                    new Object [][] {
+
+                                    },
+                                    new String [] {
+                                        "Title 1", "Title 2", "Title 3", "Title 4"
+                                    }
+                                ));
+                                TB_TUPA.getTableHeader().setReorderingAllowed(false);
+                                jScrollPane1.setViewportView(TB_TUPA);
 
                                 javax.swing.GroupLayout pnlVentasLayout = new javax.swing.GroupLayout(pnlVentas);
                                 pnlVentas.setLayout(pnlVentasLayout);
@@ -893,16 +892,24 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                     pnlVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(spCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
                                     .addGroup(pnlVentasLayout.createSequentialGroup()
-                                        .addGap(49, 49, 49)
-                                        .addComponent(spDetalle, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                                        .addContainerGap())
+                                        .addGap(1, 1, 1)
+                                        .addComponent(lblProcedimientos)
+                                        .addGap(0, 0, 0)
+                                        .addGroup(pnlVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane1)
+                                            .addComponent(TB_FARMACIASSSSS)))
                                 );
                                 pnlVentasLayout.setVerticalGroup(
                                     pnlVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlVentasLayout.createSequentialGroup()
-                                        .addComponent(spCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spDetalle, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
+                                        .addComponent(spCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addGroup(pnlVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblProcedimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(TB_FARMACIASSSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(69, Short.MAX_VALUE))
                                 );
 
                                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -920,8 +927,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(pnlVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(pnlVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())
                                 );
 
                                 pack();
@@ -934,52 +942,47 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
         
         try {
-//            CuentasPorPagarVentasConsolidadoCabecera cab = new CuentasPorPagarVentasConsolidadoCabecera();
+            CuentasPorPagarVentasConsolidadoCabecera cab = new CuentasPorPagarVentasConsolidadoCabecera();
             if(!txtDni.getText().equals("")){
                 listarSerieCorrelativo(txtDni.getText());
-                lblCantidadActoMedico.setText("("+String.valueOf(cbxActoMedico.getItemCount())+")");
-                if(cbxActoMedico.getItemCount()!=0){
-                    cbxActoMedico.setVisible(true);
-                    lblCantidadActoMedico.setVisible(true);
+                lblCantidadSerie.setText("("+String.valueOf(cbxSerie_Correlativo.getItemCount())+")");
+                if(cbxSerie_Correlativo.getItemCount()!=0){
+                    cbxSerie_Correlativo.setVisible(true);
+                    lblCantidadSerie.setVisible(true);
                     lblMensajeActoMedico.setVisible(true);
                     jLabel3.setForeground(new Color(204,204,204));
-                    jLabel4.setForeground(new Color(204,204,204));
                     jLabel5.setForeground(new Color(204,204,204));
                     lblDNI.setForeground(new Color(204,204,204));
-                    lblHC.setForeground(new Color(204,204,204));
                     txtActoMedico.setForeground(new Color(204,204,204));
                     txtActoMedico.setVisible(true);
-//                    cab.datosHC(txtDni.getText());
+                    lblDNI.setText(txtDni.getText());
                     txtDni.setEditable(false);
+                    
                 } else {
-                    cbxActoMedico.setVisible(false);
-                    lblCantidadActoMedico.setVisible(false);
+                    cbxSerie_Correlativo.setVisible(false);
+                    lblCantidadSerie.setVisible(false);
                     lblMensajeActoMedico.setVisible(false);
                     lblApellidos.setText("El paciente no tiene registros");
                     jLabel3.setForeground(Color.BLACK);
-                    jLabel4.setForeground(Color.BLACK);
                     jLabel5.setForeground(Color.BLACK);
                     lblDNI.setForeground(Color.BLACK);
-                    lblHC.setForeground(Color.BLACK);
                     txtActoMedico.setForeground(Color.BLACK);
                     txtActoMedico.setVisible(false);
                     pnlVentas.setVisible(false);
                     btnNuevo.doClick();
                 }
             } else {
-                cbxActoMedico.setVisible(false);
-                    lblCantidadActoMedico.setVisible(false);
+                cbxSerie_Correlativo.setVisible(false);
+                    lblCantidadSerie.setVisible(false);
                     lblMensajeActoMedico.setVisible(false);
                     lblApellidos.setText("El paciente no tiene registros");
                     jLabel3.setForeground(Color.BLACK);
-                    jLabel4.setForeground(Color.BLACK);
                     jLabel5.setForeground(Color.BLACK);
                     lblDNI.setForeground(Color.BLACK);
-                    lblHC.setForeground(Color.BLACK);
                     txtActoMedico.setForeground(Color.BLACK);
                     txtActoMedico.setVisible(false);
                     pnlVentas.setVisible(false);
-                    cbxActoMedico.removeAllItems();
+                    cbxSerie_Correlativo.removeAllItems();
                     txtDni.setEditable(true);
                     btnNuevo.doClick();
             }
@@ -988,7 +991,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_T3ActionPerformed
 
-    private void tbCabeceraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMouseClicked
+    private void TB_CABECERAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_CABECERAMouseClicked
 //        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
 //        int fila = tbCabecera.getSelectedRow();
 //        if(evt.getClickCount()==1){
@@ -1008,15 +1011,15 @@ public class VentasConsolidado extends javax.swing.JFrame {
 //            btnFacturarPorDocumento.doClick();
 //            Facturador.btnGuardar.doClick();
 //            }
-    }//GEN-LAST:event_tbCabeceraMouseClicked
+    }//GEN-LAST:event_TB_CABECERAMouseClicked
 
-    private void tbCabeceraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMousePressed
+    private void TB_CABECERAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_CABECERAMousePressed
 
-    }//GEN-LAST:event_tbCabeceraMousePressed
+    }//GEN-LAST:event_TB_CABECERAMousePressed
 
-    private void tbCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyPressed
+    private void TB_CABECERAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_CABECERAKeyPressed
 
-    }//GEN-LAST:event_tbCabeceraKeyPressed
+    }//GEN-LAST:event_TB_CABECERAKeyPressed
 
     private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
         // TODO add your handling code here:
@@ -1031,37 +1034,37 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_tb_Grupo8KeyPressed
 
     private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
-//        buscarVentas();
+        buscarVentas();
     }//GEN-LAST:event_txtActoMedicoCaretUpdate
 
-    private void cbxActoMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxActoMedicoItemStateChanged
+    private void cbxSerie_CorrelativoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSerie_CorrelativoItemStateChanged
         try {
-            txtActoMedico.setText(cbxActoMedico.getSelectedItem().toString());
+            txtActoMedico.setText(cbxSerie_Correlativo.getSelectedItem().toString());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_cbxActoMedicoItemStateChanged
+    }//GEN-LAST:event_cbxSerie_CorrelativoItemStateChanged
 
     private void txtDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyPressed
         if(!txtDni.getText().equals("")){
             if(evt.getKeyChar()==KeyEvent.VK_ENTER){
                     T3.doClick();
             }
-            if(cbxActoMedico.isVisible()){
+            if(cbxSerie_Correlativo.isVisible()){
                 if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-                    cbxActoMedico.requestFocus();
-                    cbxActoMedico.showPopup();
+                    cbxSerie_Correlativo.requestFocus();
+                    cbxSerie_Correlativo.showPopup();
                 }
             }
         } else {
-            cbxActoMedico.setVisible(false);
+            cbxSerie_Correlativo.setVisible(false);
                 lblMensajeActoMedico.setVisible(false);
                 lblApellidos.setText("El paciente no tiene registros");
                 jLabel3.setForeground(Color.BLACK);
-                jLabel4.setForeground(Color.BLACK);
+                
                 jLabel5.setForeground(Color.BLACK);
                 lblDNI.setForeground(Color.BLACK);
-                lblHC.setForeground(Color.BLACK);
+                
                 txtActoMedico.setForeground(Color.BLACK);
                 txtActoMedico.setVisible(false);
                 pnlVentas.setVisible(false);
@@ -1078,7 +1081,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtActoMedicoKeyPressed
 
-    private void tbCabeceraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyReleased
+    private void TB_CABECERAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_CABECERAKeyReleased
 //        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
 //        int fila = tbCabecera.getSelectedRow();
 //        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
@@ -1088,7 +1091,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
 ////                cabecera1.ventasConsolidadoDetalles(tbLaboratorio,String.valueOf(tbCabecera.getValueAt(fila, 14)),"LA");
 ////                cabecera1.ventasConsolidadoDetalles(tbRayos,String.valueOf(tbCabecera.getValueAt(fila, 14)),"RX");
 //        }
-    }//GEN-LAST:event_tbCabeceraKeyReleased
+    }//GEN-LAST:event_TB_CABECERAKeyReleased
 
     private void txtBuscarCPTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCPTCaretUpdate
         
@@ -1155,15 +1158,15 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         txtDni.setText("");
-        cbxActoMedico.removeAllItems();
+        cbxSerie_Correlativo.removeAllItems();
         txtActoMedico.setText("");
         lblDNI.setText("");
-        lblHC.setText("");
+        
         txtDni.setEditable(true);
         lblMensajeActoMedico.setVisible(false);
-        cbxActoMedico.setVisible(false);
+        cbxSerie_Correlativo.setVisible(false);
         txtDni.requestFocus();
-        lblCantidadActoMedico.setVisible(false);
+        lblCantidadSerie.setVisible(false);
         lblIdCabecera.setVisible(false);
         lblIdCabecera.setText("");
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -1204,29 +1207,29 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturarPorDocumentoActionPerformed
 
     private void btnAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAMActionPerformed
-        if(cbxActoMedico.getItemCount()!=0){
-            String actomedico = cbxActoMedico.getSelectedItem().toString();
+        if(cbxSerie_Correlativo.getItemCount()!=0){
+            String actomedico = cbxSerie_Correlativo.getSelectedItem().toString();
             txtActoMedico.setText(actomedico);
         } else {
             btnNuevo.doClick();
         }
     }//GEN-LAST:event_btnAMActionPerformed
 
-    private void tbCabecera1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabecera1MouseClicked
+    private void TB_FARMACIAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_FARMACIAMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbCabecera1MouseClicked
+    }//GEN-LAST:event_TB_FARMACIAMouseClicked
 
-    private void tbCabecera1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabecera1MousePressed
+    private void TB_FARMACIAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_FARMACIAMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbCabecera1MousePressed
+    }//GEN-LAST:event_TB_FARMACIAMousePressed
 
-    private void tbCabecera1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabecera1KeyPressed
+    private void TB_FARMACIAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_FARMACIAKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbCabecera1KeyPressed
+    }//GEN-LAST:event_TB_FARMACIAKeyPressed
 
-    private void tbCabecera1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabecera1KeyReleased
+    private void TB_FARMACIAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_FARMACIAKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbCabecera1KeyReleased
+    }//GEN-LAST:event_TB_FARMACIAKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1272,18 +1275,21 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton T3;
+    private javax.swing.JTable TB_CABECERA;
+    private javax.swing.JTable TB_FARMACIA;
+    private javax.swing.JScrollPane TB_FARMACIASSSSS;
+    private javax.swing.JTable TB_TUPA;
     private javax.swing.JButton btnAM;
     private javax.swing.JButton btnBuscarPaciente3;
     private javax.swing.JButton btnBuscarPaciente4;
     public static javax.swing.JButton btnFacturarPorDocumento;
     public static javax.swing.JButton btnNuevo;
-    public static javax.swing.JComboBox cbxActoMedico;
+    public static javax.swing.JComboBox cbxSerie_Correlativo;
     private javax.swing.JDialog formaDePago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -1291,23 +1297,21 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblApellidos;
-    public static javax.swing.JLabel lblCantidadActoMedico;
+    public static javax.swing.JLabel lblCantidadSerie;
     public static javax.swing.JLabel lblDNI;
-    public static javax.swing.JLabel lblHC;
     private javax.swing.JLabel lblIdCabecera;
     private javax.swing.JLabel lblMensajeActoMedico;
+    private javax.swing.JLabel lblProcedimientos;
     private javax.swing.JLabel lbldetalle;
     private javax.swing.JDialog nomenclaturas;
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlVentas;
     private javax.swing.JScrollPane spCabecera;
-    private javax.swing.JScrollPane spDetalle;
-    private javax.swing.JTable tbCabecera;
-    private javax.swing.JTable tbCabecera1;
     private javax.swing.JTable tb_CPTBUSCAR;
     private javax.swing.JTable tb_CPTBUSCAR1;
     private javax.swing.JTable tb_Grupo8;
