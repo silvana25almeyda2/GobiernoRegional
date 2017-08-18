@@ -7,6 +7,7 @@ package modelo.Caja;
 
 import Servicios.Conexion;
 import Vistas.Caja.Caja_Ventas;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ public class Caja_NuevaVenta {
 private Connection cn;    
 Conexion con = new Conexion();
 static DefaultTableModel m;   
-
+private int ID_DOCUMENTO;
 private int ID_FORMA_PAGO  ;
 private int ID_CLIENTE  ;
 private int ID_ANULACION  ;
@@ -73,6 +74,38 @@ private String ESTADO  ;
             Formato(tabla);
         } catch (Exception e) {
             System.out.println("ERROR AL LISTAR : " + e.getMessage());
+        }
+    }
+    
+    public void VENTA_LISTA_CPT(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","TD_GRUPO","CTP","DES"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_VENTA_CPT_LISTA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            Formato(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR AL LISTAR CPT: " + e.getMessage());
         }
     }
     
@@ -140,20 +173,16 @@ private String ESTADO  ;
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_CABECERA_NUEVO "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_FORMA_PAGO());
             cmd.setInt(2, getID_CLIENTE());
             cmd.setString(3, getSERIE());
             cmd.setString(4, getCORRELATIVO());
-            cmd.setDouble(5, getDESCUENTO());
-            cmd.setDouble(6, getSUB_TOTAL());
-            cmd.setDouble(7, getIGV());
-            cmd.setDouble(8, getTOTAL_DOC());
-            cmd.setDouble(9, getDEVOLUCION());
-            cmd.setString(10, getUSUARIO());
-            cmd.setString(11, getTIPO_VENTA());
-            cmd.setInt(12, getID_APERTURA());
+            cmd.setString(5, getUSUARIO());
+            cmd.setString(6, getTIPO_VENTA());
+            cmd.setInt(7, getID_APERTURA());
+            cmd.setInt(8, getID_DOCUMENTO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -163,7 +192,7 @@ private String ESTADO  ;
         }
         catch(Exception ex)
         {
-            System.out.println("ERROR AL REGISTRAR  " + ex.getMessage());
+            System.out.println("ERROR AL REGISTRAR VENTA  " + ex.getMessage());
         }
         return resp;
     }
@@ -307,6 +336,14 @@ private String ESTADO  ;
 
     public void setESTADO(String ESTADO) {
         this.ESTADO = ESTADO;
+    }
+
+    public int getID_DOCUMENTO() {
+        return ID_DOCUMENTO;
+    }
+
+    public void setID_DOCUMENTO(int ID_DOCUMENTO) {
+        this.ID_DOCUMENTO = ID_DOCUMENTO;
     }
      
      
