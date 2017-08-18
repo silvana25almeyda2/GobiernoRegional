@@ -88,7 +88,7 @@ DefaultTableModel modelos;
             double numero =0,st=0;
             try{
                 //capturamos valor de celda
-                numero = Double.parseDouble(tb_CPT.getValueAt(i, 4).toString() );
+                numero = (Double.parseDouble(tb_CPT.getValueAt(i, 4).toString() )*Double.parseDouble(tb_CPT.getValueAt(i, 1).toString() ));
                 
   
             }
@@ -1468,11 +1468,11 @@ DefaultTableModel modelos;
 
                                     },
                                     new String [] {
-                                        "Item", "Precio", "Cantidad", "IGV", "null"
+                                        "ITEM", "PRECIO", "GRUPO", "CPT", "CANTIDAD"
                                     }
                                 ));
                                 tb_CPT.setGridColor(new java.awt.Color(255, 255, 255));
-                                tb_CPT.setRowHeight(25);
+                                tb_CPT.setRowHeight(38);
                                 tb_CPT.setSelectionBackground(new java.awt.Color(102, 102, 102));
                                 tb_CPT.getTableHeader().setReorderingAllowed(false);
                                 tb_CPT.addMouseListener(new java.awt.event.MouseAdapter() {
