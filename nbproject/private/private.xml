@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/D:/pry-Disa/GobiernoRegional/src/Servicios/Conexion.java</file>
-            <file>file:/D:/pry-Disa/GobiernoRegional/src/modelo/Principal/Usuario.java</file>
-            <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Principal/RegistroUsuario.java</file>
-=======
-            <file>file:/D:/DISA/GobiernoRegional/src/Vistas/Caja/Caja_Apertura.java</file>
-            <file>file:/D:/DISA/GobiernoRegional/src/Vistas/Caja/Caja_Cierre.java</file>
-            <file>file:/D:/DISA/GobiernoRegional/src/Vistas/Principal/Principal_Caja.java</file>
-            <file>file:/D:/DISA/GobiernoRegional/src/Vistas/Principal/Principal.java</file>
-            <file>file:/D:/DISA/GobiernoRegional/src/modelo/Caja/Caja_AperturaCierre.java</file>
->>>>>>> e4690f750d104a4cce4319134ed04c20afb8b095
-        </group>
+        <group/>
     </open-files>
 </project-private>

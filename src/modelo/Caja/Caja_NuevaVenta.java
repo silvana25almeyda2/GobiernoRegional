@@ -140,20 +140,15 @@ private String ESTADO  ;
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_CABECERA_NUEVO "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_FORMA_PAGO());
             cmd.setInt(2, getID_CLIENTE());
             cmd.setString(3, getSERIE());
             cmd.setString(4, getCORRELATIVO());
-            cmd.setDouble(5, getDESCUENTO());
-            cmd.setDouble(6, getSUB_TOTAL());
-            cmd.setDouble(7, getIGV());
-            cmd.setDouble(8, getTOTAL_DOC());
-            cmd.setDouble(9, getDEVOLUCION());
-            cmd.setString(10, getUSUARIO());
-            cmd.setString(11, getTIPO_VENTA());
-            cmd.setInt(12, getID_APERTURA());
+            cmd.setString(5, getUSUARIO());
+            cmd.setString(6, getTIPO_VENTA());
+            cmd.setInt(7, getID_APERTURA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -163,7 +158,7 @@ private String ESTADO  ;
         }
         catch(Exception ex)
         {
-            System.out.println("ERROR AL REGISTRAR  " + ex.getMessage());
+            System.out.println("ERROR AL REGISTRAR VENTA  " + ex.getMessage());
         }
         return resp;
     }
