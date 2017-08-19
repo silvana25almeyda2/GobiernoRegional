@@ -188,7 +188,7 @@ public boolean guardarUsuario()
         String cod="";
         try
         {
-            String sql = "SELECT usu_pregunta FROM Usuario where usu_usuario=?";
+            String sql = "SELECT usu_pregunta FROM SISTEMA_USUARIO where usu_usuario=? AND USU_ESTADO='A'";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
             ResultSet rs = cmd.executeQuery();
@@ -210,7 +210,7 @@ public boolean guardarUsuario()
         String con="";
         try
         {
-            String sql = "SELECT usu_respuesta FROM Usuario where usu_usuario=? and usu_pregunta=?";
+            String sql = "SELECT usu_respuesta FROM SISTEMA_USUARIO where usu_usuario=? and usu_pregunta=? AND USU_ESTADO='A'";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
             cmd.setString(2, pregunta);
@@ -233,7 +233,7 @@ public boolean guardarUsuario()
         String con="";
         try
         {
-            String sql = "SELECT dbo.fnLeeClave(Usu_Contrasena) FROM Usuario where usu_usuario=? and usu_pregunta=?";
+            String sql = "SELECT dbo.fnLeeClave(Usu_Contrasena) FROM SISTEMA_USUARIO where usu_usuario=? and usu_pregunta=? AND USU_ESTADO='A'" ;
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
             cmd.setString(2, pregunta);
