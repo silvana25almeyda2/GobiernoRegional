@@ -15,7 +15,7 @@ import Servicios.Conexion;
  *
  * @author silvana
  */
-public class tipoUsuario {
+public class Modulo {
     private Connection cn;
    private String tipoUsu_Codigo;
    private String tipoUsu_Tipo;
@@ -164,7 +164,7 @@ public class tipoUsuario {
         return cod;
     }
     
-   public tipoUsuario()
+   public Modulo()
     {
         Conexion con = new Conexion();
         cn = con.conectar();

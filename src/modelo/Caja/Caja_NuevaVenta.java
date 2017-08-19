@@ -42,7 +42,13 @@ private String USUARIO_DEV  ;
 private String TIPO_VENTA  ;
 private int ID_APERTURA  ;
 private String ESTADO  ;
-                
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+private int ID_PRECIO ;
+private int CANTIDAD ;
+private double PRECIO ;
+private double TOTAL ;
+private double DESCUENTOD ;           
                 
     
     public void VENTA_LISTA_CLIENTES(String descripcion,JTable tabla){
@@ -169,20 +175,41 @@ private String ESTADO  ;
         }
     }
     
-    public boolean NUEVA_VENTA(){
+    public boolean ELIMINAR_CABECERA(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_ELIMINAR_CABECERA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DOCUMENTO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean NUEVA_VENTA_DETALLE(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_VENTA_CABECERA_NUEVO "
-                        + "?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_VENTA_DETALLE_NUEVO "
+                        + "?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getID_FORMA_PAGO());
-            cmd.setInt(2, getID_CLIENTE());
-            cmd.setString(3, getSERIE());
-            cmd.setString(4, getCORRELATIVO());
-            cmd.setString(5, getUSUARIO());
-            cmd.setString(6, getTIPO_VENTA());
-            cmd.setInt(7, getID_APERTURA());
-            cmd.setInt(8, getID_DOCUMENTO());
+            cmd.setInt(1, getID_DOCUMENTO());
+            cmd.setInt(2, getID_PRECIO());
+            cmd.setInt(3, getCANTIDAD());
+            cmd.setDouble(4, getPRECIO());
+            cmd.setDouble(5, getTOTAL());
+            cmd.setDouble(6, getDESCUENTOD());
+            cmd.setString(7, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -195,6 +222,92 @@ private String ESTADO  ;
             System.out.println("ERROR AL REGISTRAR VENTA  " + ex.getMessage());
         }
         return resp;
+    }
+    
+        public boolean ACTUALIZAR_VENTA(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR "
+                        + "?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DOCUMENTO());
+            cmd.setDouble(2, getDESCUENTO());
+            cmd.setDouble(3, getSUB_TOTAL());
+            cmd.setDouble(4, getIGV());
+            cmd.setDouble(5, getTOTAL_DOC());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL REGISTRAR VENTA  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public void ReporteDiariocajaCabecera(String Usuario,Integer SESION,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario);
+            cmd.setInt(2, SESION);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+    
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE CABECERA" + e.getMessage());
+        }
+    }
+    
+          public void formatoTablaReporteCabecera(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(360);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        
+//        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
+//        
+  
+        tabla.setRowHeight(40);
+        
     }
     
      public Caja_NuevaVenta(){
@@ -344,6 +457,46 @@ private String ESTADO  ;
 
     public void setID_DOCUMENTO(int ID_DOCUMENTO) {
         this.ID_DOCUMENTO = ID_DOCUMENTO;
+    }
+
+    public int getID_PRECIO() {
+        return ID_PRECIO;
+    }
+
+    public void setID_PRECIO(int ID_PRECIO) {
+        this.ID_PRECIO = ID_PRECIO;
+    }
+
+    public int getCANTIDAD() {
+        return CANTIDAD;
+    }
+
+    public void setCANTIDAD(int CANTIDAD) {
+        this.CANTIDAD = CANTIDAD;
+    }
+
+    public double getPRECIO() {
+        return PRECIO;
+    }
+
+    public void setPRECIO(double PRECIO) {
+        this.PRECIO = PRECIO;
+    }
+
+    public double getTOTAL() {
+        return TOTAL;
+    }
+
+    public void setTOTAL(double TOTAL) {
+        this.TOTAL = TOTAL;
+    }
+
+    public double getDESCUENTOD() {
+        return DESCUENTOD;
+    }
+
+    public void setDESCUENTOD(double DESCUENTOD) {
+        this.DESCUENTOD = DESCUENTOD;
     }
      
      

@@ -26,8 +26,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelo.Principal.Usuario;
 
-import static vista.RegistroTipoUsuario.txtcodigo;
-import static vista.RegistroTipoUsuario.txttipo;
 
 /**
  *
