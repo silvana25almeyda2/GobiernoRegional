@@ -20,11 +20,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import modelos.Caja.Caja_NuevaVenta;
-import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
-import modelos.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
-import servicios.Conexion;
-import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
+import Servicios.Conexion;
 
 /**
  *
@@ -36,7 +32,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
     static java.sql.Connection conexion=null;
     Conexion c=new Conexion();
     public static boolean Facturado= false;
-    CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
     public VentasConsolidado() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -46,7 +41,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         cbxActoMedico.setBackground(Color.white);
         cbxActoMedico.setBackground(Color.white);
         conexion = c.conectar();
-        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
+        
         txtDni.setDocument(limitDNI);
         cbxActoMedico.setVisible(false);
         lblMensajeActoMedico.setVisible(false);
