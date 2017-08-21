@@ -26,8 +26,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelo.Principal.Usuario;
 
-import static vista.RegistroTipoUsuario.txtcodigo;
-import static vista.RegistroTipoUsuario.txttipo;
 
 /**
  *
@@ -1385,7 +1383,17 @@ public class RegistroUsuario extends javax.swing.JFrame {
     formatoUsuario();
     est=1;
     
-   
+    cbxModulo.removeAllItems();
+        try {
+            Statement sta=c.conectar().createStatement();
+            ResultSet rs=sta.executeQuery("select modulo from SISTEMA_MODULO ORDER BY modulo");
+            this.cbxModulo.addItem("Seleccionar...");
+            while(rs.next()){
+                 this.cbxModulo.addItem(rs.getString("modulo"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
+        }
     }
 
     

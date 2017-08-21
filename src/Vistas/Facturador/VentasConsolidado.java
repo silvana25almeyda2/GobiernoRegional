@@ -20,12 +20,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+<<<<<<< HEAD
+import Servicios.Conexion;
+=======
 import modelo.Caja.Caja_NuevaVenta;
 //import modelo.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
 //import modelo.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 import Servicios.Conexion;
 import modelo.Facturador.CuentasPorPagarVentasConsolidadoCabecera;
 //import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
+>>>>>>> 8ea37195df7d986031f73cfa01bb866db900005f
 
 /**
  *
@@ -37,7 +41,10 @@ public class VentasConsolidado extends javax.swing.JFrame {
     static java.sql.Connection conexion=null;
     Conexion c=new Conexion();
     public static boolean Facturado= false;
+<<<<<<< HEAD
+=======
 //    CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+>>>>>>> 8ea37195df7d986031f73cfa01bb866db900005f
     public VentasConsolidado() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -47,9 +54,18 @@ public class VentasConsolidado extends javax.swing.JFrame {
         cbxSerie_Correlativo.setBackground(Color.white);
         cbxSerie_Correlativo.setBackground(Color.white);
         conexion = c.conectar();
+<<<<<<< HEAD
+        
+        txtDni.setDocument(limitDNI);
+=======
 //        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
 //        txtDni.setDocument(limitDNI);
+<<<<<<< HEAD
         cbxSerie_Correlativo.setVisible(false);
+=======
+>>>>>>> 8ea37195df7d986031f73cfa01bb866db900005f
+        cbxActoMedico.setVisible(false);
+>>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
         lblMensajeActoMedico.setVisible(false);
         lblIdCabecera.setVisible(false);
         lblCantidadSerie.setVisible(false);

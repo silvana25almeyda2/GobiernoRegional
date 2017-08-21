@@ -114,12 +114,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         PanelCaja1 = new javax.swing.JPanel();
-        btnCaja1 = new javax.swing.JButton();
+        btnPersonal = new javax.swing.JButton();
         PanelCaja2 = new javax.swing.JPanel();
-        btnCaja2 = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
         PanelHunadoy = new javax.swing.JPanel();
         btnHuandoy = new javax.swing.JButton();
         Contenedor = new javax.swing.JDesktopPane();
+        jPanel5 = new javax.swing.JPanel();
+        Facturador = new javax.swing.JDesktopPane();
 
         AperturaOraPC.setAlwaysOnTop(true);
         AperturaOraPC.setMinimumSize(new java.awt.Dimension(522, 300));
@@ -580,6 +582,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cerrar Sesión");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelSesionLayout = new javax.swing.GroupLayout(PanelSesion);
         PanelSesion.setLayout(PanelSesionLayout);
@@ -859,30 +867,30 @@ public class Principal extends javax.swing.JFrame {
 
         PanelCaja1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCaja1.setBackground(new java.awt.Color(102, 102, 102));
-        btnCaja1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnCaja1.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
-        btnCaja1.setText("Personal");
-        btnCaja1.setContentAreaFilled(false);
-        btnCaja1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCaja1.setFocusPainted(false);
-        btnCaja1.setFocusable(false);
-        btnCaja1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCaja1.setIconTextGap(30);
-        btnCaja1.setVerifyInputWhenFocusTarget(false);
-        btnCaja1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCaja1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPersonal.setBackground(new java.awt.Color(102, 102, 102));
+        btnPersonal.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnPersonal.setForeground(new java.awt.Color(51, 51, 51));
+        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
+        btnPersonal.setText("Personal");
+        btnPersonal.setContentAreaFilled(false);
+        btnPersonal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPersonal.setFocusPainted(false);
+        btnPersonal.setFocusable(false);
+        btnPersonal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPersonal.setIconTextGap(30);
+        btnPersonal.setVerifyInputWhenFocusTarget(false);
+        btnPersonal.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCaja1MouseClicked(evt);
+                btnPersonalMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCaja1MouseEntered(evt);
+                btnPersonalMouseEntered(evt);
             }
         });
-        btnCaja1.addActionListener(new java.awt.event.ActionListener() {
+        btnPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCaja1ActionPerformed(evt);
+                btnPersonalActionPerformed(evt);
             }
         });
 
@@ -890,39 +898,39 @@ public class Principal extends javax.swing.JFrame {
         PanelCaja1.setLayout(PanelCaja1Layout);
         PanelCaja1Layout.setHorizontalGroup(
             PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
         );
         PanelCaja1Layout.setVerticalGroup(
             PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(btnPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
         PanelCaja2.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCaja2.setBackground(new java.awt.Color(102, 102, 102));
-        btnCaja2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnCaja2.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"))); // NOI18N
-        btnCaja2.setText("Usuarios");
-        btnCaja2.setContentAreaFilled(false);
-        btnCaja2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCaja2.setFocusPainted(false);
-        btnCaja2.setFocusable(false);
-        btnCaja2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCaja2.setIconTextGap(30);
-        btnCaja2.setVerifyInputWhenFocusTarget(false);
-        btnCaja2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCaja2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUsuarios.setBackground(new java.awt.Color(102, 102, 102));
+        btnUsuarios.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnUsuarios.setForeground(new java.awt.Color(51, 51, 51));
+        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"))); // NOI18N
+        btnUsuarios.setText("Usuarios");
+        btnUsuarios.setContentAreaFilled(false);
+        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuarios.setFocusPainted(false);
+        btnUsuarios.setFocusable(false);
+        btnUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUsuarios.setIconTextGap(30);
+        btnUsuarios.setVerifyInputWhenFocusTarget(false);
+        btnUsuarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCaja2MouseClicked(evt);
+                btnUsuariosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCaja2MouseEntered(evt);
+                btnUsuariosMouseEntered(evt);
             }
         });
-        btnCaja2.addActionListener(new java.awt.event.ActionListener() {
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCaja2ActionPerformed(evt);
+                btnUsuariosActionPerformed(evt);
             }
         });
 
@@ -930,11 +938,11 @@ public class Principal extends javax.swing.JFrame {
         PanelCaja2.setLayout(PanelCaja2Layout);
         PanelCaja2Layout.setHorizontalGroup(
             PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
         );
         PanelCaja2Layout.setVerticalGroup(
             PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
         PanelHunadoy.setBackground(new java.awt.Color(255, 255, 255));
@@ -1044,6 +1052,30 @@ public class Principal extends javax.swing.JFrame {
         );
 
         PaginasP.addTab(".", Contenedor);
+
+        javax.swing.GroupLayout FacturadorLayout = new javax.swing.GroupLayout(Facturador);
+        Facturador.setLayout(FacturadorLayout);
+        FacturadorLayout.setHorizontalGroup(
+            FacturadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 907, Short.MAX_VALUE)
+        );
+        FacturadorLayout.setVerticalGroup(
+            FacturadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Facturador)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Facturador)
+        );
+
+        PaginasP.addTab("tab3", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1219,29 +1251,29 @@ public class Principal extends javax.swing.JFrame {
         ErrorExistente.dispose();
     }//GEN-LAST:event_btnAlertConsulta7ActionPerformed
 
-    private void btnCaja1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja1MouseClicked
+    private void btnPersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPersonalMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja1MouseClicked
+    }//GEN-LAST:event_btnPersonalMouseClicked
 
-    private void btnCaja1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja1MouseEntered
+    private void btnPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPersonalMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja1MouseEntered
+    }//GEN-LAST:event_btnPersonalMouseEntered
 
-    private void btnCaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja1ActionPerformed
+    private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja1ActionPerformed
+    }//GEN-LAST:event_btnPersonalActionPerformed
 
-    private void btnCaja2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseClicked
+    private void btnUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2MouseClicked
+    }//GEN-LAST:event_btnUsuariosMouseClicked
 
-    private void btnCaja2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseEntered
+    private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2MouseEntered
+    }//GEN-LAST:event_btnUsuariosMouseEntered
 
-    private void btnCaja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja2ActionPerformed
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2ActionPerformed
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnHuandoyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHuandoyMouseClicked
         // TODO add your handling code here:
@@ -1275,6 +1307,12 @@ public class Principal extends javax.swing.JFrame {
         }
         PaginasP.setSelectedIndex(1);
     }//GEN-LAST:event_btnHuandoyActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        dispose();
+        inicioSesion is=new inicioSesion();
+        is.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1315,6 +1353,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog AperturaOraPC;
     public static javax.swing.JDesktopPane Contenedor;
     private javax.swing.JDialog ErrorExistente;
+    private javax.swing.JDesktopPane Facturador;
     private javax.swing.JDialog NivelSuperior;
     public static javax.swing.JTabbedPane PaginasP;
     private javax.swing.JPanel PanelCaja;
@@ -1327,10 +1366,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnAlertConsulta7;
     private javax.swing.JButton btnAnularVenta;
     public static javax.swing.JButton btnCaja;
-    public static javax.swing.JButton btnCaja1;
-    public static javax.swing.JButton btnCaja2;
     public static javax.swing.JButton btnFacturador;
     public static javax.swing.JButton btnHuandoy;
+    public static javax.swing.JButton btnPersonal;
+    public static javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
@@ -1359,6 +1398,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     public static javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JScrollPane jScrollPane5;

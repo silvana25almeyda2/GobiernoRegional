@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
-import modelos.Usuario;
-import modelos.tipoUsuario;
+package Vistas.Principal;
+import modelo.Principal.Usuario;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,15 +18,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.Timer;
 
-import servicios.Conexion;
-import static vista.Principal.fechaActual;
-import static vista.RegistroUsuario.txtCodigo;
+import Servicios.Conexion;
+import modelo.Principal.Modulo;
 
 /**
  *
  * @author Profe
  */
-public class RegistroTipoUsuario extends javax.swing.JFrame implements Runnable{
+public class RegistroModulo extends javax.swing.JFrame implements Runnable{
 String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
@@ -36,7 +34,7 @@ Conexion c=new Conexion();
     /**
      * Creates new form Usuario
      */
-    public RegistroTipoUsuario() {
+    public RegistroModulo() {
         initComponents();
         c.conectar();
         h1 = new Thread(this);
@@ -47,13 +45,9 @@ Conexion c=new Conexion();
         setResizable(false);//para que no funcione el boton maximizar
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
-        lblFecha.setText(fechaActual());
+        
         txtGuarModif.setVisible(false);
-        tipoUsuario u=new tipoUsuario();
-        txtcodigo.setText(u.codTipoUsuario());
-        if(txtcodigo.getText().equalsIgnoreCase("")){
-        txtcodigo.setText("TU0001");
-    }
+       
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         
         btnmodificar.setEnabled(false);
@@ -421,11 +415,11 @@ enableDatos();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
- ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png")); 
- tipoUsuario u1=new tipoUsuario();
+    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png")); 
+    Modulo u1=new Modulo();
 
-   tipoUsuario u3=new tipoUsuario();
-      tipoUsuario u4=new tipoUsuario();
+      Modulo u3=new Modulo();
+      Modulo u4=new Modulo();
       try{
 
            if(txtGuarModif.getText().equalsIgnoreCase("G")){
@@ -442,7 +436,7 @@ enableDatos();
               int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
               if(modificar == 0 ){
-                  tipoUsuario m = new tipoUsuario();
+                  Modulo m = new Modulo();
                   m.setTipoUsu_Codigo(txtcodigo.getText());
                   m.setTipoUsu_Tipo(txttipo.getText());
                   m.setTipoUsu_Descripcion(txtDescripcion.getText());
@@ -468,8 +462,8 @@ enableDatos();
 
 enableDatos();
                         txtGuarModif.setText("M");
-                        RegistroTipoUsuario.btnguardar.setEnabled(true);
-                         RegistroTipoUsuario.btneliminar.setEnabled(false);
+                        RegistroModulo.btnguardar.setEnabled(true);
+                         RegistroModulo.btneliminar.setEnabled(false);
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -480,14 +474,14 @@ enableDatos();
         try{
             if(eliminar == 0 )
             {
-                tipoUsuario obj = new tipoUsuario();
+                Modulo obj = new Modulo();
                 obj.setTipoUsu_Codigo(txtcodigo.getText());
                 if(obj.eliminarTipoUsuario())
                 {
                     JOptionPane.showMessageDialog(this, "Datos Eliminados");
-                       RegistroTipoUsuario.btnguardar.setEnabled(true);
-                       RegistroTipoUsuario.btnmodificar.setEnabled(false);
-                       RegistroTipoUsuario.btneliminar.setEnabled(false);
+                       RegistroModulo.btnguardar.setEnabled(true);
+                       RegistroModulo.btnmodificar.setEnabled(false);
+                       RegistroModulo.btneliminar.setEnabled(false);
                     limpiar();
                 }
             }
@@ -498,12 +492,9 @@ enableDatos();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        
         dispose();
-        BUSCAR_TIPO_USUARIO lu=new BUSCAR_TIPO_USUARIO();
-        lu.setVisible(true);
-        BUSCAR_TIPO_USUARIO.tb_TipoUsuario.getSelectionModel().setSelectionInterval(0, 0);
-                    BUSCAR_TIPO_USUARIO.tb_TipoUsuario.requestFocus();
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -511,7 +502,7 @@ enableDatos();
     }//GEN-LAST:event_formWindowOpened
     public void guardarTipoUsuario(){
          ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/guardar.png")); 
-          tipoUsuario u2=new tipoUsuario();
+          Modulo u2=new Modulo();
         if(txttipo.getText().equalsIgnoreCase("")||txtDescripcion.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
           }  
@@ -524,7 +515,7 @@ enableDatos();
               int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
               if(guardar == 0 ){
-                  tipoUsuario u = new tipoUsuario();
+                  Modulo u = new Modulo();
                   u.setTipoUsu_Codigo(txtcodigo.getText());
                   
                   u.setTipoUsu_Tipo(txttipo.getText());
@@ -562,11 +553,7 @@ enableDatos();
     }
     public void limpiar()
 {
-    tipoUsuario u=new  tipoUsuario();
-        txtcodigo.setText(u.codTipoUsuario());
-        if(txtcodigo.getText().equalsIgnoreCase("")){
-        txtcodigo.setText("TU0001");
-    }
+ 
     txttipo.setText("");
     txttipo.setText("");
     txtDescripcion.setText("");
@@ -595,14 +582,46 @@ enableDatos();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroTipoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroModulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroTipoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroModulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroTipoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroModulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroTipoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroModulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -639,7 +658,7 @@ enableDatos();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroTipoUsuario().setVisible(true);
+                new RegistroModulo().setVisible(true);
             }
         });
     }
