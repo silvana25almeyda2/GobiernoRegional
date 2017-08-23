@@ -11,11 +11,16 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 
 /**
  *
@@ -309,6 +314,18 @@ private double DESCUENTOD ;
         tabla.setRowHeight(40);
         
     }
+          
+    public void reporteVenta(int id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Ticket.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Ventas.ErrorExistente.setVisible(true);
+                
+            }
+    }       
     
      public Caja_NuevaVenta(){
         Conexion con = new Conexion();

@@ -5,6 +5,7 @@
  */
 package Vistas.Principal;
 
+import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Ventas;
 import static Vistas.Principal.Principal.PaginasP;
@@ -15,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import modelo.Caja.Caja_CPT;
 
 /**
  *
@@ -194,7 +196,7 @@ private Dimension DimensionBarra = null;
         btnCPT.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnCPT.setForeground(new java.awt.Color(51, 51, 51));
         btnCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"))); // NOI18N
-        btnCPT.setText("CPT");
+        btnCPT.setText("TUPA");
         btnCPT.setContentAreaFilled(false);
         btnCPT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCPT.setFocusPainted(false);
@@ -445,7 +447,10 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
-        // TODO add your handling code here:
+        Caja_CPTS TP = new Caja_CPTS();
+        TP.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        TP.lblusu.setText(u);
     }//GEN-LAST:event_btnCPTActionPerformed
 
     private void btnCaja2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseClicked

@@ -278,12 +278,12 @@
                                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblCorrelativo" min="-2" pref="109" max="-2" attributes="0"/>
-                                      <Component id="lblTerminal" min="-2" pref="109" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblFecha" min="-2" pref="100" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="lblHora" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="lblTerminal" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -359,7 +359,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ventas por Contado (*)"/>
+            <Property name="text" type="java.lang.String" value="Ventas por Contado     "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -738,12 +738,12 @@
                           <Component id="jLabel5" min="-2" pref="277" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel40" max="32767" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel40" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel47" min="-2" pref="89" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -757,15 +757,15 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblTerminalA" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                                       <Component id="lblHoraA" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
                                       <Component id="lblBaseA" min="-2" pref="54" max="-2" attributes="0"/>
                                       <Component id="lblFechaA" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
+                                      <Component id="lblTerminalA" alignment="0" pref="168" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="lblIDSESION_A" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

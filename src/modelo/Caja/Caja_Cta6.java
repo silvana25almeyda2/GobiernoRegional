@@ -128,7 +128,7 @@ public void LISTA_CTA6(String descripcion,JTable tabla){
             JTable p=new JTable(m);
             String fila[]=new String[12];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_CTA6_LISTAR ?";
+            consulta="EXEC CAJA_CTA7_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, descripcion);
             ResultSet r= cmd.executeQuery();

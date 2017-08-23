@@ -2,22 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
->>>>>>> 64a942e680ad999a6cc1b670144ea44a8ca0f75d
         <group>
-            <file>file:/E:/DISA/GobiernoRegional/src/Vistas/Principal/RegistroModulo.java</file>
+            <file>file:/E:/DISA/GobiernoRegional/src/modelo/Caja/Caja_CPT.java</file>
+            <file>file:/E:/DISA/GobiernoRegional/src/Vistas/Caja/Caja_Ventas.java</file>
         </group>
-<<<<<<< HEAD
-=======
->>>>>>> ac0f5047786458e248ec41e56a87e7b07261044f
->>>>>>> 8ea37195df7d986031f73cfa01bb866db900005f
->>>>>>> 64a942e680ad999a6cc1b670144ea44a8ca0f75d
     </open-files>
 </project-private>
