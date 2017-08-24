@@ -169,6 +169,8 @@ DefaultTableModel m;
             btnAlertConsulta3 = new javax.swing.JButton();
             lblARID = new javax.swing.JLabel();
             jLabel1 = new javax.swing.JLabel();
+            jLabel6 = new javax.swing.JLabel();
+            jComboBox1 = new javax.swing.JComboBox();
             jPanel4 = new javax.swing.JPanel();
             jLabel59 = new javax.swing.JLabel();
             jLabel7 = new javax.swing.JLabel();
@@ -333,7 +335,7 @@ DefaultTableModel m;
             jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
             jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
-            jPanel1.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel1.setBackground(new java.awt.Color(127, 140, 141));
 
             jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel57.setForeground(new java.awt.Color(255, 255, 255));
@@ -344,7 +346,7 @@ DefaultTableModel m;
             lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Usuario-64.png"))); // NOI18N
             lblUsu.setText("Numero de Terminal");
 
-            jPanel66.setBackground(new java.awt.Color(22, 95, 143));
+            jPanel66.setBackground(new java.awt.Color(39, 174, 97));
 
             btnAlertConsulta1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta1.setForeground(new java.awt.Color(240, 240, 240));
@@ -373,7 +375,7 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            lblUsuario.setForeground(new java.awt.Color(41, 127, 184));
+            lblUsuario.setForeground(new java.awt.Color(127, 140, 141));
             lblUsuario.setText("jLabel1");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -401,9 +403,9 @@ DefaultTableModel m;
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(38, 38, 38)
                     .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(128, 128, 128)
+                    .addGap(101, 101, 101)
                     .addComponent(lblUsu)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                     .addComponent(lblUsuario)
@@ -414,7 +416,7 @@ DefaultTableModel m;
 
             jTabbedPane1.addTab("tab1", jPanel1);
 
-            jPanel3.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel3.setBackground(new java.awt.Color(127, 140, 141));
 
             jLabel58.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel58.setForeground(new java.awt.Color(255, 255, 255));
@@ -550,12 +552,19 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            lblARID.setForeground(new java.awt.Color(41, 127, 184));
+            lblARID.setForeground(new java.awt.Color(127, 140, 141));
             lblARID.setText("jLabel1");
 
             jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(41, 127, 184));
+            jLabel1.setForeground(new java.awt.Color(127, 140, 141));
             jLabel1.setText("Este Nº de terminal ya se encuentra consignado.");
+
+            jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+            jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel6.setText("Módulo");
+
+            jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
@@ -569,17 +578,20 @@ DefaultTableModel m;
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
                                     .addGap(23, 23, 23)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(panelCPT5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblARID))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(5, 5, 5)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(panelCPT5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(lblARID)))
                                     .addGap(0, 228, Short.MAX_VALUE))
                                 .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -598,14 +610,18 @@ DefaultTableModel m;
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4)
                         .addComponent(panelCPT5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(21, 21, 21)
+                    .addGap(32, 32, 32)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(23, 23, 23)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel5)
                         .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(34, 34, 34)
                     .addComponent(lblARID)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel67, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel68, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1188,6 +1204,7 @@ DefaultTableModel m;
     private javax.swing.JButton btnBuscarPaciente4;
     public static javax.swing.JButton btnImprimir;
     public static javax.swing.JComboBox cbxImpresoras;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
@@ -1196,6 +1213,7 @@ DefaultTableModel m;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

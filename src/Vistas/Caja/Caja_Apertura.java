@@ -155,7 +155,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         panelCambio.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel3.setBackground(new java.awt.Color(127, 140, 141));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(240, 240, 240));

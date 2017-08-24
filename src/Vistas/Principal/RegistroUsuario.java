@@ -51,6 +51,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
 //      setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         setLocationRelativeTo(null);//en el centro
         this.setExtendedState(MAXIMIZED_BOTH);
+        cbxModulo.setBackground(Color.WHITE);
+        cbxNivel.setBackground(Color.WHITE);
+        cbxPregunta.setBackground(Color.WHITE);
         cargareliminar.setVisible(false);
         PERSONAL.setLocationRelativeTo(null);
         txtUsuario.requestFocus();

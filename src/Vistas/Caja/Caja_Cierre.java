@@ -231,7 +231,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel57.setText("Cierre de Caja");
 
         lblID_APERTURA.setBackground(new java.awt.Color(255, 51, 51));
-        lblID_APERTURA.setForeground(new java.awt.Color(255, 255, 255));
+        lblID_APERTURA.setForeground(new java.awt.Color(255, 51, 51));
         lblID_APERTURA.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -463,7 +463,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(43, 43, 43))
         );
 
-        jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel5.setBackground(new java.awt.Color(127, 140, 141));
         jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -575,9 +575,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
