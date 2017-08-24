@@ -61,6 +61,10 @@ String hora, minutos, segundos, ampm;
     public inicioSesion() {
         
         initComponents();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
         txtUsuario.requestFocus();
         this.getContentPane().setBackground(Color.lightGray);
         setLocationRelativeTo(null);//en el centro
@@ -611,7 +615,11 @@ String hora, minutos, segundos, ampm;
         if(txtUsuario.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");     
             panelRecuperar.setVisible(false);
+<<<<<<< HEAD
+        } else if(u.ver_usuario(txtUsuario.getText(),"1")==0){
+=======
         } else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
+>>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
         }
