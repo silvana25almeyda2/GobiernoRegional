@@ -20,13 +20,23 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+<<<<<<< HEAD
+
 import Servicios.Conexion;
+
+=======
+import Servicios.Conexion;
+>>>>>>> 47accfbd28f7724f982774f810b6f09eaa389ca9
 import modelo.Caja.Caja_NuevaVenta;
 //import modelo.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
 //import modelo.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 import Servicios.Conexion;
 import modelo.Facturador.CuentasPorPagarVentasConsolidadoCabecera;
 //import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 47accfbd28f7724f982774f810b6f09eaa389ca9
 
 /**
  *
@@ -39,8 +49,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
     Conexion c=new Conexion();
     public static boolean Facturado= false;
 
+<<<<<<< HEAD
+=======
 //    CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
 
+>>>>>>> 47accfbd28f7724f982774f810b6f09eaa389ca9
     public VentasConsolidado() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -50,6 +63,17 @@ public class VentasConsolidado extends javax.swing.JFrame {
         cbxSerie_Correlativo.setBackground(Color.white);
         cbxSerie_Correlativo.setBackground(Color.white);
         conexion = c.conectar();
+<<<<<<< HEAD
+
+        
+//        txtDni.setDocument(limitDNI);
+
+//        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
+//        txtDni.setDocument(limitDNI);
+
+        cbxSerie_Correlativo.setVisible(false);
+
+=======
         
 ////        txtDni.setDocument(limitDNI);
 //        LimitadorDeDocumento limitDNI = new LimitadorDeDocumento(8);
@@ -63,6 +87,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
 >>>>>>> 7617042dcab31dc6650d2aef916a70feed71c272
         cbxActoMedico.setVisible(false);
 >>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
+>>>>>>> 47accfbd28f7724f982774f810b6f09eaa389ca9
         lblMensajeActoMedico.setVisible(false);
         lblIdCabecera.setVisible(false);
         lblCantidadSerie.setVisible(false);

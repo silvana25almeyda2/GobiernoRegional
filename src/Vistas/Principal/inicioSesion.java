@@ -613,10 +613,12 @@ String hora, minutos, segundos, ampm;
             panelRecuperar.setVisible(false);
         } else if(u.ver_usuario(txtUsuario.getText(),"1")==0){
         } else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
+
+
+        }else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
-        }
-        else{
+        }else{
             panelRecuperar.setVisible(true);
             txtPregunta.setEditable(false);
             txtPregunta.setText(u1.Pregunta(txtUsuario.getText()));
