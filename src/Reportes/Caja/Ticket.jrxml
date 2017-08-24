@@ -51,7 +51,7 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[SELECT        CAJA_CPT.DESCRIPCION AS CPT, CAJA_DOCUMENTO_DETALLE.CANTIDAD,
+			<![CDATA[SELECT        CAJA_CPT.NOMBRE AS CPT, CAJA_DOCUMENTO_DETALLE.CANTIDAD,
 						 left(CAJA_DOCUMENTO_DETALLE.PRECIO,len(CAJA_DOCUMENTO_DETALLE.PRECIO)) as PRECIO,
                          CAJA_DOCUMENTO_DETALLE.id_documento
 FROM            CAJA_PRECIOS INNER JOIN

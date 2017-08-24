@@ -92,10 +92,10 @@ private double DESCUENTOD ;
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","TD_GRUPO","CTP","DES"};
+            String titulos[]={"ID","TD_GRUPO","CTP","DES","GRUPO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[4];
+            String fila[]=new String[5];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_VENTA_CPT_LISTA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -107,6 +107,7 @@ private double DESCUENTOD ;
                 fila[1]=r.getString(2);
                 fila[2]=r.getString(3);
                 fila[3]=r.getString(4); 
+                fila[4]=r.getString(5); 
                     m.addRow(fila);
                     c++;
             }
@@ -114,10 +115,20 @@ private double DESCUENTOD ;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-            Formato(tabla);
+            FormatoCPT(tabla);
         } catch (Exception e) {
             System.out.println("ERROR AL LISTAR CPT: " + e.getMessage());
         }
+    }
+    public void FormatoCPT(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(600);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.setRowHeight(38);
     }
     
     public void Formato(JTable tabla){

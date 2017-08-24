@@ -192,6 +192,23 @@ private String USUARIO;
  
         tabla.setRowHeight(40);
     }
+    
+    public void LISTAR_UIT(){
+        String consulta="";
+        try {
+            consulta="CAJA_PRECIO_BASE_LISTAR ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_CPTS.txtPrecio_Base.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PRECIO: " + e.getMessage());
+        }
+    }
 
 
     public Caja_CPT(){

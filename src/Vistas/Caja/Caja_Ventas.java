@@ -143,6 +143,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     public void CARGAR_CPT(){
         String  ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD;
         int i=tb_CPTBUSCAR.getSelectedRow();
+        lblGrupo.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(i, 4))); 
         ID_CPT = tb_CPTBUSCAR.getValueAt(i, 0).toString();
         ID_GRUPO = tb_CPTBUSCAR.getValueAt(i, 1).toString();
         CPTs = tb_CPTBUSCAR.getValueAt(i, 2).toString();
@@ -193,8 +194,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         double descuento =0;
 
         //recorrer todas las filas de la segunda columna y va sumando las cantidades
-        for( int i=0 ; i<tb_CPT.getRowCount() ; i++)
-        {
+        for( int i=0 ; i<tb_CPT.getRowCount() ; i++){
             double numero =0,st=0;
             try{
                 //capturamos valor de celda
@@ -214,6 +214,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         subtotal=total-IGV;
         descuento=0;
         ////////////////////////////////////////////////////////////////////////
+        
         BigDecimal bd2 = new BigDecimal(total);
         bd2 = bd2.setScale(2, BigDecimal.ROUND_HALF_UP);
         
@@ -224,10 +225,21 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         bd4 = bd4.setScale(2, BigDecimal.ROUND_HALF_UP);
         ////////////////////////////////////////////////////////////////////////
         //muestra en el componente
-        this.txtTotal.setText( String.valueOf(bd2) );
-        this.txtIGV.setText(String.valueOf(bd3));
-        this.txtSubTotal.setText(String.valueOf((bd4)));
-       
+        
+        
+
+        if (lblGrupo.getText().equals("TP")){
+            this.txtSubTotal.setText(String.valueOf(bd2) );
+            this.txtIGV.setText("0.00");
+            this.txtTotal.setText(String.valueOf(bd2) );
+            lblMontos.setText("Total a Pagar    S/."+String.valueOf(bd2));
+        }else if (!lblGrupo.getText().equals("TP")){
+            this.txtSubTotal.setText(String.valueOf(bd4) );
+            this.txtIGV.setText(String.valueOf(bd3) );
+            this.txtTotal.setText(String.valueOf(bd2) );
+            lblMontos.setText("Subtotal    S/."+String.valueOf(bd4)+"       "+"IGV    S/."+String.valueOf(bd3)+"       "+"Total a Pagar    S/."+String.valueOf(bd2));
+
+        }
     }
     
     public DefaultComboBoxModel CargarFP(){
@@ -478,15 +490,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                 public boolean isCellEditable(int rowIndex, int colIndex){
                                     return false; //Disallow the editing of any cell
                                 }};
-                                panelNumeros = new javax.swing.JPanel();
-                                jLabel26 = new javax.swing.JLabel();
-                                panelSumaDetalle = new javax.swing.JPanel();
-                                jLabel39 = new javax.swing.JLabel();
-                                jLabel28 = new javax.swing.JLabel();
-                                txtSubTotal = new javax.swing.JLabel();
-                                txtIGV = new javax.swing.JLabel();
-                                txtTotal = new javax.swing.JLabel();
-                                txtTotal1 = new javax.swing.JLabel();
                                 panelEliminacion = new javax.swing.JPanel();
                                 btnEliminarDetalle = new javax.swing.JButton();
                                 noeli5 = new javax.swing.JButton();
@@ -525,6 +528,12 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                 btnEliminarSi = new javax.swing.JButton();
                                 btnEliminarNo = new javax.swing.JButton();
                                 txtEnterEscapeEnter1 = new javax.swing.JTextField();
+                                lblGrupo = new javax.swing.JLabel();
+                                panelNumeros = new javax.swing.JPanel();
+                                lblMontos = new javax.swing.JLabel();
+                                txtSubTotal = new javax.swing.JLabel();
+                                txtIGV = new javax.swing.JLabel();
+                                txtTotal = new javax.swing.JLabel();
                                 jPanel5 = new javax.swing.JPanel();
                                 jPanel6 = new javax.swing.JPanel();
                                 lblCliente1 = new javax.swing.JLabel();
@@ -1204,8 +1213,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                             .addGap(0, 0, Short.MAX_VALUE)
                                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addContainerGap())
                                     );
                                     panelCargarCPTLayout.setVerticalGroup(
@@ -1599,7 +1607,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                     );
                                     jPanel3Layout.setVerticalGroup(
                                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGap(0, 678, Short.MAX_VALUE)
+                                        .addGap(0, 680, Short.MAX_VALUE)
                                     );
 
                                     Paginas.addTab("tab1", jPanel3);
@@ -1745,88 +1753,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                         }
                                     });
                                     jScrollPane4.setViewportView(tb_CPT);
-
-                                    panelNumeros.setBackground(new java.awt.Color(214, 217, 223));
-                                    panelNumeros.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
-                                    jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                    jLabel26.setForeground(new java.awt.Color(51, 51, 51));
-                                    jLabel26.setText("Total a Pagar");
-
-                                    panelSumaDetalle.setBackground(new java.awt.Color(214, 217, 223));
-
-                                    jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                    jLabel39.setForeground(new java.awt.Color(51, 51, 51));
-                                    jLabel39.setText("IGV");
-
-                                    jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                    jLabel28.setForeground(new java.awt.Color(51, 51, 51));
-                                    jLabel28.setText("Subtotal");
-
-                                    txtSubTotal.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
-                                    txtSubTotal.setForeground(new java.awt.Color(51, 51, 51));
-                                    txtSubTotal.setText("0");
-
-                                    txtIGV.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
-                                    txtIGV.setForeground(new java.awt.Color(51, 51, 51));
-                                    txtIGV.setText("0");
-
-                                    javax.swing.GroupLayout panelSumaDetalleLayout = new javax.swing.GroupLayout(panelSumaDetalle);
-                                    panelSumaDetalle.setLayout(panelSumaDetalleLayout);
-                                    panelSumaDetalleLayout.setHorizontalGroup(
-                                        panelSumaDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelSumaDetalleLayout.createSequentialGroup()
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jLabel28)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtSubTotal)
-                                            .addGap(104, 104, 104)
-                                            .addComponent(jLabel39)
-                                            .addGap(32, 32, 32)
-                                            .addComponent(txtIGV)
-                                            .addContainerGap())
-                                    );
-                                    panelSumaDetalleLayout.setVerticalGroup(
-                                        panelSumaDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtIGV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    );
-
-                                    txtTotal.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
-                                    txtTotal.setForeground(new java.awt.Color(51, 51, 51));
-                                    txtTotal.setText("0");
-
-                                    txtTotal1.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
-                                    txtTotal1.setForeground(new java.awt.Color(51, 51, 51));
-                                    txtTotal1.setText("S/. ");
-
-                                    javax.swing.GroupLayout panelNumerosLayout = new javax.swing.GroupLayout(panelNumeros);
-                                    panelNumeros.setLayout(panelNumerosLayout);
-                                    panelNumerosLayout.setHorizontalGroup(
-                                        panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelNumerosLayout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addComponent(panelSumaDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(81, 81, 81)
-                                            .addComponent(jLabel26)
-                                            .addGap(65, 65, 65)
-                                            .addComponent(txtTotal1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtTotal)
-                                            .addContainerGap(293, Short.MAX_VALUE))
-                                    );
-                                    panelNumerosLayout.setVerticalGroup(
-                                        panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelNumerosLayout.createSequentialGroup()
-                                            .addGap(0, 0, 0)
-                                            .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtTotal1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                                                .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(panelSumaDetalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    );
 
                                     panelEliminacion.setBackground(new java.awt.Color(255, 51, 51));
 
@@ -2234,7 +2160,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                             .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(txtEnterEscapeEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addContainerGap(30, Short.MAX_VALUE))
                                     );
                                     panelAnularLayout.setVerticalGroup(
                                         panelAnularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2325,14 +2251,49 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                             .addContainerGap())
                                     );
 
+                                    lblGrupo.setText("jLabel1");
+
+                                    panelNumeros.setBackground(new java.awt.Color(214, 217, 223));
+
+                                    lblMontos.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+                                    lblMontos.setForeground(new java.awt.Color(51, 51, 51));
+                                    lblMontos.setText("0");
+
+                                    javax.swing.GroupLayout panelNumerosLayout = new javax.swing.GroupLayout(panelNumeros);
+                                    panelNumeros.setLayout(panelNumerosLayout);
+                                    panelNumerosLayout.setHorizontalGroup(
+                                        panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelNumerosLayout.createSequentialGroup()
+                                            .addContainerGap()
+                                            .addComponent(lblMontos)
+                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    );
+                                    panelNumerosLayout.setVerticalGroup(
+                                        panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNumerosLayout.createSequentialGroup()
+                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblMontos)
+                                            .addContainerGap())
+                                    );
+
+                                    txtSubTotal.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+                                    txtSubTotal.setForeground(new java.awt.Color(51, 51, 51));
+                                    txtSubTotal.setText("0");
+
+                                    txtIGV.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+                                    txtIGV.setForeground(new java.awt.Color(51, 51, 51));
+                                    txtIGV.setText("0");
+
+                                    txtTotal.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+                                    txtTotal.setForeground(new java.awt.Color(51, 51, 51));
+                                    txtTotal.setText("0");
+
                                     javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
                                     jPanel4.setLayout(jPanel4Layout);
                                     jPanel4Layout.setHorizontalGroup(
                                         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane4)
                                         .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
-                                        .addComponent(panelEliminacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(panelNumeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel4Layout.createSequentialGroup()
                                             .addContainerGap()
                                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2353,7 +2314,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                                     .addComponent(lDoc2)
                                                     .addGap(33, 33, 33)
-                                                    .addComponent(panelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(panelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(txtSubTotal)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtIGV)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtTotal))
                                                 .addComponent(lblIDCliente)
                                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                                     .addComponent(lblSerie)
@@ -2363,12 +2330,17 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                     .addComponent(lblID_Documento)
                                                     .addGap(36, 36, 36)
                                                     .addComponent(lblSESION, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(lblID_CABECERA))
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                    .addComponent(lblID_CABECERA)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(lblGrupo)))
+                                            .addContainerGap(180, Short.MAX_VALUE))
                                         .addComponent(panelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
                                         .addComponent(panelAnular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(panelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(panelEliminacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(panelNumeros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     );
                                     jPanel4Layout.setVerticalGroup(
                                         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2392,7 +2364,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                 .addComponent(lTipoDoc1)
                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(cbxFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lblID_CABECERA)))
+                                                    .addComponent(lblID_CABECERA)
+                                                    .addComponent(lblGrupo)))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(panelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2409,16 +2382,20 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(lDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(lDoc2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(panelCPT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(panelCPT2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(panelCPT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(txtSubTotal)
+                                                    .addComponent(txtIGV)
+                                                    .addComponent(txtTotal)))
                                             .addGap(18, 18, 18)
                                             .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(0, 0, 0)
-                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                                             .addGap(0, 0, 0)
                                             .addComponent(panelEliminacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(0, 0, 0)
-                                            .addComponent(panelNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(panelNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     );
 
                                     Paginas.addTab("tab2", jPanel4);
@@ -2517,7 +2494,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(0, 0, 0)
-                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
                                             .addGap(0, 0, 0))
                                     );
 
@@ -2534,7 +2511,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                     );
                                     layout.setVerticalGroup(
                                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                                         .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING)
                                     );
 
@@ -3074,11 +3051,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel47;
@@ -3126,11 +3100,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     public static javax.swing.JLabel lblDocumento1;
     public static javax.swing.JLabel lblDocumento2;
     public static javax.swing.JLabel lblDocumento3;
+    private javax.swing.JLabel lblGrupo;
     public static javax.swing.JLabel lblIDCliente;
     private javax.swing.JLabel lblID_CABECERA;
     public static javax.swing.JLabel lblID_Documento;
     public static javax.swing.JLabel lblID_SESION;
     public static javax.swing.JLabel lblIdPreventa;
+    private javax.swing.JLabel lblMontos;
     public static javax.swing.JLabel lblSESION;
     public static javax.swing.JLabel lblSerie;
     public static javax.swing.JLabel lblSerie_Correlativo;
@@ -3151,7 +3127,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     private javax.swing.JPanel panelNumeros;
     private javax.swing.JPanel panelSinCPT;
     private javax.swing.JPanel panelSinHC;
-    private javax.swing.JPanel panelSumaDetalle;
     private javax.swing.JPanel paneltablaHC;
     private javax.swing.JTable tbClientes;
     private javax.swing.JTable tb_CPT;
@@ -3170,7 +3145,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     private javax.swing.JLabel txtIGV;
     private javax.swing.JLabel txtSubTotal;
     private javax.swing.JLabel txtTotal;
-    private javax.swing.JLabel txtTotal1;
     public static javax.swing.JTextField txtgrupo1;
     // End of variables declaration//GEN-END:variables
 }
