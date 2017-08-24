@@ -28,6 +28,10 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import modelo.Caja.Caja_NuevaVenta;
+import Vistas.Facturador.*;
+import static Vistas.Facturador.Facturador.TXT_ID_CLIENTE_F;
+import static Vistas.Facturador.Facturador.tbFacturacion;
+
 
 /**
  *
@@ -38,7 +42,7 @@ Conexion c=new Conexion();
 Connection ConexionS=c.conectar();
 ResultSet r;
 DefaultTableModel modelos;
-DefaultTableModel m1;
+DefaultTableModel m1, modelo1, modelo2;
 Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     /**
      * Creates new form Caja_Ventas
@@ -119,7 +123,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     panelMensaje.setVisible(false);  
                     txtEnterEscapeEnter.requestFocus();
         }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
-                    JOptionPane.showMessageDialog(this, "VAMO FACTURANDO");
+                    Facturador frm_F = new Facturador();
+                    frm_F.setVisible(true);
+                    TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
+                    CARGAR_TB_FACTURADOR();
         }
         if(lblCliente.getText().equals("Cliente") && tb_CPT.getRowCount()==0){ 
                    dispose();
@@ -141,7 +148,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     }
     
     public void CARGAR_CPT(){
-        String  ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD;
+        String  ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,SUBTOTAL;
         int i=tb_CPTBUSCAR.getSelectedRow();
         lblGrupo.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(i, 4))); 
         ID_CPT = tb_CPTBUSCAR.getValueAt(i, 0).toString();
@@ -150,11 +157,15 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         DESCRIPCION = tb_CPTBUSCAR.getValueAt(i, 3).toString();
         //Cargar los datos a la otra tabla 
         CANTIDAD=txtCantidad.getText();
-        
+        double c=0.00,p=0.00,t=0.00;
+        c=Double.parseDouble(txtCantidad.getText());  
+        p=Double.parseDouble(tb_CPTBUSCAR.getValueAt(i, 3).toString());
+        t=c*p;
+        SUBTOTAL=(String.valueOf(t) );
         
         if(tb_CPT.getRowCount()==0){
             modelos = (DefaultTableModel) tb_CPT.getModel();
-            String filaelemento[] = {ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD};
+            String filaelemento[] = {ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,SUBTOTAL};
             modelos.addRow(filaelemento);
                
           }
@@ -164,7 +175,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
           } 
            else{
                 m1=(DefaultTableModel) tb_CPT.getModel();
-           String filaelemento[]={ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD};
+           String filaelemento[]={ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,SUBTOTAL};
                m1.addRow(filaelemento);   
            }
           }
@@ -1735,7 +1746,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                         },
                                         new String [] {
-                                            "ID_PRECIO", "ITEM", "DESCRIPCION", "PRECIO", "CANTIDAD"
+                                            "ID_PRECIO", "ITEM", "DESCRIPCION", "PRECIO", "CANTIDAD", "SUBTOTAL"
                                         }
                                     ));
                                     tb_CPT.setGridColor(new java.awt.Color(255, 255, 255));
@@ -2970,6 +2981,55 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         ErrorExistente.dispose();
     }//GEN-LAST:event_btnAlertConsulta7ActionPerformed
 
+    public void CARGAR_TB_FACTURADOR(){
+        try {
+            
+            modelo1 = (DefaultTableModel) tb_CPT.getModel();
+                        
+            if(tb_CPT.getRowCount()==0){
+                JOptionPane.showMessageDialog(null, "No hay registros que cargar");
+            }else{
+            
+            //pasar datos de una tabla a otra
+            for (int i=0;i<modelo1.getRowCount(); i++){
+            String item, descripcion, valor_u, cantidad,
+            precio, igv, dscto, total;
+            double Precio_cant=0.00, tot=0.00, ig =0.00;
+                        
+            item = tb_CPT.getValueAt(i, 1).toString();
+            descripcion = tb_CPT.getValueAt(i, 2).toString();           
+            valor_u = tb_CPT.getValueAt(i, 3).toString();
+            cantidad = tb_CPT.getValueAt(i, 4).toString();
+            precio = tb_CPT.getValueAt(i, 5).toString();
+
+            igv = "0.00";
+            dscto = "0.00";
+            
+            Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
+            ig = 0.00;
+            
+            tot = (Precio_cant + ig);
+            
+            total = String.valueOf(tot);
+           
+            //Cargar los datos a la otra tabla 
+            modelo2 = (DefaultTableModel) tbFacturacion.getModel();
+            
+            String filaelemento[] = {item, descripcion, valor_u, cantidad,
+            precio, igv, dscto, total};
+                                 
+            modelo2.addRow(filaelemento);
+            
+            
+            }
+        }    
+        } catch (Exception e) {
+            System.out.println("ERROR AL CARGAR LOS DATOS" + e.getMessage());
+            
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
