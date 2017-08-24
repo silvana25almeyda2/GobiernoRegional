@@ -25,21 +25,27 @@ private Connection cn;
 Conexion con = new Conexion(); 
 private int ID_CPT;
 private int ID_GRUPO;
-private int ID_Cuenta6;
-private String CPT;
-private String DESCRIPCION;
+private int ID_Cuenta7 ;
+private String NRO_ITEM ;
+private String NOMBRE ;
+private String BASE_LEGAL ;
+private String DESCRIPCION ;
+private String PORCENTAJE ;
 private String USUARIO;
 
     public boolean NUEVO_CPT(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?";
+            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_GRUPO());
-            cmd.setInt(2, getID_Cuenta6());
-            cmd.setString(3, getCPT());
-            cmd.setString(4, getDESCRIPCION());
-            cmd.setString(5, getUSUARIO());
+            cmd.setInt(2, getID_Cuenta7());
+            cmd.setString(3, getNRO_ITEM());
+            cmd.setString(4, getNOMBRE());
+            cmd.setString(5, getBASE_LEGAL());
+            cmd.setString(6, getDESCRIPCION());
+            cmd.setString(7, getPORCENTAJE());
+            cmd.setString(8, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -57,14 +63,17 @@ private String USUARIO;
     public boolean MODIFICAR_CPT(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?";
+            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CPT());
             cmd.setInt(2, getID_GRUPO());
-            cmd.setInt(3, getID_Cuenta6());
-            cmd.setString(4, getCPT());
-            cmd.setString(5, getDESCRIPCION());
-            cmd.setString(6, getUSUARIO());
+            cmd.setInt(3, getID_Cuenta7());
+            cmd.setString(4, getNRO_ITEM());
+            cmd.setString(5, getNOMBRE());
+            cmd.setString(6, getBASE_LEGAL());
+            cmd.setString(7, getDESCRIPCION());
+            cmd.setString(8, getPORCENTAJE());
+            cmd.setString(9, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -117,10 +126,10 @@ private String USUARIO;
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Grupo","Cuenta 6","CPT","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","CCPT","DCPT"};
+            String titulos[]={"ID","Grupo","Cuenta 6","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre","Porcentaje","Base Legal",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[11];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CPT_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -139,6 +148,9 @@ private String USUARIO;
                 fila[8]=r.getString(9);
                 fila[9]=r.getString(10); 
                 fila[10]=r.getString(11);
+                fila[11]=r.getString(12); 
+                fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
                     m.addRow(fila);
                     c++;
             }
@@ -172,7 +184,30 @@ private String USUARIO;
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+ 
         tabla.setRowHeight(40);
+    }
+    
+    public void LISTAR_UIT(){
+        String consulta="";
+        try {
+            consulta="CAJA_PRECIO_BASE_LISTAR ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_CPTS.txtPrecio_Base.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PRECIO: " + e.getMessage());
+        }
     }
 
 
@@ -205,20 +240,36 @@ private String USUARIO;
         this.ID_GRUPO = ID_GRUPO;
     }
 
-    public int getID_Cuenta6() {
-        return ID_Cuenta6;
+    public int getID_Cuenta7() {
+        return ID_Cuenta7;
     }
 
-    public void setID_Cuenta6(int ID_Cuenta6) {
-        this.ID_Cuenta6 = ID_Cuenta6;
+    public void setID_Cuenta7(int ID_Cuenta7) {
+        this.ID_Cuenta7 = ID_Cuenta7;
     }
 
-    public String getCPT() {
-        return CPT;
+    public String getNRO_ITEM() {
+        return NRO_ITEM;
     }
 
-    public void setCPT(String CPT) {
-        this.CPT = CPT;
+    public void setNRO_ITEM(String NRO_ITEM) {
+        this.NRO_ITEM = NRO_ITEM;
+    }
+
+    public String getNOMBRE() {
+        return NOMBRE;
+    }
+
+    public void setNOMBRE(String NOMBRE) {
+        this.NOMBRE = NOMBRE;
+    }
+
+    public String getBASE_LEGAL() {
+        return BASE_LEGAL;
+    }
+
+    public void setBASE_LEGAL(String BASE_LEGAL) {
+        this.BASE_LEGAL = BASE_LEGAL;
     }
 
     public String getDESCRIPCION() {
@@ -229,6 +280,16 @@ private String USUARIO;
         this.DESCRIPCION = DESCRIPCION;
     }
 
+    public String getPORCENTAJE() {
+        return PORCENTAJE;
+    }
+
+    public void setPORCENTAJE(String PORCENTAJE) {
+        this.PORCENTAJE = PORCENTAJE;
+    }
+
+   
+    
     public String getUSUARIO() {
         return USUARIO;
     }

@@ -1,9 +1,0 @@
-vista.RegistroTipoUsuario$5
-vista.RegistroTipoUsuario$4
-vista.RegistroTipoUsuario$3
-vista.RegistroTipoUsuario$2
-vista.RegistroTipoUsuario$1
-vista.RegistroTipoUsuario
-vista.RegistroTipoUsuario$8
-vista.RegistroTipoUsuario$7
-vista.RegistroTipoUsuario$6

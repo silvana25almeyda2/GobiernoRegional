@@ -519,7 +519,7 @@ byte tgm;
                     .addContainerGap())
             );
 
-            jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+            jPanel5.setBackground(new java.awt.Color(127, 140, 141));
             jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
             jLabel33.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
