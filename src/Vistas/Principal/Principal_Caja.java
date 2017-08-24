@@ -276,7 +276,7 @@ private Dimension DimensionBarra = null;
         btnCaja3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnCaja3.setForeground(new java.awt.Color(51, 51, 51));
         btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        btnCaja3.setText("Precios");
+        btnCaja3.setText("Roles");
         btnCaja3.setContentAreaFilled(false);
         btnCaja3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCaja3.setFocusPainted(false);

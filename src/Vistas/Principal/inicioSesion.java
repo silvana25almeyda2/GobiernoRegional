@@ -61,10 +61,6 @@ String hora, minutos, segundos, ampm;
     public inicioSesion() {
         
         initComponents();
-<<<<<<< HEAD
-        
-=======
->>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
         txtUsuario.requestFocus();
         this.getContentPane().setBackground(Color.lightGray);
         setLocationRelativeTo(null);//en el centro
@@ -315,7 +311,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel1.setBackground(new java.awt.Color(127, 140, 141));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -339,7 +335,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        panelRecuperar.setBackground(new java.awt.Color(0, 153, 153));
+        panelRecuperar.setBackground(new java.awt.Color(39, 174, 97));
         panelRecuperar.setForeground(new java.awt.Color(0, 153, 153));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -401,19 +397,19 @@ String hora, minutos, segundos, ampm;
         );
 
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(43, 43, 43));
+        lblFecha.setForeground(new java.awt.Color(127, 140, 141));
         lblFecha.setText("00/00/00");
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel2.setForeground(new java.awt.Color(127, 140, 141));
         jLabel2.setText("Fecha");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel5.setForeground(new java.awt.Color(127, 140, 141));
         jLabel5.setText("Hora");
 
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(43, 43, 43));
+        lblHora.setForeground(new java.awt.Color(127, 140, 141));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -485,13 +481,13 @@ String hora, minutos, segundos, ampm;
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel17.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel17.setBackground(new java.awt.Color(39, 174, 97));
         jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnIniciarSesion.setForeground(new java.awt.Color(240, 240, 240));
         btnIniciarSesion.setText("Iniciar Sesión");
-        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnIniciarSesion.setContentAreaFilled(false);
         btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -581,7 +577,7 @@ String hora, minutos, segundos, ampm;
         );
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 60)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setForeground(new java.awt.Color(127, 140, 141));
         jLabel7.setText("Huandoy");
         jLabel7.setFocusable(false);
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -615,11 +611,8 @@ String hora, minutos, segundos, ampm;
         if(txtUsuario.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");     
             panelRecuperar.setVisible(false);
-<<<<<<< HEAD
         } else if(u.ver_usuario(txtUsuario.getText(),"1")==0){
-=======
         } else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
->>>>>>> 938e2a58e69f9b67b96df3d97b0d6cb2e766b14b
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
         }
@@ -678,7 +671,7 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-              // TODO add your handling code here:
+        // TODO add your handling code here:
         usuario=txtUsuario.getText();
         String contra=String.valueOf(txtContra.getPassword());
         acceder(usuario, contra);

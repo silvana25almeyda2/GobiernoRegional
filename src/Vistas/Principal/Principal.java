@@ -568,7 +568,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("CAJERO");
 
-        PanelSesion.setBackground(new java.awt.Color(0, 182, 185));
+        PanelSesion.setBackground(new java.awt.Color(39, 174, 97));
         PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PanelSesionMouseEntered(evt);

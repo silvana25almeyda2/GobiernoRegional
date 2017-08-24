@@ -24,14 +24,16 @@ private String Usu_Usuario;
 private String Usu_Contrasena;
 private String Usu_Pregunta;
 private String Usu_Respuesta;
-
+private String NIVEL;
+private String L ;
+private String E ;
 
 public boolean guardarUsuario()
         {
         boolean resp = false;
         try
         {
-            String sql = "exec SP_USUARIO_Insertar ?,?,?,?,?,?";
+            String sql = "exec SP_USUARIO_Insertar ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_modulo());
             cmd.setString(2, getCod_per());
@@ -39,7 +41,10 @@ public boolean guardarUsuario()
             cmd.setString(4, getUsu_Contrasena());
             cmd.setString(5, getUsu_Pregunta());
             cmd.setString(6, getUsu_Respuesta());
-            
+            //
+            cmd.setString(7, getNIVEL());
+            cmd.setString(8, getL());
+            cmd.setString(9, getE());
             
             if(!cmd.execute())
             {
@@ -61,7 +66,7 @@ public boolean guardarUsuario()
         boolean resp = false;
         try
         {
-            String sql = "exec SP_USUARIO_Modificar ?,?,?,?,?,?,?";
+            String sql = "exec SP_USUARIO_Modificar ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getCodigo());
             cmd.setString(2, getCod_modulo());
@@ -70,6 +75,10 @@ public boolean guardarUsuario()
             cmd.setString(5, getUsu_Contrasena());
             cmd.setString(6, getUsu_Pregunta());
             cmd.setString(7, getUsu_Respuesta());
+            //
+            cmd.setString(8, getNIVEL());
+            cmd.setString(9, getL());
+            cmd.setString(10, getE());
             if(!cmd.execute())
             {
                 resp = true;
@@ -415,5 +424,31 @@ public boolean guardarUsuario()
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+    public String getNIVEL() {
+        return NIVEL;
+    }
+
+    public void setNIVEL(String NIVEL) {
+        this.NIVEL = NIVEL;
+    }
+
+    public String getL() {
+        return L;
+    }
+
+    public void setL(String L) {
+        this.L = L;
+    }
+
+    public String getE() {
+        return E;
+    }
+
+    public void setE(String E) {
+        this.E = E;
+    }
+    
+    
 
 }

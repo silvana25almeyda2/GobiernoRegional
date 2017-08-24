@@ -10,10 +10,16 @@ import Vistas.Caja.Caja_CPTS;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -126,10 +132,10 @@ private String USUARIO;
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Grupo","Cuenta 6","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre","Porcentaje","Base Legal",""};
+            String titulos[]={"ID","Grupo","Cuenta 6","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre","Porcentaje","Porcentaje","","Precio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[14];
+            String fila[]=new String[15];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CPT_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -151,6 +157,7 @@ private String USUARIO;
                 fila[11]=r.getString(12); 
                 fila[12]=r.getString(13);
                 fila[13]=r.getString(14);
+                fila[14]=r.getString(15);
                     m.addRow(fila);
                     c++;
             }
@@ -167,8 +174,10 @@ private String USUARIO;
     public void Formato(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(400);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(600);
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -189,7 +198,7 @@ private String USUARIO;
         tabla.getColumnModel().getColumn(11).setMaxWidth(0);
         tabla.getColumnModel().getColumn(13).setMinWidth(0);
         tabla.getColumnModel().getColumn(13).setMaxWidth(0);
- 
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(100);
         tabla.setRowHeight(40);
     }
     
@@ -207,6 +216,52 @@ private String USUARIO;
             //
         } catch (Exception e) {
             System.out.println("Error AL CARGAR EL PRECIO: " + e.getMessage());
+        }
+    }
+    
+    public void LISTAR_PERMISOS(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_CPTS.lblNivel.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Caja_CPTS.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Caja_CPTS.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void ReporteDiarioH() {
+        try {
+            Map parametros = new HashMap();
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/TUPA_H.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("TUPA");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_REPORTE TUPA:"+e.getMessage());
+        }
+    }
+    
+    public void ReporteDiarioV() {
+        try {
+            Map parametros = new HashMap();
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/TUPA.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("TUPA");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_REPORTE TUPA:"+e.getMessage());
         }
     }
 
