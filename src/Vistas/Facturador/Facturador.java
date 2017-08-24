@@ -28,6 +28,8 @@ import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +41,10 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
@@ -88,12 +94,17 @@ public class Facturador extends javax.swing.JFrame {
     CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
     double sumatoriaIGV = 0.00;
     double sumatoriaTotal = 0.00;
+    
+    DefaultTableModel m;
+    static CuentasPorPagarFacturasCabecera F = new CuentasPorPagarFacturasCabecera();
 //    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
     public Facturador() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);//en el centro
+        
+        inicializar_TB_FACTURADOR();
         cbxTipoOperacion.setBackground(Color.WHITE);
         cbxCodUnidad.setBackground(Color.WHITE);
         cbxDocumento.setBackground(Color.WHITE);
@@ -436,6 +447,7 @@ public class Facturador extends javax.swing.JFrame {
             lblusu = new javax.swing.JLabel();
             lblDNI3 = new javax.swing.JLabel();
             lblDNI = new javax.swing.JLabel();
+            TXT_ID_CLIENTE_F = new javax.swing.JTextField();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
@@ -686,7 +698,7 @@ public class Facturador extends javax.swing.JFrame {
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
                 );
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                 jPanel21.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -740,12 +752,18 @@ public class Facturador extends javax.swing.JFrame {
                 lblDNI3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
                 lblDNI3.setForeground(new java.awt.Color(41, 127, 184));
                 lblDNI3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-                lblDNI3.setText("Dni del Cliente:");
+                lblDNI3.setText("RUC del Cliente:");
 
                 lblDNI.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
                 lblDNI.setForeground(new java.awt.Color(41, 127, 184));
                 lblDNI.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
                 lblDNI.setText("DNI");
+
+                TXT_ID_CLIENTE_F.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        TXT_ID_CLIENTE_FCaretUpdate(evt);
+                    }
+                });
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -768,9 +786,11 @@ public class Facturador extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnGuardar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TXT_ID_CLIENTE_F, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
                                 .addComponent(lblDNI3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -789,7 +809,8 @@ public class Facturador extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblDNI3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lblDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TXT_ID_CLIENTE_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
                 );
 
@@ -2913,6 +2934,69 @@ public class Facturador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCGarantiaActionPerformed
 
+    private void TXT_ID_CLIENTE_FCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_ID_CLIENTE_FCaretUpdate
+        MOSTRAR_DATOS_CLIENTE(TXT_ID_CLIENTE_F.getText());
+    }//GEN-LAST:event_TXT_ID_CLIENTE_FCaretUpdate
+
+    public void MOSTRAR_DATOS_CLIENTE(String cod){
+        String consulta="";
+        try {
+            consulta="EXEC CUENTAS_POR_PAGAR_EMPRESA_DATOS ?";
+            PreparedStatement cmd = F.getCn().prepareStatement(consulta);
+            cmd.setString(1, cod);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                txtTipoDocumento.setText(r.getString(1));
+                txtApeNom.setText(r.getString(2));
+                txtCorreo.setText(r.getString(3));
+                cbxTipoDocumento.setSelectedItem(String.valueOf(r.getString(4)));
+                
+                lblDNI.setText(r.getString(1));
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error carga datos cliente: " + e.getMessage());
+        }
+    }
+    
+    public void inicializar_TB_FACTURADOR(){       
+        try {
+            
+            String titulosb[]={"ITEM","Descripción","Valor U.","Cantidad","Precio",
+                "IGV", "Dscto","Total"};
+            m=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(m);
+            String filasb[]=new String[8];
+            tbFacturacion.setModel(m);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(m);
+            tbFacturacion.setRowSorter(elQueOrdenasb);
+            tbFacturacion.setModel(m);
+            
+            formato_TB_FACTURADOR();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla FACTURADOR: " + e);
+        }      
+    }
+    
+    public void formato_TB_FACTURADOR(){        
+            tbFacturacion.getColumnModel().getColumn(0).setPreferredWidth(65);
+            tbFacturacion.getColumnModel().getColumn(1).setPreferredWidth(800); 
+            tbFacturacion.getColumnModel().getColumn(2).setPreferredWidth(65);
+            tbFacturacion.getColumnModel().getColumn(3).setPreferredWidth(65);
+            tbFacturacion.getColumnModel().getColumn(4).setPreferredWidth(65);                
+            tbFacturacion.getColumnModel().getColumn(5).setPreferredWidth(65); 
+            tbFacturacion.getColumnModel().getColumn(6).setPreferredWidth(65);
+            tbFacturacion.getColumnModel().getColumn(7).setPreferredWidth(65);
+            
+            //Ocultar
+//            TB_UO_ACTIVIDADES.getColumnModel().getColumn(2).setMinWidth(0);
+//            TB_UO_ACTIVIDADES.getColumnModel().getColumn(2).setMaxWidth(0);    
+//            TB_UO_ACTIVIDADES.getColumnModel().getColumn(3).setMinWidth(0);
+//            TB_UO_ACTIVIDADES.getColumnModel().getColumn(3).setMaxWidth(0);      
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -2951,6 +3035,7 @@ public class Facturador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Empresa;
+    public static javax.swing.JTextField TXT_ID_CLIENTE_F;
     private javax.swing.JButton btnBuscarPaciente5;
     private javax.swing.JButton btnGenerarDoc;
     public static javax.swing.JButton btnGuardar;

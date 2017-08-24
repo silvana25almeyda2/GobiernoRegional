@@ -67,7 +67,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             System.out.println("Error: generarSerieCorrelativo - " + ex.getMessage());
         }
     }
-    
+
     public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
         {
         boolean resp = false;
