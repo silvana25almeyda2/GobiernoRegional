@@ -42,6 +42,18 @@ public class Principal extends javax.swing.JFrame {
         PaginasP.setSelectedIndex(1);
     }
             
+    
+    public void Facturador_Abrir(){
+        Principal_Facturador F =new Principal_Facturador();
+        Facturador.add(F);
+        
+        try {
+            F.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PaginasP.setSelectedIndex(2);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1180,7 +1192,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturadorMouseEntered
 
     private void btnFacturadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturadorActionPerformed
-        // TODO add your handling code here:
+       Facturador_Abrir();
     }//GEN-LAST:event_btnFacturadorActionPerformed
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
