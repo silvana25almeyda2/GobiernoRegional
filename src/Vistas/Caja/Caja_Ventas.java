@@ -123,10 +123,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     panelMensaje.setVisible(false);  
                     txtEnterEscapeEnter.requestFocus();
         }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
-                    Facturador frm_F = new Facturador();
-                    frm_F.setVisible(true);
-                    TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
-                    CARGAR_TB_FACTURADOR();
+                    btnImprimir.setEnabled(true);
+                    panelAnular.setVisible(true);
+                    panelMensaje.setVisible(false);  
+                    txtEnterEscapeEnter.requestFocus();
+                    
         }
         if(lblCliente.getText().equals("Cliente") && tb_CPT.getRowCount()==0){ 
                    dispose();
@@ -243,13 +244,12 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             this.txtSubTotal.setText(String.valueOf(bd2) );
             this.txtIGV.setText("0.00");
             this.txtTotal.setText(String.valueOf(bd2) );
-            lblMontos.setText("Total a Pagar    S/."+String.valueOf(bd2));
+            lblMontos.setText("Total a Pagar    S/. "+String.valueOf(bd2));
         }else if (!lblGrupo.getText().equals("TP")){
             this.txtSubTotal.setText(String.valueOf(bd4) );
             this.txtIGV.setText(String.valueOf(bd3) );
             this.txtTotal.setText(String.valueOf(bd2) );
-            lblMontos.setText("Subtotal    S/."+String.valueOf(bd4)+"       "+"IGV    S/."+String.valueOf(bd3)+"       "+"Total a Pagar    S/."+String.valueOf(bd2));
-
+            lblMontos.setText("Subtotal    S/. "+String.valueOf(bd4)+"       "+"IGV    S/. "+String.valueOf(bd3)+"       "+"Total a Pagar    S/. "+String.valueOf(bd2));
         }
     }
     
@@ -2019,19 +2019,19 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                         .addComponent(Mensaje4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     );
 
-                                    jPanel2.setBackground(new java.awt.Color(127, 140, 141));
+                                    jPanel2.setBackground(new java.awt.Color(230, 230, 230));
                                     jPanel2.setPreferredSize(new java.awt.Dimension(405, 113));
 
-                                    lblCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                    lblCliente.setForeground(new java.awt.Color(255, 255, 255));
+                                    lblCliente.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+                                    lblCliente.setForeground(new java.awt.Color(51, 51, 51));
                                     lblCliente.setText("Cliente");
 
                                     lblDocumento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                                    lblDocumento.setForeground(new java.awt.Color(255, 255, 255));
+                                    lblDocumento.setForeground(new java.awt.Color(51, 51, 51));
                                     lblDocumento.setText("DNI");
 
                                     lblDocumento1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                                    lblDocumento1.setForeground(new java.awt.Color(255, 255, 255));
+                                    lblDocumento1.setForeground(new java.awt.Color(51, 51, 51));
                                     lblDocumento1.setText("DOCUMENTO");
 
                                     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -2043,17 +2043,18 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
+                                                    .addGap(1, 1, 1)
                                                     .addComponent(lblDocumento1)
-                                                    .addGap(11, 11, 11)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(lblDocumento)))
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addContainerGap(440, Short.MAX_VALUE))
                                     );
                                     jPanel2Layout.setVerticalGroup(
                                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(23, 23, 23)
+                                            .addContainerGap()
                                             .addComponent(lblCliente)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGap(18, 18, 18)
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(lblDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(lblDocumento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2575,7 +2576,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     panelMensaje.setVisible(false);  
                     txtEnterEscapeEnter.requestFocus();
         }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
-            JOptionPane.showMessageDialog(this, "VAMO FACTURANDO");
+                    Facturador frm_F = new Facturador();
+                    frm_F.setVisible(true);
+                    TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
+                    CARGAR_TB_FACTURADOR();
         }
         
     }//GEN-LAST:event_btnImprimirActionPerformed
@@ -2912,7 +2916,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             cbxTipoDocumento.setEnabled(true);
             cbxTipoDocumento.requestFocus();
         }else if(!cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
-            System.out.println("VAMO FACTURANDO");
+            Facturador frm_F = new Facturador();
+            frm_F.setVisible(true);
+            TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
+            CARGAR_TB_FACTURADOR();
         } 
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed
 

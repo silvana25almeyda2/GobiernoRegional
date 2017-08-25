@@ -181,7 +181,7 @@
 	<detail>
 		<band height="71" splitType="Stretch">
 			<rectangle>
-				<reportElement stretchType="RelativeToTallestObject" x="0" y="10" width="553" height="61" isPrintWhenDetailOverflows="true" forecolor="#666666" backcolor="#FFFFFF" uuid="92968250-55eb-4d3d-93f7-7df73bf12b83"/>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="10" width="555" height="61" isPrintWhenDetailOverflows="true" forecolor="#666666" backcolor="#FFFFFF" uuid="92968250-55eb-4d3d-93f7-7df73bf12b83"/>
 			</rectangle>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="205" y="12" width="153" height="59" uuid="22d13d02-29d8-46ad-9e5e-03766e4518cc"/>
@@ -218,7 +218,7 @@
 				<reportElement stretchType="RelativeToTallestObject" x="418" y="10" width="1" height="61" forecolor="#666666" uuid="00b79815-a779-498c-b36f-c4cfcba2843a"/>
 			</line>
 			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="486" y="10" width="1" height="61" forecolor="#666666" uuid="71a3127b-d103-47d4-8838-9a01ba39f6d2"/>
+				<reportElement stretchType="RelativeToTallestObject" x="488" y="10" width="1" height="61" forecolor="#666666" uuid="71a3127b-d103-47d4-8838-9a01ba39f6d2"/>
 			</line>
 			<line>
 				<reportElement stretchType="RelativeToTallestObject" x="359" y="10" width="1" height="61" forecolor="#666666" uuid="db2eab51-72cb-4f73-b235-50188807f6f7"/>
