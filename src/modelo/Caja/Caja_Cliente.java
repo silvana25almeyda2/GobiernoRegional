@@ -6,6 +6,7 @@
 package modelo.Caja;
 
 import Servicios.Conexion;
+import Vistas.Caja.Caja_Clientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -121,6 +122,51 @@ Conexion con = new Conexion();
             System.out.println("ERROR AL ELIMINAR  " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public int VALIDAR_DOCUMENTO(String nombre){
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM CAJA_CLIENTES where DNI=?  AND ESTADO='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    public void LISTAR_PERMISOS(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Clientes.lblNivel.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Caja_Clientes.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Caja_Clientes.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
     }
     
     public void LISTA_CLIENTES(String descripcion,JTable tabla){

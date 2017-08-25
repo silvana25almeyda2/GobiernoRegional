@@ -38,6 +38,7 @@ private String BASE_LEGAL ;
 private String DESCRIPCION ;
 private String PORCENTAJE ;
 private String USUARIO;
+private double PRECIO;
 
     public boolean NUEVO_CPT(){
         boolean resp = false;
@@ -93,14 +94,79 @@ private String USUARIO;
         }
         return resp;
     }
+    
+    public int VALIDAR_TUPA(String nombre){
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM CAJA_CPT where NRO_ITEM=?  AND ESTADO='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    public int VALIDAR_TUPA_DES(String nombre){
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM CAJA_CPT where NOMBRE=?  AND ESTADO='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    public boolean MODIFICAR_UIT(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CPT_MODIFICAR_UIT ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setDouble(1, getPRECIO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL MODIFICAR UIT  " + ex.getMessage());
+        }
+        return resp;
+    }
     public boolean ELIMINAR_CPT(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_CPT_ELIMINAR ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CPT());
-            if(!cmd.execute())
-            {
+            if(!cmd.execute()){
                 resp = true;
             }
             cmd.close();
@@ -352,6 +418,16 @@ private String USUARIO;
     public void setUSUARIO(String USUARIO) {
         this.USUARIO = USUARIO;
     }
+
+    public double getPRECIO() {
+        return PRECIO;
+    }
+
+    public void setPRECIO(double PRECIO) {
+        this.PRECIO = PRECIO;
+    }
+    
+    
     
     
 }

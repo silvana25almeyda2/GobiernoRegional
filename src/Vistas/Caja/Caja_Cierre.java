@@ -231,7 +231,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel57.setText("Cierre de Caja");
 
         lblID_APERTURA.setBackground(new java.awt.Color(255, 51, 51));
-        lblID_APERTURA.setForeground(new java.awt.Color(255, 255, 255));
+        lblID_APERTURA.setForeground(new java.awt.Color(255, 51, 51));
         lblID_APERTURA.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -463,12 +463,12 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(43, 43, 43))
         );
 
-        jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel5.setBackground(new java.awt.Color(230, 230, 230));
         jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Detener-30.png"))); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(51, 51, 51));
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Stop-32.png"))); // NOI18N
         btnNuevo.setText("Cerrar Caja");
         btnNuevo.setContentAreaFilled(false);
         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -482,8 +482,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         });
 
         btnNuevo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNuevo1.setForeground(new java.awt.Color(240, 240, 240));
-        btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Atrás-30.png"))); // NOI18N
+        btnNuevo1.setForeground(new java.awt.Color(51, 51, 51));
+        btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Back-32.png"))); // NOI18N
         btnNuevo1.setText("Cancelar");
         btnNuevo1.setContentAreaFilled(false);
         btnNuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -575,9 +575,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
@@ -645,7 +643,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
         );
 
         pack();

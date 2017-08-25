@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.420000000000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="366"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -69,35 +69,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT      CDC.SERIE as serie,CDC.CORRELATIVO AS correlativo, CJ.DESCIPCION,
-
-			CASE TIPO_DOCUMENTO
-			WHEN '6 RUC' THEN AHC.dni+'   '+RAZON_SOCIAL
-			ELSE APELLIDO_PATERNO+'  '+APELLIDO_MATERNO+' '+NOMBRES END AS 'CLIENTE' ,
-			   left(CDC.total_doc,len(CDC.total_doc)) AS TOTAL,CDC.FECHA,
-               CDC.HORA,AHC.dni,CDC.USUARIO,AHC.ID_CLIENTE,
-			   UPPER(UE.UE_DESC) AS 'DESCRIP', UPPER(UE.DIRECCION) AS 'DIRECCION', UE.RUC,RTRIM(UE.TELEFONO) AS TELEFONO , SD.nombre_distrito,
-               SP.nombre_provincia, SDEP.nombre_departamento,
-			   PP.ape_pat_per+' '+PP.ape_mat_per+' '+PP.nombres_per AS PERSONAL
-FROM  CAJA_CLIENTES AHC,
-CAJA_DOCUMENTO_CABECERA CDC,
-CAJA_FORMA_PAGO CJ ,
-SISTEMA_USUARIO U,
-PERSONAL PP,
-SISTEMA_UNIDAD_EJECUTORA UE,
-SISTEMA_DISTRITO SD,
-SISTEMA_PROVINCIA SP,
-SISTEMA_DEPARTAMENTO SDEP
-WHERE
-AHC.ID_CLIENTE = CDC.ID_CLIENTE AND
-CJ.ID_FORMA_PAGO=CDC.ID_FORMA_PAGO AND
-U.Usu_Usuario=CDC.USUARIO AND
-PP.cod_per=U.cod_per AND
-UE.cod_dis = SD.cod_dis  AND
-SD.cod_prov = SP.cod_prov AND
-SP.cod_dep = SDEP.cod_dep
-
-AND  CDC.id_documento=$P{doc}]]>
+		<![CDATA[EXEC CAJA_TICKET_CABECERA $P{doc}]]>
 	</queryString>
 	<field name="serie" class="java.lang.String"/>
 	<field name="correlativo" class="java.lang.String"/>
@@ -114,8 +86,6 @@ AND  CDC.id_documento=$P{doc}]]>
 	<field name="RUC" class="java.lang.String"/>
 	<field name="TELEFONO" class="java.lang.String"/>
 	<field name="nombre_distrito" class="java.lang.String"/>
-	<field name="nombre_provincia" class="java.lang.String"/>
-	<field name="nombre_departamento" class="java.lang.String"/>
 	<field name="PERSONAL" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>

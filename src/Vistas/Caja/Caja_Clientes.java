@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import modelo.Caja.Caja_Cliente;
 import modelo.Caja.Caja_NuevaVenta;
 
@@ -22,14 +24,19 @@ Conexion c=new Conexion();
 Connection conexion=c.conectar();
 byte tg;
 byte tgm;
+private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     /**
      * Creates new form Caja_Clientes
      */
     public Caja_Clientes() {
         initComponents();
         Caja_Cliente A = new Caja_Cliente();
+        Caja_Cliente N = new Caja_Cliente();
         A.LISTA_CLIENTES("",tb_Clientes);
+        N.LISTAR_PERMISOS(lblusu.getText());
         cargareliminar.setVisible(false);
+        NivelSuperior.setLocationRelativeTo(null);//en el centro
         this.setExtendedState(MAXIMIZED_BOTH);
         LIMPIAR();
         HABILITAR(false);
@@ -44,6 +51,23 @@ byte tgm;
         Paginas.setEnabled(false);
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
+        btnCaja.setVisible(false);
+    }
+    
+    private final static Pattern RTRIM = Pattern.compile("\\s+$");
+    public static String rtrim(String s) {
+    return RTRIM.matcher(s).replaceAll("");
+    }
+    
+    public static boolean valida_Email(String email) {
+ 
+        // Compiles the given regular expression into a pattern.
+        Pattern pattern = Pattern.compile(PATTERN_EMAIL);
+ 
+        // Match the given input against this pattern
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+ 
     }
     
     public void LIMPIAR(){
@@ -112,7 +136,10 @@ byte tgm;
     }
     
     public void NUEVO_REGISTRO(){
-       if((txtDOC.getText().equals(""))){
+        if(valida_Email(txtCorreo.getText())==false){
+            System.out.println("correo no valido");
+        }
+        if((txtDOC.getText().equals(""))){
             cargareliminar.setVisible(true);        
             cargareliminar.setBackground(new Color(255,91,70)); 
             Mensaje.setText("Debe completar los campos requeridos");
@@ -169,7 +196,7 @@ byte tgm;
         }                 
     }
     public void MODIFICAR_REGISTRO(){
-       
+
                 Caja_Cliente cno1 = new Caja_Cliente();
                 cno1.setID_CLIENTE(Integer.parseInt(lblID.getText()));
                 cno1.setDNI(txtDOC.getText());
@@ -241,6 +268,12 @@ byte tgm;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NivelSuperior = new javax.swing.JDialog();
+        jPanel145 = new javax.swing.JPanel();
+        jLabel64 = new javax.swing.JLabel();
+        jPanel146 = new javax.swing.JPanel();
+        btnAlertConsulta10 = new javax.swing.JButton();
+        jLabel67 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -254,6 +287,8 @@ byte tgm;
         lbldetalle = new javax.swing.JLabel();
         btnLista = new javax.swing.JButton();
         btnCaja = new javax.swing.JButton();
+        lblNivel = new javax.swing.JLabel();
+        lblPermiso = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         Paginas = new javax.swing.JTabbedPane();
@@ -308,6 +343,86 @@ byte tgm;
             Mensaje = new javax.swing.JLabel();
             eli = new javax.swing.JButton();
             noeli = new javax.swing.JButton();
+
+            NivelSuperior.setAlwaysOnTop(true);
+            NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
+            NivelSuperior.setResizable(false);
+
+            jPanel145.setBackground(new java.awt.Color(230, 230, 230));
+
+            jLabel64.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+            jLabel64.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel64.setText("Error");
+
+            jPanel146.setBackground(new java.awt.Color(41, 127, 184));
+
+            btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+            btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
+            btnAlertConsulta10.setText("Entendido");
+            btnAlertConsulta10.setContentAreaFilled(false);
+            btnAlertConsulta10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnAlertConsulta10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnAlertConsulta10.setIconTextGap(30);
+            btnAlertConsulta10.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnAlertConsulta10ActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel146Layout = new javax.swing.GroupLayout(jPanel146);
+            jPanel146.setLayout(jPanel146Layout);
+            jPanel146Layout.setHorizontalGroup(
+                jPanel146Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(btnAlertConsulta10, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+            );
+            jPanel146Layout.setVerticalGroup(
+                jPanel146Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel146Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnAlertConsulta10))
+            );
+
+            jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            jLabel67.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel67.setText("<html>Necesita permisos especiales <BR>Para realizar esta acción.</html>");
+
+            javax.swing.GroupLayout jPanel145Layout = new javax.swing.GroupLayout(jPanel145);
+            jPanel145.setLayout(jPanel145Layout);
+            jPanel145Layout.setHorizontalGroup(
+                jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel145Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addGroup(jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel64)
+                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(228, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel145Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20))
+            );
+            jPanel145Layout.setVerticalGroup(
+                jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel145Layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(jLabel64)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(18, Short.MAX_VALUE))
+            );
+
+            javax.swing.GroupLayout NivelSuperiorLayout = new javax.swing.GroupLayout(NivelSuperior.getContentPane());
+            NivelSuperior.getContentPane().setLayout(NivelSuperiorLayout);
+            NivelSuperiorLayout.setHorizontalGroup(
+                NivelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            NivelSuperiorLayout.setVerticalGroup(
+                NivelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -382,10 +497,10 @@ byte tgm;
                 }
             });
 
-            lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+            lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblusu.setForeground(new java.awt.Color(255, 255, 255));
             lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Usuario-40.png"))); // NOI18N
-            lblusu.setText("Silvana");
+            lblusu.setText("MARTHA");
             lblusu.setFocusable(false);
             lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -458,6 +573,12 @@ byte tgm;
                 }
             });
 
+            lblNivel.setForeground(new java.awt.Color(41, 127, 184));
+            lblNivel.setText("jLabel2");
+
+            lblPermiso.setForeground(new java.awt.Color(41, 127, 184));
+            lblPermiso.setText("jLabel3");
+
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
             jPanel1Layout.setHorizontalGroup(
@@ -483,7 +604,9 @@ byte tgm;
                                             .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblNivel)
+                                        .addComponent(lblPermiso)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(40, 40, 40)
                                     .addComponent(btnCaja)))
@@ -514,16 +637,20 @@ byte tgm;
                     .addComponent(btnLista)
                     .addGap(18, 18, 18)
                     .addComponent(btnCaja)
+                    .addGap(30, 30, 30)
+                    .addComponent(lblNivel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblPermiso)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblusu)
                     .addContainerGap())
             );
 
-            jPanel5.setBackground(new java.awt.Color(127, 140, 141));
+            jPanel5.setBackground(new java.awt.Color(230, 230, 230));
             jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
-            jLabel33.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-            jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+            jLabel33.setForeground(new java.awt.Color(51, 51, 51));
             jLabel33.setText("Listado");
 
             javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1174,6 +1301,7 @@ byte tgm;
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
+            lblTipoR.setForeground(new java.awt.Color(255, 255, 255));
             lblTipoR.setText("jLabel2");
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1305,32 +1433,77 @@ byte tgm;
         }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        tg = 1;
-        lblTipoR.setText("N");
-        btnNuevo.setEnabled(true);
-        btnguardar.setEnabled(true);
-        btneditar.setEnabled(false);
-        btneliminar.setEnabled(false);
-        jPanel7.setVisible(false);
-        jPanel6.setVisible(false);
-        jPanel8.setVisible(false);
-        LIMPIAR();
-        HABILITAR(true);
-        Paginas.setSelectedIndex(1);
-        
+        if(lblPermiso.getText().equals("E")){
+            tg = 1;
+            lblTipoR.setText("N");
+            btnNuevo.setEnabled(true);
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            btneliminar.setEnabled(false);
+            jPanel7.setVisible(false);
+            jPanel6.setVisible(false);
+            jPanel8.setVisible(false);
+            LIMPIAR();
+            HABILITAR(true);
+            Paginas.setSelectedIndex(1);
+        }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        tg=2;
-        btnguardar.setEnabled(true);
-        btneditar.setEnabled(false);
-        HABILITAR(true);
-        Paginas.setSelectedIndex(1);
+        if(lblPermiso.getText().equals("E")){
+            tg=2;
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            HABILITAR(true);
+            Paginas.setSelectedIndex(1);
+        }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+        }
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-
+        Caja_Cliente cn = new Caja_Cliente();
+        String dni;
+        dni=txtDOC.getText();
+        String sdni;
+        sdni=rtrim(dni);
+        int c;
+        c=sdni.length();
+        System.out.println(""+c);
             if(tg==1){
+                if(cbxTipoDoc.getSelectedItem().equals("1 DNI")&&c<8){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("El DNI ingresado es Incorrecto, Verifique ");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+                txtDOC.requestFocus(); 
+                }else if(cbxTipoDoc.getSelectedItem().equals("6 RUC")&&c<11){
+                    cargareliminar.setVisible(true);
+                    cargareliminar.setBackground(new Color(255,91,70)); 
+                    Mensaje.setText("El RUC ingresado es Incorrecto, Verifique ");
+                    eli.setVisible(false);
+                    noeli.setVisible(false);
+                    txtDOC.requestFocus(); 
+                    } else if(valida_Email(txtCorreo.getText())==false){
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                        txtCorreo.requestFocus();    
+                    }else if(cn.VALIDAR_DOCUMENTO(txtDOC.getText())>0){
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("El Nª de Documento ingresado ya existe, Verifique ");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                        txtDOC.requestFocus();    
+                }else
                  NUEVO_REGISTRO();  
             }
             if(tg==2){
@@ -1345,14 +1518,19 @@ byte tgm;
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        cargareliminar.setVisible(true);
-        cargareliminar.setBackground(new Color(255,91,70)); 
-        Mensaje.setText("Desea Eliminar este registro?");
-        eli.setText("Si");
-        eli.setVisible(true);
-        noeli.setText("No");
-        noeli.setVisible(true);
-        tgm=8;  
+        if(lblPermiso.getText().equals("E")){
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,91,70)); 
+            Mensaje.setText("Desea Eliminar este registro?");
+            eli.setText("Si");
+            eli.setVisible(true);
+            noeli.setText("No");
+            noeli.setVisible(true);
+            tgm=8;  
+        }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+        }    
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
@@ -1499,11 +1677,45 @@ byte tgm;
     }//GEN-LAST:event_txtDireccionCaretUpdate
 
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
+        Caja_Cliente cn = new Caja_Cliente();
+        String dni;
+        dni=txtDOC.getText();
+        String sdni;
+        sdni=rtrim(dni);
+        int c;
+        c=sdni.length();
+        System.out.println(""+c);
         if (tgm==3){
-            MODIFICAR_REGISTRO();
-            btnguardar.setEnabled(true);
-            btneditar.setEnabled(false);
-            btneliminar.setEnabled(false);
+            if(cbxTipoDoc.getSelectedItem().equals("1 DNI")&&c<8){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("El DNI ingresado es Incorrecto, Verifique ");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+                txtDOC.requestFocus(); 
+                }else if(cbxTipoDoc.getSelectedItem().equals("6 RUC")&&c<11){
+                    cargareliminar.setVisible(true);
+                    cargareliminar.setBackground(new Color(255,91,70)); 
+                    Mensaje.setText("El RUC ingresado es Incorrecto, Verifique ");
+                    eli.setVisible(false);
+                    noeli.setVisible(false);
+                    txtDOC.requestFocus(); 
+                    } else if(valida_Email(txtCorreo.getText())==false){
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                        txtCorreo.requestFocus();    
+            }else
+                          
+            
+            
+                    MODIFICAR_REGISTRO();
+                    btnguardar.setEnabled(true);
+                    btneditar.setEnabled(false);
+                    btneliminar.setEnabled(false);          
+                    
         } else
         if (tgm==8){
             ELIMINAR_CLIENTE();
@@ -1628,24 +1840,24 @@ byte tgm;
         if(txtT1.getText().equals("X")){
             if (txtDOC.getText().length()==8){
                 evt.consume();
-                Toolkit.getDefaultToolkit().beep();
+//                Toolkit.getDefaultToolkit().beep();
             }
             char tecla;
             tecla = evt.getKeyChar();
             if(!Character.isDigit(tecla)){
                 evt.consume();
-                getToolkit().beep();            
+//                getToolkit().beep();            
             } 
         }else if(txtT2.getText().equals("X")){
             if (txtDOC.getText().length()==11){
                 evt.consume();
-                Toolkit.getDefaultToolkit().beep();
+//                Toolkit.getDefaultToolkit().beep();
             }
             char tecla;
             tecla = evt.getKeyChar();
             if(!Character.isDigit(tecla)){
                 evt.consume();
-                getToolkit().beep();            
+//                getToolkit().beep();            
             } 
             
         }
@@ -1670,6 +1882,10 @@ byte tgm;
         HABILITAR(true);
         Paginas.setSelectedIndex(1);
     }//GEN-LAST:event_btnCajaActionPerformed
+
+    private void btnAlertConsulta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta10ActionPerformed
+        NivelSuperior.dispose();
+    }//GEN-LAST:event_btnAlertConsulta10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1708,7 +1924,9 @@ byte tgm;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Mensaje;
+    private javax.swing.JDialog NivelSuperior;
     private javax.swing.JTabbedPane Paginas;
+    private javax.swing.JButton btnAlertConsulta10;
     private javax.swing.JButton btnBuscarPaciente;
     public static javax.swing.JButton btnCaja;
     public static javax.swing.JButton btnLista;
@@ -1733,8 +1951,12 @@ byte tgm;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel145;
+    private javax.swing.JPanel jPanel146;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
@@ -1748,6 +1970,8 @@ byte tgm;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblJuridica;
     private javax.swing.JLabel lblNatural;
+    public static javax.swing.JLabel lblNivel;
+    public static javax.swing.JLabel lblPermiso;
     private javax.swing.JLabel lblTipoR;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;

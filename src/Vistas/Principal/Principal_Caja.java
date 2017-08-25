@@ -7,6 +7,8 @@ package Vistas.Principal;
 
 import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_Cierre;
+import Vistas.Caja.Caja_Clientes;
+import Vistas.Caja.Caja_Transaccion;
 import Vistas.Caja.Caja_Ventas;
 import static Vistas.Principal.Principal.PaginasP;
 import java.awt.Color;
@@ -61,7 +63,7 @@ private Dimension DimensionBarra = null;
         PanelCPT = new javax.swing.JPanel();
         btnCPT = new javax.swing.JButton();
         PanelCaja2 = new javax.swing.JPanel();
-        btnCaja2 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         PanelCaja3 = new javax.swing.JPanel();
         btnCaja3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -232,30 +234,30 @@ private Dimension DimensionBarra = null;
 
         PanelCaja2.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCaja2.setBackground(new java.awt.Color(102, 102, 102));
-        btnCaja2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnCaja2.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
-        btnCaja2.setText("Clientes");
-        btnCaja2.setContentAreaFilled(false);
-        btnCaja2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCaja2.setFocusPainted(false);
-        btnCaja2.setFocusable(false);
-        btnCaja2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCaja2.setIconTextGap(30);
-        btnCaja2.setVerifyInputWhenFocusTarget(false);
-        btnCaja2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCaja2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClientes.setBackground(new java.awt.Color(102, 102, 102));
+        btnClientes.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(51, 51, 51));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
+        btnClientes.setText("Clientes");
+        btnClientes.setContentAreaFilled(false);
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClientes.setFocusPainted(false);
+        btnClientes.setFocusable(false);
+        btnClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnClientes.setIconTextGap(30);
+        btnClientes.setVerifyInputWhenFocusTarget(false);
+        btnClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCaja2MouseClicked(evt);
+                btnClientesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCaja2MouseEntered(evt);
+                btnClientesMouseEntered(evt);
             }
         });
-        btnCaja2.addActionListener(new java.awt.event.ActionListener() {
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCaja2ActionPerformed(evt);
+                btnClientesActionPerformed(evt);
             }
         });
 
@@ -263,11 +265,11 @@ private Dimension DimensionBarra = null;
         PanelCaja2.setLayout(PanelCaja2Layout);
         PanelCaja2Layout.setHorizontalGroup(
             PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
         );
         PanelCaja2Layout.setVerticalGroup(
             PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
         PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
@@ -275,8 +277,8 @@ private Dimension DimensionBarra = null;
         btnCaja3.setBackground(new java.awt.Color(102, 102, 102));
         btnCaja3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnCaja3.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        btnCaja3.setText("Roles");
+        btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"))); // NOI18N
+        btnCaja3.setText("Cuentas Contables");
         btnCaja3.setContentAreaFilled(false);
         btnCaja3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCaja3.setFocusPainted(false);
@@ -303,7 +305,7 @@ private Dimension DimensionBarra = null;
         PanelCaja3.setLayout(PanelCaja3Layout);
         PanelCaja3Layout.setHorizontalGroup(
             PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelCaja3Layout.setVerticalGroup(
             PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +338,7 @@ private Dimension DimensionBarra = null;
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
         );
 
-        ibiIDAPERTURA.setForeground(new java.awt.Color(51, 51, 51));
+        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
         ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -358,7 +360,7 @@ private Dimension DimensionBarra = null;
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(ibiIDAPERTURA)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,6 +414,16 @@ private Dimension DimensionBarra = null;
         btnCPT.setIcon(CambioC);
         btnCPT.setForeground(new Color(51,51,51)); 
         PanelCPT.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        btnClientes.setIcon(CambioP);
+        btnClientes.setForeground(new Color(51,51,51)); 
+        PanelCaja2.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        btnCaja3.setIcon(CambioCT);
+        btnCaja3.setForeground(new Color(51,51,51)); 
+        PanelCaja3.setBackground(new Color(255,255,255)); 
     }//GEN-LAST:event_btnVentasMouseEntered
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
@@ -444,6 +456,16 @@ private Dimension DimensionBarra = null;
         btnVentas.setIcon(CambioV);
         btnVentas.setForeground(new Color(51,51,51)); 
         PanelCaja.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        btnClientes.setIcon(CambioP);
+        btnClientes.setForeground(new Color(51,51,51)); 
+        PanelCaja2.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        btnCaja3.setIcon(CambioCT);
+        btnCaja3.setForeground(new Color(51,51,51)); 
+        PanelCaja3.setBackground(new Color(255,255,255)); 
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
@@ -453,28 +475,71 @@ private Dimension DimensionBarra = null;
         TP.lblusu.setText(u);
     }//GEN-LAST:event_btnCPTActionPerformed
 
-    private void btnCaja2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseClicked
+    private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2MouseClicked
+    }//GEN-LAST:event_btnClientesMouseClicked
 
-    private void btnCaja2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2MouseEntered
+    private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
 
-    private void btnCaja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCaja2ActionPerformed
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
+        btnClientes.setIcon(CambioP);
+        btnClientes.setForeground(new Color(255,255,255)); 
+        PanelCaja2.setBackground(new Color(127,140,141)); 
+        
+        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
+        btnVentas.setIcon(CambioV);
+        btnVentas.setForeground(new Color(51,51,51)); 
+        PanelCaja.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
+        btnCPT.setIcon(CambioC);
+        btnCPT.setForeground(new Color(51,51,51)); 
+        PanelCPT.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        btnCaja3.setIcon(CambioCT);
+        btnCaja3.setForeground(new Color(51,51,51)); 
+        PanelCaja3.setBackground(new Color(255,255,255)); 
+    }//GEN-LAST:event_btnClientesMouseEntered
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        Caja_Clientes CCLI = new Caja_Clientes();
+        CCLI.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        CCLI.lblusu.setText(u);
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCaja3MouseClicked
 
     private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
-        // TODO add your handling code here:
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        btnClientes.setIcon(CambioP);
+        btnClientes.setForeground(new Color(51,51,51)); 
+        PanelCaja2.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
+        btnVentas.setIcon(CambioV);
+        btnVentas.setForeground(new Color(51,51,51)); 
+        PanelCaja.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
+        btnCPT.setIcon(CambioC);
+        btnCPT.setForeground(new Color(51,51,51)); 
+        PanelCPT.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        btnCaja3.setIcon(CambioCT);
+        btnCaja3.setForeground(new Color(255,255,255)); 
+        PanelCaja3.setBackground(new Color(127,140,141));
     }//GEN-LAST:event_btnCaja3MouseEntered
 
     private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed
-        // TODO add your handling code here:
+        Caja_Transaccion CCC = new Caja_Transaccion();
+        CCC.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        CCC.lblusu.setText(u);
     }//GEN-LAST:event_btnCaja3ActionPerformed
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
@@ -504,8 +569,8 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel PanelCaja3;
     private javax.swing.JPanel PanelSesion;
     public static javax.swing.JButton btnCPT;
-    public static javax.swing.JButton btnCaja2;
     public static javax.swing.JButton btnCaja3;
+    public static javax.swing.JButton btnClientes;
     public static javax.swing.JButton btnVentas;
     public static javax.swing.JLabel ibiIDAPERTURA;
     private javax.swing.JLabel jLabel1;
