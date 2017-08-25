@@ -110,7 +110,7 @@ public void reporteCierre(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteCierre.jasper"), parametros, con.conectar());   
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierre.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");
@@ -122,7 +122,7 @@ public void reporteCierreANULADAS(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteCierreAnulados.jasper"), parametros, con.conectar());   
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreAnuladas.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");
@@ -133,7 +133,7 @@ public void reporteCierreV(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteCierreVacio.jasper"), parametros, con.conectar());   
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreVacio.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");

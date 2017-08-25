@@ -153,6 +153,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 cno1.setBASE_LEGAL(txtBASE_LEGAL.getText());
                 cno1.setPORCENTAJE(txtPORCENTAJE.getText());
                 cno1.setUSUARIO(lblusu.getText());
+                cno1.setID_CPT(0);
                     if(cno1.NUEVO_CPT()==true){
                             cargareliminar.setVisible(true);
                             cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1557,6 +1558,8 @@ Caja_CPT nuevaR = new Caja_CPT();
             panelTUPA_COMPLETO.setVisible(false);
             LIMPIAR();
             HABILITAR(true);
+            Caja_CPT cno2 = new Caja_CPT();
+            cno2.DATOS_GRUPO(cbxGrupo.getSelectedItem().toString());
             Paginas.setSelectedIndex(1);
         }else if(!lblPermiso.getText().equals("E")){
             NivelSuperior.setUndecorated(true);

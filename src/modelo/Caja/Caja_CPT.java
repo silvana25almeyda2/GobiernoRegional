@@ -43,7 +43,7 @@ private double PRECIO;
     public boolean NUEVO_CPT(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_GRUPO());
             cmd.setInt(2, getID_Cuenta7());
@@ -53,6 +53,7 @@ private double PRECIO;
             cmd.setString(6, getDESCRIPCION());
             cmd.setString(7, getPORCENTAJE());
             cmd.setString(8, getUSUARIO());
+            cmd.setInt(9, getID_CPT());
             if(!cmd.execute())
             {
                 resp = true;
