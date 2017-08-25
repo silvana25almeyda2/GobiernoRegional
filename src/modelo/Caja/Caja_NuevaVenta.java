@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -21,6 +22,7 @@ import javax.swing.table.TableRowSorter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -47,6 +49,7 @@ private String USUARIO_DEV  ;
 private String TIPO_VENTA  ;
 private int ID_APERTURA  ;
 private String ESTADO  ;
+private String TIPO_GRUPO;
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 private int ID_PRECIO ;
@@ -123,9 +126,9 @@ private double DESCUENTOD ;
     public void FormatoCPT(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(600);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(800);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.setRowHeight(38);
@@ -244,13 +247,14 @@ private double DESCUENTOD ;
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR "
-                        + "?,?,?,?,?";
+                        + "?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_DOCUMENTO());
             cmd.setDouble(2, getDESCUENTO());
             cmd.setDouble(3, getSUB_TOTAL());
             cmd.setDouble(4, getIGV());
             cmd.setDouble(5, getTOTAL_DOC());
+            cmd.setString(6, getTIPO_GRUPO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -289,8 +293,6 @@ private double DESCUENTOD ;
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
-    
-
                     m.addRow(fila);
                     c++;
             }
@@ -304,7 +306,7 @@ private double DESCUENTOD ;
         }
     }
     
-          public void formatoTablaReporteCabecera(JTable tabla){
+    public void formatoTablaReporteCabecera(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(90);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(120);
@@ -333,10 +335,23 @@ private double DESCUENTOD ;
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Ticket.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                Caja_Ventas.ErrorExistente.setVisible(true);
-                
+                Caja_Ventas.ErrorExistente.setVisible(true);   
             }
-    }       
+    }
+    
+    public void ReporteDiario(String USUARIO,Integer SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO", USUARIO);
+            parametros.put("SESION", SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteDiario.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Diario");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
     
      public Caja_NuevaVenta(){
         Conexion con = new Conexion();
@@ -525,6 +540,14 @@ private double DESCUENTOD ;
 
     public void setDESCUENTOD(double DESCUENTOD) {
         this.DESCUENTOD = DESCUENTOD;
+    }
+
+    public String getTIPO_GRUPO() {
+        return TIPO_GRUPO;
+    }
+
+    public void setTIPO_GRUPO(String TIPO_GRUPO) {
+        this.TIPO_GRUPO = TIPO_GRUPO;
     }
      
      

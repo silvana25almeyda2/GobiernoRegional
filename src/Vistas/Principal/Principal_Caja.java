@@ -75,7 +75,7 @@ private Dimension DimensionBarra = null;
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CAJA APERTURADA");
 
@@ -86,7 +86,7 @@ private Dimension DimensionBarra = null;
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cierre de Caja");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,6 +324,9 @@ private Dimension DimensionBarra = null;
             }
         });
 
+        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
+        ibiIDAPERTURA.setText("jLabel48");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -331,15 +334,16 @@ private Dimension DimensionBarra = null;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ibiIDAPERTURA)
+                .addGap(174, 174, 174))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(ibiIDAPERTURA))
         );
-
-        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
-        ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -347,19 +351,14 @@ private Dimension DimensionBarra = null;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(ibiIDAPERTURA)))
+                .addContainerGap()
+                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -367,9 +366,7 @@ private Dimension DimensionBarra = null;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ibiIDAPERTURA)
-                .addGap(20, 20, 20)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,12 +412,12 @@ private Dimension DimensionBarra = null;
         btnCPT.setForeground(new Color(51,51,51)); 
         PanelCPT.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(51,51,51)); 
         PanelCaja2.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
         btnCaja3.setForeground(new Color(51,51,51)); 
         PanelCaja3.setBackground(new Color(255,255,255)); 
@@ -457,12 +454,12 @@ private Dimension DimensionBarra = null;
         btnVentas.setForeground(new Color(51,51,51)); 
         PanelCaja.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(51,51,51)); 
         PanelCaja2.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
         btnCaja3.setForeground(new Color(51,51,51)); 
         PanelCaja3.setBackground(new Color(255,255,255)); 
@@ -481,7 +478,7 @@ private Dimension DimensionBarra = null;
 
     private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
 
-        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(255,255,255)); 
         PanelCaja2.setBackground(new Color(127,140,141)); 
@@ -496,7 +493,8 @@ private Dimension DimensionBarra = null;
         btnCPT.setForeground(new Color(51,51,51)); 
         PanelCPT.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
         btnCaja3.setForeground(new Color(51,51,51)); 
         PanelCaja3.setBackground(new Color(255,255,255)); 
@@ -514,7 +512,7 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCaja3MouseClicked
 
     private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
-        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(51,51,51)); 
         PanelCaja2.setBackground(new Color(255,255,255)); 
@@ -552,6 +550,16 @@ private Dimension DimensionBarra = null;
         btnCPT.setIcon(CambioC);
         btnCPT.setForeground(new Color(51,51,51)); 
         PanelCPT.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
+        btnClientes.setIcon(CambioP);
+        btnClientes.setForeground(new Color(51,51,51)); 
+        PanelCaja2.setBackground(new Color(255,255,255)); 
+        
+        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
+        btnCaja3.setIcon(CambioCT);
+        btnCaja3.setForeground(new Color(51,51,51)); 
+        PanelCaja3.setBackground(new Color(255,255,255)); 
         
     }//GEN-LAST:event_jPanel2MouseEntered
 
