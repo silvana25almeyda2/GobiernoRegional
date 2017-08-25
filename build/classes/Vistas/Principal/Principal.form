@@ -1007,7 +1007,7 @@
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Component id="jPanel138" pref="12" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="PanelCaja" min="-2" max="-2" attributes="0"/>
                               <Component id="PanelFacturador" min="-2" max="-2" attributes="0"/>
@@ -1015,7 +1015,7 @@
                               <Component id="PanelCaja2" min="-2" max="-2" attributes="0"/>
                               <Component id="PanelHunadoy" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="107" max="32767" attributes="0"/>
+                          <EmptySpace pref="97" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1137,7 +1137,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel4">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b4" green="b3" red="a9" type="rgb"/>
+                      <Color blue="e6" green="e6" red="e6" type="rgb"/>
                     </Property>
                   </Properties>
 

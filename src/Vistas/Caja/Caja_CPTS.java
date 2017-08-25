@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import modelo.Caja.Caja_CPT;
 import modelo.Caja.Caja_Cta6;
 
@@ -93,6 +94,16 @@ Caja_CPT nuevaR = new Caja_CPT();
         jPanel5.setBackground(new Color(230,230,230));
         jPanel4.setBackground(new Color(230,230,230));
         txtPrecio_Base.setBackground(new Color(230,230,230));
+        jLabel33.setForeground(new Color(51,51,51));
+        lblDocumento1.setForeground(new Color(51,51,51));
+        txtPrecio_Base.setForeground(new Color(51,51,51));
+        eli1.setForeground(new Color(51,51,51));
+        save.setForeground(new Color(51,51,51));
+        cancel.setForeground(new Color(51,51,51));
+        ImageIcon CambioS=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Save-22.png"));
+        save.setIcon(CambioS);
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22.png"));
+        cancel.setIcon(CambioC);
         lblEditar.setText("0");
         jLabel33.setText("Listado");
     }
@@ -1814,12 +1825,23 @@ Caja_CPT nuevaR = new Caja_CPT();
             jPanel5.setBackground(new Color(255,51,51));
             jPanel4.setBackground(new Color(255,51,51));
             txtPrecio_Base.setBackground(new Color(255,51,51));
+            ImageIcon CambioS=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Save-22B.png"));
+            save.setIcon(CambioS);
+            ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22B.png"));
+            cancel.setIcon(CambioC);
+            jLabel33.setForeground(new Color(255,255,255));
+            lblDocumento1.setForeground(new Color(255,255,255));
+            txtPrecio_Base.setForeground(new Color(255,255,255));
+            eli1.setForeground(new Color(255,255,255));
+            save.setForeground(new Color(255,255,255));
+            cancel.setForeground(new Color(255,255,255));
+            
             jLabel33.setText("Cambio de UIT");
             save.setVisible(true);
             cancel.setVisible(true);
             eli1.setVisible(false);
             lblEditar.setText("1");
-            System.out.println("VAMO EDITANDO");
+            
         }else if(!lblNivel.getText().equals("ADMINISTRADOR")&&!lblPermiso.getText().equals("E")){
             NivelSuperior.setUndecorated(true);
             NivelSuperior.setVisible(true);
