@@ -2999,36 +2999,45 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             
             //pasar datos de una tabla a otra
             for (int i=0;i<modelo1.getRowCount(); i++){
-            String item, descripcion, valor_u, cantidad,
-            precio, igv, dscto, total;
-            double Precio_cant=0.00, tot=0.00, ig =0.00;
-                        
-            item = tb_CPT.getValueAt(i, 1).toString();
-            descripcion = tb_CPT.getValueAt(i, 2).toString();           
-            valor_u = tb_CPT.getValueAt(i, 3).toString();
-            cantidad = tb_CPT.getValueAt(i, 4).toString();
-            precio = tb_CPT.getValueAt(i, 5).toString();
+                String item, descripcion, valor_u, cantidad,
+                precio, igv="", dscto, total;
+                double Precio_cant=0.00, tot=0.00, ig =0.00;
 
-            igv = "0.00";
-            dscto = "0.00";
-            
-            Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
-            ig = 0.00;
-            
-            tot = (Precio_cant + ig);
-            
-            total = String.valueOf(tot);
-           
-            //Cargar los datos a la otra tabla 
-            modelo2 = (DefaultTableModel) tbFacturacion.getModel();
-            
-            String filaelemento[] = {item, descripcion, valor_u, cantidad,
-            precio, igv, dscto, total};
-                                 
-            modelo2.addRow(filaelemento);
-            
-            
+                item = tb_CPT.getValueAt(i, 1).toString();
+                descripcion = tb_CPT.getValueAt(i, 2).toString();           
+                valor_u = tb_CPT.getValueAt(i, 3).toString();
+                cantidad = tb_CPT.getValueAt(i, 4).toString();
+                precio = tb_CPT.getValueAt(i, 5).toString();
+
+                if(lblGrupo.getText().equalsIgnoreCase("TP")){
+                    igv = "0.00";
+                    Facturador.cbxAfecIGV.setSelectedItem("30 INAFECTO-OPERACIÓN ONEROSA");
+                }else if(lblGrupo.getText().equalsIgnoreCase("FR")){
+                    igv=String.valueOf(Integer.parseInt(tb_CPT.getValueAt(i, 5).toString())*0.18);
+                    Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
+                }
+                
+                dscto = "0.00";
+
+                Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
+                ig = 0.00;
+
+                tot = (Precio_cant + ig);
+
+                total = String.valueOf(tot);
+
+                //Cargar los datos a la otra tabla 
+                modelo2 = (DefaultTableModel) tbFacturacion.getModel();
+
+                String filaelemento[] = {item, descripcion, valor_u, cantidad,
+                precio, igv, dscto, total};
+
+                modelo2.addRow(filaelemento);
+
+
             }
+                Facturador.btnGuardar.doClick();
+            
         }    
         } catch (Exception e) {
             System.out.println("ERROR AL CARGAR LOS DATOS" + e.getMessage());
