@@ -348,13 +348,13 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
             NivelSuperior.setResizable(false);
 
-            jPanel145.setBackground(new java.awt.Color(241, 197, 14));
+            jPanel145.setBackground(new java.awt.Color(230, 230, 230));
 
             jLabel64.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
             jLabel64.setForeground(new java.awt.Color(51, 51, 51));
             jLabel64.setText("Error");
 
-            jPanel146.setBackground(new java.awt.Color(127, 140, 141));
+            jPanel146.setBackground(new java.awt.Color(41, 127, 184));
 
             btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
@@ -384,7 +384,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
             jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             jLabel67.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel67.setText("<html>Necesita permisos de administrador <BR>Para realizar esta acción.</html>");
+            jLabel67.setText("<html>Necesita permisos especiales <BR>Para realizar esta acción.</html>");
 
             javax.swing.GroupLayout jPanel145Layout = new javax.swing.GroupLayout(jPanel145);
             jPanel145.setLayout(jPanel145Layout);
@@ -395,7 +395,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     .addGroup(jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel64)
                         .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(171, Short.MAX_VALUE))
+                    .addContainerGap(228, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel145Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -646,11 +646,11 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     .addContainerGap())
             );
 
-            jPanel5.setBackground(new java.awt.Color(127, 140, 141));
+            jPanel5.setBackground(new java.awt.Color(230, 230, 230));
             jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
             jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-            jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel33.setForeground(new java.awt.Color(51, 51, 51));
             jLabel33.setText("Listado");
 
             javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);

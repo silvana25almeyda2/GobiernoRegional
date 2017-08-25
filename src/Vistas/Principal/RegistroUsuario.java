@@ -56,6 +56,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
         cbxPregunta.setBackground(Color.WHITE);
         cargareliminar.setVisible(false);
         PERSONAL.setLocationRelativeTo(null);
+        Paginas.setEnabled(false);
+        Paginas.setEnabledAt(0,false);
+        Paginas.setEnabledAt(1, false);
         txtUsuario.requestFocus();
         txtPersonal.setText("");
         
@@ -105,7 +108,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     try {
             String consulta="";
             String titulos[]={"Nº","Codigo","Apellido Paterno","Apellido Materno","Nombres",
-                 "cod_modulo","Nombre de Usuario","Modulo","Descripcion","Contrasena","Pregunta de Recuperación","Respuesta","Nivel","Lectura","Lectura y Escritura"};
+                 "cod_modulo","Nombre de Usuario","Modulo","Descripcion","Contrasena","Pregunta de Recuperación","Respuesta","Nivel","Lectura y Escritura","Control Total"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[15];
@@ -165,6 +168,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
      tb_Usuario.getColumnModel().getColumn(10).setMaxWidth(0);
      tb_Usuario.getColumnModel().getColumn(11).setMinWidth(0);
      tb_Usuario.getColumnModel().getColumn(11).setMaxWidth(0);
+     
+     tb_Usuario.getColumnModel().getColumn(12).setPreferredWidth(150);
+     tb_Usuario.getColumnModel().getColumn(13).setPreferredWidth(150);
 }
     
     public void Personal_listar(String buscar,String tipo){
@@ -265,7 +271,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 lblCodigo = new javax.swing.JLabel();
                 lblCodPer = new javax.swing.JLabel();
                 lblCodModulo = new javax.swing.JLabel();
-                tab = new javax.swing.JTabbedPane();
+                Paginas = new javax.swing.JTabbedPane();
                 jPanel2 = new javax.swing.JPanel();
                 jScrollPane1 = new javax.swing.JScrollPane();
                 tb_Usuario = new javax.swing.JTable(){
@@ -434,7 +440,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                             }
                         });
 
-                        jPanel3.setBackground(new java.awt.Color(223, 0, 78));
+                        jPanel3.setBackground(new java.awt.Color(209, 52, 56));
                         jPanel3.setPreferredSize(new java.awt.Dimension(292, 437));
 
                         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -504,16 +510,16 @@ public class RegistroUsuario extends javax.swing.JFrame {
                             }
                         });
 
-                        lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                        lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         lblusu.setForeground(new java.awt.Color(255, 255, 255));
                         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                        lblusu.setText("Silvana");
+                        lblusu.setText("SILVANA");
                         lblusu.setFocusable(false);
                         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                         jLabel61.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
                         jLabel61.setForeground(new java.awt.Color(255, 255, 255));
-                        jLabel61.setText("<html>Usuario<span style=\"font-size:'14px'\"><br>Registro</br></span></html>");
+                        jLabel61.setText("<html>Usuarios<span style=\"font-size:'14px'\"><br>Registro</br></span></html>");
 
                         jPanel23.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -580,9 +586,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         jPanel3Layout.setHorizontalGroup(
                             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -599,7 +602,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                                     .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(lbldetalle)))
                                         .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         jPanel3Layout.setVerticalGroup(
@@ -627,23 +631,23 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
-                        jPanel6.setBackground(new java.awt.Color(127, 140, 141));
+                        jPanel6.setBackground(new java.awt.Color(230, 230, 230));
                         jPanel6.setForeground(new java.awt.Color(127, 140, 141));
                         jPanel6.setPreferredSize(new java.awt.Dimension(929, 115));
 
-                        lblFrase.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-                        lblFrase.setForeground(new java.awt.Color(255, 255, 255));
+                        lblFrase.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+                        lblFrase.setForeground(new java.awt.Color(51, 51, 51));
                         lblFrase.setText("Listado");
 
-                        lblUsuario.setForeground(new java.awt.Color(127, 140, 141));
+                        lblUsuario.setForeground(new java.awt.Color(230, 230, 230));
                         lblUsuario.setText("Silvana");
 
-                        lblCodigo.setForeground(new java.awt.Color(127, 140, 141));
+                        lblCodigo.setForeground(new java.awt.Color(230, 230, 230));
                         lblCodigo.setText("1");
 
-                        lblCodPer.setForeground(new java.awt.Color(127, 140, 141));
+                        lblCodPer.setForeground(new java.awt.Color(230, 230, 230));
 
-                        lblCodModulo.setForeground(new java.awt.Color(127, 140, 141));
+                        lblCodModulo.setForeground(new java.awt.Color(230, 230, 230));
 
                         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
                         jPanel6.setLayout(jPanel6Layout);
@@ -679,8 +683,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                 .addContainerGap(35, Short.MAX_VALUE))
                         );
 
-                        tab.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-                        tab.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
+                        Paginas.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+                        Paginas.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
                         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -726,7 +730,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                         );
 
-                        tab.addTab("", jPanel2);
+                        Paginas.addTab("", jPanel2);
 
                         pnlUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -840,7 +844,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         });
 
                         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                        jLabel16.setText("Lectura y Escritura");
+                        jLabel16.setText("Control Total");
 
                         txtL.setEditable(false);
                         txtL.setBackground(new java.awt.Color(255, 255, 255));
@@ -869,7 +873,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         });
 
                         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                        jLabel17.setText("Lectura");
+                        jLabel17.setText("Lectura y Escritura");
 
                         javax.swing.GroupLayout pnlUsuarioLayout = new javax.swing.GroupLayout(pnlUsuario);
                         pnlUsuario.setLayout(pnlUsuarioLayout);
@@ -912,7 +916,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                         .addComponent(cbxNivel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cbxModulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtContra, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addContainerGap(116, Short.MAX_VALUE))
+                                .addContainerGap(114, Short.MAX_VALUE))
                         );
                         pnlUsuarioLayout.setVerticalGroup(
                             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -963,7 +967,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
 
-                        tab.addTab("", pnlUsuario);
+                        Paginas.addTab("", pnlUsuario);
 
                         cargareliminar.setBackground(new java.awt.Color(255, 153, 51));
 
@@ -1029,7 +1033,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-                                    .addComponent(tab)
+                                    .addComponent(Paginas)
                                     .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         );
                         layout.setVerticalGroup(
@@ -1041,7 +1045,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                         .addGap(0, 0, 0)
                                         .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addComponent(Paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE))
                                 .addGap(0, 0, 0))
                         );
@@ -1089,7 +1093,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         //  txtcod.setText(cnn.idNomen());
-        tab.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
         est=1;
         lblFrase.setText("Registro");
         limpiar();
@@ -1104,7 +1108,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         enableDatos(true);
         btnguardar.setEnabled(true);
         btnmodificar.setEnabled(false);
-        tab.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
         est=2;
     }//GEN-LAST:event_btnmodificarActionPerformed
 
@@ -1191,7 +1195,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                       limpiar();
                       enableDatos(true);
                       est=1;
-                      tab.setSelectedIndex(0);
+                      Paginas.setSelectedIndex(0);
                       
                        cargareliminar.setVisible(true);
                        cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1276,7 +1280,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                       limpiar();
                       enableDatos(true);
                       est=1;
-                      tab.setSelectedIndex(0);
+                      Paginas.setSelectedIndex(0);
                       
                        cargareliminar.setVisible(true);
                        cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1311,7 +1315,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         eli.setVisible(true);
                         noeli.setVisible(false);
                         mens=0;
-                        tab.setSelectedIndex(0);
+                        Paginas.setSelectedIndex(0);
                 
             }
         }}catch(Exception e){
@@ -1341,7 +1345,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
-        tab.setSelectedIndex(0);
+        Paginas.setSelectedIndex(0);
         limpiar();
         enableDatos(true);
         cargarUsuario("","1");
@@ -1440,7 +1444,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
                      try{
-                      tab.setSelectedIndex(1);
+                      Paginas.setSelectedIndex(1);
                      }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
         }
@@ -1629,6 +1633,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Mensaje;
     private javax.swing.JDialog PERSONAL;
+    private javax.swing.JTabbedPane Paginas;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarPaciente;
     public static javax.swing.JButton btnBuscarPersonal;
@@ -1673,7 +1678,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;
     private javax.swing.JPanel pnlUsuario;
-    private javax.swing.JTabbedPane tab;
     public static javax.swing.JTable tbPersonal;
     private javax.swing.JTable tb_Usuario;
     private javax.swing.JTextField txtBuscar;

@@ -90,9 +90,9 @@ Caja_CPT nuevaR = new Caja_CPT();
         cancel.setVisible(false);
         eli1.setVisible(false);
         txtPrecio_Base.setEditable(false);
-        jPanel5.setBackground(new Color(127,140,141));
-        jPanel4.setBackground(new Color(127,140,141));
-        txtPrecio_Base.setBackground(new Color(127,140,141));
+        jPanel5.setBackground(new Color(230,230,230));
+        jPanel4.setBackground(new Color(230,230,230));
+        txtPrecio_Base.setBackground(new Color(230,230,230));
         lblEditar.setText("0");
         jLabel33.setText("Listado");
     }
@@ -497,7 +497,6 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 NivelSuperior.setAlwaysOnTop(true);
                 NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
-                NivelSuperior.setPreferredSize(new java.awt.Dimension(472, 200));
                 NivelSuperior.setResizable(false);
 
                 jPanel145.setBackground(new java.awt.Color(241, 197, 14));
@@ -888,7 +887,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                         .addContainerGap())
                 );
 
-                jPanel5.setBackground(new java.awt.Color(127, 140, 141));
+                jPanel5.setBackground(new java.awt.Color(230, 230, 230));
                 jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
                 jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -897,10 +896,10 @@ Caja_CPT nuevaR = new Caja_CPT();
                 });
 
                 jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-                jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel33.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel33.setText("Listado");
 
-                jPanel4.setBackground(new java.awt.Color(127, 140, 141));
+                jPanel4.setBackground(new java.awt.Color(230, 230, 230));
                 jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseEntered(java.awt.event.MouseEvent evt) {
                         jPanel4MouseEntered(evt);
@@ -908,7 +907,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 });
 
                 eli1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-                eli1.setForeground(new java.awt.Color(240, 240, 240));
+                eli1.setForeground(new java.awt.Color(51, 51, 51));
                 eli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Edit-22.png"))); // NOI18N
                 eli1.setText("Editar");
                 eli1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -924,13 +923,13 @@ Caja_CPT nuevaR = new Caja_CPT();
                 });
 
                 lblDocumento1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                lblDocumento1.setForeground(new java.awt.Color(255, 255, 255));
+                lblDocumento1.setForeground(new java.awt.Color(51, 51, 51));
                 lblDocumento1.setText("Valor de la UIT");
 
                 txtPrecio_Base.setEditable(false);
-                txtPrecio_Base.setBackground(new java.awt.Color(127, 140, 141));
+                txtPrecio_Base.setBackground(new java.awt.Color(230, 230, 230));
                 txtPrecio_Base.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtPrecio_Base.setForeground(new java.awt.Color(255, 255, 255));
+                txtPrecio_Base.setForeground(new java.awt.Color(51, 51, 51));
                 txtPrecio_Base.setText("452.0");
                 txtPrecio_Base.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 txtPrecio_Base.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -945,7 +944,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 });
 
                 save.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-                save.setForeground(new java.awt.Color(240, 240, 240));
+                save.setForeground(new java.awt.Color(51, 51, 51));
                 save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Save-22.png"))); // NOI18N
                 save.setText("Guardar");
                 save.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -961,8 +960,8 @@ Caja_CPT nuevaR = new Caja_CPT();
                 });
 
                 cancel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-                cancel.setForeground(new java.awt.Color(240, 240, 240));
-                cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Cancel-22.png"))); // NOI18N
+                cancel.setForeground(new java.awt.Color(51, 51, 51));
+                cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22.png"))); // NOI18N
                 cancel.setText("Calcelar");
                 cancel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 cancel.setContentAreaFilled(false);
@@ -990,8 +989,8 @@ Caja_CPT nuevaR = new Caja_CPT();
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(cancel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel4Layout.setVerticalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
