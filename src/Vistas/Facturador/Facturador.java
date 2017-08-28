@@ -2470,8 +2470,9 @@ public class Facturador extends javax.swing.JFrame {
         boolean rpta = false;
         CLS_Personal cabecera = new CLS_Personal();
         if(!txtTipoDocumento.getText().equals("")){
-                 Caja_Ventas.jButton2.doClick();
-            
+                    Caja_Ventas.jButton2.doClick();
+                    Caja_Ventas.btnNuevo.doClick();
+                    
                     CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
                     facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
                     facturaCabecera.setSerie(txtSerie.getText());
@@ -2534,13 +2535,16 @@ public class Facturador extends javax.swing.JFrame {
 //                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
                         if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
                             if(crearDetalles(crea_archivo, archivo)){
-                                rpta = true;
+                                rpta = true;                     
+                                dispose();
+
                             } else
                                 rpta = false;
                                 
                         }
                 }
                     if(rpta==true){
+                    
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
                                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

@@ -138,7 +138,6 @@ Connection conexion=c.conectar();
     }
     
     public void Guardar(){
-        
                 Caja_PC_Registro cno1 = new Caja_PC_Registro();
 //                cno1.setAR_ID(Integer.parseInt(lblARID.getText()) );//
                 cno1.setNOM_USU(lblUsuario.getText());//
@@ -150,14 +149,31 @@ Connection conexion=c.conectar();
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
                         jPanel73.setVisible(false);
-                         
                     }else{
                         lblMensaje.setText("Algo salió mal");
                         lblDes.setText("<HTML>"+"Verifique que la configuración sea la correcta,"+"<BR>"+"Puede que el Nº de PC este repetido"+"</HTML>");
                         panelMenu.setVisible(false);
                         jPanel73.setVisible(true);
+    }                  
     }
-                        
+    
+    public void GuardarC_F(){
+                Caja_PC_Registro cno1 = new Caja_PC_Registro();
+//                cno1.setAR_ID(Integer.parseInt(lblARID.getText()) );//
+                cno1.setNOM_USU(lblUsuario.getText());//
+                cno1.setNRO_PC(Integer.parseInt(txtNRO.getText()));//
+                    if(cno1.NuevoTerminalC_F()==true){
+                        System.out.println("GUARDADO ");
+                        lblMensaje.setText("Todo Correcto");
+                        lblDes.setText("La configuración del terminal se guardó de forma correcta.");
+                        panelMenu.setVisible(true);
+                        jPanel73.setVisible(false);
+                    }else{
+                        lblMensaje.setText("Algo salió mal");
+                        lblDes.setText("<HTML>"+"Verifique que la configuración sea la correcta,"+"<BR>"+"Puede que el Nº de PC este repetido"+"</HTML>");
+                        panelMenu.setVisible(false);
+                        jPanel73.setVisible(true);
+    }                  
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -378,7 +394,7 @@ Connection conexion=c.conectar();
 
             lblUsu.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
             lblUsu.setForeground(new java.awt.Color(91, 90, 90));
-            lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Usuario-64.png"))); // NOI18N
+            lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-User-64N.png"))); // NOI18N
             lblUsu.setText("Numero de Terminal");
 
             jPanel66.setBackground(new java.awt.Color(102, 102, 102));
@@ -944,17 +960,17 @@ Connection conexion=c.conectar();
 
             lblResumenUsuario.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
             lblResumenUsuario.setForeground(new java.awt.Color(51, 51, 51));
-            lblResumenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Usuario-64.png"))); // NOI18N
+            lblResumenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-User-64N.png"))); // NOI18N
             lblResumenUsuario.setText("Nombre de Terminal");
 
             lblResumenPC.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
             lblResumenPC.setForeground(new java.awt.Color(51, 51, 51));
-            lblResumenPC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Estación de trabajo-64.png"))); // NOI18N
+            lblResumenPC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Workstation-64N.png"))); // NOI18N
             lblResumenPC.setText("Nombre de Terminal");
 
             jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
             jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Imprimir-64.png"))); // NOI18N
+            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-64N.png"))); // NOI18N
             jLabel11.setText("Nombre de Terminal");
 
             javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -968,10 +984,10 @@ Connection conexion=c.conectar();
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblResumenPC)
-                                        .addComponent(lblResumenUsuario)
-                                        .addComponent(jLabel11))
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblResumenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                                        .addComponent(lblResumenPC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                             .addContainerGap(519, Short.MAX_VALUE)
@@ -1198,8 +1214,13 @@ Connection conexion=c.conectar();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnAlertConsulta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta6ActionPerformed
-        Guardar();
-        jTabbedPane1.setSelectedIndex(4);
+        if(txtModulo.getText().equals("CAJA / FACTURADOR")){
+            GuardarC_F();
+            jTabbedPane1.setSelectedIndex(4);
+        }else if(txtModulo.getText().equals("PERSONAL")){
+            Guardar();
+            jTabbedPane1.setSelectedIndex(4);
+        }    
     }//GEN-LAST:event_btnAlertConsulta6ActionPerformed
 
     private void btnAlertConsulta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta7ActionPerformed

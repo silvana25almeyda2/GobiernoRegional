@@ -68,7 +68,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelEliminacion.setVisible(false);
         panelDetalleHistorial.setVisible(false);
         jButton1.setVisible(false);
-        
+        jButton2.setVisible(false);
         Paginas.setEnabled(false);
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
@@ -361,7 +361,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         }
         catch (Exception e) {
             panelMensaje.setVisible(true);
-            panelMensaje.setBackground(new Color(255,51,51)); 
+            panelMensaje.setBackground(new Color(209,52,56));
             Mensaje4.setText("Ocurrió un error verifique");
             btnCorrectoSi.setVisible(false);
             btnCorrectoNo.setVisible(false);
@@ -403,7 +403,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         System.out.println("DETALLE DE VENTA GURADADO"); 
                     } else {
                         panelMensaje.setVisible(true);
-                        panelMensaje.setBackground(new Color(255,51,51)); 
+                        panelMensaje.setBackground(new Color(209,52,56)); 
                         Mensaje4.setText("Ocurrió un error verifique");
                         btnCorrectoSi.setVisible(false);
                         btnCorrectoNo.setVisible(false);
@@ -1576,10 +1576,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                 lblID_SESION.setText("jLabel51");
                                                 lblID_SESION.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+                                                lblID_DOCUEMENTO.setForeground(new java.awt.Color(23, 160, 134));
                                                 lblID_DOCUEMENTO.setText("jLabel1");
 
+                                                Tipo_Documento.setForeground(new java.awt.Color(23, 160, 134));
                                                 Tipo_Documento.setText("jLabel1");
 
+                                                lblTIPO_DOC.setForeground(new java.awt.Color(23, 160, 134));
                                                 lblTIPO_DOC.setText("0");
 
                                                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -2207,11 +2210,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                 jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                 jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-                                                jLabel38.setText("La venta fue guardada de forma exitosa");
+                                                jLabel38.setText("Terminar Venta ");
 
                                                 btnTerminiarVenta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                 btnTerminiarVenta.setForeground(new java.awt.Color(255, 255, 255));
-                                                btnTerminiarVenta.setText("Terminar y empezar una nueva venta");
+                                                btnTerminiarVenta.setText("Guardar y Generar Boleta");
                                                 btnTerminiarVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                                                 btnTerminiarVenta.setContentAreaFilled(false);
                                                 btnTerminiarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2253,7 +2256,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         .addComponent(btnTerminiarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(144, 144, 144)
                                                         .addComponent(txtEnterEscapeEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addContainerGap(30, Short.MAX_VALUE))
+                                                        .addContainerGap(192, Short.MAX_VALUE))
                                                 );
                                                 panelAnularLayout.setVerticalGroup(
                                                     panelAnularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2695,7 +2698,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         if(txtBusquedas.getText().length()==0){
             jScrollPane12.setVisible(false);
             panelDetalleHistorial.setVisible(false);
-            lblCliente2.setText("<html>"+"Búsqueda Sensitiva"+"<span style=\"font-size:'14px'\"><br>"+"Puede Buscar por DNI, RUC, Apellidos, Razón Social o Fecha"+"<html>");
+            lblCliente2.setText("<html>"+"Búsqueda"+"<span style=\"font-size:'14px'\"><br>"+"Puede Buscar por DNI, RUC, Apellidos, Razón Social o Fecha"+"<html>");
         }
         
     }//GEN-LAST:event_txtBusquedasCaretUpdate
@@ -3274,8 +3277,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
 
             }   
-                Caja_Ventas.jButton2.doClick();
-                Caja_Ventas.btnNuevo.doClick();
+
                 Facturador.btnGuardar.doClick();
             
         }    
