@@ -1738,16 +1738,25 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblID_DOCUEMENTO">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="86" green="a0" red="17" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tipo_Documento">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="86" green="a0" red="17" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTIPO_DOC">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="86" green="a0" red="17" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
@@ -2927,7 +2936,7 @@
                           <Component id="btnTerminiarVenta" min="-2" pref="293" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                           <Component id="txtEnterEscapeEnter" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="192" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2974,7 +2983,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="La venta fue guardada de forma exitosa"/>
+                    <Property name="text" type="java.lang.String" value="Terminar Venta "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnTerminiarVenta">
@@ -2985,7 +2994,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Terminar y empezar una nueva venta"/>
+                    <Property name="text" type="java.lang.String" value="Guardar y Generar Boleta"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder>

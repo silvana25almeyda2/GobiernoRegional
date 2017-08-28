@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TUPA_H" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fdbf73bd-d34e-496a-a3f7-0dd99cef16e4">
 	<property name="ireport.zoom" value="1.210000000000001"/>
-	<property name="ireport.x" value="164"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[EXEC CAJA_CPT_LISTAR_REPORTE]]>
@@ -40,7 +40,7 @@
 				<text><![CDATA[TEXTO ÚNICO DE PROCEDIMIENTOS ADMINISTRATIVOS]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="0" width="46" height="49" uuid="ad54c93a-c61a-4778-9af6-e89d80d7b62e"/>
+				<reportElement x="0" y="0" width="65" height="79" uuid="ad54c93a-c61a-4778-9af6-e89d80d7b62e"/>
 				<imageExpression><![CDATA["E:\\DISA\\GobiernoRegional\\src\\Reportes\\Caja\\GORE.jpg"]]></imageExpression>
 			</image>
 			<staticText>
@@ -61,14 +61,14 @@
 				<reportElement x="0" y="0" width="802" height="71" forecolor="#666666" backcolor="#CCCCCC" uuid="18a80c10-16e9-4579-8fce-99ff93c67c7d"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="10" y="26" width="30" height="20" uuid="af2e091d-8c51-4528-b323-0feb50a70a2b"/>
+				<reportElement x="0" y="26" width="45" height="20" uuid="af2e091d-8c51-4528-b323-0feb50a70a2b"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[ÍTEM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="26" width="30" height="40" uuid="4cb12cb3-e11a-4afe-b5ca-19fed0dd3ecc"/>
+				<reportElement x="0" y="32" width="46" height="34" uuid="4cb12cb3-e11a-4afe-b5ca-19fed0dd3ecc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -160,7 +160,7 @@
 	<detail>
 		<band height="72" splitType="Stretch">
 			<rectangle>
-				<reportElement stretchType="RelativeToTallestObject" x="0" y="1" width="803" height="71" forecolor="#666666" backcolor="#FFFFFF" uuid="6d657b67-b039-4ee4-b401-43f8eb226d39"/>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="1" width="801" height="71" forecolor="#666666" backcolor="#FFFFFF" uuid="6d657b67-b039-4ee4-b401-43f8eb226d39"/>
 			</rectangle>
 			<line>
 				<reportElement stretchType="RelativeToTallestObject" x="291" y="0" width="1" height="71" forecolor="#666666" uuid="5b167f06-aa0f-4e16-81a8-63d4bfa9b2c8"/>
@@ -217,12 +217,12 @@
 				<reportElement stretchType="RelativeToTallestObject" x="593" y="0" width="1" height="71" forecolor="#666666" uuid="578fb950-bd45-43d0-8468-e0817d2920ca"/>
 			</line>
 			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="729" y="0" width="1" height="71" forecolor="#666666" uuid="c7aabe8b-cc16-4200-abce-89db73322fcf"/>
+				<reportElement stretchType="RelativeToTallestObject" x="728" y="0" width="1" height="71" forecolor="#666666" uuid="c7aabe8b-cc16-4200-abce-89db73322fcf"/>
 			</line>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="12" splitType="Stretch"/>
+		<band height="7" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="28" splitType="Stretch">

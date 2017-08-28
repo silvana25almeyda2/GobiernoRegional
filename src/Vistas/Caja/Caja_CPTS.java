@@ -384,10 +384,10 @@ Caja_CPT nuevaR = new Caja_CPT();
                 Cta6.setMinimumSize(new java.awt.Dimension(700, 422));
                 Cta6.setResizable(false);
 
-                jPanel8.setBackground(new java.awt.Color(41, 127, 184));
+                jPanel8.setBackground(new java.awt.Color(230, 230, 230));
 
-                jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                jLabel4.setForeground(new java.awt.Color(102, 102, 102));
                 jLabel4.setText("Cuenta Contable");
 
                 jPanel30.setBackground(new java.awt.Color(255, 255, 255));
@@ -427,7 +427,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                         .addGap(0, 0, 0))
                 );
 
-                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                 btnBuscarPaciente2.setContentAreaFilled(false);
                 btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
@@ -511,13 +511,13 @@ Caja_CPT nuevaR = new Caja_CPT();
                 NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
                 NivelSuperior.setResizable(false);
 
-                jPanel145.setBackground(new java.awt.Color(241, 197, 14));
+                jPanel145.setBackground(new java.awt.Color(230, 230, 230));
 
                 jLabel64.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                 jLabel64.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel64.setText("Error");
 
-                jPanel146.setBackground(new java.awt.Color(127, 140, 141));
+                jPanel146.setBackground(new java.awt.Color(23, 160, 134));
 
                 btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                 btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
@@ -752,7 +752,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 panelH.setBackground(new java.awt.Color(255, 255, 255));
                 panelH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-                lblH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                lblH.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 lblH.setForeground(new java.awt.Color(102, 102, 102));
                 lblH.setText("Horizontal");
                 lblH.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -781,7 +781,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 panelV.setBackground(new java.awt.Color(255, 255, 255));
                 panelV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-                lblV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                lblV.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 lblV.setForeground(new java.awt.Color(102, 102, 102));
                 lblV.setText("Vertical");
                 lblV.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -807,7 +807,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                     .addComponent(lblV, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 );
 
-                lblCrick.setForeground(new java.awt.Color(41, 127, 184));
+                lblCrick.setForeground(new java.awt.Color(23, 160, 134));
                 lblCrick.setText("0");
 
                 lblNivel.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
@@ -1825,9 +1825,9 @@ Caja_CPT nuevaR = new Caja_CPT();
         if(lblNivel.getText().equals("ADMINISTRADOR")&&lblPermiso.getText().equals("E")){
             txtPrecio_Base.setEditable(true);
             txtPrecio_Base.requestFocus();
-            jPanel5.setBackground(new Color(255,51,51));
-            jPanel4.setBackground(new Color(255,51,51));
-            txtPrecio_Base.setBackground(new Color(255,51,51));
+            jPanel5.setBackground(new Color(209,52,56));
+            jPanel4.setBackground(new Color(209,52,56));
+            txtPrecio_Base.setBackground(new Color(209,52,56));
             ImageIcon CambioS=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Save-22B.png"));
             save.setIcon(CambioS);
             ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22B.png"));
@@ -1881,12 +1881,12 @@ Caja_CPT nuevaR = new Caja_CPT();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void lblHMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHMouseEntered
-        lblH.setForeground(new Color(41,127,184));
+        lblH.setForeground(new Color(0,130,114));
         lblV.setForeground(new Color(102,102,102));
     }//GEN-LAST:event_lblHMouseEntered
 
     private void lblVMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVMouseEntered
-        lblV.setForeground(new Color(41,127,184));
+        lblV.setForeground(new Color(0,130,114));
         lblH.setForeground(new Color(102,102,102));
     }//GEN-LAST:event_lblVMouseEntered
 

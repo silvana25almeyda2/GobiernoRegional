@@ -120,6 +120,31 @@ private String PA_MODULO;
         return resp;
     }
     
+    public boolean NuevoTerminalC_F(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CONFIGURAR_TERMINAL_C_F "
+                        + "?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            //cmd.setString(1, getCod_nomen_caja());
+
+            cmd.setString(1, getNOM_USU());
+            cmd.setInt(2, getNRO_PC());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public int VerificarNumero(String M,String nombre){
         int resultado=0;
         try

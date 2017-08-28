@@ -7,6 +7,7 @@ package Vistas.Facturador;
 
 //import campos.LimitadorDeDocumento;
 //import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
+import Vistas.Caja.Caja_Ventas;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -2537,6 +2538,7 @@ public class Facturador extends javax.swing.JFrame {
 //                            cab.actualizarEstadoFacturacion(tbFacturacion.getValueAt(i,8).toString(), "L");
                             if(crearDetalles(crea_archivo, archivo)){
                                 rpta = true;
+                                
                                 dispose();
                             } else
                                 rpta = false;
@@ -2544,6 +2546,8 @@ public class Facturador extends javax.swing.JFrame {
 //                        }
 //                }
                     if(rpta==true){
+                    Caja_Ventas.jButton2.doClick();
+                                Caja_Ventas.btnNuevo.doClick();
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
                                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

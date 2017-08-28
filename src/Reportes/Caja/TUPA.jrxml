@@ -47,21 +47,21 @@
 	<title>
 		<band height="66" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="17" width="554" height="29" uuid="13718565-dcd4-419f-9e0d-a930dc0aeea8"/>
-				<textElement textAlignment="Center">
+				<reportElement x="70" y="6" width="485" height="29" uuid="13718565-dcd4-419f-9e0d-a930dc0aeea8"/>
+				<textElement>
 					<font fontName="Segoe UI" size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TEXTO ÚNICO DE PROCEDIMIENTOS ADMINISTRATIVOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="82" y="46" width="473" height="20" uuid="095909ad-fa97-4a09-9cfe-ba71132b1db8"/>
-				<textElement textAlignment="Center">
+				<reportElement x="70" y="30" width="485" height="20" uuid="095909ad-fa97-4a09-9cfe-ba71132b1db8"/>
+				<textElement>
 					<font fontName="Segoe UI" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ENTIDAD : GOBIERNO REGIONAL DE ICA]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="0" width="44" height="46" uuid="bccf1dcf-5b18-42c3-b2c8-c741ccc78677"/>
+				<reportElement x="0" y="0" width="56" height="66" uuid="bccf1dcf-5b18-42c3-b2c8-c741ccc78677"/>
 				<imageExpression><![CDATA["E:\\DISA\\GobiernoRegional\\src\\Reportes\\Caja\\GORE.jpg"]]></imageExpression>
 			</image>
 		</band>

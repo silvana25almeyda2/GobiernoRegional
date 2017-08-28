@@ -49,13 +49,11 @@ String hora, minutos, segundos, ampm;
     
     Conexion cn2= new Conexion();
     Connection cnn2=cn2.conectar();
-   
-    
+
     private Timer tiempo,tiempo1;
     int cont,cont1,contadmin=1,filtroModulo;
     public final static int TWO_SECOND=5;
     public final static int TWO_SECOND1=5;
- 
     /**
      * Creates new form inicioSesion
      */
@@ -70,19 +68,15 @@ String hora, minutos, segundos, ampm;
         h1 = new Thread(this);
         h1.start();
 //        barra.setBackground(new Color(155,155,155));
-        barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         //ICONO DE FORMULARIO
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
-
     public void calcula() {
         Calendar calendario = new GregorianCalendar();
         java.util.Date fechaHoraActual = new java.util.Date();
-
         calendario.setTime(fechaHoraActual);
         ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
-
         if (ampm.equals("PM")) {
             int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
             hora = h > 9 ? "" + h : "0" + h;
@@ -98,8 +92,6 @@ String hora, minutos, segundos, ampm;
          if(txtUsuario.getText().equalsIgnoreCase("")||txtContra.getText().equalsIgnoreCase("")){
              JOptionPane.showMessageDialog(this, "Debe llenar todos los Campos");
          }else{
-            
-
             String cap="";
             String sql="select * from SISTEMA_USUARIO where Usu_Usuario='"+usu+"' and dbo.fnLeeClave(usu_contrasena)='"+pass+"'";
             PreparedStatement st=cnn.prepareStatement(sql);
@@ -116,119 +108,89 @@ String hora, minutos, segundos, ampm;
                 
         //p.pack();
          cont=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo=new Timer(TWO_SECOND, new TimerListener());
         activar();
       }else if(cap.equalsIgnoreCase(codAdmin("CAJA"))){//Para editar tipo de usuario
                 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=1;
       }else if(cap.equalsIgnoreCase(codAdmin("FACTURADOR"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=2;
       }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=3;
       }else if(cap.equalsIgnoreCase(codAdmin("USUARIOS"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=4;
       }else if(cap.equalsIgnoreCase(codAdmin("COSTOS"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=4;
       }else if(cap.equalsIgnoreCase(codAdmin("HOSPITALIZACION"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=5;
       }else if(cap.equalsIgnoreCase(codAdmin("LABORATORIO"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=6;
       }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=7;
       }else if(cap.equalsIgnoreCase(codAdmin("ECOGRAFIA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=8;
       }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=9;
       }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=10;
       }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=11;
       }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=12;
       }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=13;
@@ -240,15 +202,12 @@ String hora, minutos, segundos, ampm;
         JOptionPane.showMessageDialog(this,e.getMessage()+ "Error al Iniciar Sesión");
     }
 }
-    
-    
     public String codAdmin(String codTipo)
     {
        Usuario u=new  Usuario();
         String cod="";
         try
         {
-             
             String sql = "SELECT cod_modulo FROM SISTEMA_MODULO where descripcion=?";
             PreparedStatement cmd = u.getCn().prepareStatement(sql);
             cmd.setString(1, codTipo);
@@ -290,7 +249,6 @@ String hora, minutos, segundos, ampm;
         btnRecuperar = new javax.swing.JButton();
         txtRespuesta = new javax.swing.JTextField();
         txtPregunta = new javax.swing.JTextField();
-        barra = new javax.swing.JProgressBar();
         lblFecha = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -361,30 +319,23 @@ String hora, minutos, segundos, ampm;
         panelRecuperarLayout.setHorizontalGroup(
             panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRecuperarLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRecuperarLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelRecuperarLayout.createSequentialGroup()
-                                .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                    .addComponent(txtRespuesta)))))
-                    .addGroup(panelRecuperarLayout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(txtRespuesta))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRecuperarLayout.setVerticalGroup(
             panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRecuperarLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -673,15 +624,13 @@ String hora, minutos, segundos, ampm;
         @Override
         public void actionPerformed(ActionEvent e) {
            cont++;
-           barra.setValue(cont);
            if(cont==101){
                tiempo.stop();
                esconder();
                
                 Principal pmdi = new Principal();
                 Principal.lblUsu.setText(usuario);
-                pmdi.setVisible(true);
-                
+                pmdi.setVisible(true);   
            }
         }
     }
@@ -690,7 +639,6 @@ String hora, minutos, segundos, ampm;
         @Override
         public void actionPerformed(ActionEvent e) {
            cont1++;
-           barra.setValue(cont1);
            if(cont1==101){
                tiempo1.stop();
                esconder();
@@ -718,37 +666,6 @@ String hora, minutos, segundos, ampm;
                 }else if(filtroModulo==4){
                  Principal.btnUsuarios.setEnabled(true);
                 }
-//                 else if(filtroModulo==4){
-//                Principal.btnCostos.setEnabled(true);
-//                 Principal.btnCostos.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==5){
-//                Principal.btnHospitalizacion.setEnabled(true);
-//                 Principal.btnHospitalizacion.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==6){
-//                Principal.btnLaboratorio.setEnabled(true);
-//                 Principal.btnLaboratorio.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==7){
-//                 Principal.btnRayosX.setEnabled(true);
-//                 Principal.btnRayosX.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==8){
-//                 Principal.btnEcografia.setEnabled(true);
-//                 Principal.btnEcografia.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==9){
-//                 Principal.btnConExt.setEnabled(true);
-//                 Principal.btnConExt.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==10){
-//                 Principal.btnInvBact.setEnabled(true);
-//                 Principal.btnInvBact.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==11){
-//                 Principal.btnAlmacen.setEnabled(true);
-//                 Principal.btnAlmacen.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==12){
-//                 Principal.btnPersonal.setEnabled(true);
-//                 Principal.btnPersonal.setForeground(new Color(255,255,255));
-//                }else if(filtroModulo==13){
-//                 Principal.btnConfiguracion.setEnabled(true);
-//                 Principal.btnConfiguracion.setForeground(new Color(255,255,255));
-//                }
            }
         }
     }
@@ -826,7 +743,6 @@ String hora, minutos, segundos, ampm;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar barra;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JLabel jLabel10;

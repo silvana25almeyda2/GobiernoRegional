@@ -165,7 +165,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         AperturaOraPC.setMinimumSize(new java.awt.Dimension(360, 380));
         AperturaOraPC.setResizable(false);
 
-        jPanel104.setBackground(new java.awt.Color(241, 197, 14));
+        jPanel104.setBackground(new java.awt.Color(230, 230, 230));
 
         lblAd2.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         lblAd2.setForeground(new java.awt.Color(51, 51, 51));
@@ -195,12 +195,12 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         jLabel59.setForeground(new java.awt.Color(51, 51, 51));
         jLabel59.setText("Serie");
 
-        jPanel141.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel141.setBackground(new java.awt.Color(209, 52, 56));
         jPanel141.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAnularVenta.setForeground(new java.awt.Color(51, 51, 51));
-        btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Stop-32.png"))); // NOI18N
+        btnAnularVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Detener-30.png"))); // NOI18N
         btnAnularVenta.setText("Cerrar Caja Remotamente");
         btnAnularVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnAnularVenta.setContentAreaFilled(false);
@@ -313,7 +313,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 366));
         NivelSuperior.setResizable(false);
 
-        jPanel145.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel145.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel64.setText("Iniciar sesión");
@@ -395,7 +395,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel146.setBackground(new java.awt.Color(41, 127, 184));
+        jPanel146.setBackground(new java.awt.Color(23, 160, 134));
 
         btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
@@ -502,7 +502,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         ErrorExistente.setMinimumSize(new java.awt.Dimension(446, 240));
         ErrorExistente.setResizable(false);
 
-        jPanel134.setBackground(new java.awt.Color(241, 197, 14));
+        jPanel134.setBackground(new java.awt.Color(230, 230, 230));
         jPanel134.setMinimumSize(new java.awt.Dimension(310, 441));
 
         lblAd1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
@@ -513,7 +513,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         jLabel119.setForeground(new java.awt.Color(51, 51, 51));
         jLabel119.setText("<html>Actualmente existe una apertura <br>de caja activa en este equipo.</html> ");
 
-        jPanel135.setBackground(new java.awt.Color(127, 140, 141));
+        jPanel135.setBackground(new java.awt.Color(23, 160, 134));
 
         btnAlertConsulta7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAlertConsulta7.setForeground(new java.awt.Color(240, 240, 240));

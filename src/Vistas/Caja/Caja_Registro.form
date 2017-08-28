@@ -323,7 +323,7 @@
                   <Color blue="5a" green="5a" red="5b" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Usuario-64.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/icons8-User-64N.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Numero de Terminal"/>
               </Properties>
@@ -1158,10 +1158,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel60" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblResumenPC" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblResumenUsuario" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblResumenUsuario" alignment="0" pref="469" max="32767" attributes="0"/>
+                                          <Component id="lblResumenPC" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -1187,7 +1187,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="lblResumenUsuario" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="lblResumenPC" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -1322,7 +1322,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Usuario-64.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/icons8-User-64N.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre de Terminal"/>
               </Properties>
@@ -1339,7 +1339,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Estaci&#xf3;n de trabajo-64.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Workstation-64N.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre de Terminal"/>
               </Properties>
@@ -1353,7 +1353,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Imprimir-64.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Print-64N.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre de Terminal"/>
               </Properties>

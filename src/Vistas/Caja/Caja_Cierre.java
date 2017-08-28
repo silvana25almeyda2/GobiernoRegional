@@ -163,7 +163,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         lblIDSESION_A = new javax.swing.JLabel();
 
         ImprimirCierre.setAlwaysOnTop(true);
-        ImprimirCierre.setMinimumSize(new java.awt.Dimension(646, 370));
+        ImprimirCierre.setMinimumSize(new java.awt.Dimension(646, 375));
         ImprimirCierre.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(209, 52, 56));
@@ -184,7 +184,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-32.png"))); // NOI18N
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-64N.png"))); // NOI18N
         jLabel25.setText("Elija un formato");
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
