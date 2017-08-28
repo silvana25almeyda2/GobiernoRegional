@@ -1171,7 +1171,7 @@ Connection conexion=c.conectar();
     }//GEN-LAST:event_txtPCCaretUpdate
 
     private void btnAlertConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta1ActionPerformed
-        if(lblMOD.getText().equals("CC")){
+        if(lblMOD.getText().equals("CC")||lblMOD.getText().equals("CPP")){
             txtModulo.setText("CAJA / FACTURADOR"); 
         }else if(lblMOD.getText().equals("PP")){
             txtModulo.setText("PERSONAL"); 
