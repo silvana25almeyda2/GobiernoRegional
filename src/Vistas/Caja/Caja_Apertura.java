@@ -26,6 +26,7 @@ import Servicios.Conexion;
 import Vistas.Principal.Principal;
 import Vistas.Principal.Principal_Caja;
 import java.beans.PropertyVetoException;
+import java.sql.CallableStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -82,40 +83,66 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         Principal.PaginasP.setSelectedIndex(1);
     }
     public void APERTURANDO(){
-        Caja_AperturaCierre AID = new Caja_AperturaCierre();
-        AID.PreventaID();
-
         Caja_Abrir();
         
-        nuevaV.reporteAperura(Integer.parseInt(lblID.getText()),lblusu.getText());
+        nuevaV.reporteAperura(Integer.parseInt(lblID.getText()));
 //        APERTURA.dispose();
         dispose();
     }
+    
+    public void NUEVO_REGISTRO(java.sql.Connection con) {
+        try {
+            // instanciamos el objeto callable
+            CallableStatement cstmt = con.prepareCall("exec CAJA_APERTURA_CAJA ?,?,?,?");
+            // seteamos los parametros de entrada
+            cstmt.setString(1, lblusu.getText());
+            cstmt.setString(2, lblCorrelativo.getText());
+            cstmt.setString(3, txtNRO.getText());
+            // registramos el parametro de retorno (si fueran mas, repetimos la linea cambiando el nro de orden del parametro)
+            cstmt.registerOutParameter(4, java.sql.Types.INTEGER);
+            // ejecutamos
+            cstmt.execute();
+            // mostramos al usuario el codigo creado
+            int ID;
+            ID=cstmt.getInt(4);
+            this.lblID.setText( String.valueOf(ID) );
+            System.out.println("APERTURANDO");  
+            jPanel3.setVisible(false);
+            this.getContentPane().setBackground(new Color(23,160,134));
+            lblTexto.setText("Aperturando Caja, Espere...");
+            panelCambio.setVisible(false);
+            APERTURANDO();
+
+        }
+        catch (Exception e) {
+          e.printStackTrace();
+        }
+    }
 
     
-    public void Guardar(){
-                
-                Caja_AperturaCierre cno1 = new Caja_AperturaCierre();
-
-                cno1.setCajero(lblusu.getText());//
-                cno1.setCaja(lblCorrelativo.getText());//
-                cno1.setBASE(txtNRO.getText());//
-                cno1.setId_Apertura(0);//
-                    if(cno1.NUEVO()==true){
-                        jPanel3.setVisible(false);
-                        this.getContentPane().setBackground(new Color(41,127,184));
-                        lblTexto.setText("Aperturando Caja, Espere...");
-                        panelCambio.setVisible(false);
-//                        APERTURA.setVisible(true);
-                        APERTURANDO();
-//                        int id=0;
-//                        id=cno1.getId_Apertura();
-//                        jLabel5.setText(String.valueOf(id)) ;
-                        
-                           
-                       } else {
-                           JOptionPane.showMessageDialog(this, "Error al guardar");
-                       }}
+//    public void Guardar(){
+//                
+//                Caja_AperturaCierre cno1 = new Caja_AperturaCierre();
+//
+//                cno1.setCajero(lblusu.getText());//
+//                cno1.setCaja(lblCorrelativo.getText());//
+//                cno1.setBASE(txtNRO.getText());//
+//                cno1.setId_Apertura(0);//
+//                    if(cno1.NUEVO()==true){
+//                        jPanel3.setVisible(false);
+//                        this.getContentPane().setBackground(new Color(23,160,134));
+//                        lblTexto.setText("Aperturando Caja, Espere...");
+//                        panelCambio.setVisible(false);
+////                        APERTURA.setVisible(true);
+//                        APERTURANDO();
+////                        int id=0;
+////                        id=cno1.getId_Apertura();
+////                        jLabel5.setText(String.valueOf(id)) ;
+//                        
+//                           
+//                       } else {
+//                           JOptionPane.showMessageDialog(this, "Error al guardar");
+//                       }}
 
 
     /**
@@ -347,13 +374,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel1.setBackground(new java.awt.Color(23, 160, 134));
 
-        lblTexto.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        lblTexto.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
         lblTexto.setForeground(new java.awt.Color(255, 255, 255));
         lblTexto.setText("Apertura de Caja");
 
-        lblID.setForeground(new java.awt.Color(0, 153, 102));
+        lblID.setForeground(new java.awt.Color(23, 160, 134));
         lblID.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -414,7 +441,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        Guardar();
+        NUEVO_REGISTRO(conexion);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtNROCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNROCaretUpdate

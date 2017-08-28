@@ -82,6 +82,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         txtDireccion.setText("");
         txtCorreo.setText("");
         txtCodigo.setText("");
+        jLabel33.setText("Nuevo Registro");
 //        cbxTipoDoc.getSelectedItem().toString());
     }
     
@@ -354,7 +355,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jLabel64.setForeground(new java.awt.Color(51, 51, 51));
             jLabel64.setText("Error");
 
-            jPanel146.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel146.setBackground(new java.awt.Color(23, 160, 134));
 
             btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
@@ -426,7 +427,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-            jPanel1.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel1.setBackground(new java.awt.Color(23, 160, 134));
             jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));
 
             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -573,10 +574,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 }
             });
 
-            lblNivel.setForeground(new java.awt.Color(41, 127, 184));
+            lblNivel.setForeground(new java.awt.Color(23, 160, 134));
             lblNivel.setText("jLabel2");
 
-            lblPermiso.setForeground(new java.awt.Color(41, 127, 184));
+            lblPermiso.setForeground(new java.awt.Color(23, 160, 134));
             lblPermiso.setText("jLabel3");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

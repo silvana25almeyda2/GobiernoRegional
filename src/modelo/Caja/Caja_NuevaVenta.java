@@ -154,8 +154,10 @@ private double DESCUENTOD ;
             while(r.next()){
                 Caja_Ventas.lblCliente.setText(r.getString(4)); 
                 Caja_Ventas.lblDocumento.setText(r.getString(3)); 
+                Caja_Ventas.txtCliente.setText(r.getString(3)); 
                 Caja_Ventas.lblIDCliente.setText(r.getString(1)); 
                 Caja_Ventas.btnBuscarCPT1.setEnabled(false);
+                Caja_Ventas.jButton1.doClick();
 
                 }
             //
@@ -268,15 +270,52 @@ private double DESCUENTOD ;
         }
         return resp;
     }
+        
+    public void ReporteDiariocajaCabeceraBUSQUEDA(String Usuario,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[9];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_CONSULTAR_HISTORIAL ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteCabeceraBUSQUEDA(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE BUSQUEDA" + e.getMessage());
+        }
+    }
     
     public void ReporteDiariocajaCabecera(String Usuario,Integer SESION,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[9];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -293,6 +332,7 @@ private double DESCUENTOD ;
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
                     m.addRow(fila);
                     c++;
             }
@@ -306,6 +346,50 @@ private double DESCUENTOD ;
         }
     }
     
+    public void ReporteDiariocajaDETALLE(Integer ID ,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Item","Descripción","Precio","Cantidad","Total"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_VENTA_REPORTE_DETALLE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, ID);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteDETALLE(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE DETALLE" + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaReporteDETALLE(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tabla.setRowHeight(40);
+        
+    }
+    
     public void formatoTablaReporteCabecera(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(90);
@@ -317,15 +401,24 @@ private double DESCUENTOD ;
             tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(7).setMinWidth(0);
             tabla.getColumnModel().getColumn(7).setMaxWidth(0);
-        
-//        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
-//        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
-//        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
-//        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
-//        
-  
-        tabla.setRowHeight(40);
-        
+            tabla.getColumnModel().getColumn(8).setMinWidth(0);
+            tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.setRowHeight(40);  
+    }
+    public void formatoTablaReporteCabeceraBUSQUEDA(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(360);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(8).setMinWidth(0);
+            tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.setRowHeight(48);
     }
           
     public void reporteVenta(int id_documento) {

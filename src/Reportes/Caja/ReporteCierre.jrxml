@@ -62,25 +62,18 @@
 					<text><![CDATA[Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="94" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
+					<reportElement x="123" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Cant]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="115" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
+					<reportElement x="144" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Precio]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="145" y="19" width="60" height="20" uuid="62f57679-121c-4c86-b730-2b7104284c15"/>
-					<textElement verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="7"/>
-					</textElement>
-					<text><![CDATA[Desct]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="-6" y="3" width="207" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
@@ -262,28 +255,21 @@
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="94" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
+				<reportElement x="123" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="115" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
+				<reportElement x="144" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
 				<textElement>
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="145" y="0" width="19" height="23" uuid="a00a8593-dcd7-4694-a33c-c9576c143c06"/>
-				<textElement>
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{descu_exo_detalle}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="-6" y="0" width="100" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
+				<reportElement x="-6" y="0" width="126" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>

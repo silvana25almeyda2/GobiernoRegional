@@ -90,7 +90,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
         }
-        btnNuevo.setMnemonic(KeyEvent.VK_N);
+//        btnNuevo.setMnemonic(KeyEvent.VK_N);
         //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
