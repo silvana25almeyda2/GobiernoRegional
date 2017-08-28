@@ -73,13 +73,13 @@ private Dimension DimensionBarra = null;
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel1.setBackground(new java.awt.Color(23, 160, 134));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CAJA APERTURADA");
 
-        PanelSesion.setBackground(new java.awt.Color(255, 51, 51));
+        PanelSesion.setBackground(new java.awt.Color(209, 52, 56));
         PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PanelSesionMouseEntered(evt);
@@ -88,7 +88,7 @@ private Dimension DimensionBarra = null;
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cierre de Caja");
+        jLabel3.setText("CIERRE DE CAJA");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -155,7 +155,7 @@ private Dimension DimensionBarra = null;
         PanelCaja.setBackground(new java.awt.Color(255, 255, 255));
 
         btnVentas.setBackground(new java.awt.Color(102, 102, 102));
-        btnVentas.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnVentas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnVentas.setForeground(new java.awt.Color(51, 51, 51));
         btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"))); // NOI18N
         btnVentas.setText("Ventas");
@@ -195,7 +195,7 @@ private Dimension DimensionBarra = null;
         PanelCPT.setBackground(new java.awt.Color(255, 255, 255));
 
         btnCPT.setBackground(new java.awt.Color(102, 102, 102));
-        btnCPT.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCPT.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnCPT.setForeground(new java.awt.Color(51, 51, 51));
         btnCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"))); // NOI18N
         btnCPT.setText("TUPA");
@@ -235,7 +235,7 @@ private Dimension DimensionBarra = null;
         PanelCaja2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnClientes.setBackground(new java.awt.Color(102, 102, 102));
-        btnClientes.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnClientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(51, 51, 51));
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"))); // NOI18N
         btnClientes.setText("Clientes");
@@ -275,7 +275,7 @@ private Dimension DimensionBarra = null;
         PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
 
         btnCaja3.setBackground(new java.awt.Color(102, 102, 102));
-        btnCaja3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCaja3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnCaja3.setForeground(new java.awt.Color(51, 51, 51));
         btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"))); // NOI18N
         btnCaja3.setText("Cuentas Contables");
@@ -312,7 +312,8 @@ private Dimension DimensionBarra = null;
             .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel3.setBackground(new java.awt.Color(215, 213, 213));
+        jPanel3.setPreferredSize(new java.awt.Dimension(536, 46));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -324,7 +325,7 @@ private Dimension DimensionBarra = null;
             }
         });
 
-        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
+        ibiIDAPERTURA.setForeground(new java.awt.Color(215, 213, 213));
         ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -340,16 +341,17 @@ private Dimension DimensionBarra = null;
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addComponent(ibiIDAPERTURA))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(ibiIDAPERTURA)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,7 +361,7 @@ private Dimension DimensionBarra = null;
                 .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,7 +407,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64 (1).png"));
         btnVentas.setIcon(CambioV);
         btnVentas.setForeground(new Color(255,255,255)); 
-        PanelCaja.setBackground(new Color(127,140,141)); 
+        PanelCaja.setBackground(new Color(23,160,134)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
         btnCPT.setIcon(CambioC);
@@ -447,7 +449,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64 (1).png"));
         btnCPT.setIcon(CambioC);
         btnCPT.setForeground(new Color(255,255,255)); 
-        PanelCPT.setBackground(new Color(127,140,141)); 
+        PanelCPT.setBackground(new Color(23,160,134)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
@@ -481,7 +483,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(255,255,255)); 
-        PanelCaja2.setBackground(new Color(127,140,141)); 
+        PanelCaja2.setBackground(new Color(23,160,134)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
@@ -530,7 +532,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
         btnCaja3.setIcon(CambioCT);
         btnCaja3.setForeground(new Color(255,255,255)); 
-        PanelCaja3.setBackground(new Color(127,140,141));
+        PanelCaja3.setBackground(new Color(23,160,134));
     }//GEN-LAST:event_btnCaja3MouseEntered
 
     private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed

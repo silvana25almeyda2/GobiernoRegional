@@ -52,7 +52,11 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
+        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
+        CBX_DISTRITO.setBackground(Color.WHITE);
+        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
+        CBX_PROVINCIA.setBackground(Color.WHITE);
+        CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
         cargareliminar1.setVisible(false);
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
@@ -148,7 +152,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(223, 0, 78));
+        jPanel3.setBackground(new java.awt.Color(122, 77, 135));
         jPanel3.setPreferredSize(new java.awt.Dimension(292, 437));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -215,7 +219,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         });
 
-        lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
         lblusu.setText("RicardoCR");
@@ -341,25 +345,37 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addComponent(btneliminar)
                 .addGap(18, 18, 18)
                 .addComponent(btnLista)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel6.setBackground(new java.awt.Color(230, 230, 230));
         jPanel6.setPreferredSize(new java.awt.Dimension(929, 115));
 
-        lblFrase.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblFrase.setForeground(new java.awt.Color(255, 255, 255));
+        lblFrase.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        lblFrase.setForeground(new java.awt.Color(51, 51, 51));
         lblFrase.setText("Listado");
 
-        lblUsuario.setForeground(new java.awt.Color(43, 43, 43));
+        lblUsuario.setBackground(new java.awt.Color(230, 230, 230));
+        lblUsuario.setForeground(new java.awt.Color(230, 230, 230));
         lblUsuario.setText("Silvana");
 
+        lblCodigo.setBackground(new java.awt.Color(230, 230, 230));
+        lblCodigo.setForeground(new java.awt.Color(230, 230, 230));
         lblCodigo.setText("1");
 
+        lblCodPer.setBackground(new java.awt.Color(230, 230, 230));
+        lblCodPer.setForeground(new java.awt.Color(230, 230, 230));
+
+        lblCodModulo.setBackground(new java.awt.Color(230, 230, 230));
+        lblCodModulo.setForeground(new java.awt.Color(230, 230, 230));
+
+        LBL_GM.setBackground(new java.awt.Color(230, 230, 230));
         LBL_GM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        LBL_GM.setForeground(new java.awt.Color(255, 255, 255));
+        LBL_GM.setForeground(new java.awt.Color(230, 230, 230));
         LBL_GM.setText("G");
+
+        TXT_CODIGO_PERSONAL.setForeground(new java.awt.Color(230, 230, 230));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -374,18 +390,18 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCodigo)
+                .addGap(31, 31, 31)
+                .addComponent(TXT_CODIGO_PERSONAL, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
+                        .addGap(63, 63, 63)
                         .addComponent(lblCodPer)
                         .addGap(37, 37, 37)
                         .addComponent(lblCodModulo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LBL_GM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TXT_CODIGO_PERSONAL, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113))))
+                        .addGap(187, 187, 187))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,20 +409,20 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addGap(11, 11, 11)
                 .addComponent(lblFrase, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(LBL_GM)
+                        .addGap(27, 27, 27))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUsuario)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblCodPer)
-                            .addComponent(lblCodModulo))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LBL_GM)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblUsuario)
+                                .addComponent(lblCodigo)
+                                .addComponent(lblCodPer)
+                                .addComponent(lblCodModulo))
                             .addComponent(TXT_CODIGO_PERSONAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
@@ -458,7 +474,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab1", jPanel1);
@@ -1055,7 +1071,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -1129,13 +1145,13 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(cargareliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1))
         );
 
         pack();

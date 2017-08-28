@@ -22,6 +22,7 @@ import modelo.Caja.Caja_Cta4;
 import modelo.Caja.Caja_Cta5;
 import modelo.Caja.Caja_Cta6;
 import Servicios.Conexion;
+
 /**
  *
  * @author Ricardo
@@ -59,20 +60,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         LlenarEspecifica.getContentPane().setBackground(Color.WHITE); 
         
         
-        LlenarTransCT1EDITAR.setLocationRelativeTo(null);//en el centro
-        LlenarTransCT1EDITAR.getContentPane().setBackground(Color.WHITE); 
-        LlenarGenericaCT2EDITAR.setLocationRelativeTo(null);//en el centro
-        LlenarGenericaCT2EDITAR.getContentPane().setBackground(Color.WHITE);
-        LlenarSubGenericaEDITAR.setLocationRelativeTo(null);//en el centro
-        LlenarSubGenericaEDITAR.getContentPane().setBackground(Color.WHITE);
-        SubGenericaDetalleEDITAR.setLocationRelativeTo(null);//en el centro
-        SubGenericaDetalleEDITAR.getContentPane().setBackground(Color.WHITE);
-        EspecificaEditar.setLocationRelativeTo(null);//en el centro
-        EspecificaEditar.getContentPane().setBackground(Color.WHITE);
-        EspecificaDetalleEDITAR.setLocationRelativeTo(null);//en el centro
-        EspecificaDetalleEDITAR.getContentPane().setBackground(Color.WHITE);
-        
-        
         btnNuevo.setEnabled(true);
         btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
@@ -93,7 +80,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         txtcodGD.setVisible(false);
         txtcodE.setVisible(false);
         txtcodEd.setVisible(false);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
  
  
@@ -1280,30 +1266,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                             public boolean isCellEditable(int rowIndex, int colIndex){
                                 return false; //Disallow the editing of any cell
                             }};
-                            LlenarTransCT1EDITAR = new javax.swing.JDialog();
-                            jPanel18 = new javax.swing.JPanel();
-                            jLabel54 = new javax.swing.JLabel();
-                            btnbuscar6 = new javax.swing.JButton();
-                            LlenarGenericaCT2EDITAR = new javax.swing.JDialog();
-                            jPanel19 = new javax.swing.JPanel();
-                            jLabel55 = new javax.swing.JLabel();
-                            btnbuscar7 = new javax.swing.JButton();
-                            LlenarSubGenericaEDITAR = new javax.swing.JDialog();
-                            jPanel20 = new javax.swing.JPanel();
-                            jLabel56 = new javax.swing.JLabel();
-                            btnbuscar8 = new javax.swing.JButton();
-                            SubGenericaDetalleEDITAR = new javax.swing.JDialog();
-                            jPanel21 = new javax.swing.JPanel();
-                            jLabel57 = new javax.swing.JLabel();
-                            btnbuscar9 = new javax.swing.JButton();
-                            EspecificaEditar = new javax.swing.JDialog();
-                            jPanel22 = new javax.swing.JPanel();
-                            jLabel58 = new javax.swing.JLabel();
-                            btnbuscar10 = new javax.swing.JButton();
-                            EspecificaDetalleEDITAR = new javax.swing.JDialog();
-                            jPanel23 = new javax.swing.JPanel();
-                            jLabel59 = new javax.swing.JLabel();
-                            btnbuscar11 = new javax.swing.JButton();
                             jPanel1 = new javax.swing.JPanel();
                             btnNuevo = new javax.swing.JButton();
                             btneditar = new javax.swing.JButton();
@@ -1464,8 +1426,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jLabel19.setText("Transacciones");
 
                                                     btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar1.setMnemonic('N');
+                                                    btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
                                                     btnbuscar1.setToolTipText("");
                                                     btnbuscar1.setContentAreaFilled(false);
                                                     btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1573,8 +1534,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jLabel21.setText("Genérica");
 
                                                     btnbuscar2.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar2.setMnemonic('N');
+                                                    btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
                                                     btnbuscar2.setToolTipText("");
                                                     btnbuscar2.setContentAreaFilled(false);
                                                     btnbuscar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1682,8 +1642,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jLabel29.setText("Sub Generica");
 
                                                     btnbuscar3.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar3.setMnemonic('N');
+                                                    btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
                                                     btnbuscar3.setToolTipText("");
                                                     btnbuscar3.setContentAreaFilled(false);
                                                     btnbuscar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1791,8 +1750,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jLabel39.setText("Sub Generica Detalle");
 
                                                     btnbuscar4.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar4.setMnemonic('N');
+                                                    btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
                                                     btnbuscar4.setToolTipText("");
                                                     btnbuscar4.setContentAreaFilled(false);
                                                     btnbuscar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1900,8 +1858,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jLabel53.setText("Especifica");
 
                                                     btnbuscar5.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar5.setMnemonic('N');
+                                                    btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
                                                     btnbuscar5.setToolTipText("");
                                                     btnbuscar5.setContentAreaFilled(false);
                                                     btnbuscar5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1998,371 +1955,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE))
                                                     );
 
-                                                    LlenarTransCT1EDITAR.setAlwaysOnTop(true);
-                                                    LlenarTransCT1EDITAR.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    LlenarTransCT1EDITAR.setResizable(false);
-
-                                                    jPanel18.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel54.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel54.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel54.setText("Tipo de Transacciones");
-
-                                                    btnbuscar6.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar6.setMnemonic('N');
-                                                    btnbuscar6.setToolTipText("");
-                                                    btnbuscar6.setContentAreaFilled(false);
-                                                    btnbuscar6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar6.setIconTextGap(30);
-                                                    btnbuscar6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar6.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar6ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-                                                    jPanel18.setLayout(jPanel18Layout);
-                                                    jPanel18Layout.setHorizontalGroup(
-                                                        jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel18Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel54)
-                                                                .addGroup(jPanel18Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(162, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel18Layout.setVerticalGroup(
-                                                        jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel54)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar6)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout LlenarTransCT1EDITARLayout = new javax.swing.GroupLayout(LlenarTransCT1EDITAR.getContentPane());
-                                                    LlenarTransCT1EDITAR.getContentPane().setLayout(LlenarTransCT1EDITARLayout);
-                                                    LlenarTransCT1EDITARLayout.setHorizontalGroup(
-                                                        LlenarTransCT1EDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    LlenarTransCT1EDITARLayout.setVerticalGroup(
-                                                        LlenarTransCT1EDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(LlenarTransCT1EDITARLayout.createSequentialGroup()
-                                                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
-                                                    LlenarGenericaCT2EDITAR.setAlwaysOnTop(true);
-                                                    LlenarGenericaCT2EDITAR.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    LlenarGenericaCT2EDITAR.setResizable(false);
-
-                                                    jPanel19.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel55.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel55.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel55.setText("Génerica");
-
-                                                    btnbuscar7.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar7.setMnemonic('N');
-                                                    btnbuscar7.setToolTipText("");
-                                                    btnbuscar7.setContentAreaFilled(false);
-                                                    btnbuscar7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar7.setIconTextGap(30);
-                                                    btnbuscar7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar7.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar7ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-                                                    jPanel19.setLayout(jPanel19Layout);
-                                                    jPanel19Layout.setHorizontalGroup(
-                                                        jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel19Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel55)
-                                                                .addGroup(jPanel19Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(170, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel19Layout.setVerticalGroup(
-                                                        jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel55)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar7)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout LlenarGenericaCT2EDITARLayout = new javax.swing.GroupLayout(LlenarGenericaCT2EDITAR.getContentPane());
-                                                    LlenarGenericaCT2EDITAR.getContentPane().setLayout(LlenarGenericaCT2EDITARLayout);
-                                                    LlenarGenericaCT2EDITARLayout.setHorizontalGroup(
-                                                        LlenarGenericaCT2EDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    LlenarGenericaCT2EDITARLayout.setVerticalGroup(
-                                                        LlenarGenericaCT2EDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(LlenarGenericaCT2EDITARLayout.createSequentialGroup()
-                                                            .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
-                                                    LlenarSubGenericaEDITAR.setAlwaysOnTop(true);
-                                                    LlenarSubGenericaEDITAR.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    LlenarSubGenericaEDITAR.setResizable(false);
-
-                                                    jPanel20.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel56.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel56.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel56.setText("Sub Génerica");
-
-                                                    btnbuscar8.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar8.setMnemonic('N');
-                                                    btnbuscar8.setToolTipText("");
-                                                    btnbuscar8.setContentAreaFilled(false);
-                                                    btnbuscar8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar8.setIconTextGap(30);
-                                                    btnbuscar8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar8.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar8ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-                                                    jPanel20.setLayout(jPanel20Layout);
-                                                    jPanel20Layout.setHorizontalGroup(
-                                                        jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel20Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel56)
-                                                                .addGroup(jPanel20Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(170, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel20Layout.setVerticalGroup(
-                                                        jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel56)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar8)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout LlenarSubGenericaEDITARLayout = new javax.swing.GroupLayout(LlenarSubGenericaEDITAR.getContentPane());
-                                                    LlenarSubGenericaEDITAR.getContentPane().setLayout(LlenarSubGenericaEDITARLayout);
-                                                    LlenarSubGenericaEDITARLayout.setHorizontalGroup(
-                                                        LlenarSubGenericaEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    LlenarSubGenericaEDITARLayout.setVerticalGroup(
-                                                        LlenarSubGenericaEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(LlenarSubGenericaEDITARLayout.createSequentialGroup()
-                                                            .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
-                                                    SubGenericaDetalleEDITAR.setAlwaysOnTop(true);
-                                                    SubGenericaDetalleEDITAR.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    SubGenericaDetalleEDITAR.setResizable(false);
-
-                                                    jPanel21.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel57.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel57.setText("Sub Génerica Detalle");
-
-                                                    btnbuscar9.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar9.setMnemonic('N');
-                                                    btnbuscar9.setToolTipText("");
-                                                    btnbuscar9.setContentAreaFilled(false);
-                                                    btnbuscar9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar9.setIconTextGap(30);
-                                                    btnbuscar9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar9.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar9ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-                                                    jPanel21.setLayout(jPanel21Layout);
-                                                    jPanel21Layout.setHorizontalGroup(
-                                                        jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel21Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel57)
-                                                                .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(170, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel21Layout.setVerticalGroup(
-                                                        jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
-                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel57)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar9)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout SubGenericaDetalleEDITARLayout = new javax.swing.GroupLayout(SubGenericaDetalleEDITAR.getContentPane());
-                                                    SubGenericaDetalleEDITAR.getContentPane().setLayout(SubGenericaDetalleEDITARLayout);
-                                                    SubGenericaDetalleEDITARLayout.setHorizontalGroup(
-                                                        SubGenericaDetalleEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    SubGenericaDetalleEDITARLayout.setVerticalGroup(
-                                                        SubGenericaDetalleEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(SubGenericaDetalleEDITARLayout.createSequentialGroup()
-                                                            .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
-                                                    EspecificaEditar.setAlwaysOnTop(true);
-                                                    EspecificaEditar.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    EspecificaEditar.setResizable(false);
-
-                                                    jPanel22.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel58.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel58.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel58.setText("Especifica");
-
-                                                    btnbuscar10.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar10.setMnemonic('N');
-                                                    btnbuscar10.setToolTipText("");
-                                                    btnbuscar10.setContentAreaFilled(false);
-                                                    btnbuscar10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar10.setIconTextGap(30);
-                                                    btnbuscar10.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar10.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar10ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-                                                    jPanel22.setLayout(jPanel22Layout);
-                                                    jPanel22Layout.setHorizontalGroup(
-                                                        jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel22Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel58)
-                                                                .addGroup(jPanel22Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(170, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel22Layout.setVerticalGroup(
-                                                        jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                                                            .addContainerGap(11, Short.MAX_VALUE)
-                                                            .addComponent(jLabel58)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar10)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout EspecificaEditarLayout = new javax.swing.GroupLayout(EspecificaEditar.getContentPane());
-                                                    EspecificaEditar.getContentPane().setLayout(EspecificaEditarLayout);
-                                                    EspecificaEditarLayout.setHorizontalGroup(
-                                                        EspecificaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    EspecificaEditarLayout.setVerticalGroup(
-                                                        EspecificaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(EspecificaEditarLayout.createSequentialGroup()
-                                                            .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
-                                                    EspecificaDetalleEDITAR.setMinimumSize(new java.awt.Dimension(450, 430));
-                                                    EspecificaDetalleEDITAR.setResizable(false);
-
-                                                    jPanel23.setBackground(new java.awt.Color(41, 127, 184));
-
-                                                    jLabel59.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel59.setForeground(new java.awt.Color(255, 255, 255));
-                                                    jLabel59.setText("Especifica de Detalle");
-
-                                                    btnbuscar11.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                                                    btnbuscar11.setMnemonic('N');
-                                                    btnbuscar11.setToolTipText("");
-                                                    btnbuscar11.setContentAreaFilled(false);
-                                                    btnbuscar11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                    btnbuscar11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                    btnbuscar11.setIconTextGap(30);
-                                                    btnbuscar11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                                    btnbuscar11.addActionListener(new java.awt.event.ActionListener() {
-                                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                            btnbuscar11ActionPerformed(evt);
-                                                        }
-                                                    });
-
-                                                    javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-                                                    jPanel23.setLayout(jPanel23Layout);
-                                                    jPanel23Layout.setHorizontalGroup(
-                                                        jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel23Layout.createSequentialGroup()
-                                                            .addContainerGap()
-                                                            .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel59)
-                                                                .addGroup(jPanel23Layout.createSequentialGroup()
-                                                                    .addGap(242, 242, 242)
-                                                                    .addComponent(btnbuscar11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(170, Short.MAX_VALUE))
-                                                    );
-                                                    jPanel23Layout.setVerticalGroup(
-                                                        jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                                                            .addContainerGap(11, Short.MAX_VALUE)
-                                                            .addComponent(jLabel59)
-                                                            .addGap(3, 3, 3)
-                                                            .addComponent(btnbuscar11)
-                                                            .addGap(408, 408, 408))
-                                                    );
-
-                                                    javax.swing.GroupLayout EspecificaDetalleEDITARLayout = new javax.swing.GroupLayout(EspecificaDetalleEDITAR.getContentPane());
-                                                    EspecificaDetalleEDITAR.getContentPane().setLayout(EspecificaDetalleEDITARLayout);
-                                                    EspecificaDetalleEDITARLayout.setHorizontalGroup(
-                                                        EspecificaDetalleEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    );
-                                                    EspecificaDetalleEDITARLayout.setVerticalGroup(
-                                                        EspecificaDetalleEDITARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(EspecificaDetalleEDITARLayout.createSequentialGroup()
-                                                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addContainerGap(326, Short.MAX_VALUE))
-                                                    );
-
                                                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                                                     setMinimumSize(new java.awt.Dimension(749, 473));
 
@@ -2370,7 +1962,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                     btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                     btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Documento-32.png"))); // NOI18N
+                                                    btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
                                                     btnNuevo.setText("Nuevo");
                                                     btnNuevo.setContentAreaFilled(false);
                                                     btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2386,7 +1978,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                     btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                     btneditar.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+                                                    btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
                                                     btneditar.setText("Editar");
                                                     btneditar.setContentAreaFilled(false);
                                                     btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2402,7 +1994,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                     btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                     btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+                                                    btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
                                                     btnguardar.setText("Guardar");
                                                     btnguardar.setContentAreaFilled(false);
                                                     btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2418,7 +2010,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                     btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                     btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
+                                                    btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
                                                     btneliminar.setText("Eliminar");
                                                     btneliminar.setContentAreaFilled(false);
                                                     btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2547,8 +2139,9 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addComponent(lblBusqueda)
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addComponent(lblMant)
-                                                            .addGap(111, 111, 111)
-                                                            .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addContainerGap())
                                                     );
 
                                                     PaginasCuentas.setBackground(new java.awt.Color(255, 255, 255));
@@ -2693,7 +2286,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                                                     .addContainerGap()
                                                                     .addComponent(bc3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addGap(0, 204, Short.MAX_VALUE))
+                                                            .addGap(0, 289, Short.MAX_VALUE))
                                                     );
                                                     jPanel3Layout.setVerticalGroup(
                                                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2810,9 +2403,9 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                     .addComponent(txttipoT, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGap(33, 33, 33)
                                                                     .addComponent(txtcodT, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addContainerGap(252, Short.MAX_VALUE))
+                                                            .addContainerGap(337, Short.MAX_VALUE))
                                                         .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                     );
                                                     jPanel4Layout.setVerticalGroup(
                                                         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2829,7 +2422,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(9, 9, 9)
                                                             .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C1", jPanel4);
@@ -3010,15 +2603,15 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(panelCPT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                     .addComponent(txtcodG, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addGap(18, 18, 18)
+                                                                    .addComponent(lblCT1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(lblCT1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(cuentagenerica, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addComponent(cuentagenerica, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGap(210, 210, 210))
                                                                 .addGroup(jPanel11Layout.createSequentialGroup()
                                                                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                                        .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                         .addComponent(jScrollPane8)
                                                     );
                                                     jPanel11Layout.setVerticalGroup(
@@ -3027,33 +2620,30 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(20, 20, 20)
                                                             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addGroup(jPanel11Layout.createSequentialGroup()
+                                                                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(cuentagenerica)
+                                                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                            .addComponent(txtcodG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addComponent(lblCT1)))
+                                                                    .addGap(0, 0, Short.MAX_VALUE))
+                                                                .addGroup(jPanel11Layout.createSequentialGroup()
                                                                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                         .addComponent(jLabel15)
                                                                         .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel17)
+                                                                        .addComponent(txttrans1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jLabel18)
+                                                                        .addComponent(txtgen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(jPanel11Layout.createSequentialGroup()
-                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                            .addComponent(lblCT1)
-                                                                            .addGap(118, 118, 118))
-                                                                        .addGroup(jPanel11Layout.createSequentialGroup()
-                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(jLabel17)
-                                                                                .addComponent(txttrans1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(jLabel18)
-                                                                                .addComponent(txtgen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(jLabel16)))))
-                                                                .addGroup(jPanel11Layout.createSequentialGroup()
-                                                                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(cuentagenerica)
-                                                                        .addComponent(txtcodG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jLabel16))
+                                                                    .addGap(35, 35, 35)))
                                                             .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addContainerGap())
                                                     );
 
@@ -3238,7 +2828,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addComponent(jScrollPane9)
-                                                        .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                     );
                                                     jPanel12Layout.setVerticalGroup(
                                                         jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3267,7 +2857,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel12);
@@ -3449,7 +3039,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addComponent(jScrollPane10)
-                                                        .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                     );
                                                     jPanel13Layout.setVerticalGroup(
                                                         jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3476,7 +3066,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel13);
@@ -3657,7 +3247,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addComponent(jScrollPane11)
-                                                        .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                     );
                                                     jPanel14Layout.setVerticalGroup(
                                                         jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3684,7 +3274,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel14);
@@ -3867,7 +3457,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                                                        .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
                                                     );
                                                     jPanel16Layout.setVerticalGroup(
                                                         jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3894,7 +3484,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel16);
@@ -3913,18 +3503,18 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     jPanel6.setLayout(jPanel6Layout);
                                                     jPanel6Layout.setHorizontalGroup(
                                                         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGap(0, 879, Short.MAX_VALUE)
+                                                        .addGap(0, 964, Short.MAX_VALUE)
                                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                                 .addGap(197, 197, 197)
                                                                 .addComponent(jLabel22)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(jLabel20)
-                                                                .addContainerGap(197, Short.MAX_VALUE)))
+                                                                .addContainerGap(282, Short.MAX_VALUE)))
                                                     );
                                                     jPanel6Layout.setVerticalGroup(
                                                         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGap(0, 508, Short.MAX_VALUE)
+                                                        .addGap(0, 384, Short.MAX_VALUE)
                                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                                 .addGap(216, 216, 216)
@@ -3933,16 +3523,16 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                                                         .addGap(55, 55, 55)
                                                                         .addComponent(jLabel20)))
-                                                                .addContainerGap(158, Short.MAX_VALUE)))
+                                                                .addContainerGap(34, Short.MAX_VALUE)))
                                                     );
 
                                                     PaginasCuentas.addTab("B", jPanel6);
 
-                                                    jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+                                                    jPanel5.setBackground(new java.awt.Color(230, 230, 230));
                                                     jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
 
-                                                    lblDescripcion.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-                                                    lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+                                                    lblDescripcion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+                                                    lblDescripcion.setForeground(new java.awt.Color(51, 51, 51));
                                                     lblDescripcion.setText("Agregar una Nueva Cuenta");
 
                                                     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -4025,7 +3615,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         .addGroup(layout.createSequentialGroup()
                                                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+                                                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                                                                 .addComponent(PaginasCuentas)
                                                                 .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                     );
@@ -4428,15 +4018,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         txtespedet.requestFocus();
     }//GEN-LAST:event_tb_Grupo4KeyPressed
 
-    private void btnbuscar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar6ActionPerformed
-
     private void tb_Cta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta1MouseClicked
          //CUENTA1 EDITAR
         int fila=tb_Cta1.getSelectedRow();
         if(evt.getClickCount()==1){
-            LlenarTransCT1EDITAR.dispose();
             txtcodT.setText(String.valueOf(tb_Cta1.getValueAt(fila, 2)));
       
             txttipoT.setText(String.valueOf(tb_Cta1.getValueAt(fila, 0)));
@@ -4460,7 +4045,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta1.getSelectedRow();
 
-            LlenarTransCT1EDITAR.dispose();
             txtcodT.setText(String.valueOf(tb_Cta1.getValueAt(fila, 2)));
          
             txttipoT.setText(String.valueOf(tb_Cta1.getValueAt(fila, 0)));
@@ -4479,15 +4063,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
        
     }//GEN-LAST:event_tb_Cta1KeyPressed
 
-    private void btnbuscar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar7ActionPerformed
-
     private void tb_Cta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta2MouseClicked
             //CUENTA2 EDITAR
         int fila=tb_Cta2.getSelectedRow();
         if(evt.getClickCount()==1){
-        LlenarGenericaCT2EDITAR.dispose();
             txtcodG.setText(String.valueOf(tb_Cta2.getValueAt(fila, 2)));
             cuentagenerica.setText(String.valueOf(tb_Cta2.getValueAt(fila, 0)));
             txtdesG.setText(String.valueOf(tb_Cta2.getValueAt(fila, 1)));
@@ -4527,7 +4106,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta2.getSelectedRow();
 
-            LlenarGenericaCT2EDITAR.dispose();
             txtcodG.setText(String.valueOf(tb_Cta2.getValueAt(fila, 2)));
             cuentagenerica.setText(String.valueOf(tb_Cta2.getValueAt(fila, 0)));
             txtdesG.setText(String.valueOf(tb_Cta2.getValueAt(fila, 1)));
@@ -4560,15 +4138,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
           lblDescripcion.setText("Génerica");
     }//GEN-LAST:event_tb_Cta2KeyPressed
 
-    private void btnbuscar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar8ActionPerformed
-
     private void tb_Cta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta3MouseClicked
                //CUENTA3 EDITAR
         int fila=tb_Cta3.getSelectedRow();
         if(evt.getClickCount()==1){
-        LlenarSubGenericaEDITAR.dispose();
             txtcodsubgen.setText(String.valueOf(tb_Cta3.getValueAt(fila, 2)));
             sugenericacadena.setText(String.valueOf(tb_Cta3.getValueAt(fila, 0)));
             txtdesSubG.setText(String.valueOf(tb_Cta3.getValueAt(fila, 1)));
@@ -4605,7 +4178,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta3.getSelectedRow();
 
-         LlenarSubGenericaEDITAR.dispose();
             txtcodsubgen.setText(String.valueOf(tb_Cta3.getValueAt(fila, 2)));
             sugenericacadena.setText(String.valueOf(tb_Cta3.getValueAt(fila, 0)));
             txtdesSubG.setText(String.valueOf(tb_Cta3.getValueAt(fila, 1)));
@@ -4637,15 +4209,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
           lblDescripcion.setText("Sub Génerica");
     }//GEN-LAST:event_tb_Cta3KeyPressed
 
-    private void btnbuscar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar9ActionPerformed
-
     private void tb_Cta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta4MouseClicked
               //CUENTA4 EDITAR
         int fila=tb_Cta4.getSelectedRow();
         if(evt.getClickCount()==1){
-          SubGenericaDetalleEDITAR.dispose();
             txtcodGD.setText(String.valueOf(tb_Cta4.getValueAt(fila, 2)));
             Subgenericadetalle.setText(String.valueOf(tb_Cta4.getValueAt(fila, 0)));
             txtdesGd.setText(String.valueOf(tb_Cta4.getValueAt(fila, 1)));
@@ -4683,7 +4250,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta4.getSelectedRow();
 
-            SubGenericaDetalleEDITAR.dispose();
             txtcodGD.setText(String.valueOf(tb_Cta4.getValueAt(fila, 2)));
             Subgenericadetalle.setText(String.valueOf(tb_Cta4.getValueAt(fila, 0)));
             txtdesGd.setText(String.valueOf(tb_Cta4.getValueAt(fila, 1)));
@@ -4714,15 +4280,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
           lblDescripcion.setText("Sub Génerica Detalle");
     }//GEN-LAST:event_tb_Cta4KeyPressed
 
-    private void btnbuscar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar10ActionPerformed
-
     private void tb_Cta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta5MouseClicked
                 //CUENTA5 EDITAR
         int fila=tb_Cta5.getSelectedRow();
         if(evt.getClickCount()==1){
-            EspecificaEditar.dispose();
             txtcodE.setText(String.valueOf(tb_Cta5.getValueAt(fila, 2)));
             Especifica.setText(String.valueOf(tb_Cta5.getValueAt(fila, 0)));
             txtdesE.setText(String.valueOf(tb_Cta5.getValueAt(fila, 1)));
@@ -4759,7 +4320,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta5.getSelectedRow();
 
-            EspecificaEditar.dispose();
             txtcodE.setText(String.valueOf(tb_Cta5.getValueAt(fila, 2)));
             Especifica.setText(String.valueOf(tb_Cta5.getValueAt(fila, 0)));
             txtdesE.setText(String.valueOf(tb_Cta5.getValueAt(fila, 1)));
@@ -4789,15 +4349,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
          lblDescripcion.setText("Especifica");
     }//GEN-LAST:event_tb_Cta5KeyPressed
 
-    private void btnbuscar11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar11ActionPerformed
-
     private void tb_Cta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Cta6MouseClicked
                 //CUENTA6 EDITAR
         int fila=tb_Cta6.getSelectedRow();
         if(evt.getClickCount()==1){
-           EspecificaDetalleEDITAR.dispose();
             txtcodEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 2)));
             especificadetalle.setText(String.valueOf(tb_Cta6.getValueAt(fila, 0)));
             txtdesEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 1)));
@@ -4832,7 +4387,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Cta6.getSelectedRow();
 
-            EspecificaDetalleEDITAR.dispose();
             txtcodEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 2)));
             especificadetalle.setText(String.valueOf(tb_Cta6.getValueAt(fila, 0)));
             txtdesEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 1)));
@@ -4866,7 +4420,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                   //CUENTA6 EDITAR
         int fila=tb_Cta6.getSelectedRow();
         if(evt.getClickCount()==2){
-           EspecificaDetalleEDITAR.dispose();
+
             txtcodEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 2)));
             especificadetalle.setText(String.valueOf(tb_Cta6.getValueAt(fila, 0)));
             txtdesEd.setText(String.valueOf(tb_Cta6.getValueAt(fila, 1)));
@@ -5317,19 +4871,13 @@ Caja_Cta6 cn6 = new Caja_Cta6();
     private javax.swing.JButton B1;
     private javax.swing.JButton B3;
     private javax.swing.JLabel Especifica;
-    private javax.swing.JDialog EspecificaDetalleEDITAR;
-    private javax.swing.JDialog EspecificaEditar;
     private javax.swing.JDialog LlenarEspecifica;
-    private javax.swing.JDialog LlenarGenericaCT2EDITAR;
     private javax.swing.JDialog LlenarGenericaCT3;
     private javax.swing.JDialog LlenarSubGenericaCT4;
     private javax.swing.JDialog LlenarSubGenericaDetalleCT5;
-    private javax.swing.JDialog LlenarSubGenericaEDITAR;
-    private javax.swing.JDialog LlenarTransCT1EDITAR;
     private javax.swing.JDialog LlenarTransCT2;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JTabbedPane PaginasCuentas;
-    private javax.swing.JDialog SubGenericaDetalleEDITAR;
     private javax.swing.JLabel Subgenericadetalle;
     private javax.swing.JButton b2;
     private javax.swing.JButton b4;
@@ -5343,16 +4891,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnbuscar1;
-    private javax.swing.JButton btnbuscar10;
-    private javax.swing.JButton btnbuscar11;
     private javax.swing.JButton btnbuscar2;
     private javax.swing.JButton btnbuscar3;
     private javax.swing.JButton btnbuscar4;
     private javax.swing.JButton btnbuscar5;
-    private javax.swing.JButton btnbuscar6;
-    private javax.swing.JButton btnbuscar7;
-    private javax.swing.JButton btnbuscar8;
-    private javax.swing.JButton btnbuscar9;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
@@ -5390,12 +4932,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -5405,12 +4941,6 @@ Caja_Cta6 cn6 = new Caja_Cta6();
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel36;

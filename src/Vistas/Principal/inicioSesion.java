@@ -26,6 +26,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 import Servicios.Conexion;
+import modelo.Caja.Caja_AperturaCierre;
 import modelo.Principal.Usuario;
 
 
@@ -300,33 +301,32 @@ String hora, minutos, segundos, ampm;
         txtContra = new javax.swing.JPasswordField();
         jPanel17 = new javax.swing.JPanel();
         btnIniciarSesion = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("HIMS .::. Inicio de Sesión");
-        setMinimumSize(new java.awt.Dimension(915, 467));
+        setTitle("Huandoy");
+        setMinimumSize(new java.awt.Dimension(372, 435));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(127, 140, 141));
+        jPanel1.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Iniciar sesión");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Usuario");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Contraseña");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("He olvidado mi contraseña");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -397,19 +397,19 @@ String hora, minutos, segundos, ampm;
         );
 
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(127, 140, 141));
+        lblFecha.setForeground(new java.awt.Color(230, 230, 230));
         lblFecha.setText("00/00/00");
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(127, 140, 141));
+        jLabel2.setForeground(new java.awt.Color(230, 230, 230));
         jLabel2.setText("Fecha");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(127, 140, 141));
+        jLabel5.setForeground(new java.awt.Color(230, 230, 230));
         jLabel5.setText("Hora");
 
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(127, 140, 141));
+        lblHora.setForeground(new java.awt.Color(230, 230, 230));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -485,7 +485,7 @@ String hora, minutos, segundos, ampm;
         jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(240, 240, 240));
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("Iniciar Sesión");
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnIniciarSesion.setContentAreaFilled(false);
@@ -576,24 +576,14 @@ String hora, minutos, segundos, ampm;
                 .addComponent(panelRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 60)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(127, 140, 141));
-        jLabel7.setText("Huandoy");
-        jLabel7.setFocusable(false);
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -691,6 +681,7 @@ String hora, minutos, segundos, ampm;
                 Principal pmdi = new Principal();
                 Principal.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
+                
            }
         }
     }
@@ -705,6 +696,8 @@ String hora, minutos, segundos, ampm;
                esconder();
                 Principal pmdi = new Principal();
                 Principal.lblUsu.setText(usuario);
+                Caja_AperturaCierre CAP = new Caja_AperturaCierre();
+                CAP.DDATOS_GENERALES(usuario);
                 pmdi.setVisible(true);
 
                 Principal.btnCaja.setEnabled(false);
@@ -843,7 +836,6 @@ String hora, minutos, segundos, ampm;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel17;

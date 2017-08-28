@@ -26,6 +26,7 @@ import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Ventas;
 import Vistas.Principal.Principal;
 import Vistas.Principal.Principal_Caja;
+import net.sf.jasperreports.view.JasperViewer;
 /**
 /**
  *
@@ -74,39 +75,18 @@ public boolean NUEVO()
         }
         return resp;
     }
-public String PreventaID()
-    {
-        String cod="";
-        try
-        {
-            String sql = "SELECT TOP 1 ID_APERTURA FROM CAJA_APERTURA WHERE pc = HOST_NAME() and estado='A' ORDER BY ID_APERTURA DESC";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            ResultSet rs = cmd.executeQuery();
-            if(rs.next())
-            {
-               Caja_Apertura.lblID.setText(rs.getString(1));
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error: PreventaID: " + ex.getMessage());
-        }
-        return cod;
-    }
-public void reporteAperura(int id,String Usu) {
+public void reporteAperura(int id) {
         try {
             Map parametros = new HashMap();
             parametros.put("id",id);
-            parametros.put("Usu",Usu);
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Apertura.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");
-                
             }
     } 
 
-public void reporteCierre(int SESION) {
+    public void reporteCierre(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
@@ -118,28 +98,101 @@ public void reporteCierre(int SESION) {
             }
     } 
 
-public void reporteCierreANULADAS(int SESION) {
+    public void reporteCierreANULADAS(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreAnuladas.jasper"), parametros, con.conectar());   
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreAnuladas.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");
                 
             }
     } 
-public void reporteCierreV(int SESION) {
+    public void reporteCierreV(int SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("SESION",SESION);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreVacio.jasper"), parametros, con.conectar());   
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreVacio.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 System.out.println("ERROR AL IMPRIMIR");
-                
             }
     } 
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //REPORTE CIERRE ESPECIFICO 4A
+    
+    public void reporteCierreCT6(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreA4.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+
+    public void reporteCierreANULADASCT6(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreA4Anulados.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
+    public void reporteCierreVACIOCT6(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreA4Vacio.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //REPORTE CIERRE GENERAL
+    
+    public void reporteCierreGENERAL(String USUARIO,int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO",USUARIO);
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreGeneral.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
+    public void reporteCierreGENERALVACIO(String USUARIO,int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO",USUARIO);
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreGeneralVacio.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
 
 
 public boolean CIERRE(){
@@ -167,6 +220,25 @@ public boolean CIERRE(){
           System.out.println("Error " + ex.getMessage());
         }
         return resp;
+    }
+
+    public void DDATOS_GENERALES(String usu){
+        String consulta="";
+        try {
+            consulta="SISTEMA_DATOS_ACCESO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Principal.lblPersonal.setText(r.getString(1)); 
+                Principal.lblNivel.setText(r.getString(2)); 
+                Principal.lblCod_Modulo.setText(r.getString(3)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: DATOS: " + e.getMessage());
+        }
     }
 
 //public String Apertura(){//muestra el codigo

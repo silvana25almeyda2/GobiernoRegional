@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="298"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -18,19 +18,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_CIERRE_CTA7 $P{SESION}]]>
+		<![CDATA[CAJA_REPORTE_CIERRE_CTA7_VACIO $P{SESION}]]>
 	</queryString>
-	<field name="id_cuenta7" class="java.lang.Long"/>
-	<field name="cuenta_7" class="java.lang.String"/>
-	<field name="descripcion_7" class="java.lang.String"/>
-	<field name="ID_PRECIO" class="java.lang.Long"/>
-	<field name="ID_CPT" class="java.lang.Long"/>
-	<field name="NOMBRE" class="java.lang.String"/>
-	<field name="CANTIDAD" class="java.lang.Integer"/>
-	<field name="PRECIO" class="java.lang.String"/>
-	<field name="descu_exo_detalle" class="java.lang.String"/>
-	<field name="TOTAL" class="java.math.BigDecimal"/>
-	<field name="CUENTA" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>
 	<field name="RUC" class="java.lang.String"/>
@@ -44,11 +33,7 @@
 	<field name="BASE" class="java.math.BigDecimal"/>
 	<field name="ID_SESION" class="java.lang.String"/>
 	<field name="PERSONAL" class="java.lang.String"/>
-	<field name="TIPO_VENTA" class="java.lang.String"/>
-	<field name="TOTAL DE VENTAS" class="java.math.BigDecimal"/>
-	<field name="TOTAL DE GENERAL" class="java.math.BigDecimal"/>
 	<group name="Group1">
-		<groupExpression><![CDATA[$F{TIPO_VENTA}]]></groupExpression>
 		<groupHeader>
 			<band height="39">
 				<line>
@@ -62,25 +47,18 @@
 					<text><![CDATA[Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="94" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
+					<reportElement x="127" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Cant]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="115" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
+					<reportElement x="148" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Precio]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="145" y="19" width="60" height="20" uuid="62f57679-121c-4c86-b730-2b7104284c15"/>
-					<textElement verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="7"/>
-					</textElement>
-					<text><![CDATA[Desct]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="-6" y="3" width="211" height="20" uuid="95386466-684b-41c7-a4b4-fd08edfafb4f"/>
@@ -97,7 +75,6 @@
 		</groupFooter>
 	</group>
 	<group name="Group2">
-		<groupExpression><![CDATA[$F{CUENTA}]]></groupExpression>
 		<groupHeader>
 			<band height="27">
 				<frame>
@@ -255,28 +232,21 @@
 	<detail>
 		<band height="31" splitType="Stretch">
 			<staticText>
-				<reportElement x="-6" y="0" width="100" height="20" uuid="95726c1a-1f69-47a0-9b3f-95dd05694d40"/>
+				<reportElement x="-6" y="0" width="126" height="20" uuid="95726c1a-1f69-47a0-9b3f-95dd05694d40"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[SIN DESCRIPCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="94" y="0" width="21" height="21" uuid="5461cf39-6248-4a9c-a5e6-30c3b8e4ff8b"/>
-				<textElement>
+				<reportElement x="127" y="0" width="21" height="21" uuid="5461cf39-6248-4a9c-a5e6-30c3b8e4ff8b"/>
+				<textElement textAlignment="Center">
 					<font size="7"/>
 				</textElement>
-				<text><![CDATA[0.00]]></text>
+				<text><![CDATA[0]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="0" width="21" height="21" uuid="0d3089d5-ea3a-4bf1-9e8a-75311cac924b"/>
-				<textElement>
-					<font size="7"/>
-				</textElement>
-				<text><![CDATA[0.00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="145" y="0" width="21" height="21" uuid="3fbc509c-8c23-45d2-8b83-a68c224179c0"/>
+				<reportElement x="148" y="0" width="21" height="21" uuid="0d3089d5-ea3a-4bf1-9e8a-75311cac924b"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>

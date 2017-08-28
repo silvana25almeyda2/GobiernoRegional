@@ -24,7 +24,8 @@ DefaultTableModel m;
 private Connection cn;
 private String NOM_USU;  
 private int NRO_PC;
-private int AR_ID;  
+private int AR_ID; 
+private String PA_MODULO;
 
     public void CajaPC_Listar(){
         String consulta="";
@@ -63,7 +64,7 @@ private int AR_ID;
         }
     }
     
-        public void VerificarExistencia(String Usuario,JTable tabla){
+        public void VerificarExistencia(String Usuario,String M ,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -72,9 +73,10 @@ private int AR_ID;
             JTable p=new JTable(m);
             String fila[]=new String[1];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION ?";
+            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, Usuario); ///bus1 esto se busca
+            cmd.setString(2, M); ///bus1 esto se busca
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -91,16 +93,18 @@ private int AR_ID;
         }
     }
         
+        
     public boolean NuevoTerminal(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_CONFIGURAR_TERMINAL "
-                        + "?,?";
+                        + "?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             //cmd.setString(1, getCod_nomen_caja());
 
             cmd.setString(1, getNOM_USU());
-            cmd.setInt(2, getNRO_PC());
+            cmd.setString(2, getPA_MODULO());
+            cmd.setInt(3, getNRO_PC());
 
             if(!cmd.execute())
             {
@@ -116,13 +120,14 @@ private int AR_ID;
         return resp;
     }
     
-    public int VerificarNumero(String nombre){
+    public int VerificarNumero(String M,String nombre){
         int resultado=0;
         try
         {
-            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO ='CC' AND NRO_PC=?";
+            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO =? AND NRO_PC=?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, nombre);
+            cmd.setString(1, M);
+            cmd.setString(2, nombre);
             ResultSet rs = cmd.executeQuery();
             for (int i=0; rs.next (); i++)
             {
@@ -137,6 +142,23 @@ private int AR_ID;
             System.out.println("Error verificacion repetidos: " + ex.getMessage());
         }
         return resultado;
+    }
+    
+    public void NUMERACION(){
+        String consulta="";
+        try {
+            consulta="SISTEMA_CONFIGURACION_NUMERO_TERMINAL";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Registro.txtNRO.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PRECIO: " + e.getMessage());
+        }
     }
      
      public Caja_PC_Registro(){
@@ -173,6 +195,14 @@ private int AR_ID;
 
     public void setAR_ID(int AR_ID) {
         this.AR_ID = AR_ID;
+    }
+
+    public String getPA_MODULO() {
+        return PA_MODULO;
+    }
+
+    public void setPA_MODULO(String PA_MODULO) {
+        this.PA_MODULO = PA_MODULO;
     }
     
     

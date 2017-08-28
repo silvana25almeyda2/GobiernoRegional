@@ -112,10 +112,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        btnImprimir2 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
         btnImprimir1 = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         btnImprimir = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        btnImprimir2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         lblID_APERTURA = new javax.swing.JLabel();
@@ -160,10 +163,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         lblIDSESION_A = new javax.swing.JLabel();
 
         ImprimirCierre.setAlwaysOnTop(true);
-        ImprimirCierre.setMinimumSize(new java.awt.Dimension(496, 237));
+        ImprimirCierre.setMinimumSize(new java.awt.Dimension(646, 370));
         ImprimirCierre.setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel3.setBackground(new java.awt.Color(209, 52, 56));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,24 +181,16 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         jPanel4.setBackground(new java.awt.Color(230, 230, 230));
 
-        btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnImprimir2.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Printer Door Open-32.png"))); // NOI18N
-        btnImprimir2.setText("Especifico Formato A4");
-        btnImprimir2.setContentAreaFilled(false);
-        btnImprimir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimir2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnImprimir2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnImprimir2.setIconTextGap(5);
-        btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimir2ActionPerformed(evt);
-            }
-        });
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-32.png"))); // NOI18N
+        jLabel25.setText("Elija un formato");
+        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnImprimir1.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Feed Paper-32.png"))); // NOI18N
         btnImprimir1.setText("Genaral Formato A4");
         btnImprimir1.setContentAreaFilled(false);
         btnImprimir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -208,9 +203,24 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             }
         });
 
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(btnImprimir1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnImprimir1)
+                .addGap(0, 0, 0))
+        );
+
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-32BL.png"))); // NOI18N
         btnImprimir.setText("Especifico Ticket");
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -223,35 +233,78 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             }
         });
 
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(btnImprimir)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnImprimir2.setForeground(new java.awt.Color(51, 51, 51));
+        btnImprimir2.setText("Especifico Formato A4");
+        btnImprimir2.setContentAreaFilled(false);
+        btnImprimir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimir2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnImprimir2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnImprimir2.setIconTextGap(5);
+        btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnImprimir2))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnImprimir1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImprimir2)
-                    .addComponent(btnImprimir1))
-                .addGap(18, 18, 18)
-                .addComponent(btnImprimir)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Elija el comprobante a imprimir");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -259,27 +312,17 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(304, 304, 304))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ImprimirCierreLayout = new javax.swing.GroupLayout(ImprimirCierre.getContentPane());
@@ -296,14 +339,14 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(209, 52, 56));
 
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
         jLabel57.setText("Cierre de Caja");
 
-        lblID_APERTURA.setBackground(new java.awt.Color(255, 51, 51));
-        lblID_APERTURA.setForeground(new java.awt.Color(255, 51, 51));
+        lblID_APERTURA.setBackground(new java.awt.Color(209, 52, 56));
+        lblID_APERTURA.setForeground(new java.awt.Color(209, 52, 56));
         lblID_APERTURA.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -446,7 +489,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -740,11 +783,22 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
-        // TODO add your handling code here:
+        jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
+        if(tbCANTIDAD.getRowCount()==0){
+            nuevaV.reporteCierreGENERALVACIO(lblusu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
+        }else if(tbCANTIDAD.getRowCount()>0){
+            nuevaV.reporteCierreGENERAL(lblusu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
+        }
     }//GEN-LAST:event_btnImprimir1ActionPerformed
 
     private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed
-        // TODO add your handling code here:
+        jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
+        if(tbCANTIDAD.getRowCount()==0){
+            nuevaV.reporteCierreVACIOCT6(Integer.parseInt(lblID_APERTURA.getText()));
+        }else if(tbCANTIDAD.getRowCount()>0){
+            nuevaV.reporteCierreCT6(Integer.parseInt(lblID_APERTURA.getText()));
+            nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
+        }
     }//GEN-LAST:event_btnImprimir2ActionPerformed
 
     /**
@@ -796,10 +850,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -814,12 +868,15 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public static javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     public static javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JLabel lblBaseA;
     public static javax.swing.JLabel lblCorrelativo;
