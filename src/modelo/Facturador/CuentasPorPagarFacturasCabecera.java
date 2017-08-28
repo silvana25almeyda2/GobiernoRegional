@@ -68,38 +68,32 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         }
     }
 
-    public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
+    public boolean mantenimientoCuentasPorPagarFacturasCabecera()
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = " exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getId());
+            cmd.setString(1, getCodigoEmpresa());
             cmd.setString(2, getSerie());
             cmd.setString(3, getCorrelativo());
             cmd.setString(4, getTipoOperacion());
             cmd.setString(5, getFechaEmision());
             cmd.setString(6, getTipoMoneda());
             cmd.setString(7, getDocumento());
-            cmd.setInt(8, getActoMedico());
-            cmd.setString(9, getCod_usu());
-            cmd.setString(10, tipo);
-            cmd.setString(11, getCodigoEmpresa());
-            cmd.setDouble(12, getDsctoGlobal());
-            cmd.setDouble(13, getOtrosCargos());
-            cmd.setDouble(14, getTotalDscto());
-            cmd.setDouble(15, getValorVGravada());
-            cmd.setDouble(16, getValorVInafectada());
-            cmd.setDouble(17, getVentaExonerada());
-            cmd.setDouble(18, getMontoIgv());
-            cmd.setDouble(19, getMontoIsc());
-            cmd.setDouble(20, getOtrosTributos());
-            cmd.setDouble(21, getImportaTotalVta());
-            cmd.setString(22, getPlaca());
-            cmd.setString(23, getContratante());
-            cmd.setString(24, getPoliza());
-            cmd.setString(25, getCartaGarantia());
-            cmd.setString(26, getDni());
+            cmd.setDouble(8, getDsctoGlobal());
+            cmd.setDouble(9, getOtrosCargos());
+            cmd.setDouble(10, getTotalDscto());
+            cmd.setDouble(11, getValorVGravada());
+            cmd.setDouble(12, getValorVInafectada());
+            cmd.setDouble(13, getVentaExonerada());
+            cmd.setDouble(14, getMontoIgv());
+            cmd.setDouble(15, getMontoIsc());
+            cmd.setDouble(16, getOtrosTributos());
+            cmd.setDouble(17, getImportaTotalVta());
+            cmd.setString(18, getCod_usu());
+            
+            
             if(!cmd.execute())
             {
                 resp = true;
