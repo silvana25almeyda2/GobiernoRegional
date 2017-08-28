@@ -82,42 +82,39 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     Conexion con = new Conexion();
     private Connection cn;
 
-    public boolean mantenimientoCuentasPorPagarFacturasDetalle(String tipo)
+    public boolean mantenimientoCuentasPorPagarFacturasDetalle()
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_DETALLE ?,?,?,?,?,?,?,?,?,?,"
-                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = " exec CUENTAS_POR_PAGAR_FACTURAS_DETALLE_insertar ?,?,?,?,?,?,?,?,?,?,"
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getCpdId());
-            cmd.setInt(2, getCpfId());
-            cmd.setString(3, getCpdGrav());
-            cmd.setString(4, getCpdCodUnidad());
-            cmd.setInt(5, getCpdCantidad());
-            cmd.setString(6, getNomenclatura());
-            cmd.setString(7, getCpdCodProdSunat());
-            cmd.setBigDecimal(8, getCpdValorU());
-            cmd.setBigDecimal(9, getCpdDescPorcen());
-            cmd.setBigDecimal(10, getCpdDscto());
-            cmd.setBigDecimal(11, getCpdIgv());
-            cmd.setString(12, getCpdAfecIgv());
-            cmd.setBigDecimal(13, getCpdIsc());
-            cmd.setString(14, getCpdAfecIsc());
-            cmd.setBigDecimal(15, getCpdPrecioVenta());
-            cmd.setBigDecimal(16, getCpdValorVenta());
-            cmd.setBigDecimal(17, getCpdDsctoGlobal());
-            cmd.setBigDecimal(18, getCpdSumOtrosCargos());
-            cmd.setBigDecimal(19, getCpdSumIgv());
-            cmd.setBigDecimal(20, getCpdTVvInafec());
-            cmd.setBigDecimal(21, getCpdTVvGrav());
-            cmd.setBigDecimal(22, getCpdTDsctos());
-            cmd.setBigDecimal(23, getCpdOtrosTribut());
-            cmd.setBigDecimal(24, getCpdSumIsc());
-            cmd.setBigDecimal(25, getCpdTVExonen());
-            cmd.setBigDecimal(26, getCpdImpTotVtas());
-            cmd.setString(27, getCodUsu());
-            cmd.setString(28, tipo);
-            cmd.setString(29, getFormaPago());
+            cmd.setInt(1, getCpfId());
+            cmd.setString(2, getCpdGrav());
+            cmd.setString(3, getCpdCodUnidad());
+            cmd.setInt(4, getCpdCantidad());
+            cmd.setString(5, getNomenclatura());
+            cmd.setString(6, getCpdCodProdSunat());
+            cmd.setBigDecimal(7, getCpdValorU());
+            cmd.setBigDecimal(8, getCpdDescPorcen());
+            cmd.setBigDecimal(9, getCpdDscto());
+            cmd.setBigDecimal(10, getCpdIgv());
+            cmd.setString(11, getCpdAfecIgv());
+            cmd.setBigDecimal(12, getCpdIsc());
+            cmd.setString(13, getCpdAfecIsc());
+            cmd.setBigDecimal(14, getCpdPrecioVenta());
+            cmd.setBigDecimal(15, getCpdValorVenta());
+            cmd.setBigDecimal(16, getCpdDsctoGlobal());
+            cmd.setBigDecimal(17, getCpdSumOtrosCargos());
+            cmd.setBigDecimal(18, getCpdSumIgv());
+            cmd.setBigDecimal(19, getCpdTVvInafec());
+            cmd.setBigDecimal(20, getCpdTVvGrav());
+            cmd.setBigDecimal(21, getCpdTDsctos());
+            cmd.setBigDecimal(22, getCpdOtrosTribut());
+            cmd.setBigDecimal(23, getCpdSumIsc());
+            cmd.setBigDecimal(24, getCpdTVExonen());
+            cmd.setBigDecimal(25, getCpdImpTotVtas());
+            cmd.setString(26, getCodUsu());
             if(!cmd.execute())
             {
                 resp = true;
@@ -135,7 +132,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         String cod="";
         try
         {
-            String sql = "CUENTAS_POR_PAGAR_FACTURA_CABECERA_ID";
+            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
@@ -155,7 +152,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         String cod="";
         try
         {
-            String sql = "SELECT cod_nomen_caja FROM CAJA_NOMENCLATURA_CAJA WHERE nomen_caja = ?";
+            String sql = "SELECT ID_CPT FROM CAJA_CPT WHERE NRO_ITEM = ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nomenclatura);
             ResultSet rs = cmd.executeQuery();
