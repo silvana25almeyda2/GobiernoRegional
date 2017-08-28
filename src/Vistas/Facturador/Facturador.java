@@ -730,7 +730,7 @@ public class Facturador extends javax.swing.JFrame {
 
                 lblusu.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                 lblusu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-                lblusu.setText("Usuario: Silvana");
+                lblusu.setText("Karina");
 
                 lblDNI3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
                 lblDNI3.setForeground(new java.awt.Color(41, 127, 184));
@@ -2468,13 +2468,13 @@ public class Facturador extends javax.swing.JFrame {
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
         boolean rpta = false;
-        CLS_Personal cabecera = new CLS_Personal();
+        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
         if(!txtTipoDocumento.getText().equals("")){
                     Caja_Ventas.jButton2.doClick();
                     Caja_Ventas.btnNuevo.doClick();
                     
                     CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
-                    facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
+                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
                     facturaCabecera.setSerie(txtSerie.getText());
                     facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
                     facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
@@ -2492,7 +2492,7 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
                     facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
                     facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
-                    facturaCabecera.setCod_usu(cabecera.PERSONAL_COD_USUARIO(lblusu.getText()));
+                    facturaCabecera.setCod_usu(lblusu.getText());
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
@@ -2531,12 +2531,12 @@ public class Facturador extends javax.swing.JFrame {
                         facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
                         facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
                         facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-                        facturaDetalle.setCodUsu(cabecera.PERSONAL_COD_USUARIO(lblusu.getText()));
+                        facturaDetalle.setCodUsu(lblusu.getText());
 //                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
                         if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
                             if(crearDetalles(crea_archivo, archivo)){
                                 rpta = true;                     
-                                dispose();
+                                
 
                             } else
                                 rpta = false;
@@ -2546,15 +2546,17 @@ public class Facturador extends javax.swing.JFrame {
                     if(rpta==true){
                     
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
                                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(guardar == 0){ // SELECCION SI
-                        
+                        dispose();
 //                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
 //                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
 //                        rpta2.reporteFactura(cab3.idFactura());
+                    }else{
+                        dispose();
                     }
-                    dispose();
                   
                     } else {
                         JOptionPane.showMessageDialog(this, "Error al crear la factura");

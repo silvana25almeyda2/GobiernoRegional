@@ -54,6 +54,27 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     Conexion con = new Conexion();
     private Connection cn;
     
+    public String codUsuario(String nombreUsuario)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT Usu_Codigo FROM SISTEMA_USUARIO WHERE Usu_Usuario = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombreUsuario);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_codUsuario: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public void generarSerieCorrelativo(String documento){
         try {
             String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO '"+documento+"'";

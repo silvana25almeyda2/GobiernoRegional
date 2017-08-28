@@ -132,7 +132,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         String cod="";
         try
         {
-            String sql = "CUENTAS_POR_PAGAR_FACTURA_CABECERA_ID";
+            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
@@ -152,7 +152,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         String cod="";
         try
         {
-            String sql = "SELECT cod_nomen_caja FROM CAJA_NOMENCLATURA_CAJA WHERE nomen_caja = ?";
+            String sql = "SELECT ID_CPT FROM CAJA_CPT WHERE NRO_ITEM = ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nomenclatura);
             ResultSet rs = cmd.executeQuery();
