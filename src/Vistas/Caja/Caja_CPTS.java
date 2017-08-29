@@ -40,9 +40,9 @@ Caja_CPT nuevaR = new Caja_CPT();
         Caja_CPT N = new Caja_CPT();
         A.LISTA_CPT("",tb_CPT);
         U.LISTAR_UIT();
-        N.LISTAR_PERMISOS(lblusu.getText());
+//        N.LISTAR_PERMISOS(lblusu.getText());
         cargareliminar.setVisible(false);
-        this.setExtendedState(MAXIMIZED_BOTH);
+//        this.setExtendedState(MAXIMIZED_BOTH);
         Cta6.setLocationRelativeTo(null);//en el centro
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         LIMPIAR();
@@ -587,7 +587,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                     .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                 jPanel1.setBackground(new java.awt.Color(23, 160, 134));
                 jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));

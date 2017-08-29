@@ -78,6 +78,11 @@ private Dimension DimensionBarra = null;
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CAJA APERTURADA");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         PanelSesion.setBackground(new java.awt.Color(209, 52, 56));
         PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -400,7 +405,13 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_PanelSesionMouseEntered
 
     private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
-        // TODO add your handling code here:
+        Caja_Ventas CT = new Caja_Ventas();
+        
+        String u=Principal.lblUsu.getText();
+        CT.lblusu.setText(u);
+        CT.lblID_SESION.setText(lblIDSESION.getText());
+        CT.lblSESION.setText(ibiIDAPERTURA.getText());
+        CT.setVisible(true);
     }//GEN-LAST:event_btnVentasMouseClicked
 
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
@@ -427,12 +438,12 @@ private Dimension DimensionBarra = null;
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         Caja_Ventas CT = new Caja_Ventas();
-        CT.setVisible(true);
+        
         String u=Principal.lblUsu.getText();
         CT.lblusu.setText(u);
         CT.lblID_SESION.setText(lblIDSESION.getText());
         CT.lblSESION.setText(ibiIDAPERTURA.getText());
-
+        CT.setVisible(true);
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -442,7 +453,10 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void btnCPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseClicked
-        // TODO add your handling code here:
+        Caja_CPTS TP = new Caja_CPTS();
+
+        TP.lblusu.setText(Principal.lblUsu.getText());
+        TP.setVisible(true);
     }//GEN-LAST:event_btnCPTMouseClicked
 
     private void btnCPTMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseEntered
@@ -468,14 +482,17 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
-        Caja_CPTS TP = new Caja_CPTS();
-        TP.setVisible(true);
+        Caja_Transaccion CCC = new Caja_Transaccion();
+        CCC.setVisible(true);
         String u=Principal.lblUsu.getText();
-        TP.lblusu.setText(u);
+        CCC.lblusu.setText(u);
     }//GEN-LAST:event_btnCPTActionPerformed
 
     private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked
-        // TODO add your handling code here:
+       Caja_Clientes CCLI = new Caja_Clientes();
+        CCLI.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        CCLI.lblusu.setText(u);
     }//GEN-LAST:event_btnClientesMouseClicked
 
     private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
@@ -510,7 +527,10 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
-        // TODO add your handling code here:
+         Caja_Transaccion CCC = new Caja_Transaccion();
+        CCC.setVisible(true);
+        String u=Principal.lblUsu.getText();
+        CCC.lblusu.setText(u);
     }//GEN-LAST:event_btnCaja3MouseClicked
 
     private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
@@ -570,6 +590,12 @@ private Dimension DimensionBarra = null;
        Principal.PaginasP.setSelectedIndex(0);
        
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        Caja_CPTS frmCIERRE = new Caja_CPTS();
+            frmCIERRE.lblusu.setText(Principal.lblUsu.getText());
+            frmCIERRE.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

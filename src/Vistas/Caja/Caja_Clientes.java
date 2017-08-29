@@ -37,7 +37,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         N.LISTAR_PERMISOS(lblusu.getText());
         cargareliminar.setVisible(false);
         NivelSuperior.setLocationRelativeTo(null);//en el centro
-        this.setExtendedState(MAXIMIZED_BOTH);
+//        this.setExtendedState(MAXIMIZED_BOTH);
         LIMPIAR();
         HABILITAR(false);
         btnguardar.setEnabled(false);

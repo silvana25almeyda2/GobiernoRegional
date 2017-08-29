@@ -51,7 +51,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
      */
     public Caja_Ventas() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+//        this.setExtendedState(MAXIMIZED_BOTH);
         CLIENTES.setLocationRelativeTo(null);//en el centro
         CPT.setLocationRelativeTo(null);//en el centro
         ErrorExistente.setLocationRelativeTo(null);//en el centro

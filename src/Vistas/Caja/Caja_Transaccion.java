@@ -46,7 +46,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
     public Caja_Transaccion() {
        initComponents();
         this.getContentPane().setBackground(Color.WHITE);
-        this.setExtendedState(MAXIMIZED_BOTH);
+//        this.setExtendedState(MAXIMIZED_BOTH);
         
         LlenarTransCT2.setLocationRelativeTo(null);//en el centro
         LlenarTransCT2.getContentPane().setBackground(Color.WHITE); 

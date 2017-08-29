@@ -134,60 +134,6 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=4;
-      }else if(cap.equalsIgnoreCase(codAdmin("COSTOS"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=4;
-      }else if(cap.equalsIgnoreCase(codAdmin("HOSPITALIZACION"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=5;
-      }else if(cap.equalsIgnoreCase(codAdmin("LABORATORIO"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=6;
-      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=7;
-      }else if(cap.equalsIgnoreCase(codAdmin("ECOGRAFIA"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=8;
-      }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=9;
-      }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=10;
-      }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=11;
-      }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
-
-        cont1=-1;
-        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
-        activar1();
-        filtroModulo=12;
       }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
 
         cont1=-1;

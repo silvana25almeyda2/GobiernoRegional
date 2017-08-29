@@ -2467,105 +2467,105 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTipoDocumentoKeyTyped
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
-        boolean rpta = false;
-        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
-        if(!txtTipoDocumento.getText().equals("")){
+//        boolean rpta = false;
+//        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
+//        if(!txtTipoDocumento.getText().equals("")){
                     Caja_Ventas.jButton2.doClick();
                     Caja_Ventas.btnNuevo.doClick();
                     
-                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
-                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
-                    facturaCabecera.setSerie(txtSerie.getText());
-                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
-                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
-                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
-                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
-                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
-                    
-                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
-                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
-                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
-                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
-                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
-                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
-                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
-                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
-                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
-                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
-                    facturaCabecera.setCod_usu(lblusu.getText());
-            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
-                if(crearCabecera()){
-                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
-                    lblId.setText(facturaDetalle1.facturaCabeceraId());
-                    String archivo = "20410275768" + "-" + 
-                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
-                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                    txtSerie.getText() + "-" + 
-                    lblNroCorrelativo.getText() + ".DET";
-                    File crea_archivo = new File(archivo);
-                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
-                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
-                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
-                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
-                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
-                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
-                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
-                        facturaDetalle.setCpdCodProdSunat("");
-                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
-                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
-                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
-                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
-                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
-//                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
-                        facturaDetalle.setCpdAfecIsc(""); 
-                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
-                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
-                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
-                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
-                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
-                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
-                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
-                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-                        facturaDetalle.setCodUsu(lblusu.getText());
-//                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
-                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
-                            if(crearDetalles(crea_archivo, archivo)){
-                                rpta = true;                     
-                                
-
-                            } else
-                                rpta = false;
-                                
-                        }
-                }
-                    if(rpta==true){
-                    
-                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
-                    
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
-                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if(guardar == 0){ // SELECCION SI
-                        dispose();
-//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-//                        rpta2.reporteFactura(cab3.idFactura());
-                    }else{
-                        dispose();
-                    }
-                  
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
-                    }
-            }//fin if crearCabecera    
-            }
-        } else{
-         
-        }
+//                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
+//                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
+//                    facturaCabecera.setSerie(txtSerie.getText());
+//                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
+//                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
+//                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
+//                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
+//                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
+//                    
+//                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
+//                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
+//                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
+//                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
+//                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
+//                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
+//                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
+//                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
+//                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
+//                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
+//                    facturaCabecera.setCod_usu(lblusu.getText());
+//            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
+//                if(crearCabecera()){
+//                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+//                    lblId.setText(facturaDetalle1.facturaCabeceraId());
+//                    String archivo = "20410275768" + "-" + 
+//                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
+//                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
+//                    txtSerie.getText() + "-" + 
+//                    lblNroCorrelativo.getText() + ".DET";
+//                    File crea_archivo = new File(archivo);
+//                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+//                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
+//                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
+//                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+//                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
+//                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
+//                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
+//                        facturaDetalle.setCpdCodProdSunat("");
+//                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
+//                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
+//                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
+//                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+//                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
+//                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
+////                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+//                        facturaDetalle.setCpdAfecIsc(""); 
+//                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
+//                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+//                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
+//                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
+//                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+//                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
+//                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
+//                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+//                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
+//                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
+//                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
+//                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+//                        facturaDetalle.setCodUsu(lblusu.getText());
+////                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
+//                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
+//                            if(crearDetalles(crea_archivo, archivo)){
+//                                rpta = true;                     
+//                                
+//
+//                            } else
+//                                rpta = false;
+//                                
+//                        }
+//                }
+//                    if(rpta==true){
+//                    
+//                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+//                    
+//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                    if(guardar == 0){ // SELECCION SI
+//                        dispose();
+////                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+////                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+////                        rpta2.reporteFactura(cab3.idFactura());
+//                    }else{
+//                        dispose();
+//                    }
+//                  
+//                    } else {
+//                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
+//                    }
+//            }//fin if crearCabecera    
+//            }
+//        } else{
+//         
+//        }
     }//GEN-LAST:event_btnGenerarDocActionPerformed
 
     private void txtBuscarEmpresaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaCaretUpdate

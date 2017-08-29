@@ -5,6 +5,8 @@
  */
 package Vistas.Caja;
 
+import java.text.DecimalFormat;
+import javax.swing.ImageIcon;
 import modelo.Caja.Caja_NuevaVenta;
 
 /**
@@ -543,66 +545,66 @@ public class Caja_Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_tb_ReporteDiario2KeyPressed
 
     private void btnBuscarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarReporteActionPerformed
-        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play-32.png"));
-        ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Stop-30.png"));
-        if(btnBuscarReporte.getText().equals("Iniciar Busqueda")){
-            int m=0;
-            if(cbxMes.getSelectedItem().equals("ENERO")){
-                m=1;
-            }else if(cbxMes.getSelectedItem().equals("FEBRERO")){
-                m=2;
-            }else if(cbxMes.getSelectedItem().equals("MARZO")){
-                m=3;
-            }else if(cbxMes.getSelectedItem().equals("ABRIL")){
-                m=4;
-            }else if(cbxMes.getSelectedItem().equals("MAYO")){
-                m=5;
-            }else if(cbxMes.getSelectedItem().equals("JUNIO")){
-                m=6;
-            }else if(cbxMes.getSelectedItem().equals("JULIO")){
-                m=7;
-            }else if(cbxMes.getSelectedItem().equals("AGOSTO")){
-                m=8;
-            }else if(cbxMes.getSelectedItem().equals("SETIEMBRE")){
-                m=9;
-            }else if(cbxMes.getSelectedItem().equals("OCTUBRE")){
-                m=10;
-            }else if(cbxMes.getSelectedItem().equals("NOVIEMBRE")){
-                m=11;
-            }else if(cbxMes.getSelectedItem().equals("DICIEMBRE")){
-                m=12;
-            }
-            int hasta=0;
-            hasta=DIAS(m,Integer.parseInt(cbxAño.getSelectedItem().toString()));
-            DecimalFormat df = new DecimalFormat("00");
-            int dia,mes,anio,diah,mesh,anioh;
-            dia = 01;
-            mes = m;
-            anio = Integer.parseInt(cbxAño.getSelectedItem().toString());
-            diah = hasta;
-            mesh = m;
-            anioh = Integer.parseInt(cbxAño.getSelectedItem().toString());
-
-            int desde=Integer.parseInt(anio+""+"0"+mes+""+"0"+dia);
-            int hastaa=Integer.parseInt(anioh+""+"0"+mesh+""+diah);
-            System.out.println("desdeee "+desde);
-            System.out.println("hastaaa "+hastaa);
-
-            Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
-            CNVRCCF.ReporteFechasCajeros(desde,hastaa,tb_ReporteFechas);
-            lblMes.setText(cbxMes.getSelectedItem().toString());
-            cbxMes.setEnabled(false);
-            cbxAño.setEnabled(false);
-            btnBuscarReporte.setIcon(detener);
-            btnBuscarReporte.setText("Detener");
-            btnImprimir.setEnabled(true);
-        }else if(btnBuscarReporte.getText().equals("Detener")){
-            cbxMes.setEnabled(true);
-            cbxAño.setEnabled(true);
-            btnBuscarReporte.setIcon(continuar);
-            btnBuscarReporte.setText("Iniciar Busqueda");
-            btnImprimir.setEnabled(false);
-        }
+//        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play-32.png"));
+//        ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Stop-30.png"));
+//        if(btnBuscarReporte.getText().equals("Iniciar Busqueda")){
+//            int m=0;
+//            if(cbxMes.getSelectedItem().equals("ENERO")){
+//                m=1;
+//            }else if(cbxMes.getSelectedItem().equals("FEBRERO")){
+//                m=2;
+//            }else if(cbxMes.getSelectedItem().equals("MARZO")){
+//                m=3;
+//            }else if(cbxMes.getSelectedItem().equals("ABRIL")){
+//                m=4;
+//            }else if(cbxMes.getSelectedItem().equals("MAYO")){
+//                m=5;
+//            }else if(cbxMes.getSelectedItem().equals("JUNIO")){
+//                m=6;
+//            }else if(cbxMes.getSelectedItem().equals("JULIO")){
+//                m=7;
+//            }else if(cbxMes.getSelectedItem().equals("AGOSTO")){
+//                m=8;
+//            }else if(cbxMes.getSelectedItem().equals("SETIEMBRE")){
+//                m=9;
+//            }else if(cbxMes.getSelectedItem().equals("OCTUBRE")){
+//                m=10;
+//            }else if(cbxMes.getSelectedItem().equals("NOVIEMBRE")){
+//                m=11;
+//            }else if(cbxMes.getSelectedItem().equals("DICIEMBRE")){
+//                m=12;
+//            }
+//            int hasta=0;
+//            hasta=DIAS(m,Integer.parseInt(cbxAño.getSelectedItem().toString()));
+//            DecimalFormat df = new DecimalFormat("00");
+//            int dia,mes,anio,diah,mesh,anioh;
+//            dia = 01;
+//            mes = m;
+//            anio = Integer.parseInt(cbxAño.getSelectedItem().toString());
+//            diah = hasta;
+//            mesh = m;
+//            anioh = Integer.parseInt(cbxAño.getSelectedItem().toString());
+//
+//            int desde=Integer.parseInt(anio+""+"0"+mes+""+"0"+dia);
+//            int hastaa=Integer.parseInt(anioh+""+"0"+mesh+""+diah);
+//            System.out.println("desdeee "+desde);
+//            System.out.println("hastaaa "+hastaa);
+//
+//            Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
+//            CNVRCCF.ReporteFechasCajeros(desde,hastaa,tb_ReporteFechas);
+//            lblMes.setText(cbxMes.getSelectedItem().toString());
+//            cbxMes.setEnabled(false);
+//            cbxAño.setEnabled(false);
+//            btnBuscarReporte.setIcon(detener);
+//            btnBuscarReporte.setText("Detener");
+//            btnImprimir.setEnabled(true);
+//        }else if(btnBuscarReporte.getText().equals("Detener")){
+//            cbxMes.setEnabled(true);
+//            cbxAño.setEnabled(true);
+//            btnBuscarReporte.setIcon(continuar);
+//            btnBuscarReporte.setText("Iniciar Busqueda");
+//            btnImprimir.setEnabled(false);
+//        }
     }//GEN-LAST:event_btnBuscarReporteActionPerformed
 
     /**
