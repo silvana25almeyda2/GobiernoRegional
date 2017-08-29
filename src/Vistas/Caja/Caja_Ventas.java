@@ -30,8 +30,12 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Caja.Caja_NuevaVenta;
 import Vistas.Facturador.*;
 import static Vistas.Facturador.Facturador.TXT_ID_CLIENTE_F;
+import static Vistas.Facturador.Facturador.lblNroCorrelativo;
+import static Vistas.Facturador.Facturador.lbl_id_cabecera_factura;
 import static Vistas.Facturador.Facturador.tbFacturacion;
+import static Vistas.Facturador.Facturador.txtSerieF;
 import javax.swing.JTable;
+import modelo.Facturador.CuentasPorPagarFacturasCabecera;
 
 
 /**
@@ -41,6 +45,7 @@ import javax.swing.JTable;
 public class Caja_Ventas extends javax.swing.JFrame {
 Conexion c=new Conexion();
 Connection ConexionS=c.conectar();
+CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
 ResultSet r;
 DefaultTableModel modelos;
 DefaultTableModel m1, modelo1, modelo2;
@@ -73,6 +78,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
         Paginas.setEnabledAt(2, false);
+        
+        cuentasCab1.generarSerieCorrelativo("B");
         
         Paginas.setSelectedIndex(0);
         this.cbxFormaPago.setModel(CargarFP());
@@ -334,8 +341,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             // seteamos los parametros de entrada
             cstmt.setInt(1, Integer.parseInt(lblID_Documento.getText()));
             cstmt.setInt(2, Integer.parseInt(lblIDCliente.getText()));
-            cstmt.setString(3, lblSerie.getText());
-            cstmt.setString(4, lblCorrelativo.getText());
+            cstmt.setString(3, txtSerieC.getText());
+            cstmt.setString(4, lblNroCorrelativoC.getText());
             cstmt.setString(5, lblusu.getText());
             if(cbxTipoDocumento.getSelectedItem().equals("BOLETA"))
                   cstmt.setString(6, "B");
@@ -385,6 +392,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }
     
     public void NUEVO_REGISTRO_DETALLE(){
+        CuentasPorPagarFacturasCabecera cuentasCab3 = new CuentasPorPagarFacturasCabecera();
             for(int i = 0; i < tb_CPT.getRowCount(); i++){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
                 cno1.setID_DOCUMENTO(Integer.parseInt(lblID_CABECERA.getText()));
@@ -409,6 +417,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         btnCorrectoNo.setVisible(false);
                     }
             }
+            cuentasCab3.generarSerieCorrelativo("B");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -562,6 +571,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                         lblCliente = new javax.swing.JLabel();
                                         lblDocumento1 = new javax.swing.JLabel();
                                         lblDocumento = new javax.swing.JLabel();
+                                        txtSerieC = new javax.swing.JLabel();
+                                        txtSerie1 = new javax.swing.JLabel();
+                                        lblNroCorrelativoC = new javax.swing.JLabel();
                                         lblSESION = new javax.swing.JLabel();
                                         lblID_CABECERA = new javax.swing.JLabel();
                                         panelAnular = new javax.swing.JPanel();
@@ -2137,26 +2149,59 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                 lblDocumento.setForeground(new java.awt.Color(51, 51, 51));
                                                 lblDocumento.setText("DNI");
 
+                                                txtSerieC.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                                                txtSerieC.setForeground(new java.awt.Color(51, 51, 51));
+                                                txtSerieC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                                                txtSerieC.setText("F001");
+
+                                                txtSerie1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                                                txtSerie1.setForeground(new java.awt.Color(51, 51, 51));
+                                                txtSerie1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                                                txtSerie1.setText("-");
+
+                                                lblNroCorrelativoC.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                                                lblNroCorrelativoC.setForeground(new java.awt.Color(51, 51, 51));
+                                                lblNroCorrelativoC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                                                lblNroCorrelativoC.setText("000000003");
+
                                                 javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
                                                 jPanel10.setLayout(jPanel10Layout);
                                                 jPanel10Layout.setHorizontalGroup(
                                                     jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                                        .addComponent(lblDocumento1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                                                .addComponent(lblDocumento1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(lblDocumento)
+                                                                .addGap(516, 516, 516))
+                                                            .addComponent(lblCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txtSerieC, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txtSerie1)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lblDocumento)
-                                                        .addContainerGap(756, Short.MAX_VALUE))
-                                                    .addComponent(lblCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(lblNroCorrelativoC, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                                        .addContainerGap())
                                                 );
                                                 jPanel10Layout.setVerticalGroup(
                                                     jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(lblCliente)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(lblDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(lblDocumento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(txtSerieC)
+                                                                        .addComponent(txtSerie1))
+                                                                    .addComponent(lblNroCorrelativoC)))
+                                                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(lblCliente)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                    .addComponent(lblDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                    .addComponent(lblDocumento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                                         .addContainerGap())
                                                 );
 
@@ -2173,7 +2218,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                                         .addContainerGap()
-                                                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, Short.MAX_VALUE)
                                                         .addGap(43, 43, 43))
                                                 );
 
@@ -2740,6 +2785,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         
 ////////////////////////////////////////////////////////////////////////
         
+        
+        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -2961,7 +3008,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_cbxTipoDocumentoMouseReleased
 
     private void cbxTipoDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoItemStateChanged
-        
+        CuentasPorPagarFacturasCabecera cuentasCab2 = new CuentasPorPagarFacturasCabecera();
+        if(cbxTipoDocumento.getSelectedIndex()==1){
+    
+            cuentasCab2.generarSerieCorrelativo("F");
+        }else{
+            cuentasCab2.generarSerieCorrelativo("B");
+        }        
     }//GEN-LAST:event_cbxTipoDocumentoItemStateChanged
 
     private void cbxTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoActionPerformed
@@ -3169,6 +3222,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             Facturador frm_F = new Facturador();
             frm_F.setVisible(true);
             TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
+            lbl_id_cabecera_factura.setText(lblID_CABECERA.getText());
+            txtSerieF.setText(txtSerieC.getText());
+            lblNroCorrelativo.setText(lblNroCorrelativoC.getText());
             CARGAR_TB_FACTURADOR();
         }
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed
@@ -3423,12 +3479,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     public static javax.swing.JLabel lblDocumento1;
     private javax.swing.JLabel lblGrupo;
     public static javax.swing.JLabel lblIDCliente;
-    private javax.swing.JLabel lblID_CABECERA;
+    public static javax.swing.JLabel lblID_CABECERA;
     private javax.swing.JLabel lblID_DOCUEMENTO;
     public static javax.swing.JLabel lblID_Documento;
     public static javax.swing.JLabel lblID_SESION;
     public static javax.swing.JLabel lblIdPreventa;
     private javax.swing.JLabel lblMontos;
+    public static javax.swing.JLabel lblNroCorrelativoC;
     public static javax.swing.JLabel lblSESION;
     public static javax.swing.JLabel lblSerie;
     public static javax.swing.JLabel lblSerie_Correlativo;
@@ -3470,6 +3527,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     private javax.swing.JTextField txtEnterEscapeEnter;
     private javax.swing.JTextField txtEnterEscapeEnter1;
     private javax.swing.JLabel txtIGV;
+    public static javax.swing.JLabel txtSerie1;
+    public static javax.swing.JLabel txtSerieC;
     private javax.swing.JLabel txtSubTotal;
     private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables

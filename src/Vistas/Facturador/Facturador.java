@@ -8,6 +8,7 @@ package Vistas.Facturador;
 //import campos.LimitadorDeDocumento;
 //import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
 import Vistas.Caja.Caja_Ventas;
+import static Vistas.Caja.Caja_Ventas.lblID_CABECERA;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -117,7 +118,7 @@ public class Facturador extends javax.swing.JFrame {
         cbxTipoMoneda.setBackground(Color.WHITE);
         cbxAfecIGV.setBackground(Color.WHITE);
         cbxAfecISC.setBackground(Color.WHITE);
-        cuentasCab1.generarSerieCorrelativo("F");
+//        cuentasCab1.generarSerieCorrelativo("F");
      
         lblFechaEmision.setText(fechaActual());
         //BOTON CERRAR
@@ -220,7 +221,7 @@ public class Facturador extends javax.swing.JFrame {
         String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                txtSerie.getText() + "-" + 
+                txtSerieF.getText() + "-" + 
                 lblNroCorrelativo.getText() + ".CAB";
         File crea_archivo = new File(archivo);
         if(txtTipoDocumento.getText().equals("")){
@@ -285,7 +286,7 @@ public class Facturador extends javax.swing.JFrame {
         String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                txtSerie.getText() + "-" + 
+                txtSerieF.getText() + "-" + 
                 lblNroCorrelativo.getText() + ".DET";
         File crea_archivo = new File(archivo);
         if(txtTipoDocumento.getText().equals("")){
@@ -447,6 +448,7 @@ public class Facturador extends javax.swing.JFrame {
             lblDNI3 = new javax.swing.JLabel();
             lblDNI = new javax.swing.JLabel();
             TXT_ID_CLIENTE_F = new javax.swing.JTextField();
+            lbl_id_cabecera_factura = new javax.swing.JLabel();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
@@ -467,7 +469,7 @@ public class Facturador extends javax.swing.JFrame {
             jLabel9 = new javax.swing.JLabel();
             lblNroCorrelativo = new javax.swing.JLabel();
             jLabel8 = new javax.swing.JLabel();
-            txtSerie = new javax.swing.JLabel();
+            txtSerieF = new javax.swing.JLabel();
             txtSerie1 = new javax.swing.JLabel();
             jPanel13 = new javax.swing.JPanel();
             jLabel10 = new javax.swing.JLabel();
@@ -748,6 +750,8 @@ public class Facturador extends javax.swing.JFrame {
                     }
                 });
 
+                lbl_id_cabecera_factura.setText(" ");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -768,6 +772,8 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblEmpresa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnGuardar)
+                                .addGap(68, 68, 68)
+                                .addComponent(lbl_id_cabecera_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TXT_ID_CLIENTE_F, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
@@ -786,7 +792,8 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblMant)
                                 .addComponent(lblId)
                                 .addComponent(lblEmpresa)
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_id_cabecera_factura))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblusu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1015,10 +1022,10 @@ public class Facturador extends javax.swing.JFrame {
                 jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel8.setText("Serie");
 
-                txtSerie.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-                txtSerie.setForeground(new java.awt.Color(51, 51, 51));
-                txtSerie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                txtSerie.setText("F001");
+                txtSerieF.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerieF.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerieF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerieF.setText("F001");
 
                 txtSerie1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
                 txtSerie1.setForeground(new java.awt.Color(51, 51, 51));
@@ -1033,7 +1040,7 @@ public class Facturador extends javax.swing.JFrame {
                         .addContainerGap(26, Short.MAX_VALUE)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                            .addComponent(txtSerieF, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSerie1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1050,7 +1057,7 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtSerie)
+                                    .addComponent(txtSerieF)
                                     .addComponent(txtSerie1)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -2475,7 +2482,7 @@ public class Facturador extends javax.swing.JFrame {
                     
                     CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
                     facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
-                    facturaCabecera.setSerie(txtSerie.getText());
+                    facturaCabecera.setSerie(txtSerieF.getText());
                     facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
                     facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
                     facturaCabecera.setFechaEmision(lblFechaEmision.getText());
@@ -2493,6 +2500,7 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
                     facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
                     facturaCabecera.setCod_usu(lblusu.getText());
+                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lbl_id_cabecera_factura.getText()));
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
@@ -2500,7 +2508,7 @@ public class Facturador extends javax.swing.JFrame {
                     String archivo = "20410275768" + "-" + 
                     cbxDocumento.getSelectedItem().toString().charAt(0) + 
                     cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                    txtSerie.getText() + "-" + 
+                    txtSerieF.getText() + "-" + 
                     lblNroCorrelativo.getText() + ".DET";
                     File crea_archivo = new File(archivo);
                     for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
@@ -2821,6 +2829,7 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNroCorrelativo;
+    public static javax.swing.JLabel lbl_id_cabecera_factura;
     private javax.swing.JLabel lblusu;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;
@@ -2847,8 +2856,8 @@ public class Facturador extends javax.swing.JFrame {
     public static javax.swing.JTextField txtMtoISC;
     public static javax.swing.JTextField txtOtrosCargos;
     public static javax.swing.JTextField txtOtrosTributos;
-    public static javax.swing.JLabel txtSerie;
     public static javax.swing.JLabel txtSerie1;
+    public static javax.swing.JLabel txtSerieF;
     public static javax.swing.JTextField txtTipoDocumento;
     public static javax.swing.JTextField txtTotalDscto;
     public static javax.swing.JTextField txtValorVentaGravada;

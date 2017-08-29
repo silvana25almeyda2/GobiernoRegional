@@ -12,9 +12,11 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
+import static Vistas.Caja.Caja_Ventas.lblNroCorrelativoC;
+import static Vistas.Caja.Caja_Ventas.txtSerieC;
 import Vistas.Facturador.Facturador;
 import static Vistas.Facturador.Facturador.lblNroCorrelativo;
-import static Vistas.Facturador.Facturador.txtSerie;
+import static Vistas.Facturador.Facturador.txtSerieF;
 
 
 public class CuentasPorPagarFacturasCabecera implements Serializable {
@@ -50,6 +52,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private String poliza;
     private String cartaGarantia;
     private String dni;
+    private int ID_DOCUMENTO_FACTURA;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -81,8 +84,8 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             ResultSet r;
             r=con.Listar(consulta);
         if(r.next()){
-               txtSerie.setText(r.getString(1));
-               lblNroCorrelativo.setText(r.getString(2));
+               txtSerieC.setText(r.getString(1));
+               lblNroCorrelativoC.setText(r.getString(2));
         }
         }catch(Exception ex){
             System.out.println("Error: generarSerieCorrelativo - " + ex.getMessage());
@@ -93,7 +96,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = " exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = " exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCodigoEmpresa());
             cmd.setString(2, getSerie());
@@ -113,6 +116,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setDouble(16, getOtrosTributos());
             cmd.setDouble(17, getImportaTotalVta());
             cmd.setString(18, getCod_usu());
+            cmd.setInt(19, getID_DOCUMENTO_FACTURA());
             
             
             if(!cmd.execute())
@@ -670,5 +674,14 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     public void setDni(String dni) {
         this.dni = dni;
     }
+
+    public int getID_DOCUMENTO_FACTURA() {
+        return ID_DOCUMENTO_FACTURA;
+    }
+
+    public void setID_DOCUMENTO_FACTURA(int ID_DOCUMENTO) {
+        this.ID_DOCUMENTO_FACTURA = ID_DOCUMENTO;
+    }
+    
     
 }
