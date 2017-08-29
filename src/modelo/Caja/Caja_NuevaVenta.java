@@ -308,6 +308,42 @@ private double DESCUENTOD ;
         }
     }
     
+    public void ReporteSESION_ACTIVA(JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Sesión Activa","Cajero","Usuario","PC","Serie","Base","Fecha","Hora","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[9];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_VENTAS_SESIONES_ACTIVAS";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+//            formatoTablaReporteCabeceraBUSQUEDA(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE BUSQUEDA" + e.getMessage());
+        }
+    }
+    
     public void ReporteDiariocajaCabecera(String Usuario,Integer SESION,JTable tabla){
         String consulta="";
         try {
