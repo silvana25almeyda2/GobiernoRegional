@@ -8,6 +8,7 @@ package Vistas.Facturador;
 //import campos.LimitadorDeDocumento;
 //import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
 import Vistas.Caja.Caja_Ventas;
+import static Vistas.Caja.Caja_Ventas.lblID_CABECERA;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -117,7 +118,7 @@ public class Facturador extends javax.swing.JFrame {
         cbxTipoMoneda.setBackground(Color.WHITE);
         cbxAfecIGV.setBackground(Color.WHITE);
         cbxAfecISC.setBackground(Color.WHITE);
-        cuentasCab1.generarSerieCorrelativo("F");
+//        cuentasCab1.generarSerieCorrelativo("F");
      
         lblFechaEmision.setText(fechaActual());
         //BOTON CERRAR
@@ -220,7 +221,7 @@ public class Facturador extends javax.swing.JFrame {
         String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                txtSerie.getText() + "-" + 
+                txtSerieF.getText() + "-" + 
                 lblNroCorrelativo.getText() + ".CAB";
         File crea_archivo = new File(archivo);
         if(txtTipoDocumento.getText().equals("")){
@@ -285,7 +286,7 @@ public class Facturador extends javax.swing.JFrame {
         String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                txtSerie.getText() + "-" + 
+                txtSerieF.getText() + "-" + 
                 lblNroCorrelativo.getText() + ".DET";
         File crea_archivo = new File(archivo);
         if(txtTipoDocumento.getText().equals("")){
@@ -447,6 +448,7 @@ public class Facturador extends javax.swing.JFrame {
             lblDNI3 = new javax.swing.JLabel();
             lblDNI = new javax.swing.JLabel();
             TXT_ID_CLIENTE_F = new javax.swing.JTextField();
+            lbl_id_cabecera_factura = new javax.swing.JLabel();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
@@ -467,7 +469,7 @@ public class Facturador extends javax.swing.JFrame {
             jLabel9 = new javax.swing.JLabel();
             lblNroCorrelativo = new javax.swing.JLabel();
             jLabel8 = new javax.swing.JLabel();
-            txtSerie = new javax.swing.JLabel();
+            txtSerieF = new javax.swing.JLabel();
             txtSerie1 = new javax.swing.JLabel();
             jPanel13 = new javax.swing.JPanel();
             jLabel10 = new javax.swing.JLabel();
@@ -748,6 +750,8 @@ public class Facturador extends javax.swing.JFrame {
                     }
                 });
 
+                lbl_id_cabecera_factura.setText(" ");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -768,6 +772,8 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblEmpresa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnGuardar)
+                                .addGap(68, 68, 68)
+                                .addComponent(lbl_id_cabecera_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TXT_ID_CLIENTE_F, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
@@ -786,7 +792,8 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblMant)
                                 .addComponent(lblId)
                                 .addComponent(lblEmpresa)
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_id_cabecera_factura))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblusu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1015,10 +1022,10 @@ public class Facturador extends javax.swing.JFrame {
                 jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel8.setText("Serie");
 
-                txtSerie.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-                txtSerie.setForeground(new java.awt.Color(51, 51, 51));
-                txtSerie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                txtSerie.setText("F001");
+                txtSerieF.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerieF.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerieF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerieF.setText("F001");
 
                 txtSerie1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
                 txtSerie1.setForeground(new java.awt.Color(51, 51, 51));
@@ -1033,7 +1040,7 @@ public class Facturador extends javax.swing.JFrame {
                         .addContainerGap(26, Short.MAX_VALUE)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                            .addComponent(txtSerieF, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSerie1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1050,7 +1057,7 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtSerie)
+                                    .addComponent(txtSerieF)
                                     .addComponent(txtSerie1)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -2467,105 +2474,106 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTipoDocumentoKeyTyped
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
-//        boolean rpta = false;
-//        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
-//        if(!txtTipoDocumento.getText().equals("")){
+        boolean rpta = false;
+        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
+        if(!txtTipoDocumento.getText().equals("")){
                     Caja_Ventas.jButton2.doClick();
                     Caja_Ventas.btnNuevo.doClick();
                     
-//                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
-//                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
-//                    facturaCabecera.setSerie(txtSerie.getText());
-//                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
-//                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
-//                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
-//                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
-//                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
-//                    
-//                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
-//                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
-//                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
-//                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
-//                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
-//                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
-//                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
-//                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
-//                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
-//                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
-//                    facturaCabecera.setCod_usu(lblusu.getText());
-//            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
-//                if(crearCabecera()){
-//                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
-//                    lblId.setText(facturaDetalle1.facturaCabeceraId());
-//                    String archivo = "20410275768" + "-" + 
-//                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
-//                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-//                    txtSerie.getText() + "-" + 
-//                    lblNroCorrelativo.getText() + ".DET";
-//                    File crea_archivo = new File(archivo);
-//                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
-//                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
-//                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
-//                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
-//                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
-//                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
-//                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
-//                        facturaDetalle.setCpdCodProdSunat("");
-//                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
-//                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
-//                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
-//                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-//                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
-//                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
-////                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
-//                        facturaDetalle.setCpdAfecIsc(""); 
-//                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
-//                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-//                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
-//                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-//                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-//                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
-//                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
-//                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
-//                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
-//                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
-//                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-//                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-//                        facturaDetalle.setCodUsu(lblusu.getText());
-////                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
-//                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
-//                            if(crearDetalles(crea_archivo, archivo)){
-//                                rpta = true;                     
-//                                
-//
-//                            } else
-//                                rpta = false;
-//                                
-//                        }
-//                }
-//                    if(rpta==true){
-//                    
-//                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
-//                    
-//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
-//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//                    if(guardar == 0){ // SELECCION SI
-//                        dispose();
-////                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-////                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-////                        rpta2.reporteFactura(cab3.idFactura());
-//                    }else{
-//                        dispose();
-//                    }
-//                  
-//                    } else {
-//                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
-//                    }
-//            }//fin if crearCabecera    
-//            }
-//        } else{
-//         
-//        }
+                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
+                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
+                    facturaCabecera.setSerie(txtSerieF.getText());
+                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
+                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
+                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
+                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
+                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
+                    
+                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
+                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
+                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
+                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
+                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
+                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
+                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
+                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
+                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
+                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
+                    facturaCabecera.setCod_usu(lblusu.getText());
+                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lbl_id_cabecera_factura.getText()));
+            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
+                if(crearCabecera()){
+                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+                    lblId.setText(facturaDetalle1.facturaCabeceraId());
+                    String archivo = "20410275768" + "-" + 
+                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
+                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
+                    txtSerieF.getText() + "-" + 
+                    lblNroCorrelativo.getText() + ".DET";
+                    File crea_archivo = new File(archivo);
+                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
+                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
+                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
+                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
+                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
+                        facturaDetalle.setCpdCodProdSunat("");
+                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
+                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
+                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
+                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
+//                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdAfecIsc(""); 
+                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
+                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
+                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
+                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
+                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
+                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
+                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
+                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
+                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCodUsu(lblusu.getText());
+//                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
+                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
+                            if(crearDetalles(crea_archivo, archivo)){
+                                rpta = true;                     
+                                
+
+                            } else
+                                rpta = false;
+                                
+                        }
+                }
+                    if(rpta==true){
+                    
+                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    
+                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if(guardar == 0){ // SELECCION SI
+                        dispose();
+//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+//                        rpta2.reporteFactura(cab3.idFactura());
+                    }else{
+                        dispose();
+                    }
+                  
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
+                    }
+            }//fin if crearCabecera    
+            }
+        } else{
+         
+        }
     }//GEN-LAST:event_btnGenerarDocActionPerformed
 
     private void txtBuscarEmpresaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaCaretUpdate
@@ -2821,6 +2829,7 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNroCorrelativo;
+    public static javax.swing.JLabel lbl_id_cabecera_factura;
     private javax.swing.JLabel lblusu;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;
@@ -2847,8 +2856,8 @@ public class Facturador extends javax.swing.JFrame {
     public static javax.swing.JTextField txtMtoISC;
     public static javax.swing.JTextField txtOtrosCargos;
     public static javax.swing.JTextField txtOtrosTributos;
-    public static javax.swing.JLabel txtSerie;
     public static javax.swing.JLabel txtSerie1;
+    public static javax.swing.JLabel txtSerieF;
     public static javax.swing.JTextField txtTipoDocumento;
     public static javax.swing.JTextField txtTotalDscto;
     public static javax.swing.JTextField txtValorVentaGravada;

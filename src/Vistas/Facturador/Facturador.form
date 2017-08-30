@@ -392,6 +392,8 @@
                           <Component id="lblEmpresa" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="lbl_id_cabecera_factura" min="-2" pref="54" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="TXT_ID_CLIENTE_F" min="-2" pref="56" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -415,6 +417,7 @@
                           <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnGuardar" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lbl_id_cabecera_factura" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="lblusu" min="-2" max="-2" attributes="0"/>
@@ -536,6 +539,14 @@
           <Events>
             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="TXT_ID_CLIENTE_FCaretUpdate"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_id_cabecera_factura">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -1052,7 +1063,7 @@
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel8" max="32767" attributes="0"/>
-                          <Component id="txtSerie" pref="80" max="32767" attributes="0"/>
+                          <Component id="txtSerieF" pref="80" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtSerie1" min="-2" max="-2" attributes="0"/>
@@ -1073,7 +1084,7 @@
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtSerie" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSerieF" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtSerie1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1128,7 +1139,7 @@
                 <Property name="text" type="java.lang.String" value="Serie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="txtSerie">
+            <Component class="javax.swing.JLabel" name="txtSerieF">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="20" style="0"/>
