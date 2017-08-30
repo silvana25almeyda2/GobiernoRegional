@@ -1183,14 +1183,17 @@ Connection conexion=c.conectar();
 
     private void btnAlertConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta2ActionPerformed
        Caja_PC_Registro cn = new Caja_PC_Registro();
-        if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
+       if(txtModulo.getText().equals("CAJA / FACTURADOR")){
+           if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
                 jLabel1.setForeground(new Color(230,230,230));
                
-            }else{
+        }else{
             jLabel1.setForeground(new Color(255,51,51));
             jTabbedPane1.setSelectedIndex(2);
-        }
-        
+        }   
+        }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
+            jTabbedPane1.setSelectedIndex(2);
+        } 
     }//GEN-LAST:event_btnAlertConsulta2ActionPerformed
 
     private void btnAlertConsulta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta3ActionPerformed

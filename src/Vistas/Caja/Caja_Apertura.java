@@ -376,7 +376,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         jPanel1.setBackground(new java.awt.Color(23, 160, 134));
 
-        lblTexto.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+        lblTexto.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         lblTexto.setForeground(new java.awt.Color(255, 255, 255));
         lblTexto.setText("Apertura de Caja");
 
