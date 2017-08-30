@@ -405,13 +405,13 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_PanelSesionMouseEntered
 
     private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
-        Caja_Ventas CT = new Caja_Ventas();
-        
-        String u=Principal.lblUsu.getText();
-        CT.lblusu.setText(u);
-        CT.lblID_SESION.setText(lblIDSESION.getText());
-        CT.lblSESION.setText(ibiIDAPERTURA.getText());
-        CT.setVisible(true);
+//        Caja_Ventas CT = new Caja_Ventas();
+//        
+//        String u=Principal.lblUsu.getText();
+//        CT.lblusu.setText(u);
+//        CT.lblID_SESION.setText(lblIDSESION.getText());
+//        CT.lblSESION.setText(ibiIDAPERTURA.getText());
+//        CT.setVisible(true);
     }//GEN-LAST:event_btnVentasMouseClicked
 
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
