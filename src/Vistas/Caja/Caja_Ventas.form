@@ -1426,9 +1426,6 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnBuscarPaciente" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblID_DOCUEMENTO" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Tipo_Documento" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTIPO_DOC" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel57" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1439,6 +1436,16 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblusu" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
                               <Component id="lblID_SESION" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTIPO_DOC" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblID_DOCUEMENTO" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Tipo_Documento" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1466,12 +1473,17 @@
                   <Component id="btneliminar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnLista" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                  <Component id="lblID_DOCUEMENTO" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Tipo_Documento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblTIPO_DOC" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblID_DOCUEMENTO" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Tipo_Documento" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblTIPO_DOC" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1760,6 +1772,114 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
+        <Container class="javax.swing.JPanel" name="jPanel13">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtDsctoGlobal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtOtrosCargos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtTotalDscto" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtVentaExonerada" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="txtMtoISC" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtOtrosTributos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblIGV_B" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="precioV_B" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="venta_B" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtDsctoGlobal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtOtrosCargos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTotalDscto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtVentaExonerada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMtoISC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtOtrosTributos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblIGV_B" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="precioV_B" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="venta_B" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="txtDsctoGlobal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtOtrosCargos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtTotalDscto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtVentaExonerada">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtMtoISC">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtOtrosTributos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIGV_B">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="precioV_B">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="venta_B">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLa"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="Paginas">
