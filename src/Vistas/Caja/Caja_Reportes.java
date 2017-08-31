@@ -1117,13 +1117,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             cbxAnios.setEnabled(false);
             btnBuscarReporte.setIcon(detener);
             btnBuscarReporte.setText("Detener");
-            btnImprimir.setEnabled(true);
+
         }else if(btnBuscarReporte.getText().equals("Detener")){
             cbxMeses.setEnabled(true);
             cbxAnios.setEnabled(true);
             btnBuscarReporte.setIcon(continuar);
             btnBuscarReporte.setText("Iniciar Busqueda");
-            btnImprimir.setEnabled(false);
+
         }
     }//GEN-LAST:event_btnBuscarReporteActionPerformed
 

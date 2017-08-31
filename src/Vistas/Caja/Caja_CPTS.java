@@ -6,6 +6,7 @@
 package Vistas.Caja;
 
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
@@ -40,9 +41,9 @@ Caja_CPT nuevaR = new Caja_CPT();
         Caja_CPT N = new Caja_CPT();
         A.LISTA_CPT("",tb_CPT);
         U.LISTAR_UIT();
-//        N.LISTAR_PERMISOS(lblusu.getText());
+        N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         cargareliminar.setVisible(false);
-//        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         Cta6.setLocationRelativeTo(null);//en el centro
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         LIMPIAR();
@@ -810,12 +811,12 @@ Caja_CPT nuevaR = new Caja_CPT();
                 lblCrick.setForeground(new java.awt.Color(23, 160, 134));
                 lblCrick.setText("0");
 
-                lblNivel.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
-                lblNivel.setForeground(new java.awt.Color(23, 160, 134));
+                lblNivel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                lblNivel.setForeground(new java.awt.Color(255, 255, 255));
                 lblNivel.setText("jLabel2");
 
-                lblPermiso.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
-                lblPermiso.setForeground(new java.awt.Color(23, 160, 134));
+                lblPermiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                lblPermiso.setForeground(new java.awt.Color(255, 255, 255));
                 lblPermiso.setText("jLabel2");
 
                 lblEditar.setForeground(new java.awt.Color(23, 160, 134));
@@ -1546,7 +1547,7 @@ Caja_CPT nuevaR = new Caja_CPT();
             }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        if(lblPermiso.getText().equals("E")){
+//        if(lblPermiso.getText().equals("E")){
             RESTAURAR_BARRA();
             tg = 1;
             btnNuevo.setEnabled(true);
@@ -1561,10 +1562,10 @@ Caja_CPT nuevaR = new Caja_CPT();
             Caja_CPT cno2 = new Caja_CPT();
             cno2.DATOS_GRUPO(cbxGrupo.getSelectedItem().toString());
             Paginas.setSelectedIndex(1);
-        }else if(!lblPermiso.getText().equals("E")){
-            NivelSuperior.setUndecorated(true);
-            NivelSuperior.setVisible(true);
-        }
+//        }else if(!lblPermiso.getText().equals("E")){
+//            NivelSuperior.setUndecorated(true);
+//            NivelSuperior.setVisible(true);
+//        }
 
     }//GEN-LAST:event_btnNuevoActionPerformed
 

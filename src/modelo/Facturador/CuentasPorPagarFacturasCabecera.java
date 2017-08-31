@@ -246,6 +246,20 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         }
         return id;
     }
+    public String factura_ruc(){
+        String ruc = "";
+        try {
+            String consulta = "SELECT TOP 1 RUC FROM SISTEMA_UNIDAD_EJECUTORA";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               ruc = r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: idFactura " + ex.getMessage());
+        }
+        return ruc;
+    }
     
     public CuentasPorPagarFacturasCabecera() {
         Conexion con = new Conexion();

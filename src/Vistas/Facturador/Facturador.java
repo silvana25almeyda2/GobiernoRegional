@@ -217,8 +217,9 @@ public class Facturador extends javax.swing.JFrame {
 //    }
     
     public boolean crearCabecera(){
+        CuentasPorPagarFacturasCabecera ruc=new CuentasPorPagarFacturasCabecera();
         boolean retorna = false;
-        String archivo = "20410275768" + "-" + 
+        String archivo = ruc.factura_ruc() + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                 txtSerieF.getText() + "-" + 
@@ -368,7 +369,7 @@ public class Facturador extends javax.swing.JFrame {
                     String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                      String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
                      "0.00" + "|" + //DESCUENTO
-                        "0.00" + "|" +  //IGV
+                        String.valueOf(tbFacturacion.getValueAt(c, 5)) + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
@@ -377,8 +378,8 @@ public class Facturador extends javax.swing.JFrame {
 //                        String.valueOf("") +
 //                        String.valueOf("") + 
                             "|" +
-                        "0.00" + "|" + //PRECIO DE VENTA
-                        "0.00" //VALOR DE VENTA
+                        String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                        String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA
                             + "\r\n";
                 }
                 String bloc2 = "";
@@ -390,7 +391,7 @@ public class Facturador extends javax.swing.JFrame {
                     String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                      String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
                      "0.00" + "|" + //DESCUENTO
-                        "0.00" + "|" +  //IGV
+                       String.valueOf(tbFacturacion.getValueAt(c, 5)) + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
@@ -399,8 +400,8 @@ public class Facturador extends javax.swing.JFrame {
 //                        String.valueOf("") +
 //                        String.valueOf("") +
                             "|" +
-                        "0.00" + "|" + //PRECIO DE VENTA
-                        "0.00" //VALOR DE VENTA
+                        String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                        String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA
                             + "\r\n";
                 }
                 if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
@@ -2504,8 +2505,9 @@ public class Facturador extends javax.swing.JFrame {
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+                    CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
                     lblId.setText(facturaDetalle1.facturaCabeceraId());
-                    String archivo = "20410275768" + "-" + 
+                    String archivo = ruc1.factura_ruc() + "-" + 
                     cbxDocumento.getSelectedItem().toString().charAt(0) + 
                     cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                     txtSerieF.getText() + "-" + 

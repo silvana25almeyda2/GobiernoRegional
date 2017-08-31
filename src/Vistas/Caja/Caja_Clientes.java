@@ -6,6 +6,7 @@
 package Vistas.Caja;
 
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -34,10 +35,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         Caja_Cliente A = new Caja_Cliente();
         Caja_Cliente N = new Caja_Cliente();
         A.LISTA_CLIENTES("",tb_Clientes);
-        N.LISTAR_PERMISOS(lblusu.getText());
+        N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         cargareliminar.setVisible(false);
         NivelSuperior.setLocationRelativeTo(null);//en el centro
-//        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         LIMPIAR();
         HABILITAR(false);
         btnguardar.setEnabled(false);
@@ -1434,7 +1435,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        if(lblPermiso.getText().equals("E")){
+//        if(lblPermiso.getText().equals("E")){
             tg = 1;
             lblTipoR.setText("N");
             btnNuevo.setEnabled(true);
@@ -1447,10 +1448,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             LIMPIAR();
             HABILITAR(true);
             Paginas.setSelectedIndex(1);
-        }else if(!lblPermiso.getText().equals("E")){
-            NivelSuperior.setUndecorated(true);
-            NivelSuperior.setVisible(true);
-        }
+//        }else if(!lblPermiso.getText().equals("E")){
+//            NivelSuperior.setUndecorated(true);
+//            NivelSuperior.setVisible(true);
+//        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed

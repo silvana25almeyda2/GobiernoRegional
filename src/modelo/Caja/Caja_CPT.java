@@ -7,6 +7,7 @@ package modelo.Caja;
 
 import Servicios.Conexion;
 import Vistas.Caja.Caja_CPTS;
+import Vistas.Principal.Principal_Caja;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -300,6 +301,28 @@ private double PRECIO;
                     Caja_CPTS.lblPermiso.setText("L"); 
                 }else   if(r.getString(3).equals("X")){
                     Caja_CPTS.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void LISTAR_PRINCIPAL(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Principal_Caja.lblNivel.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Principal_Caja.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Principal_Caja.lblPermiso.setText("E"); 
                 }
                 }
             //
