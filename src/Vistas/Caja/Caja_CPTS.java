@@ -510,6 +510,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 NivelSuperior.setAlwaysOnTop(true);
                 NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
+                NivelSuperior.setUndecorated(true);
                 NivelSuperior.setResizable(false);
 
                 jPanel145.setBackground(new java.awt.Color(230, 230, 230));

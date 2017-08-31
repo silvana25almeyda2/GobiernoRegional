@@ -89,7 +89,9 @@ private Dimension DimensionBarra = null;
         lblPermiso = new javax.swing.JLabel();
 
         NivelSuperior.setAlwaysOnTop(true);
+        NivelSuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
+        NivelSuperior.setUndecorated(true);
         NivelSuperior.setResizable(false);
 
         jPanel145.setBackground(new java.awt.Color(230, 230, 230));
@@ -720,10 +722,7 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
-         Caja_Transaccion CCC = new Caja_Transaccion();
-        CCC.setVisible(true);
-        String u=Principal.lblUsu.getText();
-        CCC.lblusu.setText(u);
+       
     }//GEN-LAST:event_btnCaja3MouseClicked
 
     private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
@@ -807,6 +806,7 @@ private Dimension DimensionBarra = null;
             CR.lblusu.setText(u);
         }else if(!lblNivel.getText().equals("ADMINISTRADOR")||lblPermiso.getText().equals("E")){
             NivelSuperior.setVisible(true);
+
         }
     }//GEN-LAST:event_btnVentas1ActionPerformed
 

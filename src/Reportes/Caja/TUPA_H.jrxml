@@ -26,25 +26,21 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="39" width="793" height="20" uuid="a5263066-cebc-4554-aa82-755600ecf02a"/>
+				<reportElement x="0" y="39" width="803" height="20" uuid="a5263066-cebc-4554-aa82-755600ecf02a"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ENTIDAD : GOBIERNO REGIONAL DE ICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="10" width="792" height="29" uuid="7c479ce0-9113-4a4f-81fe-97bd08d856df"/>
+				<reportElement x="0" y="10" width="802" height="29" uuid="7c479ce0-9113-4a4f-81fe-97bd08d856df"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TEXTO ÚNICO DE PROCEDIMIENTOS ADMINISTRATIVOS]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="65" height="79" uuid="ad54c93a-c61a-4778-9af6-e89d80d7b62e"/>
-				<imageExpression><![CDATA["E:\\DISA\\GobiernoRegional\\src\\Reportes\\Caja\\GORE.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="10" y="59" width="791" height="20" uuid="8a284d45-2204-408e-979a-391f6bc25088"/>
+				<reportElement x="0" y="59" width="801" height="20" uuid="8a284d45-2204-408e-979a-391f6bc25088"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="14" isBold="true"/>
 				</textElement>

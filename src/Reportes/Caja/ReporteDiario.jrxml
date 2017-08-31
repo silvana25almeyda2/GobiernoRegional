@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
-	<property name="ireport.zoom" value="1.610510000000005"/>
-	<property name="ireport.x" value="283"/>
-	<property name="ireport.y" value="246"/>
+	<property name="ireport.zoom" value="1.2100000000000035"/>
+	<property name="ireport.x" value="1"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -89,10 +89,6 @@
 				</textElement>
 				<text><![CDATA[Nº de Terminal]]></text>
 			</staticText>
-			<image>
-				<reportElement x="500" y="0" width="55" height="53" uuid="526517e3-d852-4c34-abef-f63bdc9ae956"/>
-				<imageExpression><![CDATA["E:\\DISA\\GobiernoRegional\\src\\Reportes\\Caja\\GORE.jpg"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement x="40" y="69" width="342" height="20" uuid="ee48b6af-29c7-4191-b120-88b1fb8a0cd0"/>
 				<textElement>
@@ -168,7 +164,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["DIRESA  "+$F{nombre_distrito}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SEDE  "+$F{nombre_distrito}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

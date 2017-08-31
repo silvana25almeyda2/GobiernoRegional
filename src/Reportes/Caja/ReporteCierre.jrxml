@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.7715610000000017"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="364"/>
+	<property name="ireport.y" value="245"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -18,18 +18,18 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_CIERRE_CTA7 $P{SESION}]]>
+		<![CDATA[CAJA_REPORTE_CIERRE_CTA7_DETALLE $P{SESION}]]>
 	</queryString>
-	<field name="id_cuenta7" class="java.lang.Long"/>
+	<field name="cuenta_6" class="java.lang.String"/>
+	<field name="CUENTA7" class="java.lang.String"/>
+	<field name="TOTALCCT7" class="java.math.BigDecimal"/>
 	<field name="cuenta_7" class="java.lang.String"/>
 	<field name="descripcion_7" class="java.lang.String"/>
-	<field name="ID_PRECIO" class="java.lang.Long"/>
-	<field name="ID_CPT" class="java.lang.Long"/>
-	<field name="NOMBRE" class="java.lang.String"/>
-	<field name="CANTIDAD" class="java.lang.Integer"/>
-	<field name="PRECIO" class="java.lang.String"/>
-	<field name="descu_exo_detalle" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="PRECIO" class="java.math.BigDecimal"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<field name="IGV" class="java.math.BigDecimal"/>
+	<field name="NOMBRE" class="java.lang.String"/>
 	<field name="CUENTA" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>
@@ -47,13 +47,14 @@
 	<field name="TIPO_VENTA" class="java.lang.String"/>
 	<field name="TOTAL DE VENTAS" class="java.math.BigDecimal"/>
 	<field name="TOTAL DE GENERAL" class="java.math.BigDecimal"/>
+	<field name="TUPA" class="java.math.BigDecimal"/>
+	<field name="FARMACIA" class="java.math.BigDecimal"/>
+	<field name="OTROS" class="java.math.BigDecimal"/>
+	<field name="TOTAL_G" class="java.math.BigDecimal"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{TIPO_VENTA}]]></groupExpression>
 		<groupHeader>
 			<band height="39">
-				<line>
-					<reportElement x="-6" y="2" width="207" height="1" uuid="60e3463a-122b-4313-a098-4d56e0015529"/>
-				</line>
 				<staticText>
 					<reportElement x="171" y="19" width="91" height="20" uuid="3cf2cbb0-d38c-4595-8118-a947bd63fdd5"/>
 					<textElement verticalAlignment="Bottom">
@@ -75,12 +76,19 @@
 					</textElement>
 					<text><![CDATA[Precio]]></text>
 				</staticText>
-				<textField>
-					<reportElement x="-6" y="3" width="207" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
-					<textElement textAlignment="Center">
-						<font size="12"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="-6" y="3" width="144" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
+					<textElement>
+						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPO_VENTA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="139" y="3" width="48" height="20" uuid="d18ef6d8-0657-44ca-8c59-1670e9f76279"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S/. "+$F{TOTALCCT7}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -235,7 +243,7 @@
 				<textElement textAlignment="Center">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["DIRESA "+$F{nombre_distrito}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SEDE "+$F{nombre_distrito}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -259,7 +267,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="144" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
