@@ -1426,12 +1426,6 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnBuscarPaciente" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-<<<<<<< HEAD
-=======
-                              <Component id="lblID_DOCUEMENTO" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Tipo_Documento" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTIPO_DOC" alignment="0" min="-2" max="-2" attributes="0"/>
->>>>>>> c62d9bcf9ebe4fbc609ab2717c1a937db27bc9de
                               <Component id="jLabel57" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1444,7 +1438,6 @@
                               <Component id="lblID_SESION" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
@@ -1455,8 +1448,6 @@
                               <Component id="Tipo_Documento" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-=======
->>>>>>> c62d9bcf9ebe4fbc609ab2717c1a937db27bc9de
                   </Group>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
@@ -1482,7 +1473,6 @@
                   <Component id="btneliminar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnLista" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
@@ -1494,14 +1484,6 @@
                       </Group>
                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                   </Group>
-=======
-                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                  <Component id="lblID_DOCUEMENTO" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Tipo_Documento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblTIPO_DOC" min="-2" max="-2" attributes="0"/>
->>>>>>> c62d9bcf9ebe4fbc609ab2717c1a937db27bc9de
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1790,7 +1772,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
-<<<<<<< HEAD
         <Container class="javax.swing.JPanel" name="jPanel13">
 
           <Layout>
@@ -1899,8 +1880,6 @@
             </Component>
           </SubComponents>
         </Container>
-=======
->>>>>>> c62d9bcf9ebe4fbc609ab2717c1a937db27bc9de
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="Paginas">

@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/SISTEMA/Desktop/DISA/GobiernoRegional/src/Vistas/Caja/Caja_ReporteMensual.java</file>
+            <file>file:/C:/Users/SISTEMA/Desktop/DISA/GobiernoRegional/src/modelo/Caja/Caja_NuevaVenta.java</file>
+=======
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Servicios/Conexion.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Facturador/Facturador.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/modelo/Facturador/CuentasPorPagarFacturasDetalle.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Caja/Caja_Ventas.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/modelo/Caja/Caja_NuevaVenta.java</file>
+>>>>>>> da35bb71cdd020e7e6f1129b45e8cb2c1de13ac8
         </group>
     </open-files>
 </project-private>

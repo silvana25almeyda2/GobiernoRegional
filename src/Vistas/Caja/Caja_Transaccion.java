@@ -1419,14 +1419,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     LlenarTransCT2.setMinimumSize(new java.awt.Dimension(450, 430));
                                                     LlenarTransCT2.setResizable(false);
 
-                                                    jPanel7.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel7.setBackground(new java.awt.Color(230, 230, 230));
 
-                                                    jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+                                                    jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                                    jLabel19.setForeground(new java.awt.Color(102, 102, 102));
                                                     jLabel19.setText("Transacciones");
 
                                                     btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
+                                                    btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                                                     btnbuscar1.setToolTipText("");
                                                     btnbuscar1.setContentAreaFilled(false);
                                                     btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1469,14 +1469,12 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel19)
-                                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGroup(jPanel7Layout.createSequentialGroup()
+                                                                    .addComponent(jLabel19)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                                                    .addGap(3, 3, 3)
-                                                                    .addComponent(btnbuscar1)))
+                                                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                             .addGap(408, 408, 408))
                                                     );
 
@@ -1527,14 +1525,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     LlenarGenericaCT3.setMinimumSize(new java.awt.Dimension(450, 430));
                                                     LlenarGenericaCT3.setResizable(false);
 
-                                                    jPanel8.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel8.setBackground(new java.awt.Color(230, 230, 230));
 
-                                                    jLabel21.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+                                                    jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                                    jLabel21.setForeground(new java.awt.Color(102, 102, 102));
                                                     jLabel21.setText("Genérica");
 
                                                     btnbuscar2.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
+                                                    btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                                                     btnbuscar2.setToolTipText("");
                                                     btnbuscar2.setContentAreaFilled(false);
                                                     btnbuscar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1577,14 +1575,12 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel21)
-                                                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(btnbuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGroup(jPanel8Layout.createSequentialGroup()
+                                                                    .addComponent(jLabel21)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                    .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                                                    .addGap(3, 3, 3)
-                                                                    .addComponent(btnbuscar2)))
+                                                                    .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                             .addGap(408, 408, 408))
                                                     );
 
@@ -1635,14 +1631,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     LlenarSubGenericaCT4.setMinimumSize(new java.awt.Dimension(450, 430));
                                                     LlenarSubGenericaCT4.setResizable(false);
 
-                                                    jPanel9.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel9.setBackground(new java.awt.Color(230, 230, 230));
 
-                                                    jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+                                                    jLabel29.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                                    jLabel29.setForeground(new java.awt.Color(102, 102, 102));
                                                     jLabel29.setText("Sub Generica");
 
                                                     btnbuscar3.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
+                                                    btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                                                     btnbuscar3.setToolTipText("");
                                                     btnbuscar3.setContentAreaFilled(false);
                                                     btnbuscar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1685,14 +1681,12 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel29)
-                                                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(btnbuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGroup(jPanel9Layout.createSequentialGroup()
+                                                                    .addComponent(jLabel29)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                    .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(jPanel9Layout.createSequentialGroup()
-                                                                    .addGap(3, 3, 3)
-                                                                    .addComponent(btnbuscar3)))
+                                                                    .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                             .addGap(408, 408, 408))
                                                     );
 
@@ -1743,14 +1737,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     LlenarSubGenericaDetalleCT5.setMinimumSize(new java.awt.Dimension(450, 430));
                                                     LlenarSubGenericaDetalleCT5.setResizable(false);
 
-                                                    jPanel15.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel15.setBackground(new java.awt.Color(230, 230, 230));
 
-                                                    jLabel39.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+                                                    jLabel39.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                                    jLabel39.setForeground(new java.awt.Color(102, 102, 102));
                                                     jLabel39.setText("Sub Generica Detalle");
 
                                                     btnbuscar4.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
+                                                    btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                                                     btnbuscar4.setToolTipText("");
                                                     btnbuscar4.setContentAreaFilled(false);
                                                     btnbuscar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1794,13 +1788,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                             .addComponent(jLabel39)
-                                                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(jPanel15Layout.createSequentialGroup()
-                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                    .addComponent(txtBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(jPanel15Layout.createSequentialGroup()
-                                                                    .addGap(3, 3, 3)
-                                                                    .addComponent(btnbuscar4)))
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(txtBuscar3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                                                .addComponent(btnbuscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                             .addGap(408, 408, 408))
                                                     );
 
@@ -1851,14 +1842,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     LlenarEspecifica.setMinimumSize(new java.awt.Dimension(450, 430));
                                                     LlenarEspecifica.setResizable(false);
 
-                                                    jPanel17.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel17.setBackground(new java.awt.Color(230, 230, 230));
 
-                                                    jLabel53.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                    jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+                                                    jLabel53.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                                    jLabel53.setForeground(new java.awt.Color(102, 102, 102));
                                                     jLabel53.setText("Especifica");
 
                                                     btnbuscar5.setForeground(new java.awt.Color(240, 240, 240));
-                                                    btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Buscar-32.png"))); // NOI18N
+                                                    btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
                                                     btnbuscar5.setToolTipText("");
                                                     btnbuscar5.setContentAreaFilled(false);
                                                     btnbuscar5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1901,14 +1892,12 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addComponent(jLabel53)
-                                                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(btnbuscar5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGroup(jPanel17Layout.createSequentialGroup()
+                                                                    .addComponent(jLabel53)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                    .addComponent(txtBuscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(jPanel17Layout.createSequentialGroup()
-                                                                    .addGap(3, 3, 3)
-                                                                    .addComponent(btnbuscar5)))
+                                                                    .addComponent(txtBuscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                             .addGap(408, 408, 408))
                                                     );
 
@@ -1958,7 +1947,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                                                     setMinimumSize(new java.awt.Dimension(749, 473));
 
-                                                    jPanel1.setBackground(new java.awt.Color(41, 127, 184));
+                                                    jPanel1.setBackground(new java.awt.Color(23, 160, 134));
 
                                                     btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                     btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
@@ -2078,10 +2067,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
                                                     lbldetalle.setText("Cuenta, Descripción");
 
-                                                    lblBusqueda.setForeground(new java.awt.Color(41, 127, 184));
+                                                    lblBusqueda.setForeground(new java.awt.Color(23, 160, 134));
                                                     lblBusqueda.setText("0");
 
-                                                    lblMant.setForeground(new java.awt.Color(41, 127, 184));
+                                                    lblMant.setForeground(new java.awt.Color(23, 160, 134));
                                                     lblMant.setText("jLabel1");
 
                                                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

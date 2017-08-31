@@ -383,7 +383,7 @@ private double DESCUENTOD ;
         }
     }
         
-    public void ReporteMENSUAL_CCTA7(int MES,int ANIO, JTable tabla){
+    public void ReporteMENSUAL_CCTA7(int MES,int ANIO,String Lugar, JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -392,10 +392,11 @@ private double DESCUENTOD ;
             JTable p=new JTable(m);
             String fila[]=new String[5];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7 ?,?";
+            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7 ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, MES);
             cmd.setInt(2, ANIO);
+            cmd.setString(3, Lugar);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -417,7 +418,7 @@ private double DESCUENTOD ;
         }
     }
     
-    public void ReporteMENSUAL_CCTA6(int MES,int ANIO, JTable tabla){
+    public void ReporteMENSUAL_CCTA6(int MES,int ANIO,String Lugar, JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -426,10 +427,11 @@ private double DESCUENTOD ;
             JTable p=new JTable(m);
             String fila[]=new String[2];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA6 ?,?";
+            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA6 ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, MES);
             cmd.setInt(2, ANIO);
+            cmd.setString(3, Lugar);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -542,8 +544,8 @@ private double DESCUENTOD ;
     }
     public void formatoTablaReporteMENSUAL_CCT6(JTable tabla){
 
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(800);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(800);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
         tabla.setRowHeight(40);
         
     }
