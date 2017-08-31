@@ -23,6 +23,8 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import java.sql.Connection;
 import Vistas.Caja.Caja_Apertura;
 import Vistas.Caja.Caja_Cierre;
+import Vistas.Caja.Caja_Cierre_sa;
+import Vistas.Caja.Caja_Reportes;
 import Vistas.Caja.Caja_Ventas;
 import Vistas.Principal.Principal;
 import Vistas.Principal.Principal_Caja;
@@ -272,7 +274,7 @@ public void CajaPC_NRO(String usu){
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: PC: " + e.getMessage());
+            System.out.println("Error serie de apertura " + e.getMessage());
         }
     }
 public void CajaPC_NRO_CIERRE(String usu){
@@ -290,7 +292,26 @@ public void CajaPC_NRO_CIERRE(String usu){
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: PC: " + e.getMessage());
+            System.out.println("Error serie cierre: " + e.getMessage());
+        }
+    }
+
+public void CajaPC_NRO_CIERRE_SA(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_PC_SERIE_APERTURA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre_sa.lblCorrelativo.setText(r.getString(2)); 
+                Caja_Cierre_sa.lblTerminal.setText(r.getString(1)); 
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error serie cierre: " + e.getMessage());
         }
     }
 
@@ -398,7 +419,31 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: PC: " + e.getMessage());
+            System.out.println("error detalle cierre " + e.getMessage());
+        }
+    }
+    
+    public void CIERRE_DETALLE_APERTURA_SA(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre_sa.lblID_APERTURA.setText(r.getString(1)); 
+                Caja_Cierre_sa.lblSerie.setText(r.getString(3)); 
+                Caja_Cierre_sa.lblFechaA.setText(r.getString(4)); 
+                Caja_Cierre_sa.lblHoraA.setText(r.getString(5));
+                Caja_Cierre_sa.lblTerminalA.setText(r.getString(6)); 
+                Caja_Cierre_sa.lblBaseA.setText(r.getString(7));
+                Caja_Cierre_sa.lblIDSESION_A.setText(r.getString(9)); 
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("error detalle cierre sa " + e.getMessage());
         }
     }
     
@@ -416,12 +461,31 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
                 Principal.lblHora.setText(r.getString(5));
                 Principal.lblTerminal.setText(r.getString(6)); 
                 Principal.lblBase.setText(r.getString(7));
-
-
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: PC: " + e.getMessage());
+            System.out.println("error cierre desde el princiipal " + e.getMessage());
+        }
+    }
+    
+    public void CIERRE_DETALLE_APERTURA_SSESION_ACTIVA(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Reportes.lblSerie.setText(r.getString(3)); 
+                Caja_Reportes.lblFecha.setText(r.getString(4)); 
+                Caja_Reportes.lblHora.setText(r.getString(5));
+                Caja_Reportes.lblTerminal.setText(r.getString(6)); 
+                Caja_Reportes.lblBase.setText(r.getString(7));
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("error verificar apertura " + e.getMessage());
         }
     }
    

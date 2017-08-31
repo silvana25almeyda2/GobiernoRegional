@@ -8,6 +8,8 @@ package Vistas.Principal;
 import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
+import Vistas.Caja.Caja_ReporteMensual;
+import Vistas.Caja.Caja_Reportes;
 import Vistas.Caja.Caja_Transaccion;
 import Vistas.Caja.Caja_Ventas;
 import static Vistas.Principal.Principal.PaginasP;
@@ -33,6 +35,10 @@ private Dimension DimensionBarra = null;
     public Principal_Caja() {
         initComponents();
         QuitarLaBarraTitulo();
+        Caja_CPT N = new Caja_CPT();
+        N.LISTAR_PRINCIPAL(Principal.lblUsu.getText());
+        NivelSuperior.setLocationRelativeTo(null);//en el centro
+        
     }
     public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -51,6 +57,12 @@ private Dimension DimensionBarra = null;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NivelSuperior = new javax.swing.JDialog();
+        jPanel145 = new javax.swing.JPanel();
+        jLabel64 = new javax.swing.JLabel();
+        jPanel146 = new javax.swing.JPanel();
+        btnAlertConsulta10 = new javax.swing.JButton();
+        jLabel67 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         PanelSesion = new javax.swing.JPanel();
@@ -69,6 +81,92 @@ private Dimension DimensionBarra = null;
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ibiIDAPERTURA = new javax.swing.JLabel();
+        PanelCaja1 = new javax.swing.JPanel();
+        btnVentas1 = new javax.swing.JButton();
+        PanelCaja4 = new javax.swing.JPanel();
+        btnVentas2 = new javax.swing.JButton();
+        lblNivel = new javax.swing.JLabel();
+        lblPermiso = new javax.swing.JLabel();
+
+        NivelSuperior.setAlwaysOnTop(true);
+        NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 200));
+        NivelSuperior.setResizable(false);
+
+        jPanel145.setBackground(new java.awt.Color(230, 230, 230));
+
+        jLabel64.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel64.setText("Error");
+
+        jPanel146.setBackground(new java.awt.Color(23, 160, 134));
+
+        btnAlertConsulta10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnAlertConsulta10.setForeground(new java.awt.Color(240, 240, 240));
+        btnAlertConsulta10.setText("Entendido");
+        btnAlertConsulta10.setContentAreaFilled(false);
+        btnAlertConsulta10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAlertConsulta10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlertConsulta10.setIconTextGap(30);
+        btnAlertConsulta10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlertConsulta10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel146Layout = new javax.swing.GroupLayout(jPanel146);
+        jPanel146.setLayout(jPanel146Layout);
+        jPanel146Layout.setHorizontalGroup(
+            jPanel146Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAlertConsulta10, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        jPanel146Layout.setVerticalGroup(
+            jPanel146Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel146Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAlertConsulta10))
+        );
+
+        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel67.setText("<html>Necesita permisos de administrador <BR>Para realizar esta acción.</html>");
+
+        javax.swing.GroupLayout jPanel145Layout = new javax.swing.GroupLayout(jPanel145);
+        jPanel145.setLayout(jPanel145Layout);
+        jPanel145Layout.setHorizontalGroup(
+            jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel145Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel64)
+                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(171, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel145Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanel145Layout.setVerticalGroup(
+            jPanel145Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel145Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel64)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout NivelSuperiorLayout = new javax.swing.GroupLayout(NivelSuperior.getContentPane());
+        NivelSuperior.getContentPane().setLayout(NivelSuperiorLayout);
+        NivelSuperiorLayout.setHorizontalGroup(
+            NivelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        NivelSuperiorLayout.setVerticalGroup(
+            NivelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
@@ -352,20 +450,119 @@ private Dimension DimensionBarra = null;
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
+        PanelCaja1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas1.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas1.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Lock Landscape-64.png"))); // NOI18N
+        btnVentas1.setText("Sesiones");
+        btnVentas1.setContentAreaFilled(false);
+        btnVentas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas1.setFocusPainted(false);
+        btnVentas1.setFocusable(false);
+        btnVentas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas1.setIconTextGap(30);
+        btnVentas1.setVerifyInputWhenFocusTarget(false);
+        btnVentas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVentas1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVentas1MouseEntered(evt);
+            }
+        });
+        btnVentas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentas1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja1Layout = new javax.swing.GroupLayout(PanelCaja1);
+        PanelCaja1.setLayout(PanelCaja1Layout);
+        PanelCaja1Layout.setHorizontalGroup(
+            PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCaja1Layout.setVerticalGroup(
+            PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja4.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas2.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas2.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Document-64(1).png"))); // NOI18N
+        btnVentas2.setText("Reportes");
+        btnVentas2.setContentAreaFilled(false);
+        btnVentas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas2.setFocusPainted(false);
+        btnVentas2.setFocusable(false);
+        btnVentas2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas2.setIconTextGap(30);
+        btnVentas2.setVerifyInputWhenFocusTarget(false);
+        btnVentas2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVentas2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVentas2MouseEntered(evt);
+            }
+        });
+        btnVentas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentas2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja4Layout = new javax.swing.GroupLayout(PanelCaja4);
+        PanelCaja4.setLayout(PanelCaja4Layout);
+        PanelCaja4Layout.setHorizontalGroup(
+            PanelCaja4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCaja4Layout.setVerticalGroup(
+            PanelCaja4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        lblNivel.setForeground(new java.awt.Color(255, 255, 255));
+        lblNivel.setText("jLabel4");
+
+        lblPermiso.setForeground(new java.awt.Color(255, 255, 255));
+        lblPermiso.setText("jLabel5");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(lblNivel)
+                        .addGap(52, 52, 52)
+                        .addComponent(lblPermiso)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -379,7 +576,15 @@ private Dimension DimensionBarra = null;
                     .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNivel)
+                    .addComponent(lblPermiso))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -405,13 +610,7 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_PanelSesionMouseEntered
 
     private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
-//        Caja_Ventas CT = new Caja_Ventas();
-//        
-//        String u=Principal.lblUsu.getText();
-//        CT.lblusu.setText(u);
-//        CT.lblID_SESION.setText(lblIDSESION.getText());
-//        CT.lblSESION.setText(ibiIDAPERTURA.getText());
-//        CT.setVisible(true);
+
     }//GEN-LAST:event_btnVentasMouseClicked
 
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
@@ -482,17 +681,11 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
-        Caja_Transaccion CCC = new Caja_Transaccion();
-        CCC.setVisible(true);
-        String u=Principal.lblUsu.getText();
-        CCC.lblusu.setText(u);
+        
     }//GEN-LAST:event_btnCPTActionPerformed
 
     private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked
-       Caja_Clientes CCLI = new Caja_Clientes();
-        CCLI.setVisible(true);
-        String u=Principal.lblUsu.getText();
-        CCLI.lblusu.setText(u);
+      
     }//GEN-LAST:event_btnClientesMouseClicked
 
     private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
@@ -597,25 +790,81 @@ private Dimension DimensionBarra = null;
             frmCIERRE.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void btnVentas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas1MouseClicked
+
+    private void btnVentas1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas1MouseEntered
+
+    private void btnVentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas1ActionPerformed
+
+        if(lblNivel.getText().equals("ADMINISTRADOR")&&lblPermiso.getText().equals("E")){
+            Caja_Reportes CR = new Caja_Reportes();
+            CR.setVisible(true);
+            String u=Principal.lblUsu.getText();
+            CR.lblusu.setText(u);
+        }else if(!lblNivel.getText().equals("ADMINISTRADOR")||lblPermiso.getText().equals("E")){
+            NivelSuperior.setVisible(true);
+        }
+    }//GEN-LAST:event_btnVentas1ActionPerformed
+
+    private void btnVentas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas2MouseClicked
+
+    private void btnVentas2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas2MouseEntered
+
+    private void btnVentas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas2ActionPerformed
+        
+        if(lblNivel.getText().equals("ADMINISTRADOR")&&lblPermiso.getText().equals("E")){
+            Caja_ReporteMensual CRM = new Caja_ReporteMensual();
+            CRM.setVisible(true);
+            String u=Principal.lblUsu.getText();
+            CRM.lblusu.setText(u);
+        }else if(!lblNivel.getText().equals("ADMINISTRADOR")||lblPermiso.getText().equals("E")){
+            NivelSuperior.setVisible(true);
+        }
+    }//GEN-LAST:event_btnVentas2ActionPerformed
+
+    private void btnAlertConsulta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta10ActionPerformed
+        NivelSuperior.dispose();
+    }//GEN-LAST:event_btnAlertConsulta10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog NivelSuperior;
     private javax.swing.JPanel PanelCPT;
     private javax.swing.JPanel PanelCaja;
+    private javax.swing.JPanel PanelCaja1;
     private javax.swing.JPanel PanelCaja2;
     private javax.swing.JPanel PanelCaja3;
+    private javax.swing.JPanel PanelCaja4;
     private javax.swing.JPanel PanelSesion;
+    private javax.swing.JButton btnAlertConsulta10;
     public static javax.swing.JButton btnCPT;
     public static javax.swing.JButton btnCaja3;
     public static javax.swing.JButton btnClientes;
     public static javax.swing.JButton btnVentas;
+    public static javax.swing.JButton btnVentas1;
+    public static javax.swing.JButton btnVentas2;
     public static javax.swing.JLabel ibiIDAPERTURA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel145;
+    private javax.swing.JPanel jPanel146;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JLabel lblIDSESION;
+    public static javax.swing.JLabel lblNivel;
+    public static javax.swing.JLabel lblPermiso;
     // End of variables declaration//GEN-END:variables
 }
