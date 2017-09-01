@@ -166,21 +166,21 @@ private double DESCUENTOD ;
         }
     }
         
-    public void Caja_Correlativo(String usu){
-        try {
-            String consulta = "exec CAJA_VENTA_SERIE_CORRELATIVO ?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, usu);
-            ResultSet r= cmd.executeQuery();
-        if(r.next()){
-               Caja_Ventas.lblSerie.setText(r.getString(1));
-               Caja_Ventas.lblCorrelativo.setText(r.getString(2));
-               Caja_Ventas.lblSerie_Correlativo.setText(r.getString(1)+"-"+r.getString(2));
-        }
-        }catch(Exception ex){
-            System.out.println("Error al generar serie y numero " + ex.getMessage());
-        }
-    }
+//    public void Caja_Correlativo(String usu){
+//        try {
+//            String consulta = "exec CAJA_VENTA_SERIE_CORRELATIVO ?";
+//            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+//            ResultSet r= cmd.executeQuery();
+//        if(r.next()){
+//               Caja_Ventas.lblSerie.setText(r.getString(1));
+//               Caja_Ventas.lblCorrelativo.setText(r.getString(2));
+//               Caja_Ventas.lblSerie_Correlativo.setText(r.getString(1)+"-"+r.getString(2));
+//        }
+//        }catch(Exception ex){
+//            System.out.println("Error al generar serie y numero " + ex.getMessage());
+//        }
+//    }
     
     public void DATOS_FP(String usu){
         try {
