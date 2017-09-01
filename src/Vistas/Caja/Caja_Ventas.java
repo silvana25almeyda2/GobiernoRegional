@@ -430,7 +430,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Prec=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
                 total=cant*Prec;
                 cno1.setTOTAL(total);
-                cno1.setDESCUENTOD(total*0.18);
+                if(lblGrupo.getText().equals("TP")){
+                    cno1.setDESCUENTOD(0.00);
+                }else if(!lblGrupo.getText().equals("TP")){
+                   cno1.setDESCUENTOD(total*0.18); 
+                }
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.NUEVA_VENTA_DETALLE()==true){
                         System.out.println("DETALLE DE VENTA GURADADO"); 
@@ -2308,7 +2312,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                                         .addContainerGap()
-                                                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, Short.MAX_VALUE)
                                                         .addGap(43, 43, 43))
                                                 );
 
