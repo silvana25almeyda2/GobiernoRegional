@@ -158,12 +158,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         }  
         if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
 //                    lblImpresora.setText("original"); 
+                    btnTerminiarVenta.setText("Guardar y Generar Boleta");
                     btnImprimir.setEnabled(true);
                     panelAnular.setVisible(true);
                     panelMensaje.setVisible(false);  
                     txtEnterEscapeEnter.requestFocus();
                     calcularValores_BOLETA();
         }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
+                    btnTerminiarVenta.setText("Guardar y Generar Factura");
                     btnImprimir.setEnabled(true);
                     panelAnular.setVisible(true);
                     panelMensaje.setVisible(false);  
@@ -331,6 +333,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         lDoc1.setVisible(opcion); 
         jScrollPane4.setVisible(opcion); 
         panelNumeros.setVisible(opcion); 
+        cbxAfecIGV.setVisible(opcion); 
+        jLabel26.setVisible(opcion); 
         DefaultTableModel modelo1 = (DefaultTableModel)tb_CPT.getModel(); 
         int b=tb_CPT.getRowCount();
         for(int j=0;j<b;j++){
@@ -1249,7 +1253,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                 txtCantidad.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
                                                 txtCantidad.setForeground(new java.awt.Color(51, 51, 51));
                                                 txtCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                                                txtCantidad.setBorder(null);
+                                                txtCantidad.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                 txtCantidad.addCaretListener(new javax.swing.event.CaretListener() {
                                                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
                                                         txtCantidadCaretUpdate(evt);
@@ -2304,7 +2308,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                                         .addContainerGap()
-                                                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, Short.MAX_VALUE)
+                                                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                                                         .addGap(43, 43, 43))
                                                 );
 
@@ -2620,7 +2624,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(lblNroCorrelativoC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                             .addComponent(cbxAfecIGV, 0, 1, Short.MAX_VALUE))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3279,13 +3283,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tb_CPTBUSCARMouseClicked
 
     private void tb_CPTBUSCARKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARKeyPressed
-        char teclaPresionada = evt.getKeyChar();
-        if(teclaPresionada==KeyEvent.VK_ENTER){
-            PanelCantidad.setVisible(true);
-            txtCantidad.setText("1");
-            txtCantidad.requestFocus();
-        }
-        
+//        char teclaPresionada = evt.getKeyChar();
+//        if(teclaPresionada==KeyEvent.VK_ENTER){
+//            PanelCantidad.setVisible(true);
+//            txtCantidad.setText("1");
+//            txtCantidad.requestFocus();
+//        }   
     }//GEN-LAST:event_tb_CPTBUSCARKeyPressed
 
     private void txtCantidadCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCantidadCaretUpdate
@@ -3471,7 +3474,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
-            nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
+//            nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
             panelAnular.setVisible(false);
             panelEliminacion.setVisible(false);
             Nuevo(false);
