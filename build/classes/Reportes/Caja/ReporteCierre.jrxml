@@ -76,12 +76,19 @@
 					</textElement>
 					<text><![CDATA[Precio]]></text>
 				</staticText>
-				<textField>
-					<reportElement x="-6" y="3" width="207" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
-					<textElement textAlignment="Center">
-						<font size="10"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="-6" y="3" width="144" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
+					<textElement>
+						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPO_VENTA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="139" y="3" width="48" height="20" uuid="d18ef6d8-0657-44ca-8c59-1670e9f76279"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S/. "+$F{TOTALCCT7}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>

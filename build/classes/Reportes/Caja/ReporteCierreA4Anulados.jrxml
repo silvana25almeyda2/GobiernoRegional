@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4FGGF" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72ad8611-73f2-4301-a3bf-e366795d0cba">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="1.7715610000000017"/>
-	<property name="ireport.x" value="364"/>
-	<property name="ireport.y" value="312"/>
+	<property name="ireport.zoom" value="0.8264462809917362"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -56,11 +56,16 @@
 		<groupHeader>
 			<band height="39">
 				<textField>
-					<reportElement x="0" y="3" width="201" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
+					<reportElement x="0" y="3" width="447" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
 					<textElement verticalAlignment="Middle">
 						<font size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPO_VENTA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="447" y="3" width="100" height="20" uuid="4e669341-2ddb-4b25-9efd-517622b94541"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{TOTALCCT7}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -229,7 +234,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["DIRESA "+$F{nombre_distrito}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SEDE "+$F{nombre_distrito}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="201" width="207" height="20" forecolor="#333333" uuid="99baac0e-03b3-401c-8246-81825b1b93bf"/>
@@ -247,31 +252,31 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="31" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField>
 				<reportElement x="436" y="0" width="29" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="465" y="0" width="39" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="0" width="429" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
-				<textElement>
+				<reportElement x="0" y="0" width="429" height="20" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
+				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="504" y="0" width="43" height="23" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
-				<textElement textAlignment="Right">
+				<reportElement x="504" y="0" width="43" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
