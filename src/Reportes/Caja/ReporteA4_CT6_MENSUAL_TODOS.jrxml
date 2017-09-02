@@ -69,7 +69,7 @@
 						<textElement textAlignment="Right" verticalAlignment="Middle">
 							<font fontName="SansSerif" size="8"/>
 						</textElement>
-						<textFieldExpression><![CDATA["S/. "+$F{TOTAL}]]></textFieldExpression>
+						<textFieldExpression><![CDATA["S/ "+$F{TOTAL}]]></textFieldExpression>
 					</textField>
 				</frame>
 			</band>
@@ -163,7 +163,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="8" width="200" height="21" uuid="89fc8a83-edca-4eaf-bfec-c06c11acd3f3"/>

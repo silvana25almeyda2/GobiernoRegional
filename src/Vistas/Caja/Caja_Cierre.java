@@ -119,6 +119,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         btnImprimir = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         btnImprimir2 = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        btnImprimir3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         lblID_APERTURA = new javax.swing.JLabel();
@@ -189,7 +191,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnImprimir1.setForeground(new java.awt.Color(51, 51, 51));
         btnImprimir1.setText("Genaral Formato A4");
         btnImprimir1.setContentAreaFilled(false);
@@ -219,9 +221,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(0, 0, 0))
         );
 
-        btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir.setText("Especifico Ticket");
+        btnImprimir.setText("Especifico de Detalle Ticket");
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -246,9 +248,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnImprimir2.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir2.setText("Especifico Formato A4");
+        btnImprimir2.setText("Especifico de Detalle Formato A4");
         btnImprimir2.setContentAreaFilled(false);
         btnImprimir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnImprimir2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -265,14 +267,43 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnImprimir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnImprimir2))
+        );
+
+        btnImprimir3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnImprimir3.setForeground(new java.awt.Color(51, 51, 51));
+        btnImprimir3.setText("Detalle Formato A4");
+        btnImprimir3.setContentAreaFilled(false);
+        btnImprimir3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimir3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnImprimir3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnImprimir3.setIconTextGap(5);
+        btnImprimir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(btnImprimir3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnImprimir3))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -286,7 +317,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -299,11 +331,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(3, 3, 3)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(3, 3, 3)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -777,8 +811,12 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         if(tbCANTIDAD.getRowCount()==0){
             nuevaV.reporteCierreV(Integer.parseInt(lblID_APERTURA.getText()));
         }else if(tbCANTIDAD.getRowCount()>0){
-            nuevaV.reporteCierre(Integer.parseInt(lblID_APERTURA.getText()));
-            nuevaV.reporteCierreANULADAS(Integer.parseInt(lblID_APERTURA.getText()));
+            try {
+                nuevaV.reporteCierre(Integer.parseInt(lblID_APERTURA.getText()));
+                nuevaV.reporteCierreANULADAS(Integer.parseInt(lblID_APERTURA.getText()));
+            } catch (Exception e) {
+            }
+            
         }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
@@ -787,7 +825,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         if(tbCANTIDAD.getRowCount()==0){
             nuevaV.reporteCierreGENERALVACIO(lblusu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
         }else if(tbCANTIDAD.getRowCount()>0){
-            nuevaV.reporteCierreGENERAL(lblusu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
+            try {
+                nuevaV.reporteCierreGENERAL(lblusu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
+            } catch (Exception e) {
+            }
         }
     }//GEN-LAST:event_btnImprimir1ActionPerformed
 
@@ -796,10 +837,27 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         if(tbCANTIDAD.getRowCount()==0){
             nuevaV.reporteCierreVACIOCT6(Integer.parseInt(lblID_APERTURA.getText()));
         }else if(tbCANTIDAD.getRowCount()>0){
-            nuevaV.reporteCierreCT6(Integer.parseInt(lblID_APERTURA.getText()));
-            nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
+            try {
+                nuevaV.reporteCierreCT6(Integer.parseInt(lblID_APERTURA.getText()));
+                nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
+            } catch (Exception e) {
+            }
+            
         }
     }//GEN-LAST:event_btnImprimir2ActionPerformed
+
+    private void btnImprimir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir3ActionPerformed
+        jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
+        if(tbCANTIDAD.getRowCount()==0){
+//            nuevaV.reporteCierreVACIOCT6(Integer.parseInt(lblID_APERTURA.getText()));
+        }else if(tbCANTIDAD.getRowCount()>0){
+            try {
+                nuevaV.reporteCierreCT6_C(Integer.parseInt(lblID_APERTURA.getText()));
+//                nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
+            } catch (Exception e) {
+            } 
+        }
+    }//GEN-LAST:event_btnImprimir3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -844,6 +902,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public static javax.swing.JButton btnImprimir;
     public static javax.swing.JButton btnImprimir1;
     public static javax.swing.JButton btnImprimir2;
+    public static javax.swing.JButton btnImprimir3;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevo1;
     private javax.swing.JLabel jLabel1;
@@ -869,6 +928,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

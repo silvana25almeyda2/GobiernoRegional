@@ -123,6 +123,21 @@ public void reporteAperura(int id) {
     } 
     
     ////////////////////////////////////////////////////////////////////////////
+    //REPORTE CIERRE DETALLE
+     public void reporteCierreCT6_C(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CCT6.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
+    ////////////////////////////////////////////////////////////////////////////
     //REPORTE CIERRE ESPECIFICO 4A
     
     public void reporteCierreCT6(int SESION) {

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.0000000000000018"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="385"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -86,6 +86,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 	<field name="TELEFONO" class="java.lang.String"/>
 	<field name="nombre_distrito" class="java.lang.String"/>
 	<field name="PERSONAL" class="java.lang.String"/>
+	<field name="LETRAS" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -280,7 +281,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textElement textAlignment="Right">
 					<font fontName="Lucida Sans Typewriter" size="8" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["IMPORTE TOTAL S/. "+$F{TOTAL}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["IMPORTE TOTAL S/ "+$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="2" y="7" width="198" height="1" uuid="185f1684-9a25-45ba-95b2-95ee6dd7cc08"/>
@@ -297,68 +298,75 @@ FROM            CAJA_PRECIOS INNER JOIN
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="118" splitType="Stretch">
+		<band height="139" splitType="Stretch">
 			<staticText>
-				<reportElement x="2" y="9" width="100" height="11" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
+				<reportElement x="2" y="36" width="100" height="11" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[CAJERO ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="42" y="9" width="173" height="11" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
+				<reportElement x="42" y="36" width="173" height="11" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="24" width="84" height="12" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
+				<reportElement x="2" y="51" width="84" height="12" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[FECHA DE EMISIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="60" width="196" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
+				<reportElement x="2" y="87" width="196" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="9"/>
 				</textElement>
 				<text><![CDATA[GRACIAS POR SU COMPRA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="38" width="117" height="15" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
+				<reportElement x="2" y="65" width="117" height="15" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[HORA DE EMISIÓN]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="22" width="100" height="20" uuid="a891e1c7-1375-45ad-96f3-e848732a4628"/>
+				<reportElement x="89" y="49" width="100" height="20" uuid="a891e1c7-1375-45ad-96f3-e848732a4628"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="89" y="38" width="100" height="20" uuid="1e2afc83-e4d3-4138-89e2-d06b661d34cd"/>
+				<reportElement x="89" y="65" width="100" height="20" uuid="1e2afc83-e4d3-4138-89e2-d06b661d34cd"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{HORA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="2" y="72" width="196" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
+				<reportElement x="2" y="99" width="196" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["TELÉFONOS  "+$F{TELEFONO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="92" width="196" height="20" forecolor="#FFFFFF" uuid="f6402273-1ac0-4dab-a706-444482d15091"/>
+				<reportElement x="2" y="119" width="196" height="20" forecolor="#FFFFFF" uuid="f6402273-1ac0-4dab-a706-444482d15091"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="2" y="4" width="191" height="20" uuid="7597f3b5-8163-49e9-a9b2-eea2f65e94a5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SON  "+$F{LETRAS}]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>
