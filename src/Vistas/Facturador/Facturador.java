@@ -71,6 +71,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import modelo.Facturador.CuentasPorPagarFacturasCabecera;
 import modelo.Facturador.CuentasPorPagarFacturasDetalle;
+import modelo.Facturador.CuentasPorPagarSfsRpta;
 import modelo.Personal.CLS_Personal;
 //import modelos.Caja.Caja_NuevaVenta;
 //import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
@@ -2561,9 +2562,9 @@ public class Facturador extends javax.swing.JFrame {
                                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(guardar == 0){ // SELECCION SI
                         dispose();
-//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-//                        rpta2.reporteFactura(cab3.idFactura());
+                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+                        rpta2.reporteFactura(cab3.idFactura());
                     }else{
                         dispose();
                     }

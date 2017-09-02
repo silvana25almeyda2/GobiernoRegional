@@ -867,7 +867,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnHuandoy.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnHuandoy.setForeground(new java.awt.Color(51, 51, 51));
         btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"))); // NOI18N
-        btnHuandoy.setText("Huandoy");
+        btnHuandoy.setText("Conecta");
         btnHuandoy.setContentAreaFilled(false);
         btnHuandoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHuandoy.setFocusPainted(false);

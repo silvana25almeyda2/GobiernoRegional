@@ -502,7 +502,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
-                jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+                jPanel6.setBackground(new java.awt.Color(209, 52, 56));
 
                 tbCANTIDAD.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {

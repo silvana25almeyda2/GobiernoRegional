@@ -418,6 +418,111 @@ private double DESCUENTOD ;
         }
     }
     
+    public void ReporteMENSUAL_CCTA7_TODOS(int MES,int ANIO, JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total","Total_general"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[6];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7_TODOS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, MES);
+            cmd.setInt(2, ANIO);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+//            formatoTablaReporteMENSUAL_CCT7(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR LISTAR REPORTE MENSUAL CCT7" + e.getMessage());
+        }
+    }
+    
+    public void LISTAR_SEDES(String BUSQUEDA, JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={" "," "};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[10];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_BUSCAR_SEDES ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, BUSQUEDA);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaSEDES(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR LISTAR SEDES" + e.getMessage());
+        }
+    }
+    
+    public void ReporteMENSUAL_CCTA6_TODOS(int MES,int ANIO, JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Cuenta","Total","USU","DESC","DIR","RUC","TELEF","Sede","mes","tot"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[10];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_REPORTE_MENSUAL_CTA6_TODOS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, MES);
+            cmd.setInt(2, ANIO);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteMENSUAL_CCT6_TODOS(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR LISTAR REPORTE MENSUAL CCT6 TODOS" + e.getMessage());
+        }
+    }
+    
     public void ReporteMENSUAL_CCTA6(int MES,int ANIO,String Lugar, JTable tabla){
         String consulta="";
         try {
@@ -542,12 +647,40 @@ private double DESCUENTOD ;
         tabla.setRowHeight(40);
         
     }
+    public void formatoTablaReporteMENSUAL_CCT6_TODOS(JTable tabla){
+
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(800);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.setRowHeight(40);
+        
+    }
     public void formatoTablaReporteMENSUAL_CCT6(JTable tabla){
 
         tabla.getColumnModel().getColumn(0).setPreferredWidth(800);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
         tabla.setRowHeight(40);
         
+    }
+    public void formatoTablaSEDES(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.setRowHeight(40); 
     }
     
     public void formatoTablaReporteAPERTURA_CIERRE(JTable tabla){
@@ -615,6 +748,50 @@ private double DESCUENTOD ;
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
             tabla.setRowHeight(48);
+    }
+    
+    public void ReporteMENSUAL_DETALLE_LOCAL(Integer MES,Integer ANIO, String LUGAR) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("MES", MES);
+            parametros.put("ANIO", ANIO);
+            parametros.put("LUGAR", LUGAR);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CT6_MENSUAL.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Mensual");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+    
+    public void ReporteMENSUAL_ESPECIFICA_LOCAL(Integer MES,Integer SESION, String LUGAR) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("MES", MES);
+            parametros.put("SESION", SESION);
+            parametros.put("LUGAR", LUGAR);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CT7_MENSUAL.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Mensual");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+    
+    public void ReporteMENSUAL_DETALLE_TODOS(Integer MES,Integer SESION, String LUGAR) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("MES", MES);
+            parametros.put("SESION", SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CT6_MENSUAL_TODOS.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Mensual");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
     }
           
     public void reporteVenta(int id_documento) {

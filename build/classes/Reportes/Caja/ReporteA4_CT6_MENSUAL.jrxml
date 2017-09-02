@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4CT6_MENSUAL" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2776cc3-1a0a-42ae-bc7a-3d99edfa7590">
 	<property name="ireport.zoom" value="1.9487171000000019"/>
-	<property name="ireport.x" value="30"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="21"/>
+	<property name="ireport.y" value="336"/>
 	<parameter name="MES" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -145,7 +145,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="7" width="200" height="21" uuid="1930a554-c0b5-4623-ac23-144033f947ae"/>

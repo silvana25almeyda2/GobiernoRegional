@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4FGGF" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72ad8611-73f2-4301-a3bf-e366795d0cba">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="1.2100000000000024"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="4.594972986357231"/>
+	<property name="ireport.x" value="1891"/>
+	<property name="ireport.y" value="863"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -57,7 +57,7 @@
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["S/. "+$F{TOTALCC6}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["S/ "+$F{TOTALCC6}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -164,7 +164,7 @@
 			<textField>
 				<reportElement x="507" y="3" width="37" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
 				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
@@ -177,12 +177,16 @@
 			</textField>
 			<textField>
 				<reportElement x="470" y="3" width="31" height="20" uuid="3269bee6-190d-4844-8feb-8ac3e19b6b4f"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="436" y="3" width="29" height="20" uuid="4d2c77ef-a878-4fd4-b095-66b4c84d686d"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -217,7 +221,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="8" width="200" height="21" uuid="89fc8a83-edca-4eaf-bfec-c06c11acd3f3"/>

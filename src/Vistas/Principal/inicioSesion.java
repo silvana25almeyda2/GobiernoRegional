@@ -207,7 +207,7 @@ String hora, minutos, segundos, ampm;
         btnIniciarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Huandoy");
+        setTitle("Conecta");
         setMinimumSize(new java.awt.Dimension(372, 435));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
