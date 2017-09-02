@@ -601,11 +601,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             }
             int A=0;
             A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
-        if(cbxMeses1.getSelectedItem().equals("Detalle")&&!txtUbicacion.getText().equals("Todos")){
+        if(cbxMeses1.getSelectedItem().equals("Detalle")&&!txtUbicacion.getText().equals("TODOS")){
             nuevaR.ReporteMENSUAL_DETALLE_LOCAL(m,A,txtUbicacion.getText());
-        }else if(cbxMeses1.getSelectedItem().equals("Especifica de Detalle")&&!txtUbicacion.getText().equals("Todos")){
+        }else if(cbxMeses1.getSelectedItem().equals("Especifica de Detalle")&&!txtUbicacion.getText().equals("TODOS")){
             nuevaR.ReporteMENSUAL_ESPECIFICA_LOCAL(m,A,txtUbicacion.getText());
-        }else if(cbxMeses1.getSelectedItem().equals("Detalle")&&txtUbicacion.getText().equals("Todos")){
+        }else if(cbxMeses1.getSelectedItem().equals("Detalle")&&txtUbicacion.getText().equals("TODOS")){
             nuevaR.ReporteMENSUAL_DETALLE_TODOS(m,A,txtUbicacion.getText());
         }
         
