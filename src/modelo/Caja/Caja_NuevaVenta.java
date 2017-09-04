@@ -387,10 +387,10 @@ private double DESCUENTOD ;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total"};
+            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total","TOTAL_TOTAL"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[5];
+            String fila[]=new String[6];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7 ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -405,6 +405,7 @@ private double DESCUENTOD ;
                 fila[2]=r.getString(3);
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
                     m.addRow(fila);
                     c++;
             }
@@ -422,10 +423,10 @@ private double DESCUENTOD ;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total","Total_general"};
+            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total","","","Total_general"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[8];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7_TODOS ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -440,6 +441,8 @@ private double DESCUENTOD ;
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
                     m.addRow(fila);
                     c++;
             }
@@ -447,7 +450,7 @@ private double DESCUENTOD ;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-//            formatoTablaReporteMENSUAL_CCT7(tabla);
+            formatoTablaReporteMENSUAL_CCT7(tabla);
         } catch (Exception e) {
             System.out.println("ERROR LISTAR REPORTE MENSUAL CCT7" + e.getMessage());
         }
@@ -645,6 +648,12 @@ private double DESCUENTOD ;
             tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(5).setMinWidth(0);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
         tabla.setRowHeight(40);
         
     }

@@ -544,6 +544,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Caja_NuevaVenta CNVRCCFD = new  Caja_NuevaVenta();
                 CNVRCCFD.ReporteMENSUAL_CCTA6(m,A,txtUbicacion.getText(), tb_ReporteDiario1);
                 lblCliente2.setText("Detalle");
+                tb_ReporteDiario1.getSelectionModel().setSelectionInterval (0,0) ;
                 try {
                     int filaD = tb_ReporteDiario1.getSelectedRow();
                     jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(filaD, 2)));
@@ -553,6 +554,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
                 CNVRCCF.ReporteMENSUAL_CCTA7(m,A,txtUbicacion.getText(), tb_ReporteDiario1);
                 lblCliente2.setText("Especifica de Detalle");
+                tb_ReporteDiario1.getSelectionModel().setSelectionInterval (0,0) ;
+                try {
+                    int filaE = tb_ReporteDiario1.getSelectedRow();
+                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(filaE, 6)));
+                } catch (Exception e) {
+                }
             ////////////////////////////////////////////////////////////////////
             //TODAS LAS SEDES///////////////////////////////////////////////////
             }else if(cbxMeses1.getSelectedItem().equals("Detalle")&&txtUbicacion.getText().equals("TODOS")){
@@ -572,7 +579,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 tb_ReporteDiario1.getSelectionModel().setSelectionInterval (0,0) ;
                 try {
                     int fila = tb_ReporteDiario1.getSelectedRow();
-                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(fila, 5)));
+                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(fila, 7)));
                 } catch (Exception e) {
                 }
             }

@@ -1602,7 +1602,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                 btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                 btnLista.setForeground(new java.awt.Color(255, 255, 255));
                                                 btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Orden de compra-32.png"))); // NOI18N
-                                                btnLista.setText("Ventas de Hoy");
+                                                btnLista.setText("Ventas");
                                                 btnLista.setContentAreaFilled(false);
                                                 btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                 btnLista.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
