@@ -430,7 +430,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblCajeroS, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -544,10 +544,17 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Caja_NuevaVenta CNVRCCFD = new  Caja_NuevaVenta();
                 CNVRCCFD.ReporteMENSUAL_CCTA6(m,A,txtUbicacion.getText(), tb_ReporteDiario1);
                 lblCliente2.setText("Detalle");
+                try {
+                    int filaD = tb_ReporteDiario1.getSelectedRow();
+                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(filaD, 2)));
+                } catch (Exception e) {
+                }
             }else if(cbxMeses1.getSelectedItem().equals("Especifica de Detalle")&&!txtUbicacion.getText().equals("TODOS")){
                 Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
                 CNVRCCF.ReporteMENSUAL_CCTA7(m,A,txtUbicacion.getText(), tb_ReporteDiario1);
                 lblCliente2.setText("Especifica de Detalle");
+            ////////////////////////////////////////////////////////////////////
+            //TODAS LAS SEDES///////////////////////////////////////////////////
             }else if(cbxMeses1.getSelectedItem().equals("Detalle")&&txtUbicacion.getText().equals("TODOS")){
                 Caja_NuevaVenta CNVRCCFT = new  Caja_NuevaVenta();
                 CNVRCCFT.ReporteMENSUAL_CCTA6_TODOS(m,A, tb_ReporteDiario1);

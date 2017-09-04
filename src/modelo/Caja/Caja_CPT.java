@@ -320,6 +320,7 @@ private double PRECIO;
             int c=1;
             while(r.next()){
                 Caja_ReporteMensual.lblTipo_Sede.setText(r.getString(1));
+                Caja_ReporteMensual.txtUbicacion.setText(r.getString(2));
                 if(Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
                     Caja_ReporteMensual.txtUbicacion.setEditable(true);
                 }else if(!Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){

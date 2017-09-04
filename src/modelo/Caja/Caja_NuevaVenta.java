@@ -527,10 +527,10 @@ private double DESCUENTOD ;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Cuenta","Total"};
+            String titulos[]={"Cuenta","Total","TOTAL_TOTAL"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_REPORTE_MENSUAL_CTA6 ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -542,6 +542,7 @@ private double DESCUENTOD ;
             while(r.next()){
                 fila[0]=r.getString(1);
                 fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
                     m.addRow(fila);
                     c++;
             }
@@ -673,6 +674,8 @@ private double DESCUENTOD ;
 
         tabla.getColumnModel().getColumn(0).setPreferredWidth(800);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
         tabla.setRowHeight(40);
         
     }

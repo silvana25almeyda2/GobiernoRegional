@@ -560,7 +560,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCliente2" min="-2" pref="625" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" pref="345" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblCajeroS" min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
