@@ -7,6 +7,7 @@ package modelo.Caja;
 
 import Servicios.Conexion;
 import Vistas.Caja.Caja_CPTS;
+import Vistas.Caja.Caja_ReporteMensual;
 import Vistas.Principal.Principal_Caja;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -306,6 +307,28 @@ private double PRECIO;
             //
         } catch (Exception e) {
             System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void LISTAR_LOCALIDAD_SEDE(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_UNIDAD_EJECUTORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_ReporteMensual.lblTipo_Sede.setText(r.getString(1));
+                if(Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
+                    Caja_ReporteMensual.txtUbicacion.setEditable(true);
+                }else if(!Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
+                    Caja_ReporteMensual.txtUbicacion.setEditable(false);
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR TIPO SEDE: " + e.getMessage());
         }
     }
     

@@ -6,6 +6,7 @@
 package Vistas.Caja;
 
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.sql.Connection;
@@ -16,6 +17,7 @@ import java.text.DecimalFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import modelo.Caja.Caja_AperturaCierre;
+import modelo.Caja.Caja_CPT;
 import modelo.Caja.Caja_NuevaVenta;
 
 /**
@@ -47,6 +49,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         tbSEDES.getTableHeader().setVisible(false);
         tbSEDES.setTableHeader(null);
         jPanel2.setVisible(false);
+        Caja_CPT N = new Caja_CPT();
+        N.LISTAR_LOCALIDAD_SEDE(Principal.lblUsu.getText());
+        
+        
     }
     
     public DefaultComboBoxModel Anio(){
@@ -102,6 +108,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             }};
             jPanel2 = new javax.swing.JPanel();
             jLabel7 = new javax.swing.JLabel();
+            lblTipo_Sede = new javax.swing.JLabel();
             jPanel12 = new javax.swing.JPanel();
             lblCliente2 = new javax.swing.JLabel();
             lblCajeroS = new javax.swing.JLabel();
@@ -308,6 +315,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         .addContainerGap())
                 );
 
+                lblTipo_Sede.setText("jLabel8");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -343,7 +352,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             .addComponent(txtUbicacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                         .addGap(20, 20, 20))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lblTipo_Sede))
                                         .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -357,8 +369,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTipo_Sede))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -758,11 +772,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     private javax.swing.JLabel lblBase;
     public static javax.swing.JLabel lblCajeroS;
     public static javax.swing.JLabel lblCliente2;
+    public static javax.swing.JLabel lblTipo_Sede;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     public static javax.swing.JLabel lblusu1;
     private javax.swing.JTable tbSEDES;
     private javax.swing.JTable tb_ReporteDiario1;
-    private javax.swing.JTextField txtUbicacion;
+    public static javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }
