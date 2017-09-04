@@ -49,6 +49,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         tbSEDES.getTableHeader().setVisible(false);
         tbSEDES.setTableHeader(null);
         jPanel2.setVisible(false);
+        jScrollPane24.setVisible(false);
+        lblTipo_Sede.setVisible(false);
         Caja_CPT N = new Caja_CPT();
         N.LISTAR_LOCALIDAD_SEDE(Principal.lblUsu.getText());
         
