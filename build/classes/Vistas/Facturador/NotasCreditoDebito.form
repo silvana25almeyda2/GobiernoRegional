@@ -40,6 +40,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
@@ -281,7 +284,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/salida 24 white.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/icons8-Cancel-22.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salir"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -453,7 +456,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="461" max="32767" attributes="0"/>
+                  <EmptySpace pref="456" max="32767" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblUsu" min="-2" max="-2" attributes="0"/>
@@ -560,7 +563,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Silvana"/>
+            <Property name="text" type="java.lang.String" value="KARINA"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

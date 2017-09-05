@@ -36,7 +36,7 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         String cor="";
         try {
              
-            String sql = "exec CUENTAS_POR_PAGAR_NOTA_CREDITO_GENERAR_Serie_Correlativo ?";
+            String sql = "exec SP_CUENTAS_POR_PAGAR_NOTA_CREDITO_GENERAR_Serie_Correlativo ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, serie);
             ResultSet r = cmd.executeQuery();
@@ -53,7 +53,7 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         String cor="";
         try {
              
-            String sql = "exec CUENTAS_POR_PAGAR_NOTA_DEBITO_GENERAR_Serie_Correlativo ?";
+            String sql = "exec SP_CUENTAS_POR_PAGAR_NOTA_DEBITO_GENERAR_Serie_Correlativo ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, serie);
             ResultSet r = cmd.executeQuery();
