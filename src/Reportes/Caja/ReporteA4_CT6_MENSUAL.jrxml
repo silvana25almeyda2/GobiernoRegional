@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4CT6_MENSUAL" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2776cc3-1a0a-42ae-bc7a-3d99edfa7590">
 	<property name="ireport.zoom" value="1.9487171000000019"/>
-	<property name="ireport.x" value="21"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="181"/>
 	<parameter name="MES" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -25,11 +25,12 @@
 	<field name="nombre_distrito" class="java.lang.String"/>
 	<field name="MEES" class="java.lang.String"/>
 	<field name="TOTAL_TOTAL" class="java.math.BigDecimal"/>
+	<field name="FECHA_HORA" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="127" splitType="Stretch">
+		<band height="148" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="45" width="199" height="20" uuid="3f83846a-f707-4b5e-a140-985758fbe074"/>
 				<textElement>
@@ -74,6 +75,16 @@
 					<font size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{MEES}+" (*)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="128" width="127" height="20" uuid="f8a49a78-059f-46b9-a058-e5dec6fb6e9e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Registros Actualizados al]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="118" y="128" width="266" height="20" uuid="92287e43-f5bd-48ff-8fc0-c53021f02594"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA_HORA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

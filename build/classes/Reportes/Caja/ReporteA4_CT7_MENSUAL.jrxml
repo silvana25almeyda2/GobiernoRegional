@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4FGGF" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72ad8611-73f2-4301-a3bf-e366795d0cba">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="4.594972986357231"/>
-	<property name="ireport.x" value="1891"/>
-	<property name="ireport.y" value="863"/>
+	<property name="ireport.zoom" value="1.7715610000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="222"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -41,6 +41,7 @@
 	<field name="nombre_distrito" class="java.lang.String"/>
 	<field name="MEES" class="java.lang.String"/>
 	<field name="TOTAL_TOTAL" class="java.math.BigDecimal"/>
+	<field name="FECHA_HORA" class="java.lang.String"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{CUENTA6}]]></groupExpression>
 		<groupHeader>
@@ -108,7 +109,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="131" splitType="Stretch">
+		<band height="151" splitType="Stretch">
 			<textField>
 				<reportElement x="10" y="-52" width="201" height="20" uuid="a8c9050b-f4ba-43cc-a003-40a23df32716"/>
 				<textElement>
@@ -150,6 +151,10 @@
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["RUC "+$F{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="131" width="444" height="20" uuid="978a1ab5-df0a-4f97-9be2-f10d65dc173d"/>
+				<textFieldExpression><![CDATA["Registros actualizados al  "+$F{FECHA_HORA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

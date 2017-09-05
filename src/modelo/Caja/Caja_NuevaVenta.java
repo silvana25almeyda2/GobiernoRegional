@@ -759,7 +759,7 @@ private double DESCUENTOD ;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CT6_MENSUAL.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Reporte Mensual");
-           ventanavisor.setVisible(true);
+            ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
         }

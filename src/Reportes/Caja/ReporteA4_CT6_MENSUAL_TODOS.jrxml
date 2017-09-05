@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.331000000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="31"/>
+	<property name="ireport.y" value="175"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -33,6 +33,7 @@
 	<field name="nombre_distrito" class="java.lang.String"/>
 	<field name="MEES" class="java.lang.String"/>
 	<field name="TOTAL_TOTAL" class="java.math.BigDecimal"/>
+	<field name="FECHA_HORA" class="java.lang.String"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{nombre_distrito}]]></groupExpression>
 		<groupHeader>
@@ -67,7 +68,7 @@
 					<textField>
 						<reportElement x="420" y="0" width="124" height="24" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
 						<textElement textAlignment="Right" verticalAlignment="Middle">
-							<font fontName="SansSerif" size="8"/>
+							<font fontName="SansSerif" size="10"/>
 						</textElement>
 						<textFieldExpression><![CDATA["S/ "+$F{TOTAL}]]></textFieldExpression>
 					</textField>
@@ -79,7 +80,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="131" splitType="Stretch">
+		<band height="156" splitType="Stretch">
 			<textField>
 				<reportElement x="10" y="-52" width="201" height="20" uuid="a8c9050b-f4ba-43cc-a003-40a23df32716"/>
 				<textElement>
@@ -122,6 +123,11 @@
 				</textElement>
 				<textFieldExpression><![CDATA["RUC "+$F{RUC}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="0" y="124" width="378" height="20" uuid="2409660e-8e68-464f-a097-81c66e872279"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Registros Actualizados al  "+$F{FECHA_HORA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -154,14 +160,14 @@
 			<staticText>
 				<reportElement x="0" y="42" width="100" height="14" uuid="65fd36fb-4f1d-4b32-ac5b-a654b59fcc2b"/>
 				<textElement>
-					<font size="9"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Total de Ventas (*)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="165" y="42" width="15" height="14" uuid="ea97f56c-7ae8-4250-99b4-95b2b7ae2286"/>
 				<textElement>
-					<font size="9"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[S/]]></text>
 			</staticText>
@@ -195,7 +201,7 @@
 			<textField>
 				<reportElement x="184" y="42" width="100" height="20" uuid="30bdfdf5-ed01-4cb8-a7d1-24dfaba4c10d"/>
 				<textElement>
-					<font size="9"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL_TOTAL}]]></textFieldExpression>
 			</textField>

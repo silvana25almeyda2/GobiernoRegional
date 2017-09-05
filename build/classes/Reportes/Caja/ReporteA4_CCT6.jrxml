@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4_CCT6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68aa4cbc-4f9e-4b97-8f4d-81d5a1c0415e">
-	<property name="ireport.zoom" value="1.771561000000001"/>
-	<property name="ireport.x" value="251"/>
-	<property name="ireport.y" value="294"/>
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="104"/>
 	<parameter name="SESION" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -24,7 +24,6 @@
 	<field name="BASE" class="java.math.BigDecimal"/>
 	<field name="ID_SESION" class="java.lang.String"/>
 	<field name="PERSONAL" class="java.lang.String"/>
-	<field name="TIPO_VENTA" class="java.lang.String"/>
 	<field name="TOTAL DE VENTAS" class="java.math.BigDecimal"/>
 	<field name="TOTAL DE GENERAL" class="java.math.BigDecimal"/>
 	<field name="TUPA" class="java.math.BigDecimal"/>

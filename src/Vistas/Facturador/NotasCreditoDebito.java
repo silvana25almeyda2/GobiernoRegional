@@ -22,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
+import modelo.Facturador.CuentasPorPagarFacturasCabecera;
+import modelo.Facturador.CuentasPorPagarFacturasDetalle;
 import modelo.Facturador.CuentasPorPagarNotaDeCreditoDebito;
 import modelo.Principal.Usuario;
 
@@ -192,7 +194,7 @@ Conexion c=new Conexion();
         }       
     }
     
-     public void CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar(String buscar,String tipo){
+        public void CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar(String buscar,String tipo){
         try {
             String consulta="";
              String titulos[]={"ID","Fecha","DOCUMENTO","Serie","Número","Tipo Doc"
@@ -204,7 +206,7 @@ Conexion c=new Conexion();
             String fila[]=new String[20];
            Usuario obj=new Usuario();
 //            consulta="exec sp_CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar ?,?";
-            consulta="exec sp_CUENTAS_POR_PAGAR_LISTAR_SFS_RPTA ?,?";
+            consulta="exec sp_CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar ?,?";
 
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
@@ -284,8 +286,8 @@ Conexion c=new Conexion();
     }
     
     public void crearCabeceraCredito(){
-        
-       String archivo = "20410275768" + "-" + 
+        CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
+       String archivo = ruc1.factura_ruc() + "-" + 
                "07" + "-" +
                txtSerie.getText() + "-" + 
                 lblCorrelativoCreditoF.getText() + ".NOT";
@@ -329,8 +331,8 @@ Conexion c=new Conexion();
     }   
     
     public void crearCabeceraDebito(){
-        
-       String archivo = "20410275768" + "-" + 
+       CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
+       String archivo = ruc1.factura_ruc() + "-" + 
                "08" + "-" +
                txtSerieDebito.getText() + "-" + 
                 lblCorrelativoDebitoF.getText() + ".NOT";
@@ -751,6 +753,11 @@ Conexion c=new Conexion();
                     Serie.add(jMenuItem1);
 
                     jMenuItem2.setText("jMenuItem2");
+                    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            jMenuItem2ActionPerformed(evt);
+                        }
+                    });
                     Serie.add(jMenuItem2);
 
                     BUSCAR_FACTURA_BOLETA.setMinimumSize(new java.awt.Dimension(784, 561));
@@ -833,7 +840,7 @@ Conexion c=new Conexion();
                     jButton1.setBackground(new java.awt.Color(204, 0, 51));
                     jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     jButton1.setForeground(new java.awt.Color(255, 255, 255));
-                    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salida 24 white.png"))); // NOI18N
+                    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Cancel-22.png"))); // NOI18N
                     jButton1.setText("Salir");
                     jButton1.setContentAreaFilled(false);
                     jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1000,7 +1007,7 @@ Conexion c=new Conexion();
                     jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Notas de Crédito y Débito</html>");
 
                     lblUsu.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-                    lblUsu.setText("Silvana");
+                    lblUsu.setText("KARINA");
 
                     jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
                     jLabel14.setText("Usuario:");
@@ -1012,7 +1019,7 @@ Conexion c=new Conexion();
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
                             .addComponent(jLabel14)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblUsu)
@@ -3190,11 +3197,11 @@ Conexion c=new Conexion();
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGap(5, 5, 5)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3216,10 +3223,10 @@ Conexion c=new Conexion();
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addGap(5, 5, 5)
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jPanel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(jPanel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(jPanel34, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel49, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addGap(30, 30, 30)
@@ -3233,9 +3240,9 @@ Conexion c=new Conexion();
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5599,7 +5606,8 @@ Conexion c=new Conexion();
 //                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
 ////                crearDetalle();
-                String archivo = "20410275768" + "-" + 
+                CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
+                String archivo = ruc1.factura_ruc() + "-" + 
                 "07"+ "-" +
                 txtSerie.getText() + "-" + 
                 lblCorrelativoCreditoF.getText() + ".DET";
@@ -5693,7 +5701,7 @@ Conexion c=new Conexion();
 //                
 //            }
                 if(estado==1){
-                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    JOptionPane.showMessageDialog(this, "Nota de Crédito Generada");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdCredito.getText()),"1");
                     limpiar();
@@ -5719,17 +5727,16 @@ Conexion c=new Conexion();
 
     private void btnAgregarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFacturaActionPerformed
         BUSCAR_FACTURA_BOLETA.setVisible(true);
-       lblEstado.setText("1");
+        lblEstado.setText("1");
        
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar("","1");
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_formato();
-//        CuentasPorPagarSfsRpta rpta=new CuentasPorPagarSfsRpta();
-//        rpta.listarFacturasAceptadas(tbFacturasRpta, "","F","","");
+        txtBuscarDocumento.setText("");
+//      CuentasPorPagarSfsRpta rpta=new CuentasPorPagarSfsRpta();
+//      rpta.listarFacturasAceptadas(tbFacturasRpta, "","F","","");
        
-       
-        
-    tb_Factura_Boleta.getSelectionModel().setSelectionInterval(0, 0);
-            tb_Factura_Boleta.requestFocus();
+        tb_Factura_Boleta.getSelectionModel().setSelectionInterval(0, 0);
+        tb_Factura_Boleta.requestFocus();
        
     }//GEN-LAST:event_btnAgregarFacturaActionPerformed
 
@@ -5990,7 +5997,8 @@ Conexion c=new Conexion();
 //                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
 ////                crearDetalle();
-                String archivo = "20410275768" + "-" + 
+                CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
+                String archivo = ruc1.factura_ruc() + "-" + 
                 "08"+ "-" +
                 txtSerieDebito.getText() + "-" + 
                 lblCorrelativoDebitoF.getText() + ".DET";
@@ -6248,6 +6256,10 @@ Conexion c=new Conexion();
     private void tbFacturacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacturacionMouseClicked
 
     }//GEN-LAST:event_tbFacturacionMouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     
      public void mostrarFacturacionDetalle( JTable table){
