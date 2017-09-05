@@ -55,7 +55,7 @@ private String PA_MODULO;
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Caja_Registro.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
+                Caja_Registro.lblUsu.setText(r.getString(2));
                 Caja_Registro.lblResumenUsuario.setText("<html>"+"Cajero "+r.getString(2)+"<html>");
                 }
             //

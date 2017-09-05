@@ -7,6 +7,8 @@ package modelo.Caja;
 
 import Servicios.Conexion;
 import Vistas.Caja.Caja_Clientes;
+import Vistas.Caja.Caja_Historia_Clinica;
+import Vistas.Principal.Principal_Caja;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -166,6 +168,29 @@ Conexion con = new Conexion();
             //
         } catch (Exception e) {
             System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void LISTAR_LOCALIDAD_SEDE(String usu){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_UNIDAD_EJECUTORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Principal_Caja.lblTipo_Sede.setText(r.getString(1));
+                Principal_Caja.txtUbicacion.setText(r.getString(2));
+                if(Principal_Caja.lblTipo_Sede.getText().equals("P")){
+                    Principal_Caja.btnClientes.setText("Clientes");
+                }else if(!Principal_Caja.lblTipo_Sede.getText().equals("P")){
+                    Principal_Caja.btnClientes.setText("Historia Clínica");
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR TIPO SEDE: " + e.getMessage());
         }
     }
     

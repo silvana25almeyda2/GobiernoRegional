@@ -9,6 +9,7 @@ import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
 import Vistas.Caja.Caja_Grupo_Nomenclaturas;
+import Vistas.Caja.Caja_Historia_Clinica;
 import Vistas.Caja.Caja_Jerarquia;
 import Vistas.Caja.Caja_ReporteMensual;
 import Vistas.Caja.Caja_Reportes;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import modelo.Caja.Caja_CPT;
+import modelo.Caja.Caja_Cliente;
 
 /**
  *
@@ -40,6 +42,8 @@ private Dimension DimensionBarra = null;
         Caja_CPT N = new Caja_CPT();
         N.LISTAR_PRINCIPAL(Principal.lblUsu.getText());
         NivelSuperior.setLocationRelativeTo(null);//en el centro
+        Caja_Cliente NL = new Caja_Cliente();
+        NL.LISTAR_LOCALIDAD_SEDE(Principal.lblUsu.getText());
         
     }
     public void QuitarLaBarraTitulo(){ 
@@ -93,6 +97,8 @@ private Dimension DimensionBarra = null;
         btnVentas3 = new javax.swing.JButton();
         PanelCPT1 = new javax.swing.JPanel();
         btnCPT1 = new javax.swing.JButton();
+        lblTipo_Sede = new javax.swing.JLabel();
+        txtUbicacion = new javax.swing.JLabel();
 
         NivelSuperior.setAlwaysOnTop(true);
         NivelSuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -624,6 +630,10 @@ private Dimension DimensionBarra = null;
             .addComponent(btnCPT1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
+        lblTipo_Sede.setText("jLabel6");
+
+        txtUbicacion.setText("jLabel6");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -654,7 +664,12 @@ private Dimension DimensionBarra = null;
                         .addGap(32, 32, 32)
                         .addComponent(lblNivel)
                         .addGap(52, 52, 52)
-                        .addComponent(lblPermiso)))
+                        .addComponent(lblPermiso))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblTipo_Sede)
+                        .addGap(157, 157, 157)
+                        .addComponent(txtUbicacion)))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -662,7 +677,11 @@ private Dimension DimensionBarra = null;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipo_Sede)
+                    .addComponent(txtUbicacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -807,10 +826,18 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnClientesMouseEntered
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        Caja_Clientes CCLI = new Caja_Clientes();
-        CCLI.setVisible(true);
-        String u=Principal.lblUsu.getText();
-        CCLI.lblusu.setText(u);
+        if(lblTipo_Sede.getText().equals("P")){
+            Caja_Clientes CCLI = new Caja_Clientes();
+            CCLI.setVisible(true);
+            String u=Principal.lblUsu.getText();
+            CCLI.lblusu.setText(u);
+        }else if(!lblTipo_Sede.getText().equals("P")){
+                Caja_Historia_Clinica CCLH = new Caja_Historia_Clinica();
+                CCLH.setVisible(true);
+                String u=Principal.lblUsu.getText();
+                CCLH.lblusu.setText(u);
+        }
+        
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
@@ -992,5 +1019,7 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JLabel lblIDSESION;
     public static javax.swing.JLabel lblNivel;
     public static javax.swing.JLabel lblPermiso;
+    public static javax.swing.JLabel lblTipo_Sede;
+    public static javax.swing.JLabel txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }

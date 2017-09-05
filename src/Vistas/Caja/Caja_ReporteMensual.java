@@ -678,7 +678,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                         this.cbxMeses.addItem("Seleccione");
                             }
-
             }}
             catch(Exception ex) 
             {
