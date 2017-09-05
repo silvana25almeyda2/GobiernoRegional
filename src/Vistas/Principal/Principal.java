@@ -866,7 +866,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnHuandoy.setBackground(new java.awt.Color(102, 102, 102));
         btnHuandoy.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnHuandoy.setForeground(new java.awt.Color(51, 51, 51));
-        btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"))); // NOI18N
+        btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/CONNECTA.png"))); // NOI18N
         btnHuandoy.setText("Conecta");
         btnHuandoy.setContentAreaFilled(false);
         btnHuandoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1209,7 +1209,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnFacturador.setForeground(new Color(51,51,51)); 
         PanelFacturador.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1237,7 +1237,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnCaja.setForeground(new Color(51,51,51)); 
         PanelCaja.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255));
@@ -1277,7 +1277,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnFacturador.setForeground(new Color(51,51,51)); 
         PanelFacturador.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255));
@@ -1343,7 +1343,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
     }//GEN-LAST:event_btnPersonalMouseClicked
 
     private void btnPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPersonalMouseEntered
-       ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"));
+       ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1386,7 +1386,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
     }//GEN-LAST:event_btnUsuariosMouseClicked
 
     private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1427,10 +1427,10 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
     }//GEN-LAST:event_btnHuandoyMouseClicked
 
     private void btnHuandoyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHuandoyMouseEntered
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Montaña-64 (1).png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA1.png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(255,255,255)); 
-        PanelHunadoy.setBackground(new Color(39,174,97)); 
+        PanelHunadoy.setBackground(new Color(240,175,19)); 
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);

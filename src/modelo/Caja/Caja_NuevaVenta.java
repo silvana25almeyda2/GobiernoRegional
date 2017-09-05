@@ -450,9 +450,9 @@ private double DESCUENTOD ;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-            formatoTablaReporteMENSUAL_CCT7(tabla);
+            formatoTablaReporteMENSUAL_CCT7TODOS(tabla);
         } catch (Exception e) {
-            System.out.println("ERROR LISTAR REPORTE MENSUAL CCT7" + e.getMessage());
+            System.out.println("ERROR LISTAR REPORTE MENSUAL CCT7 TODOS" + e.getMessage());
         }
     }
     
@@ -642,6 +642,19 @@ private double DESCUENTOD ;
     }
     
     public void formatoTablaReporteMENSUAL_CCT7(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(800);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(5).setMinWidth(0);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.setRowHeight(40);
+        
+    }
+    
+        public void formatoTablaReporteMENSUAL_CCT7TODOS(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(200);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(800);

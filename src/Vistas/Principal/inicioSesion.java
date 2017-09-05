@@ -215,7 +215,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
@@ -239,7 +239,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        panelRecuperar.setBackground(new java.awt.Color(39, 174, 97));
+        panelRecuperar.setBackground(new java.awt.Color(240, 175, 19));
         panelRecuperar.setForeground(new java.awt.Color(0, 153, 153));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -294,19 +294,19 @@ String hora, minutos, segundos, ampm;
         );
 
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(230, 230, 230));
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("00/00/00");
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(230, 230, 230));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(230, 230, 230));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Hora");
 
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(230, 230, 230));
+        lblHora.setForeground(new java.awt.Color(255, 255, 255));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -378,7 +378,7 @@ String hora, minutos, segundos, ampm;
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel17.setBackground(new java.awt.Color(39, 174, 97));
+        jPanel17.setBackground(new java.awt.Color(240, 175, 19));
         jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
