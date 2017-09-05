@@ -5,6 +5,7 @@
  */
 package Vistas.Principal;
 
+import Vistas.Facturador.ComunicacionBaja;
 import Vistas.Facturador.NotasCreditoDebito;
 import java.awt.Dimension;
 import javax.swing.JComponent;
@@ -349,7 +350,8 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnComunicacionBajaMouseEntered
 
     private void btnComunicacionBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComunicacionBajaActionPerformed
-        // TODO add your handling code here:
+        ComunicacionBaja c=new ComunicacionBaja();
+        c.setVisible(true);
     }//GEN-LAST:event_btnComunicacionBajaActionPerformed
 
     private void btnReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseClicked
