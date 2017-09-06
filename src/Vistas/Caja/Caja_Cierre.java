@@ -839,7 +839,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         }else if(tbCANTIDAD.getRowCount()>0){
             try {
                 nuevaV.reporteCierreCT6(Integer.parseInt(lblID_APERTURA.getText()));
-                nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
+//                nuevaV.reporteCierreANULADASCT6(Integer.parseInt(lblID_APERTURA.getText()));
             } catch (Exception e) {
             }
             

@@ -137,8 +137,8 @@ Conexion c=new Conexion();
         tb_Nota_Credito.getColumnModel().getColumn(9).setPreferredWidth(120);
         tb_Nota_Credito.getColumnModel().getColumn(11).setPreferredWidth(160);
         //Ocultar    
-        tb_Nota_Credito.getColumnModel().getColumn(0).setMinWidth(0);
-        tb_Nota_Credito.getColumnModel().getColumn(0).setMaxWidth(0);
+//        tb_Nota_Credito.getColumnModel().getColumn(0).setMinWidth(0);
+//        tb_Nota_Credito.getColumnModel().getColumn(0).setMaxWidth(0);
         tb_Nota_Credito.getColumnModel().getColumn(3).setMinWidth(0);
         tb_Nota_Credito.getColumnModel().getColumn(3).setMaxWidth(0);
         tb_Nota_Credito.getColumnModel().getColumn(10).setMinWidth(0);
@@ -199,8 +199,8 @@ Conexion c=new Conexion();
     tb_Nota_Debito.getColumnModel().getColumn(9).setPreferredWidth(120);
      tb_Nota_Debito.getColumnModel().getColumn(11).setPreferredWidth(120);
     //Ocultar    
-    tb_Nota_Debito.getColumnModel().getColumn(0).setMinWidth(0);
-    tb_Nota_Debito.getColumnModel().getColumn(0).setMaxWidth(0);
+//    tb_Nota_Debito.getColumnModel().getColumn(0).setMinWidth(0);
+//    tb_Nota_Debito.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Nota_Debito.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Nota_Debito.getColumnModel().getColumn(3).setMaxWidth(0);
     tb_Nota_Debito.getColumnModel().getColumn(10).setMinWidth(0);
@@ -1215,7 +1215,7 @@ Conexion c=new Conexion();
             parametros.put("cnc_id",cod);
             
                 JasperPrint informe=JasperFillManager.fillReport(getClass().
-                    getResourceAsStream("/Reportes/cuentasPorPagar/NotaDeCredito.jasper"), parametros,c.conectar());
+                    getResourceAsStream("/Reportes/cuentasPorPagar/NotaCREDITO.jasper"), parametros,c.conectar());
 
                 JasperViewer ventana= new JasperViewer(informe,false);
                 ventana.setTitle("RESULTADO - "+tb_Nota_Credito.getValueAt(filaselec, 10).toString());

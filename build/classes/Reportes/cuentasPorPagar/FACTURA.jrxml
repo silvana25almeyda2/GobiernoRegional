@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FACTURA" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b4ae60e-1eb8-42bc-927a-5a24d96b11f6">
 	<property name="ireport.zoom" value="1.3636363636363635"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="300"/>
+	<property name="ireport.y" value="156"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -276,16 +276,20 @@ Por Item]]></text>
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="20" uuid="534ec18b-c735-490e-a71b-ffe616fbb0c2"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{CPD_CANTIDAD}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="63" uuid="4fa3e3ba-f87b-4058-a944-aaaac91d0077">
+					<jr:column width="70" uuid="4fa3e3ba-f87b-4058-a944-aaaac91d0077">
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="63" height="20" uuid="f1e43696-362b-4f33-9b1f-7a48301b6aac"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<reportElement x="0" y="0" width="68" height="20" uuid="f1e43696-362b-4f33-9b1f-7a48301b6aac"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{UM}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -294,7 +298,9 @@ Por Item]]></text>
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="57" height="20" uuid="210feeb6-7bba-4c6d-8d64-a0e44f50bc93"/>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{NRO_ITEM}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -303,7 +309,9 @@ Por Item]]></text>
 						<jr:detailCell height="28" rowSpan="1">
 							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="265" height="20" uuid="8c705051-9a05-4928-a993-73ad1a60bb3b"/>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -312,7 +320,9 @@ Por Item]]></text>
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="56" height="20" uuid="1352b1d5-6c05-4ec3-b839-947e449ec0ad"/>
-								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{CPD_PRECIO_VENTA}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -321,7 +331,9 @@ Por Item]]></text>
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="61" height="20" uuid="0e2a3afb-52c1-459e-82fb-83f3a4d15ff3"/>
-								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{CPD_DESC_PORCEN}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>

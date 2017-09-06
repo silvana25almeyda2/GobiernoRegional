@@ -696,10 +696,28 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         buttonGroup1.add(RB_M);
         RB_M.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         RB_M.setText("M");
+        RB_M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RB_MMouseClicked(evt);
+            }
+        });
+        RB_M.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RB_MKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RB_MKeyTyped(evt);
+            }
+        });
 
         buttonGroup1.add(RB_F);
         RB_F.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         RB_F.setText("F");
+        RB_F.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RB_FMouseClicked(evt);
+            }
+        });
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel24.setText("Departamento            :");
@@ -1291,7 +1309,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_DNIActionPerformed
 
     private void TXT_DNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DNIKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_APE_PAT.requestFocus();
+        }
     }//GEN-LAST:event_TXT_DNIKeyPressed
 
     private void TXT_DNIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DNIKeyReleased
@@ -1328,7 +1349,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_PATActionPerformed
 
     private void TXT_APE_PATKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_APE_MAT.requestFocus();
+        }
     }//GEN-LAST:event_TXT_APE_PATKeyPressed
 
     private void TXT_APE_PATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyReleased
@@ -1348,7 +1372,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_MATActionPerformed
 
     private void TXT_APE_MATKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_NOMBRES.requestFocus();
+        }
     }//GEN-LAST:event_TXT_APE_MATKeyPressed
 
     private void TXT_APE_MATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyReleased
@@ -1368,7 +1395,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_NOMBRESActionPerformed
 
     private void TXT_NOMBRESKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyPressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_TXT_NOMBRESKeyPressed
 
     private void TXT_NOMBRESKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyReleased
@@ -1521,6 +1548,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         
         CBX_PROVINCIA.setEnabled(true);
+        CBX_DISTRITO.setEnabled(false);
         
     }//GEN-LAST:event_CBX_DEPARTAMENTOItemStateChanged
 
@@ -1742,8 +1770,27 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 System.out.println("Error CBX DIRESA: " + ex.getMessage());
             }
     }//GEN-LAST:event_CBX_DISTRITOItemStateChanged
+
+    private void RB_MKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_MKeyPressed
+               
+    }//GEN-LAST:event_RB_MKeyPressed
+
+    private void RB_MKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_MKeyTyped
+        
+    }//GEN-LAST:event_RB_MKeyTyped
+
+    private void RB_MMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RB_MMouseClicked
+        
+    }//GEN-LAST:event_RB_MMouseClicked
+
+    private void RB_FMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RB_FMouseClicked
+        
+    }//GEN-LAST:event_RB_FMouseClicked
     
-    public void GUARDAR_PERSONAL(){  
+    public void GUARDAR_PERSONAL(){
+        try {
+            
+        
         CLS_Personal CP = new CLS_Personal();
         CLS_Personal CP1 = new CLS_Personal();
         CLS_Personal CP2 = new CLS_Personal();
@@ -1783,10 +1830,15 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         CP.setUsu_Codigo(CP3.PERSONAL_COD_USUARIO(lblusu.getText()));
      
         CP.PERSONAL_INSERTAR();
+        } catch (Exception e) {
+            System.out.println("error guardar" + e.getMessage());
+        }
     }
     
     public void MODIFICAR_PERSONAL(){
         
+        try {
+         
         CLS_Personal MP = new CLS_Personal();
         CLS_Personal MP1 = new CLS_Personal();
         CLS_Personal MP2 = new CLS_Personal();
@@ -1828,6 +1880,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         
         MP.PERSONAL_MODIFICAR();
         
+           
+        } catch (Exception e) {
+            System.out.println("error modificar" + e.getMessage());
+        }
     }
     
     public DefaultComboBoxModel departamento(){
