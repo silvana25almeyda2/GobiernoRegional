@@ -344,7 +344,7 @@
 						<jr:detailCell style="table 3_TD" height="26" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="96" height="20" uuid="7339e1bb-7eec-4cd0-bf9a-3b4cdc1f8717"/>
-								<textElement textAlignment="Right" verticalAlignment="Middle">
+								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{CPD_VALOR_U}]]></textFieldExpression>
