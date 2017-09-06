@@ -30,6 +30,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Caja.Caja_NuevaVenta;
 import Vistas.Facturador.*;
 import Vistas.Principal.Principal;
+import Vistas.Principal.Principal_Caja;
 import java.io.File;
 import java.sql.PreparedStatement;
 import java.util.Formatter;
@@ -409,6 +410,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 cno1.setIGV(Double.parseDouble(txtIGV.getText()));
                 cno1.setTOTAL_DOC(Double.parseDouble(txtTotal.getText()));
                 cno1.setTIPO_GRUPO(lblGrupo.getText());
+                cno1.setGRAVADA(Double.parseDouble(lblValorVentaGravada.getText()));
+                cno1.setINAFECTA(Double.parseDouble(lblValorVentaInafectada.getText()));
                     if(cno1.ACTUALIZAR_VENTA()==true){
                         System.out.println("Cabecera Actualizada"); 
                     } else {
@@ -1500,7 +1503,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                                                jPanel1.setBackground(new java.awt.Color(0, 120, 215));
+                                                jPanel1.setBackground(new java.awt.Color(23, 160, 134));
                                                 jPanel1.setPreferredSize(new java.awt.Dimension(284, 684));
 
                                                 jLabel57.setBackground(new java.awt.Color(255, 255, 255));
@@ -3192,12 +3195,23 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_btnBuscarCPT1ActionPerformed
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Caja_Clientes CT = new Caja_Clientes();
-        CT.setVisible(true);
-        CT.btnCaja.doClick();
-        CLIENTES.dispose();
-//        String u=PrincipalMDI.lblUsu.getText();
-//        CT.lblusu.setText(u);
+        if(Principal_Caja.lblTipo_Sede.getText().equals("P")){
+            Caja_Clientes CT = new Caja_Clientes();
+            CT.setVisible(true);
+            String u=Principal.lblUsu.getText();
+            CT.lblusu.setText(u);
+            CT.btnCaja.doClick();
+            CLIENTES.dispose();
+        }else if(!Principal_Caja.lblTipo_Sede.getText().equals("P")){
+            Caja_Historia_Clinica CH = new Caja_Historia_Clinica();
+            CH.setVisible(true);
+            String u=Principal.lblUsu.getText();
+            CH.lblusu.setText(u);
+            CH.btnCaja.doClick();
+            CLIENTES.dispose();
+        }
+        
+
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void cbxTipoDocumentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoMouseReleased

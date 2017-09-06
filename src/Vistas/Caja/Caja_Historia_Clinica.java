@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import modelo.Caja.Caja_Cliente;
 import modelo.Caja.Caja_Historia;
+import modelo.Caja.Caja_NuevaVenta;
 
 /**
  *
@@ -44,8 +45,8 @@ Caja_Historia hC = new Caja_Historia();
         cargareliminar.setVisible(false);
         Caja_Historia A = new Caja_Historia();
         Caja_Historia N = new Caja_Historia();
+        N.LISTAR_PERMISOS_HC(Principal.lblUsu.getText());
         A.LISTA_CLIENTES("",tb_Clientes);
-        N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         cbxDepartamentoNac.setBackground(Color.WHITE);
         cbxProvinciaNac.setBackground(Color.WHITE);
         cbxDistritoNac.setBackground(Color.WHITE);
@@ -72,6 +73,15 @@ Caja_Historia hC = new Caja_Historia();
        txtTelefono.setText(""); 
        txtReligion2.setText("");  
        txtDni.requestFocus();
+       txtFecha.setDate(null);
+       cbxDepartamentoNac.setSelectedIndex(0);
+       cbxProvinciaNac.removeAllItems();
+       cbxDistritoNac.removeAllItems();
+       cbxDepartamentoNac1.setSelectedIndex(0);
+       cbxProvinciaNac1.removeAllItems();
+       cbxDistritoNac1.removeAllItems();
+       cbxGenero.setSelectedIndex(0);
+       cbxEstadoCivil1.setSelectedIndex(0);
     }
     
     public void LIMPIAR_EDITAR(){
@@ -219,14 +229,14 @@ Caja_Historia hC = new Caja_Historia();
         txtApellidoMat.setText(String.valueOf(tb_Clientes.getValueAt(fila, 4))); 
         txtNombre1.setText(String.valueOf(tb_Clientes.getValueAt(fila, 5)));  
         
-        String fechaSeleccionada1 = (String) tb_Clientes.getModel().getValueAt(fila, 6);
+        String fechaSeleccionada1 = (String) tb_Clientes.getModel().getValueAt(fila, 7);
         try {
         DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
         Date fecha = dfo.parse(fechaSeleccionada1);
         txtFecha.setDate(fecha);
         } catch (Exception e) {
         }
-        txtNacionalidad.setText(String.valueOf(tb_Clientes.getValueAt(fila, 8))); 
+        txtNacionalidad.setText(String.valueOf(tb_Clientes.getValueAt(fila, 9))); 
         cbxDepartamentoNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 19))); 
         cbxProvinciaNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 20))); 
         cbxDistritoNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 21))); 
@@ -256,13 +266,17 @@ Caja_Historia hC = new Caja_Historia();
             noeli.setVisible(false);
             tgm=0;                 
         } else {
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
+                String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + 
+                String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + 
+                String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
                 Caja_Historia cno1 = new Caja_Historia();
                 cno1.setDNI(txtDni.getText());
                 cno1.setNOMBRES(txtNombre1.getText());
                 cno1.setAPELLIDO_PATERNO(txtApellidoPat.getText());
                 cno1.setAPELLIDO_MATERNO(txtApellidoMat.getText());
                 cno1.setUSUARIO(lblusu.getText());
-                cno1.setCOD_HC(txtCodigo.getText());
+                cno1.setCOD_HC(codigo);
                 cno1.setSEXO(cbxGenero.getSelectedItem().toString());
                 cno1.setFECHA_NAC(determinarFecha(txtFecha));
                 cno1.setDEP_NAC(cbxDepartamentoNac.getSelectedItem().toString());
@@ -299,9 +313,9 @@ Caja_Historia hC = new Caja_Historia();
                             Paginas.setSelectedIndex(0);
                         }else if(lblTipoR.getText().equals("C")){
                             System.out.println("VAMO VENDIENDO");
-//                            Caja_NuevaVenta CNC = new Caja_NuevaVenta();
-//                            CNC.ULTIMO_CLIENTE_REGISTRADO(lblusu.getText());
-//                            dispose();
+                            Caja_NuevaVenta CNC = new Caja_NuevaVenta();
+                            CNC.ULTIMO_CLIENTE_REGISTRADO(lblusu.getText());
+                            dispose();
                             
                         }
                         
@@ -317,13 +331,17 @@ Caja_Historia hC = new Caja_Historia();
         public void MODIFICAR_REGISTRO(){
 
                 Caja_Historia cno1 = new Caja_Historia();
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
+                String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + 
+                String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + 
+                String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
                 cno1.setID_CLIENTE(Integer.parseInt(lblID.getText()));
                 cno1.setDNI(txtDni.getText());
                 cno1.setNOMBRES(txtNombre1.getText());
                 cno1.setAPELLIDO_PATERNO(txtApellidoPat.getText());
                 cno1.setAPELLIDO_MATERNO(txtApellidoMat.getText());
                 cno1.setUSUARIO(lblusu.getText());
-                cno1.setCOD_HC(txtCodigo.getText());
+                cno1.setCOD_HC(codigo);
                 cno1.setSEXO(cbxGenero.getSelectedItem().toString());
                 cno1.setFECHA_NAC(determinarFecha(txtFecha));
                 cno1.setDEP_NAC(cbxDepartamentoNac.getSelectedItem().toString());
@@ -453,6 +471,10 @@ Caja_Historia hC = new Caja_Historia();
             jLabel31 = new javax.swing.JLabel();
             txtGrupoSan = new javax.swing.JTextField();
             lblID = new javax.swing.JLabel();
+            jLabel6 = new javax.swing.JLabel();
+            jLabel7 = new javax.swing.JLabel();
+            jLabel10 = new javax.swing.JLabel();
+            jLabel11 = new javax.swing.JLabel();
             cargareliminar = new javax.swing.JPanel();
             Mensaje = new javax.swing.JLabel();
             eli = new javax.swing.JButton();
@@ -538,7 +560,7 @@ Caja_Historia hC = new Caja_Historia();
                 .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
-            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
             jPanel1.setBackground(new java.awt.Color(23, 160, 134));
             jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));
@@ -614,7 +636,7 @@ Caja_Historia hC = new Caja_Historia();
             lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblusu.setForeground(new java.awt.Color(255, 255, 255));
             lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Usuario-40.png"))); // NOI18N
-            lblusu.setText("MARTHA");
+            lblusu.setText("ALGUIEN");
             lblusu.setFocusable(false);
             lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -687,10 +709,10 @@ Caja_Historia hC = new Caja_Historia();
                 }
             });
 
-            lblNivel.setForeground(new java.awt.Color(23, 160, 134));
+            lblNivel.setForeground(new java.awt.Color(255, 255, 255));
             lblNivel.setText("jLabel2");
 
-            lblPermiso.setForeground(new java.awt.Color(23, 160, 134));
+            lblPermiso.setForeground(new java.awt.Color(255, 255, 255));
             lblPermiso.setText("jLabel3");
 
             lblTipoR.setText("jLabel6");
@@ -1234,6 +1256,18 @@ Caja_Historia hC = new Caja_Historia();
 
             lblID.setText("jLabel6");
 
+            jLabel6.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel6.setText("*");
+
+            jLabel7.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel7.setText("*");
+
+            jLabel10.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel10.setText("*");
+
+            jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel11.setText("*");
+
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
             jPanel2Layout.setHorizontalGroup(
@@ -1278,34 +1312,44 @@ Caja_Historia hC = new Caja_Historia();
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                         .addComponent(txtCodigo))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(lblID)
-                                    .addGap(0, 0, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(lblID)
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                             .addComponent(jLabel3)
                                             .addGap(66, 66, 66)
-                                            .addComponent(txtApellidoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel4)
-                                                    .addComponent(jLabel8))
-                                                .addGap(40, 40, 40)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel18)
-                                                    .addComponent(jLabel25))
-                                                .addGap(78, 78, 78)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(cbxDepartamentoNac, javax.swing.GroupLayout.Alignment.LEADING, 0, 260, Short.MAX_VALUE)
-                                                    .addComponent(cbxProvinciaNac, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtNacionalidad)))))
-                                    .addGap(80, 101, Short.MAX_VALUE)))
+                                            .addComponent(txtApellidoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel7))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel8))
+                                                    .addGap(40, 40, 40)
+                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel18)
+                                                        .addComponent(jLabel25))
+                                                    .addGap(78, 78, 78)
+                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(cbxDepartamentoNac, javax.swing.GroupLayout.Alignment.LEADING, 0, 260, Short.MAX_VALUE)
+                                                        .addComponent(cbxProvinciaNac, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(txtNacionalidad))))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel10)))
+                                    .addGap(80, 91, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1323,7 +1367,9 @@ Caja_Historia hC = new Caja_Historia();
                                                     .addComponent(cbxProvinciaNac1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(cbxDepartamentoNac1, javax.swing.GroupLayout.Alignment.LEADING, 0, 211, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
-                                        .addGap(55, 55, 55))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11)
+                                        .addGap(45, 45, 45))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel22)
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1355,21 +1401,25 @@ Caja_Historia hC = new Caja_Historia();
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblID))
+                        .addComponent(jLabel6))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblID))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtApellidoPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel5)
-                        .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel11))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel10))
                     .addGap(9, 9, 9)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1525,17 +1575,18 @@ Caja_Historia hC = new Caja_Historia();
             HABILITAR(true);
             hC.codHistoriaClinica(Principal.lblUsu.getText());
             mostrarNumHC();
-
+            jLabel33.setText("Registro - Datos del Paciente");
             Paginas.setSelectedIndex(1);
-
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         if(lblPermiso.getText().equals("E")){
             tg=2;
+            System.out.println("tg 2");
             btnguardar.setEnabled(true);
             btneditar.setEnabled(false);
             HABILITAR(true);
+            jLabel33.setText("Registro - Datos del Paciente");
             Paginas.setSelectedIndex(1);
         }else if(!lblPermiso.getText().equals("E")){
             NivelSuperior.setUndecorated(true);
@@ -1561,7 +1612,7 @@ Caja_Historia hC = new Caja_Historia();
                 noeli.setVisible(false);
                 txtDni.requestFocus();
             NUEVO_REGISTRO();
-        }
+        }}
         if(tg==2){
             cargareliminar.setVisible(true);
             cargareliminar.setBackground(new Color(255,153,51));
@@ -1570,7 +1621,7 @@ Caja_Historia hC = new Caja_Historia();
             eli.setVisible(true);
             noeli.setVisible(true);
             tgm=3;
-        }}
+        }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
@@ -1606,6 +1657,8 @@ Caja_Historia hC = new Caja_Historia();
         btnNuevo.setEnabled(false);
         LIMPIAR();
         HABILITAR(true);
+        hC.codHistoriaClinica(Principal.lblUsu.getText());
+        mostrarNumHC();
         Paginas.setSelectedIndex(1);
     }//GEN-LAST:event_btnCajaActionPerformed
 
@@ -1666,15 +1719,13 @@ Caja_Historia hC = new Caja_Historia();
                 hC.codHistoriaClinica(Principal.lblUsu.getText());
                 mostrarNumHC();
             }else if(!txtCodigo.getText().equals("null")){
+                mostrarNumHC();
                 System.out.println("VENGA HOMBRE UD TIENE HISTORIA...");
             }
-            
             LIMPIAR_EDITAR();
+            HABILITAR(false);
             Paginas.setSelectedIndex(1);
-            
-
         }
-
     }//GEN-LAST:event_tb_ClientesMouseClicked
 
     private void tb_ClientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ClientesMousePressed
@@ -2140,6 +2191,8 @@ Caja_Historia hC = new Caja_Historia();
     public static javax.swing.JComboBox<String> cbxProvinciaNac1;
     private javax.swing.JButton eli;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2162,8 +2215,10 @@ Caja_Historia hC = new Caja_Historia();
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

@@ -502,7 +502,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblusu.setForeground(new java.awt.Color(255, 255, 255));
             lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Usuario-40.png"))); // NOI18N
-            lblusu.setText("MARTHA");
+            lblusu.setText("ALGUIEN");
             lblusu.setFocusable(false);
             lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -1457,11 +1457,13 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         if(lblPermiso.getText().equals("E")){
             tg=2;
+            System.out.println("tg  2");
             btnguardar.setEnabled(true);
             btneditar.setEnabled(false);
             HABILITAR(true);
             Paginas.setSelectedIndex(1);
         }else if(!lblPermiso.getText().equals("E")){
+            System.out.println("tg");
             NivelSuperior.setUndecorated(true);
             NivelSuperior.setVisible(true);
         }

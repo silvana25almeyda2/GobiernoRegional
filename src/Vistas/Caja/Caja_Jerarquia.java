@@ -65,20 +65,22 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
      public void Guardar(){
 
         if((txtFormaPago.getText().equals("")) ){
-            JOptionPane.showMessageDialog(this, "Debe completar todos los campos");
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,91,70)); 
+            Mensaje.setText("Ocurrió un error, Debe completar todos los campos");
+            eli.setVisible(false);
+            noeli.setVisible(false);
         } else {
                 Caja_Jerarquias cno1 = new Caja_Jerarquias();
 //                cno1.setCod_jerar_forma_pago(txtcodigo.getText());//
-                cno1.setNom_forma_pago(txtFormaPago.getText());//
                 cno1.setDescri_forma_pago(txtFormaPago.getText());//
                 if(lblNivel.getText().equals("0")){
-                    cno1.setRelacion_forma_pago("0");//    
+                    cno1.setRelacion_forma_pago(0);//    
                 }else 
                     if(!lblNivel.getText().equals("0")){
-                    cno1.setRelacion_forma_pago(lblCodigo.getText());//    
+                    cno1.setRelacion_forma_pago(Integer.parseInt(lblCodigo.getText()));//    
                 }
-                cno1.setNivel_forma_pago(lblNivel.getText());//
-                cno1.setTipo_estado_pago("P(Pendiente)");//
+                cno1.setNivel_forma_pago(Integer.parseInt(lblNivel.getText()));//
                 cno1.setNom_usu(lblusu.getText());//
                     if(cno1.NuevaJerarquia()==true){
                         cargareliminar.setVisible(true);
@@ -117,17 +119,15 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
      public void Modificar(){
 
                         Caja_Jerarquias cno = new Caja_Jerarquias();
-                        cno.setCod_jerar_forma_pago(lblCodigoAE.getText());//
-                        cno.setNom_forma_pago(txtFormaPago.getText());//
+                        cno.setCod_jerar_forma_pago(Integer.parseInt(lblCodigoAE.getText()));//
                         cno.setDescri_forma_pago(txtFormaPago.getText());//
                         if(lblNivel.getText().equals("0")){
-                            cno.setRelacion_forma_pago("0");//    
+                            cno.setRelacion_forma_pago(0);//    
                         }else 
                             if(!lblNivel.getText().equals("0")){
-                            cno.setRelacion_forma_pago(lblCodigo.getText());//    
+                            cno.setRelacion_forma_pago(Integer.parseInt(lblCodigo.getText()));//    
                         }
-                        cno.setNivel_forma_pago(lblNivel.getText());//
-                        cno.setTipo_estado_pago("P(Pendiente)");//
+                        cno.setNivel_forma_pago(Integer.parseInt(lblNivel.getText()));//
                         cno.setNom_usu(lblusu.getText());//
                         if(cno.Caja_Jerarquia_MODIFICAR()==true){
                             cargareliminar.setBackground(new Color(0,153,102)); 
@@ -774,9 +774,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                                         .addComponent(panelNivel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(panelNuevoN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addContainerGap())))
+                                .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1061,7 +1059,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             if(lblNivel.getText().equals("0")){
                 if (tbNivel1.getRowCount()==0){
                 Caja_Jerarquias hCEl = new Caja_Jerarquias();
-                hCEl.setCod_jerar_forma_pago(lblCodigoAE.getText());
+                hCEl.setCod_jerar_forma_pago(Integer.parseInt(lblCodigoAE.getText()));
                 if(hCEl.eliminarjerarquia()){
                      cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1091,7 +1089,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             }else if(lblNivel.getText().equals("1")){
                 if (tbNivel2.getRowCount()==0){
                 Caja_Jerarquias hCEl = new Caja_Jerarquias();
-                hCEl.setCod_jerar_forma_pago(lblCodigoAE.getText());
+                hCEl.setCod_jerar_forma_pago(Integer.parseInt(lblCodigoAE.getText()));
                 if(hCEl.eliminarjerarquia()){
                      cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1120,7 +1118,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                 
             }if(lblNivel.getText().equals("2")){
                 Caja_Jerarquias hCEl = new Caja_Jerarquias();
-                hCEl.setCod_jerar_forma_pago(lblCodigoAE.getText());
+                hCEl.setCod_jerar_forma_pago(Integer.parseInt(lblCodigoAE.getText()));
                 if(hCEl.eliminarjerarquia()){
                      cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
@@ -1142,7 +1140,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             
                 
         }catch(Exception e){
-            System.out.println("Error: " + e.toString());
+            System.out.println("Error AL ELIMINAR: " + e.toString());
         }
         }
     }//GEN-LAST:event_eliActionPerformed

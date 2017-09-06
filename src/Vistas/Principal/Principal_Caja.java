@@ -429,7 +429,7 @@ private Dimension DimensionBarra = null;
             .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(215, 213, 213));
+        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
         jPanel3.setPreferredSize(new java.awt.Dimension(536, 46));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -442,7 +442,7 @@ private Dimension DimensionBarra = null;
             }
         });
 
-        ibiIDAPERTURA.setForeground(new java.awt.Color(215, 213, 213));
+        ibiIDAPERTURA.setForeground(new java.awt.Color(242, 242, 242));
         ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -834,8 +834,7 @@ private Dimension DimensionBarra = null;
         }else if(!lblTipo_Sede.getText().equals("P")){
                 Caja_Historia_Clinica CCLH = new Caja_Historia_Clinica();
                 CCLH.setVisible(true);
-                String u=Principal.lblUsu.getText();
-                CCLH.lblusu.setText(u);
+                CCLH.lblusu.setText(Principal.lblUsu.getText());
         }
         
     }//GEN-LAST:event_btnClientesActionPerformed

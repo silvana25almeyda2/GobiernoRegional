@@ -9,6 +9,7 @@ import Vistas.Caja.Caja_Apertura;
 import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
+import Vistas.Caja.Caja_Jerarquia;
 import Vistas.Caja.Caja_Registro;
 import Vistas.Caja.Caja_Transaccion;
 import Vistas.Caja.Caja_Ventas;
@@ -27,7 +28,7 @@ import modelo.Caja.Caja_PC_Registro;
  * @author MYS1
  */
 public class Principal extends javax.swing.JFrame {
-Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
+
     /**
      * Creates new form Principal
      */
@@ -161,6 +162,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         tbVerifF = new javax.swing.JTable();
         jScrollPane10 = new javax.swing.JScrollPane();
         tbverifP = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         Contenedor = new javax.swing.JDesktopPane();
 
         AperturaOraPC.setAlwaysOnTop(true);
@@ -867,7 +869,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         btnHuandoy.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnHuandoy.setForeground(new java.awt.Color(51, 51, 51));
         btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/CONNECTA.png"))); // NOI18N
-        btnHuandoy.setText("Conecta");
+        btnHuandoy.setText("Conecta-M5");
         btnHuandoy.setContentAreaFilled(false);
         btnHuandoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHuandoy.setFocusPainted(false);
@@ -1056,25 +1058,37 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(PanelFacturador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(PanelFacturador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1090,7 +1104,9 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
                     .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1181,9 +1197,10 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
                                 }
                                 System.out.println("Bienvenido");
                             }else if(tbAPERTURA_OTRAPC.getRowCount()>0){
+                                        Caja_AperturaCierre cnC = new Caja_AperturaCierre();
                                         btnCaja.setPressedIcon(cerrada);
                                         AperturaOraPC.setVisible(true);
-                                        cn11.CIERRE_DETALLE_APERTURA_PRINCIPAL(Principal.lblUsu.getText());
+                                        cnC.CIERRE_DETALLE_APERTURA_PRINCIPAL(Principal.lblUsu.getText());
                             }
                         }if(tbULTIMA_SESION.getRowCount()>0){
                             btnCaja.setPressedIcon(cerrada);
@@ -1475,6 +1492,12 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFacturadorMouseExited
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Caja_Jerarquia CJ = new Caja_Jerarquia();
+        CJ.setVisible(true);
+        CJ.lblusu.setText(Principal.lblUsu.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1530,6 +1553,7 @@ Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
     public static javax.swing.JButton btnHuandoy;
     public static javax.swing.JButton btnPersonal;
     public static javax.swing.JButton btnUsuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel3;
