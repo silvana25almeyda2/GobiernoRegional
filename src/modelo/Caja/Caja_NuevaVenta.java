@@ -56,7 +56,9 @@ private int ID_PRECIO ;
 private int CANTIDAD ;
 private double PRECIO ;
 private double TOTAL ;
-private double DESCUENTOD ;           
+private double DESCUENTOD ;
+private double GRAVADA;
+private double INAFECTA;
                 
     
     public void VENTA_LISTA_CLIENTES(String descripcion,JTable tabla){
@@ -249,7 +251,7 @@ private double DESCUENTOD ;
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR "
-                        + "?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_DOCUMENTO());
             cmd.setDouble(2, getDESCUENTO());
@@ -257,6 +259,8 @@ private double DESCUENTOD ;
             cmd.setDouble(4, getIGV());
             cmd.setDouble(5, getTOTAL_DOC());
             cmd.setString(6, getTIPO_GRUPO());
+            cmd.setDouble(7, getGRAVADA());
+            cmd.setDouble(8, getINAFECTA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1039,6 +1043,22 @@ private double DESCUENTOD ;
 
     public void setTIPO_GRUPO(String TIPO_GRUPO) {
         this.TIPO_GRUPO = TIPO_GRUPO;
+    }
+
+    public double getGRAVADA() {
+        return GRAVADA;
+    }
+
+    public void setGRAVADA(double GRAVADA) {
+        this.GRAVADA = GRAVADA;
+    }
+
+    public double getINAFECTA() {
+        return INAFECTA;
+    }
+
+    public void setINAFECTA(double INAFECTA) {
+        this.INAFECTA = INAFECTA;
     }
      
      

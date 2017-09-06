@@ -22,12 +22,10 @@ public class Caja_Jerarquias {
 private Connection cn;
 DefaultTableModel m;
 //CUENTA 2
-private String cod_jerar_forma_pago ;
-private String nom_forma_pago ;
+private int cod_jerar_forma_pago ;
 private String descri_forma_pago;
-private String relacion_forma_pago ;
-private String nivel_forma_pago ;
-private String tipo_estado_pago ;
+private int relacion_forma_pago ;
+private int nivel_forma_pago ;
 private String nom_usu;
 Conexion con = new Conexion(); 
 
@@ -35,15 +33,13 @@ public boolean NuevaJerarquia()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_jerarquia_INSERTAR ?,?,?,?,?,?";
+            String sql = "EXEC CAJA_FORMA_PAGO_NUEVO ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
 //            cmd.setString(1, getCod_jerar_forma_pago());
-            cmd.setString(1, getNom_forma_pago());
-            cmd.setString(2, getDescri_forma_pago());
-            cmd.setString(3, getRelacion_forma_pago());
-            cmd.setString(4, getNivel_forma_pago());
-            cmd.setString(5, getTipo_estado_pago());
-            cmd.setString(6, getNom_usu());
+            cmd.setString(1, getDescri_forma_pago());
+            cmd.setInt(2, getRelacion_forma_pago());
+            cmd.setInt(3, getNivel_forma_pago());
+            cmd.setString(4, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -54,7 +50,7 @@ public boolean NuevaJerarquia()
         }
         catch(Exception ex)
         {
-            System.out.println("Error : " + ex.getMessage());
+            System.out.println("ERROR AL INSERTAR : " + ex.getMessage());
         }
         return resp;
     }
@@ -79,15 +75,13 @@ public boolean Caja_Jerarquia_MODIFICAR(){
         boolean resp = false;
         try
         {
-            String sql = "Exec Caja_Jerarquia_MODIFICAR ?,?,?,?,?,?,?";
+            String sql = "Exec CAJA_FORMA_PAGO_MODIFICAR ?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_jerar_forma_pago());
-            cmd.setString(2, getNom_forma_pago());
-            cmd.setString(3, getDescri_forma_pago());
-            cmd.setString(4, getRelacion_forma_pago());
-            cmd.setString(5, getNivel_forma_pago());
-            cmd.setString(6, getTipo_estado_pago());
-            cmd.setString(7, getNom_usu());
+            cmd.setInt(1, getCod_jerar_forma_pago());
+            cmd.setString(2, getDescri_forma_pago());
+            cmd.setInt(3, getRelacion_forma_pago());
+            cmd.setInt(4, getNivel_forma_pago());
+            cmd.setString(5, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -98,7 +92,7 @@ public boolean Caja_Jerarquia_MODIFICAR(){
         }
         catch(Exception ex)
         {
-          System.out.println("Error " + ex.getMessage());
+          System.out.println("ERROR AL MODIFICAR " + ex.getMessage());
         }
         return resp;
     }
@@ -121,7 +115,7 @@ public String BuscarC(String codigo)
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("ErrorDDDD: " + ex.getMessage());
         }
         return cod;
     }
@@ -130,9 +124,9 @@ public boolean eliminarjerarquia(){
         boolean resp = false;
         try
         {
-            String sql = "EXEC Caja_Jerarquia_ELIMINAR ?";
+            String sql = "EXEC CAJA_FORMA_PAGO_ELIMINAR ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_jerar_forma_pago());
+            cmd.setInt(1, getCod_jerar_forma_pago());
             if(!cmd.execute())
             {
                 resp = true;
@@ -143,7 +137,7 @@ public boolean eliminarjerarquia(){
         }
         catch(Exception ex)
         {
-            System.out.println("Error_eliminar: " + ex.getMessage());
+            System.out.println("ERROR AL ELIMINAR: " + ex.getMessage());
         }
         return resp;
     }
@@ -179,7 +173,7 @@ public String codTipo(String tipo)
             JTable p=new JTable(m);
             String fila[]=new String[2];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec Caja_Jerarquia_RELACION ";
+            consulta="exec Caja_FORMA_PAGO_RELACION0 ";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
 //            cmd.setString(1, Servicio);
             ResultSet r= cmd.executeQuery();
@@ -209,7 +203,7 @@ public String codTipo(String tipo)
             JTable p=new JTable(m);
             String fila[]=new String[3];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_LISTAR_NIVEL1 ?";
+            consulta="exec Caja_FORMA_PAGO_RELACION1 ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, NIVEL0);
             ResultSet r= cmd.executeQuery();
@@ -239,7 +233,7 @@ public String codTipo(String tipo)
             JTable p=new JTable(m);
             String fila[]=new String[3];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec Caja_Jerarquia_NIVEL12 ?";
+            consulta="exec Caja_FORMA_PAGO_RELACION2 ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, NIVEL0);
             ResultSet r= cmd.executeQuery();
@@ -298,20 +292,12 @@ public String codTipo(String tipo)
         this.cn = cn;
     }
 
-    public String getCod_jerar_forma_pago() {
+    public int getCod_jerar_forma_pago() {
         return cod_jerar_forma_pago;
     }
 
-    public void setCod_jerar_forma_pago(String cod_jerar_forma_pago) {
+    public void setCod_jerar_forma_pago(int cod_jerar_forma_pago) {
         this.cod_jerar_forma_pago = cod_jerar_forma_pago;
-    }
-
-    public String getNom_forma_pago() {
-        return nom_forma_pago;
-    }
-
-    public void setNom_forma_pago(String nom_forma_pago) {
-        this.nom_forma_pago = nom_forma_pago;
     }
 
     public String getDescri_forma_pago() {
@@ -322,28 +308,20 @@ public String codTipo(String tipo)
         this.descri_forma_pago = descri_forma_pago;
     }
 
-    public String getRelacion_forma_pago() {
+    public int getRelacion_forma_pago() {
         return relacion_forma_pago;
     }
 
-    public void setRelacion_forma_pago(String relacion_forma_pago) {
+    public void setRelacion_forma_pago(int relacion_forma_pago) {
         this.relacion_forma_pago = relacion_forma_pago;
     }
 
-    public String getNivel_forma_pago() {
+    public int getNivel_forma_pago() {
         return nivel_forma_pago;
     }
 
-    public void setNivel_forma_pago(String nivel_forma_pago) {
+    public void setNivel_forma_pago(int nivel_forma_pago) {
         this.nivel_forma_pago = nivel_forma_pago;
-    }
-
-    public String getTipo_estado_pago() {
-        return tipo_estado_pago;
-    }
-
-    public void setTipo_estado_pago(String tipo_estado_pago) {
-        this.tipo_estado_pago = tipo_estado_pago;
     }
 
     public String getNom_usu() {

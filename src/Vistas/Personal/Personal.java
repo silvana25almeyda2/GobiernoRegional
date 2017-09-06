@@ -52,11 +52,11 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
-        CBX_DISTRITO.setBackground(Color.WHITE);
-        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
-        CBX_PROVINCIA.setBackground(Color.WHITE);
-        CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
+//        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
+//        CBX_DISTRITO.setBackground(Color.WHITE);
+//        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
+//        CBX_PROVINCIA.setBackground(Color.WHITE);
+//        CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
         cargareliminar1.setVisible(false);
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);

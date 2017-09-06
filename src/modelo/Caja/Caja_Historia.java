@@ -180,7 +180,7 @@ Conexion con = new Conexion();
         return resultado;
     }
     
-    public void LISTAR_PERMISOS(String usu){
+    public void LISTAR_PERMISOS_HC(String usu){
         String consulta="";
         try {
             consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
@@ -190,6 +190,7 @@ Conexion con = new Conexion();
             int c=1;
             while(r.next()){
                 Caja_Historia_Clinica.lblNivel.setText(r.getString(1)); 
+//                System.out.println("NIVEL : "+r.getString(1));
                 if(r.getString(2).equals("X")){
                     Caja_Historia_Clinica.lblPermiso.setText("L"); 
                 }else   if(r.getString(3).equals("X")){

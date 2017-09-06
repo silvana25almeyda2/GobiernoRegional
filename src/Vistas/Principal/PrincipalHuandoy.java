@@ -61,10 +61,10 @@ private Dimension DimensionBarra = null;
 
         jPanel2.setBackground(new java.awt.Color(240, 175, 19));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/CONNECTA1.png"))); // NOI18N
-        jLabel1.setText("Conecta®");
+        jLabel1.setText("Conecta-M5®");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -87,7 +87,7 @@ private Dimension DimensionBarra = null;
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Saquele el maximo partido a huandoy para DIRESA");
 
-        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));

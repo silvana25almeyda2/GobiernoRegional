@@ -145,7 +145,7 @@ Connection conexion=c.conectar();
                 cno1.setNRO_PC(Integer.parseInt(txtNRO.getText()));//
                     if(cno1.NuevoTerminal()==true){
                         System.out.println("GUARDADO ");
-                        lblMensaje.setText("Todo Correcto");
+                        lblMensaje.setText("Disfrute de Conecta-M5");
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
 //                        jPanel73.setVisible(false);
@@ -164,7 +164,7 @@ Connection conexion=c.conectar();
                 cno1.setNRO_PC(Integer.parseInt(txtNRO.getText()));//
                     if(cno1.NuevoTerminalC_F()==true){
                         System.out.println("GUARDADO ");
-                        lblMensaje.setText("Todo Correcto");
+                        lblMensaje.setText("Disfrute de Conecta-M5");
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
 //                        jPanel73.setVisible(false);
@@ -365,7 +365,6 @@ Connection conexion=c.conectar();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setMinimumSize(new java.awt.Dimension(807, 525));
-            setPreferredSize(new java.awt.Dimension(795, 540));
             setResizable(false);
             getContentPane().setLayout(null);
 
@@ -422,7 +421,7 @@ Connection conexion=c.conectar();
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(74, Short.MAX_VALUE)
+                    .addContainerGap(107, Short.MAX_VALUE)
                     .addComponent(jLabel57)
                     .addGap(18, 18, 18)
                     .addComponent(lblUsu)
@@ -667,17 +666,18 @@ Connection conexion=c.conectar();
             jPanel4.setLayout(jPanel4Layout);
             jPanel4Layout.setHorizontalGroup(
                 jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(25, 25, 25)
-                    .addComponent(jLabel7)
-                    .addGap(23, 23, 23)
-                    .addComponent(cbxImpresoras, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(155, Short.MAX_VALUE))
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addComponent(jLabel7)
+                            .addGap(23, 23, 23)
+                            .addComponent(cbxImpresoras, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel4Layout.setVerticalGroup(
                 jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -697,7 +697,7 @@ Connection conexion=c.conectar();
 
             jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-            jLabel60.setFont(new java.awt.Font("Segoe UI Semilight", 0, 28)); // NOI18N
+            jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
             jLabel60.setForeground(new java.awt.Color(102, 102, 102));
             jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel60.setText("Resumen");
@@ -741,17 +741,17 @@ Connection conexion=c.conectar();
                     .addComponent(lblResumenPC)
                     .addGap(0, 0, 0)
                     .addComponent(jLabel11)
-                    .addContainerGap(32, Short.MAX_VALUE))
+                    .addContainerGap(65, Short.MAX_VALUE))
             );
 
             tbPaneles.addTab("tab1", jPanel5);
 
             jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-            lblMensaje.setFont(new java.awt.Font("Segoe UI Semilight", 0, 28)); // NOI18N
+            lblMensaje.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
             lblMensaje.setForeground(new java.awt.Color(102, 102, 102));
             lblMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            lblMensaje.setText("Todo Correcto");
+            lblMensaje.setText("Disfrute de Conecta-M5");
 
             lblDes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
             lblDes.setForeground(new java.awt.Color(51, 51, 51));
@@ -802,7 +802,7 @@ Connection conexion=c.conectar();
                     .addComponent(lblMensaje)
                     .addGap(36, 36, 36)
                     .addComponent(lblDes)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                     .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(82, 82, 82))
             );
