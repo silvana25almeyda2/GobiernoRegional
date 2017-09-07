@@ -185,7 +185,7 @@ private Dimension DimensionBarra = null;
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +196,7 @@ private Dimension DimensionBarra = null;
             }
         });
 
-        PanelSesion.setBackground(new java.awt.Color(209, 52, 56));
+        PanelSesion.setBackground(new java.awt.Color(255, 51, 51));
         PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PanelSesionMouseEntered(evt);
