@@ -308,10 +308,10 @@ Conexion c=new Conexion();
                     String.valueOf(cbxDocumento.getSelectedItem().toString().charAt(0)) + 
                     String.valueOf(cbxDocumento.getSelectedItem().toString().charAt(1))+"|"+
                     txtSerie.getText() + "-" + 
-                lblNroCorrelativo.getText() +"|"+
-                     String.valueOf(cbxTipoDocumento.getSelectedItem().toString().charAt(0)) + "|" + 
-                     txtNroDocumento.getText()+ "|" + 
-                   txtApeNom.getText()+ "|" + 
+                    lblNroCorrelativo.getText() +"|"+
+                    String.valueOf(cbxTipoDocumento.getSelectedItem().toString().charAt(0)) + "|" + 
+                    txtNroDocumento.getText()+ "|" + 
+                    txtApeNom.getText()+ "|" + 
                     cbxTipoMoneda.getSelectedItem().toString() + "|" + 
                     txtOtrosCargosCredito.getText() + "|" + 
                     
@@ -353,10 +353,10 @@ Conexion c=new Conexion();
                     String.valueOf(cbxDocumentoDebito.getSelectedItem().toString().charAt(0)) + 
                     String.valueOf(cbxDocumentoDebito.getSelectedItem().toString().charAt(1))+"|"+
                     txtSerieDebito.getText() + "-" + 
-                lblNroCorrelativoDebito.getText() +"|"+
-                     String.valueOf(cbxTipoDocumentoDebito.getSelectedItem().toString().charAt(0)) + "|" + 
-                     txtNroDocumentoDebito.getText()+ "|" + 
-                   txtApeNomDebito.getText()+ "|" + 
+                    lblNroCorrelativoDebito.getText() +"|"+
+                    String.valueOf(cbxTipoDocumentoDebito.getSelectedItem().toString().charAt(0)) + "|" + 
+                    txtNroDocumentoDebito.getText()+ "|" + 
+                    txtApeNomDebito.getText()+ "|" + 
                     cbxTipoMonedaDebito.getSelectedItem().toString() + "|" + 
                     txtOtrosCargosDebito.getText() + "|" + 
                     
@@ -5661,9 +5661,14 @@ Conexion c=new Conexion();
                                  String.valueOf(tbFacturacion.getValueAt(c, 6))+ "|" +
                                String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                                txtISC.getText() + "|" + 
+//                                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) +
+                                        String.valueOf("00") +
+                                         "|" +
+                                String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                                String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
+                                        + "\r\n";
                             }
                             String bloc2 = "";
                             for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
@@ -5672,13 +5677,18 @@ Conexion c=new Conexion();
                                 String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
-                                 String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
-                                 String.valueOf(tbFacturacion.getValueAt(c, 6))+ "|" +
-                               String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
+                                String.valueOf(tbFacturacion.getValueAt(c, 6))+ "|" +
+                                String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                                txtISC.getText() + "|" + 
+//                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
+                                        String.valueOf("00") +
+                                        "|" +
+                                String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                                String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
+                                        + "\r\n";
                             }
                             if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
                                        cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
@@ -6017,13 +6027,20 @@ Conexion c=new Conexion();
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacionDebito.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
-                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|" + 
-                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
-                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|" + 
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + 
+                                String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta1.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                                txtISCDebito.getText()+ "|" + 
+//                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
+                                        String.valueOf("") +
+                                        String.valueOf("") +
+                                    "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 7)) //VALOR DE VENTA 
+                                        + "\r\n";
                             }
                             String bloc2 = "";
                             for (int c = 0; c < tbFacturacionDebito.getRowCount(); c++){    
@@ -6032,13 +6049,20 @@ Conexion c=new Conexion();
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacionDebito.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
-                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
-                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
-                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + 
+                                String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta1.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                                txtISCDebito.getText() + "|" + 
+//                                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
+                                        String.valueOf("") +
+                                        String.valueOf("")+
+                                        "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 7)) //VALOR DE VENTA 
+                                        + "\r\n";
                             }
                             if(cbxCodUnidadDebito.getSelectedIndex()==0 || cbxCodUnidadDebito.getSelectedIndex()==4 ||
                                        cbxCodUnidadDebito.getSelectedIndex()==5 || cbxCodUnidadDebito.getSelectedIndex()==6 ||
