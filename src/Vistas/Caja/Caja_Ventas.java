@@ -85,6 +85,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelEliminacion.setVisible(false);
         panelDetalleHistorial.setVisible(false);
         panelEliminarFR.setVisible(false);
+        jPanel13.setVisible(false);
         jPanel15.setVisible(false);
         jButton1.setVisible(false);
         jButton2.setVisible(false);
