@@ -5664,7 +5664,7 @@ Conexion c=new Conexion();
                                 txtISC.getText() + "|" + 
 //                                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) +
-                                        String.valueOf("00") +
+                                        String.valueOf("") +
                                          "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                                 String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
@@ -5684,7 +5684,7 @@ Conexion c=new Conexion();
                                 txtISC.getText() + "|" + 
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
-                                        String.valueOf("00") +
+                                        String.valueOf("") +
                                         "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                                 String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
