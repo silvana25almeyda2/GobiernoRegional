@@ -347,6 +347,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         
         BigDecimal bd4 = new BigDecimal(subtotal);
         bd4 = bd4.setScale(2, BigDecimal.ROUND_HALF_UP);
+        
+        BigDecimal bd5 = new BigDecimal(total-IGV);
+        bd5 = bd5.setScale(2, BigDecimal.ROUND_HALF_UP);
         ////////////////////////////////////////////////////////////////////////
         //Ventas Gravadas e Inafectas
 
@@ -364,7 +367,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             this.txtTotal.setText(String.valueOf(bd2) );
             lblMontos.setText("Subtotal    S/. "+String.valueOf(bd4)+"       "+"IGV    S/. "+String.valueOf(bd3)+"       "+"Total a Pagar    S/. "+String.valueOf(bd2));
             lblValorVentaInafectada.setText("0.00");
-            lblValorVentaGravada.setText(String.valueOf(bd2));
+            lblValorVentaGravada.setText(String.valueOf(bd5));
         }
     }
     
@@ -4156,16 +4159,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     
                     JOptionPane.showMessageDialog(this, "Boleta Electrónica Generada");
                     
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Boleta Electrónica?",
-                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if(guardar == 0){ // SELECCION SI
-                        dispose();
-//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-//                        rpta2.reporteFactura(cab3.idFactura());
-                    }else{
-//                        dispose();
-                    }
+                    
                   
                     } else {
                         JOptionPane.showMessageDialog(this, "Error al crear la boleta");
@@ -4243,6 +4237,16 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
                     }
                     
+                    BigDecimal bdigv = new BigDecimal(igv);
+                    bdigv = bdigv.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    
+                    BigDecimal bdprecioV = new BigDecimal(precioV);
+                    bdprecioV = bdprecioV.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    
+                    BigDecimal bdventa = new BigDecimal(venta);
+                    bdventa = bdventa.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    
+                    
                     bloc1 = bloc1 + "NIU" + "|" +
                         String.valueOf(tb_CPT.getValueAt(c, 4)) + "|" + String.valueOf(tb_CPT.getValueAt(c, 1))+  "|" + 
                          ""+ "|" + 
@@ -4250,14 +4254,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                          String.valueOf(tb_CPT.getValueAt(c, 3)) + "|" + 
                          "0.00" + "|" + //DESCUENTO
                             //IGV
-                        igv + "|" +  //IGV
+                        bdigv + "|" +  //IGV
                        String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" +  //AFECTACION IGV
                         "0.00"+ "|" + //ISC
                         "" + "|" + //AFECTACION ISC
                             
-                        String.valueOf(precioV) + "|" + //PRECIO DE VENTA
-                        String.valueOf(venta)  + "\r\n" /*VALOR DE VENTA*/;
+                        String.valueOf(bdprecioV) + "|" + //PRECIO DE VENTA
+                        String.valueOf(bdventa)  + "\r\n" /*VALOR DE VENTA*/;
                 }
                 crea.format(bloc1);
                 crea.close();

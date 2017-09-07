@@ -54,6 +54,7 @@ private Dimension DimensionBarra = null;
         btnComunicacionBaja = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
@@ -326,6 +327,8 @@ private Dimension DimensionBarra = null;
 
     private void btnNotaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotaDebitoActionPerformed
         // TODO add your handling code here:
+        NotasCreditoDebito nd=new NotasCreditoDebito();
+        nd.setVisible(true);
     }//GEN-LAST:event_btnNotaDebitoActionPerformed
 
     private void NotaCreditoçMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NotaCreditoçMouseClicked
