@@ -69,6 +69,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         
         btnguardar.setEnabled(false);
         btnmodificar.setEnabled(false);
+        deshabilitar();
+        TXT_CODIGO_PERSONAL.setVisible(false);
     }
 
     /**
@@ -520,7 +522,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(TXT_DNI, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                .addComponent(TXT_DNI, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -619,9 +621,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(TXT_APE_MAT)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TXT_APE_MAT, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -668,7 +670,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jPanel27.setLayout(jPanel27Layout);
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
+            .addGroup(jPanel27Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(TXT_NOMBRES)
                 .addContainerGap())
@@ -694,10 +696,28 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         buttonGroup1.add(RB_M);
         RB_M.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         RB_M.setText("M");
+        RB_M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RB_MMouseClicked(evt);
+            }
+        });
+        RB_M.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RB_MKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RB_MKeyTyped(evt);
+            }
+        });
 
         buttonGroup1.add(RB_F);
         RB_F.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         RB_F.setText("F");
+        RB_F.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RB_FMouseClicked(evt);
+            }
+        });
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel24.setText("Departamento            :");
@@ -820,7 +840,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(TXT_TELEFONO, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(TXT_TELEFONO, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel29Layout.setVerticalGroup(
@@ -920,7 +940,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel31Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(TXT_CORREO_ELECTRONICO, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                .addComponent(TXT_CORREO_ELECTRONICO)
                 .addContainerGap())
         );
         jPanel31Layout.setVerticalGroup(
@@ -940,8 +960,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jLabel32.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel32.setText("Unidad Ejecutora        :");
 
-        CBX_UNIDAD_EJECUTORA.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        CBX_UNIDAD_EJECUTORA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBX_UNIDAD_EJECUTORA.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        CBX_UNIDAD_EJECUTORA.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -962,45 +982,45 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     .addComponent(jLabel31)
                     .addComponent(jLabel26))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32)
-                            .addComponent(jLabel32)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                            .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel29)
-                            .addGap(21, 21, 21)
-                            .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
-                        .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                        .addComponent(jPanel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                        .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                        .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                        .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                            .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 638, Short.MAX_VALUE)
+                    .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel23)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(RB_M)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(RB_F)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(350, Short.MAX_VALUE))
+                                .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(24, 24, 24)
+                                .addComponent(RB_M)
+                                .addGap(39, 39, 39)
+                                .addComponent(RB_F))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(26, 26, 26)
+                                .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(26, 26, 26)
+                                .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel29)
+                        .addGap(29, 29, 29)
+                        .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
+                    .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE))
+                .addGap(287, 287, 287))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1022,47 +1042,50 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RB_M)
-                        .addComponent(RB_F)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                    .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(RB_M)
+                                    .addComponent(RB_F))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1286,7 +1309,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_DNIActionPerformed
 
     private void TXT_DNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DNIKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_APE_PAT.requestFocus();
+        }
     }//GEN-LAST:event_TXT_DNIKeyPressed
 
     private void TXT_DNIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DNIKeyReleased
@@ -1310,7 +1336,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
 
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+            System.out.println("error DNI: " + e.getMessage());
         }
     }//GEN-LAST:event_TXT_DNIKeyTyped
 
@@ -1323,7 +1349,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_PATActionPerformed
 
     private void TXT_APE_PATKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_APE_MAT.requestFocus();
+        }
     }//GEN-LAST:event_TXT_APE_PATKeyPressed
 
     private void TXT_APE_PATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_PATKeyReleased
@@ -1343,7 +1372,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_APE_MATActionPerformed
 
     private void TXT_APE_MATKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_NOMBRES.requestFocus();
+        }
     }//GEN-LAST:event_TXT_APE_MATKeyPressed
 
     private void TXT_APE_MATKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_APE_MATKeyReleased
@@ -1363,7 +1395,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_NOMBRESActionPerformed
 
     private void TXT_NOMBRESKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyPressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_TXT_NOMBRESKeyPressed
 
     private void TXT_NOMBRESKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRESKeyReleased
@@ -1429,7 +1461,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
 
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+            System.out.println("error TELEFONO: " + e.getMessage());
         }
     }//GEN-LAST:event_TXT_TELEFONOKeyTyped
 
@@ -1466,7 +1498,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
 
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+            System.out.println("error CELULAR: " + e.getMessage());
         }
     }//GEN-LAST:event_TXT_CELULARKeyTyped
 
@@ -1512,8 +1544,12 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }}
             catch(Exception ex) 
             {
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println("Error CBX DEPARTAMNETO: " + ex.getMessage());
             }
+        
+        CBX_PROVINCIA.setEnabled(true);
+        CBX_DISTRITO.setEnabled(false);
+        
     }//GEN-LAST:event_CBX_DEPARTAMENTOItemStateChanged
 
     private void CBX_PROVINCIAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBX_PROVINCIAItemStateChanged
@@ -1541,35 +1577,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }}
             catch(Exception ex) 
             {
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println("Error CBX PROVINCIA: " + ex.getMessage());
             }
             
-            //CARGAR EL NOMBRE DE LA UNIDAD EJECUTORA
-            try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.CBX_PROVINCIA.getSelectedIndex()>0){
-                        this.CBX_UNIDAD_EJECUTORA.removeAllItems(); 
-                    Statement sta=con.createStatement();
-                    String prov=CBX_PROVINCIA.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC PERSONAL_NOMBRE_UNIDAD_EJECUTORA '"+prov+ "'");
-                    
-//                    this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
-                    
-                    while(rs.next()){
-                     this.CBX_UNIDAD_EJECUTORA.addItem(rs.getString("UE_DESC"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                     }else{
-                            this.CBX_UNIDAD_EJECUTORA.removeAllItems();
-
-//                        this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
-                            }
-
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error: " + ex.getMessage());
-            }
+            CBX_DISTRITO.setEnabled(true);
             
     }//GEN-LAST:event_CBX_PROVINCIAItemStateChanged
 
@@ -1730,10 +1741,56 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 //                    
 //        CLS_Personal PT = new CLS_Personal();
 //        TXT_CODIGO_PROVINCIA.setText(String.valueOf(PT.PERSONAL_COD_provincia(COD_PROV)));
-//        
+//
+        
+        //CARGAR EL NOMBRE DE LA UNIDAD EJECUTORA
+            try{  
+                if(evt.getStateChange()==ItemEvent.SELECTED){
+                    if(this.CBX_PROVINCIA.getSelectedIndex()>0){
+                        this.CBX_UNIDAD_EJECUTORA.removeAllItems(); 
+                    Statement sta=con.createStatement();
+                    String distrito=CBX_DISTRITO.getSelectedItem().toString();
+                    ResultSet rs=sta.executeQuery("EXEC PERSONAL_NOMBRE_UNIDAD_EJECUTORA '"+distrito+ "'");
+                    
+//                    this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
+                    
+                    while(rs.next()){
+                     this.CBX_UNIDAD_EJECUTORA.addItem(rs.getString("UE_DESC"));
+                  //  this.cbxProvincia.setModel(null);
+                    }
+                     }else{
+                            this.CBX_UNIDAD_EJECUTORA.removeAllItems();
+
+//                        this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
+                            }
+
+            }}
+            catch(Exception ex) 
+            {
+                System.out.println("Error CBX DIRESA: " + ex.getMessage());
+            }
     }//GEN-LAST:event_CBX_DISTRITOItemStateChanged
+
+    private void RB_MKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_MKeyPressed
+               
+    }//GEN-LAST:event_RB_MKeyPressed
+
+    private void RB_MKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_MKeyTyped
+        
+    }//GEN-LAST:event_RB_MKeyTyped
+
+    private void RB_MMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RB_MMouseClicked
+        
+    }//GEN-LAST:event_RB_MMouseClicked
+
+    private void RB_FMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RB_FMouseClicked
+        
+    }//GEN-LAST:event_RB_FMouseClicked
     
-    public void GUARDAR_PERSONAL(){  
+    public void GUARDAR_PERSONAL(){
+        try {
+            
+        
         CLS_Personal CP = new CLS_Personal();
         CLS_Personal CP1 = new CLS_Personal();
         CLS_Personal CP2 = new CLS_Personal();
@@ -1773,10 +1830,15 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         CP.setUsu_Codigo(CP3.PERSONAL_COD_USUARIO(lblusu.getText()));
      
         CP.PERSONAL_INSERTAR();
+        } catch (Exception e) {
+            System.out.println("error guardar" + e.getMessage());
+        }
     }
     
     public void MODIFICAR_PERSONAL(){
         
+        try {
+         
         CLS_Personal MP = new CLS_Personal();
         CLS_Personal MP1 = new CLS_Personal();
         CLS_Personal MP2 = new CLS_Personal();
@@ -1818,6 +1880,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         
         MP.PERSONAL_MODIFICAR();
         
+           
+        } catch (Exception e) {
+            System.out.println("error modificar" + e.getMessage());
+        }
     }
     
     public DefaultComboBoxModel departamento(){
@@ -1972,6 +2038,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }
     
     public void LIMPIAR_GUARDAR(){
+        try {
+            
+        
         TXT_DNI.setText("");
         TXT_APE_PAT.setText("");
         TXT_APE_MAT.setText("");
@@ -1988,6 +2057,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setDate(null);
         RB_F.setSelected(false);
         RB_M.setSelected(true);
+        } catch (Exception e) {
+            System.out.println("error limpiar guardar:" + e.getMessage());
+        }
     }
     
     
@@ -2033,10 +2105,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setEnabled(false);
         RB_F.setEnabled(false);
         RB_M.setEnabled(false);
-        CBX_DEPARTAMENTO.setEditable(false);
-        CBX_PROVINCIA.setEditable(false);
-        CBX_DISTRITO.setEditable(false);
-        CBX_UNIDAD_EJECUTORA.setEditable(false);
+        CBX_DEPARTAMENTO.setEnabled(false);
+        CBX_PROVINCIA.setEnabled(false);
+        CBX_DISTRITO.setEnabled(false);
+        CBX_UNIDAD_EJECUTORA.setEnabled(false);
         TXT_DIRECCION.setEditable(false);
         TXT_TELEFONO.setEditable(false);
         TXT_CELULAR.setEditable(false);
@@ -2052,10 +2124,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setEnabled(true);
         RB_F.setEnabled(true);
         RB_M.setEnabled(true);
-        CBX_DEPARTAMENTO.setEditable(true);
-        CBX_PROVINCIA.setEditable(true);
-        CBX_DISTRITO.setEditable(true);
-        CBX_UNIDAD_EJECUTORA.setEditable(true);
+        CBX_DEPARTAMENTO.setEnabled(true);
+        CBX_PROVINCIA.setEnabled(false);
+        CBX_DISTRITO.setEnabled(false);
+//        CBX_UNIDAD_EJECUTORA.setEnabled(true);
         TXT_DIRECCION.setEditable(true);
         TXT_TELEFONO.setEditable(true);
         TXT_CELULAR.setEditable(true);

@@ -2476,6 +2476,8 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTipoDocumentoKeyTyped
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
+        try {
+            
         boolean rpta = false;
         CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
         if(!txtTipoDocumento.getText().equals("")){
@@ -2576,6 +2578,9 @@ public class Facturador extends javax.swing.JFrame {
             }
         } else{
          
+        }
+        } catch (Exception e) {
+            System.out.println("error factura:" + e.getMessage());
         }
     }//GEN-LAST:event_btnGenerarDocActionPerformed
 
