@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.5026296018031564"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="481"/>
+	<property name="ireport.y" value="49"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -51,14 +51,18 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[SELECT        CAST(CAJA_DOCUMENTO_DETALLE.CANTIDAD AS VARCHAR(15))+' | '+CAJA_CPT.NOMBRE +' | '+left(CAJA_DOCUMENTO_DETALLE.PRECIO,len(CAJA_DOCUMENTO_DETALLE.PRECIO))AS CPT,
+			<![CDATA[SELECT        CAJA_CPT.NOMBRE +'    |  '+
+CAST(CAJA_DOCUMENTO_DETALLE.CANTIDAD AS VARCHAR(15))+'  X  '+
+left(CAJA_DOCUMENTO_DETALLE.PRECIO,len(CAJA_DOCUMENTO_DETALLE.PRECIO))AS CPT,
 						 left(CAJA_DOCUMENTO_DETALLE.TOTAL,len(CAJA_DOCUMENTO_DETALLE.TOTAL)) as PRECIO,
                          CAJA_DOCUMENTO_DETALLE.id_documento
 FROM            CAJA_PRECIOS INNER JOIN
                          CAJA_CPT ON CAJA_PRECIOS.ID_CPT = CAJA_CPT.ID_CPT INNER JOIN
                          CAJA_DOCUMENTO_DETALLE ON CAJA_PRECIOS.ID_PRECIO = CAJA_DOCUMENTO_DETALLE.ID_PRECIO
 						 where CAJA_DOCUMENTO_DETALLE.ESTADO='A' and
-						 id_documento=$P{id}]]>
+						 id_documento=$P{id}
+
+						 SELECT * FROM CAJA_DOCUMENTO_DETALLE]]>
 		</queryString>
 		<field name="CPT" class="java.lang.String"/>
 		<field name="PRECIO" class="java.lang.String"/>
@@ -138,7 +142,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="115" splitType="Stretch">
+		<band height="120" splitType="Stretch">
 			<textField>
 				<reportElement x="74" y="10" width="110" height="12" uuid="2f690d70-d867-4b83-8156-64de83ad5926"/>
 				<textElement>
@@ -186,17 +190,17 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
-				<text><![CDATA[DNI ]]></text>
+				<text><![CDATA[DOCUMENTO]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="74" y="51" width="98" height="11" uuid="c9bb3eea-3ff5-4039-9fbf-c04c76c4567f"/>
+				<reportElement x="74" y="51" width="110" height="11" uuid="c9bb3eea-3ff5-4039-9fbf-c04c76c4567f"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 1" stretchType="RelativeToTallestObject" mode="Opaque" x="2" y="91" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
+				<reportElement key="table 1" stretchType="RelativeToTallestObject" mode="Opaque" x="2" y="99" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DetalleDoc" uuid="9fdf4a53-af04-4c32-b7f6-901119e781d9">
 						<datasetParameter name="id">
@@ -206,27 +210,27 @@ FROM            CAJA_PRECIOS INNER JOIN
 					</datasetRun>
 					<jr:column width="0" uuid="4eba2c7c-b8be-45b5-b218-46957eac49e8">
 						<jr:columnHeader height="14" rowSpan="1"/>
-						<jr:detailCell height="26" rowSpan="1"/>
+						<jr:detailCell height="21" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="145" uuid="2a6803ea-70d2-44d9-aade-4aceb27f4e38">
 						<jr:columnHeader height="14" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="138" height="14" uuid="1efad7d3-21db-4f29-9f8c-a354ae4f2817"/>
-								<textElement>
+								<reportElement x="0" y="0" width="145" height="14" uuid="1efad7d3-21db-4f29-9f8c-a354ae4f2817"/>
+								<textElement verticalAlignment="Top">
 									<font fontName="Lucida Sans Typewriter" size="8" isBold="false"/>
 								</textElement>
-								<text><![CDATA[CANT. | DESCRIPCIÓN | PRECIO]]></text>
+								<text><![CDATA[DESCRIPCIÓN | CANT. X PRECIO]]></text>
 							</staticText>
 							<line>
-								<reportElement x="0" y="13" width="138" height="1" forecolor="#333333" uuid="ee7fb7ea-0c26-4656-9593-281c63962b0e"/>
+								<reportElement x="0" y="13" width="145" height="1" forecolor="#333333" uuid="ee7fb7ea-0c26-4656-9593-281c63962b0e"/>
 								<graphicElement>
 									<pen lineStyle="Dashed"/>
 								</graphicElement>
 							</line>
 						</jr:columnHeader>
-						<jr:detailCell height="26" rowSpan="1">
+						<jr:detailCell height="21" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement x="0" y="7" width="138" height="12" uuid="2e3825d1-7dde-4a53-8719-9dbe9db3409d"/>
+								<reportElement x="0" y="4" width="145" height="12" uuid="2e3825d1-7dde-4a53-8719-9dbe9db3409d"/>
 								<textElement verticalAlignment="Middle">
 									<font fontName="SansSerif" size="8"/>
 								</textElement>
@@ -250,9 +254,9 @@ FROM            CAJA_PRECIOS INNER JOIN
 								</graphicElement>
 							</line>
 						</jr:columnHeader>
-						<jr:detailCell height="26" rowSpan="1">
+						<jr:detailCell height="21" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="7" width="45" height="12" uuid="4702059d-b63f-4b11-93b6-3b50c30f88ab"/>
+								<reportElement x="0" y="4" width="45" height="12" uuid="4702059d-b63f-4b11-93b6-3b50c30f88ab"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Lucida Sans Typewriter" size="8"/>
 								</textElement>
@@ -263,7 +267,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				</jr:table>
 			</componentElement>
 			<textField>
-				<reportElement x="74" y="37" width="100" height="11" uuid="3375d747-0d56-4283-9f18-d0edd8d108e7"/>
+				<reportElement x="74" y="37" width="110" height="11" uuid="3375d747-0d56-4283-9f18-d0edd8d108e7"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -276,6 +280,12 @@ FROM            CAJA_PRECIOS INNER JOIN
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CLIENTE}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="2" y="92" width="198" height="1" uuid="e0c3425f-a4ef-4158-aa6b-8e15e09bcb24"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -388,7 +398,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<text><![CDATA[FECHA DE EMISIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="117" width="196" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
+				<reportElement x="2" y="117" width="191" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -416,7 +426,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textFieldExpression><![CDATA[$F{HORA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="2" y="129" width="196" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
+				<reportElement x="2" y="129" width="191" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
@@ -447,6 +457,13 @@ FROM            CAJA_PRECIOS INNER JOIN
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Electrónica, consulte en www.sunat.gob.pe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="149" width="191" height="20" uuid="0d7614d7-c904-4989-8094-03f15844541e"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[VISÍTENOS  www.diresaica.gob.pe/]]></text>
 			</staticText>
 		</band>
 	</summary>
