@@ -217,9 +217,9 @@ String hora, minutos, segundos, ampm;
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel9.setText("Iniciar sesión");
+        jLabel9.setText("Cuenta");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -382,7 +382,7 @@ String hora, minutos, segundos, ampm;
         jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setForeground(new java.awt.Color(51, 51, 51));
         btnIniciarSesion.setText("Iniciar Sesión");
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnIniciarSesion.setContentAreaFilled(false);

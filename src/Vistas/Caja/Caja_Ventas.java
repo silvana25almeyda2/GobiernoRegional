@@ -3644,10 +3644,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tbpreventasFRKeyPressed
 
     private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
-        if(evt.getClickCount()==1){
-            CARGAR_PREVENTA(); 
-        }
+
         if(evt.getClickCount()==2){
+            CARGAR_PREVENTA(); 
             CARGAR();
             CLIENTES.dispose();
             NUEVO_REGISTRO(ConexionS);   
@@ -3847,6 +3846,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Nuevo(false);
                 DetalleVenta(true);
                 Limpiar();
+                jPanel15.setVisible(false);
                 panelAnular.setVisible(false);
                 System.out.println("ELIMINADO CABECERA");
                 panelEliminar.setVisible(false);
