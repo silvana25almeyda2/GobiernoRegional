@@ -1204,7 +1204,7 @@ public class Principal extends javax.swing.JFrame {
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64.png"));
         btnCaja.setIcon(CambioC);
         btnCaja.setForeground(new Color(255,255,255)); 
-        PanelCaja.setBackground(new Color(23,160,134));  
+        PanelCaja.setBackground(new Color(0,153,102));  
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);

@@ -562,7 +562,7 @@ Caja_Historia hC = new Caja_Historia();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-            jPanel1.setBackground(new java.awt.Color(23, 160, 134));
+            jPanel1.setBackground(new java.awt.Color(0, 153, 102));
             jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));
 
             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -709,12 +709,13 @@ Caja_Historia hC = new Caja_Historia();
                 }
             });
 
-            lblNivel.setForeground(new java.awt.Color(255, 255, 255));
+            lblNivel.setForeground(new java.awt.Color(0, 153, 102));
             lblNivel.setText("jLabel2");
 
-            lblPermiso.setForeground(new java.awt.Color(255, 255, 255));
+            lblPermiso.setForeground(new java.awt.Color(0, 153, 102));
             lblPermiso.setText("jLabel3");
 
+            lblTipoR.setForeground(new java.awt.Color(0, 153, 102));
             lblTipoR.setText("jLabel6");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

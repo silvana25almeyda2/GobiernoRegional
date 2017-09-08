@@ -428,7 +428,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-            jPanel1.setBackground(new java.awt.Color(23, 160, 134));
+            jPanel1.setBackground(new java.awt.Color(0, 153, 102));
             jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));
 
             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -575,10 +575,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 }
             });
 
-            lblNivel.setForeground(new java.awt.Color(23, 160, 134));
+            lblNivel.setForeground(new java.awt.Color(0, 153, 102));
             lblNivel.setText("jLabel2");
 
-            lblPermiso.setForeground(new java.awt.Color(23, 160, 134));
+            lblPermiso.setForeground(new java.awt.Color(0, 153, 102));
             lblPermiso.setText("jLabel3");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

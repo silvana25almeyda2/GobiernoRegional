@@ -246,7 +246,7 @@ private Dimension DimensionBarra = null;
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblIDSESION, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addComponent(PanelSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -630,8 +630,10 @@ private Dimension DimensionBarra = null;
             .addComponent(btnCPT1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
+        lblTipo_Sede.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo_Sede.setText("jLabel6");
 
+        txtUbicacion.setForeground(new java.awt.Color(255, 255, 255));
         txtUbicacion.setText("jLabel6");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -718,10 +720,6 @@ private Dimension DimensionBarra = null;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PanelSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSesionMouseEntered
-     
-    }//GEN-LAST:event_PanelSesionMouseEntered
-
     private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
 
     }//GEN-LAST:event_btnVentasMouseClicked
@@ -730,7 +728,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64 (1).png"));
         btnVentas.setIcon(CambioV);
         btnVentas.setForeground(new Color(255,255,255)); 
-        PanelCaja.setBackground(new Color(23,160,134)); 
+        PanelCaja.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
         btnCPT.setIcon(CambioC);
@@ -758,12 +756,6 @@ private Dimension DimensionBarra = null;
         CT.setVisible(true);
     }//GEN-LAST:event_btnVentasActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-            Caja_Cierre frmCIERRE = new Caja_Cierre();
-            frmCIERRE.lblusu.setText(Principal.lblUsu.getText());
-            frmCIERRE.setVisible(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
-
     private void btnCPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseClicked
         Caja_CPTS TP = new Caja_CPTS();
 
@@ -775,7 +767,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64 (1).png"));
         btnCPT.setIcon(CambioC);
         btnCPT.setForeground(new Color(255,255,255)); 
-        PanelCPT.setBackground(new Color(23,160,134)); 
+        PanelCPT.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
@@ -806,7 +798,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
         btnClientes.setIcon(CambioP);
         btnClientes.setForeground(new Color(255,255,255)); 
-        PanelCaja2.setBackground(new Color(23,160,134)); 
+        PanelCaja2.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
@@ -862,7 +854,7 @@ private Dimension DimensionBarra = null;
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
         btnCaja3.setIcon(CambioCT);
         btnCaja3.setForeground(new Color(255,255,255)); 
-        PanelCaja3.setBackground(new Color(23,160,134));
+        PanelCaja3.setBackground(new Color(0,153,102));
     }//GEN-LAST:event_btnCaja3MouseEntered
 
     private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed
@@ -981,6 +973,16 @@ private Dimension DimensionBarra = null;
         String u=Principal.lblUsu.getText();
         CJ.lblusu.setText(u);
     }//GEN-LAST:event_btnCPT1ActionPerformed
+
+    private void PanelSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSesionMouseEntered
+
+    }//GEN-LAST:event_PanelSesionMouseEntered
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        Caja_Cierre frmCIERRE = new Caja_Cierre();
+        frmCIERRE.lblusu.setText(Principal.lblUsu.getText());
+        frmCIERRE.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

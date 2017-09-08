@@ -27,12 +27,11 @@ Conexion con = new Conexion();
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Cta1_INSERTAR ?,?,?,?";
+            String sql = "EXEC Caja_Cta1_INSERTAR ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getId_cuenta1());
-            cmd.setString(2, getCuenta_1());
-            cmd.setString(3, getDescripcion_1());
-            cmd.setString(4, getNom_usu());
+            cmd.setString(1, getCuenta_1());
+            cmd.setString(2, getDescripcion_1());
+            cmd.setString(3, getNom_usu());
 
             if(!cmd.execute())
             {
