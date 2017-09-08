@@ -32,13 +32,12 @@ public boolean NuevaCTA6()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Cta6_INSERTAR ?,?,?,?,?";
+            String sql = "EXEC Caja_Cta6_INSERTAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getId_cuenta6());
-            cmd.setString(2, getId_cuenta5());
-            cmd.setString(3, getCuenta_6());
-            cmd.setString(4, getDescripcion());
-            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getId_cuenta5());
+            cmd.setString(2, getCuenta_6());
+            cmd.setString(3, getDescripcion());
+            cmd.setString(4, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -53,22 +52,7 @@ public boolean NuevaCTA6()
         }
         return resp;
     }
-    
-    
-public String idCTA6(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec Caja_Cta6_ID";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error " + ex.getMessage());
-        }
-        return id;
-    }
+
 
 public boolean modificarCta6(){
         boolean resp = false;

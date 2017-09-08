@@ -7,7 +7,9 @@ package Vistas.Principal;
 
 import Vistas.Facturador.ComunicacionBaja;
 import Vistas.Facturador.NotasCreditoDebito;
+import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
 /**
@@ -23,6 +25,7 @@ private Dimension DimensionBarra = null;
     public Principal_Facturador() {
         initComponents();
         QuitarLaBarraTitulo();
+        this.getContentPane().setBackground(Color.WHITE);//fondo blanco
     }
 
     public void QuitarLaBarraTitulo(){ 
@@ -43,63 +46,26 @@ private Dimension DimensionBarra = null;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        PanelSesion = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        lblIDSESION = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnNotaDebito = new javax.swing.JButton();
-        NotaCreditoç = new javax.swing.JButton();
-        btnComunicacionBaja = new javax.swing.JButton();
-        btnReportes = new javax.swing.JButton();
+        PanelCaja = new javax.swing.JPanel();
+        btnVentas = new javax.swing.JButton();
+        PanelCaja1 = new javax.swing.JPanel();
+        btnVentas1 = new javax.swing.JButton();
+        PanelCaja2 = new javax.swing.JPanel();
+        btnVentas2 = new javax.swing.JButton();
+        PanelCaja3 = new javax.swing.JPanel();
+        btnVentas3 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel1.setBackground(new java.awt.Color(41, 127, 184));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Facturador SUNAT");
-
-        PanelSesion.setBackground(new java.awt.Color(255, 51, 51));
-        PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PanelSesionMouseEntered(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Salir");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelSesionLayout = new javax.swing.GroupLayout(PanelSesion);
-        PanelSesion.setLayout(PanelSesionLayout);
-        PanelSesionLayout.setHorizontalGroup(
-            PanelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelSesionLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        PanelSesionLayout.setVerticalGroup(
-            PanelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("ID de Sesión Actual");
-
-        lblIDSESION.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblIDSESION.setForeground(new java.awt.Color(255, 255, 255));
-        lblIDSESION.setText("ID");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,33 +73,22 @@ private Dimension DimensionBarra = null;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblIDSESION, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
-                .addComponent(PanelSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2)
+                .addContainerGap(696, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(lblIDSESION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(127, 140, 141));
+        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Atrás-30.png"))); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Back-32.png"))); // NOI18N
         jLabel1.setText("Volver");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,113 +110,165 @@ private Dimension DimensionBarra = null;
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
         );
 
-        btnNotaDebito.setBackground(new java.awt.Color(102, 102, 102));
-        btnNotaDebito.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnNotaDebito.setForeground(new java.awt.Color(51, 51, 51));
-        btnNotaDebito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        btnNotaDebito.setText("Nota de Débito");
-        btnNotaDebito.setContentAreaFilled(false);
-        btnNotaDebito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNotaDebito.setFocusPainted(false);
-        btnNotaDebito.setFocusable(false);
-        btnNotaDebito.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnNotaDebito.setIconTextGap(30);
-        btnNotaDebito.setVerifyInputWhenFocusTarget(false);
-        btnNotaDebito.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnNotaDebito.addMouseListener(new java.awt.event.MouseAdapter() {
+        PanelCaja.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Cheque de nómina-64.png"))); // NOI18N
+        btnVentas.setText("Notas de Crédito");
+        btnVentas.setContentAreaFilled(false);
+        btnVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas.setFocusPainted(false);
+        btnVentas.setFocusable(false);
+        btnVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas.setIconTextGap(30);
+        btnVentas.setVerifyInputWhenFocusTarget(false);
+        btnVentas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnNotaDebitoMouseClicked(evt);
+                btnVentasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnNotaDebitoMouseEntered(evt);
+                btnVentasMouseEntered(evt);
             }
         });
-        btnNotaDebito.addActionListener(new java.awt.event.ActionListener() {
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNotaDebitoActionPerformed(evt);
+                btnVentasActionPerformed(evt);
             }
         });
 
-        NotaCreditoç.setBackground(new java.awt.Color(102, 102, 102));
-        NotaCreditoç.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        NotaCreditoç.setForeground(new java.awt.Color(51, 51, 51));
-        NotaCreditoç.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        NotaCreditoç.setText("Nota de Crédito");
-        NotaCreditoç.setContentAreaFilled(false);
-        NotaCreditoç.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NotaCreditoç.setFocusPainted(false);
-        NotaCreditoç.setFocusable(false);
-        NotaCreditoç.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        NotaCreditoç.setIconTextGap(30);
-        NotaCreditoç.setVerifyInputWhenFocusTarget(false);
-        NotaCreditoç.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        NotaCreditoç.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.GroupLayout PanelCajaLayout = new javax.swing.GroupLayout(PanelCaja);
+        PanelCaja.setLayout(PanelCajaLayout);
+        PanelCajaLayout.setHorizontalGroup(
+            PanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        PanelCajaLayout.setVerticalGroup(
+            PanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas1.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas1.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Mejoras económicas-64 (1).png"))); // NOI18N
+        btnVentas1.setText("Notas de Débito");
+        btnVentas1.setContentAreaFilled(false);
+        btnVentas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas1.setFocusPainted(false);
+        btnVentas1.setFocusable(false);
+        btnVentas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas1.setIconTextGap(30);
+        btnVentas1.setVerifyInputWhenFocusTarget(false);
+        btnVentas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NotaCreditoçMouseClicked(evt);
+                btnVentas1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                NotaCreditoçMouseEntered(evt);
+                btnVentas1MouseEntered(evt);
             }
         });
-        NotaCreditoç.addActionListener(new java.awt.event.ActionListener() {
+        btnVentas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NotaCreditoçActionPerformed(evt);
+                btnVentas1ActionPerformed(evt);
             }
         });
 
-        btnComunicacionBaja.setBackground(new java.awt.Color(102, 102, 102));
-        btnComunicacionBaja.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnComunicacionBaja.setForeground(new java.awt.Color(51, 51, 51));
-        btnComunicacionBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        btnComunicacionBaja.setText("<html><center>Comunicación <br>de Baja </center></html>");
-        btnComunicacionBaja.setContentAreaFilled(false);
-        btnComunicacionBaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnComunicacionBaja.setFocusPainted(false);
-        btnComunicacionBaja.setFocusable(false);
-        btnComunicacionBaja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnComunicacionBaja.setIconTextGap(30);
-        btnComunicacionBaja.setVerifyInputWhenFocusTarget(false);
-        btnComunicacionBaja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnComunicacionBaja.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.GroupLayout PanelCaja1Layout = new javax.swing.GroupLayout(PanelCaja1);
+        PanelCaja1.setLayout(PanelCaja1Layout);
+        PanelCaja1Layout.setHorizontalGroup(
+            PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+        );
+        PanelCaja1Layout.setVerticalGroup(
+            PanelCaja1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas2.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas2.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Solicitud de dinero-64.png"))); // NOI18N
+        btnVentas2.setText("<html><center>Comunicación <br>de Baja </center></html>");
+        btnVentas2.setContentAreaFilled(false);
+        btnVentas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas2.setFocusPainted(false);
+        btnVentas2.setFocusable(false);
+        btnVentas2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas2.setIconTextGap(30);
+        btnVentas2.setVerifyInputWhenFocusTarget(false);
+        btnVentas2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnComunicacionBajaMouseClicked(evt);
+                btnVentas2MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnComunicacionBajaMouseEntered(evt);
+                btnVentas2MouseEntered(evt);
             }
         });
-        btnComunicacionBaja.addActionListener(new java.awt.event.ActionListener() {
+        btnVentas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComunicacionBajaActionPerformed(evt);
+                btnVentas2ActionPerformed(evt);
             }
         });
 
-        btnReportes.setBackground(new java.awt.Color(102, 102, 102));
-        btnReportes.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnReportes.setForeground(new java.awt.Color(51, 51, 51));
-        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Etiqueta de precio-64.png"))); // NOI18N
-        btnReportes.setText("Reportes");
-        btnReportes.setContentAreaFilled(false);
-        btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnReportes.setFocusPainted(false);
-        btnReportes.setFocusable(false);
-        btnReportes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnReportes.setIconTextGap(30);
-        btnReportes.setVerifyInputWhenFocusTarget(false);
-        btnReportes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.GroupLayout PanelCaja2Layout = new javax.swing.GroupLayout(PanelCaja2);
+        PanelCaja2.setLayout(PanelCaja2Layout);
+        PanelCaja2Layout.setHorizontalGroup(
+            PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas2, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+        );
+        PanelCaja2Layout.setVerticalGroup(
+            PanelCaja2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVentas3.setBackground(new java.awt.Color(102, 102, 102));
+        btnVentas3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnVentas3.setForeground(new java.awt.Color(51, 51, 51));
+        btnVentas3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Document-64(1).png"))); // NOI18N
+        btnVentas3.setText("Reportes");
+        btnVentas3.setContentAreaFilled(false);
+        btnVentas3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentas3.setFocusPainted(false);
+        btnVentas3.setFocusable(false);
+        btnVentas3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVentas3.setIconTextGap(30);
+        btnVentas3.setVerifyInputWhenFocusTarget(false);
+        btnVentas3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVentas3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReportesMouseClicked(evt);
+                btnVentas3MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnReportesMouseEntered(evt);
+                btnVentas3MouseEntered(evt);
             }
         });
-        btnReportes.addActionListener(new java.awt.event.ActionListener() {
+        btnVentas3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportesActionPerformed(evt);
+                btnVentas3ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout PanelCaja3Layout = new javax.swing.GroupLayout(PanelCaja3);
+        PanelCaja3.setLayout(PanelCaja3Layout);
+        PanelCaja3Layout.setHorizontalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+        );
+        PanelCaja3Layout.setVerticalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVentas3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,16 +276,16 @@ private Dimension DimensionBarra = null;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NotaCreditoç, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnNotaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnComunicacionBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,25 +293,17 @@ private Dimension DimensionBarra = null;
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNotaDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(NotaCreditoç, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(btnComunicacionBaja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void PanelSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSesionMouseEntered
-
-    }//GEN-LAST:event_PanelSesionMouseEntered
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         this.dispose();
@@ -312,73 +311,88 @@ private Dimension DimensionBarra = null;
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
 
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_btnVentasMouseClicked
 
-    private void btnNotaDebitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNotaDebitoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNotaDebitoMouseClicked
+    private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
+//        ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64 (1).png"));
+//        btnVentas.setIcon(CambioV);
+//        btnVentas.setForeground(new Color(255,255,255));
+//        PanelCaja.setBackground(new Color(0,153,102));
+//
+//        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
+//        btnCPT.setIcon(CambioC);
+//        btnCPT.setForeground(new Color(51,51,51));
+//        PanelCPT.setBackground(new Color(255,255,255));
+//
+//        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
+//        btnClientes.setIcon(CambioP);
+//        btnClientes.setForeground(new Color(51,51,51));
+//        PanelCaja2.setBackground(new Color(255,255,255));
+//
+//        ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
+//        btnCaja3.setIcon(CambioCT);
+//        btnCaja3.setForeground(new Color(51,51,51));
+//        PanelCaja3.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnVentasMouseEntered
 
-    private void btnNotaDebitoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNotaDebitoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNotaDebitoMouseEntered
-
-    private void btnNotaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotaDebitoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNotaDebitoActionPerformed
-
-    private void NotaCreditoçMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NotaCreditoçMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NotaCreditoçMouseClicked
-
-    private void NotaCreditoçMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NotaCreditoçMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NotaCreditoçMouseEntered
-
-    private void NotaCreditoçActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotaCreditoçActionPerformed
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         NotasCreditoDebito n=new NotasCreditoDebito();
         n.setVisible(true);
-    }//GEN-LAST:event_NotaCreditoçActionPerformed
+    }//GEN-LAST:event_btnVentasActionPerformed
 
-    private void btnComunicacionBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnComunicacionBajaMouseClicked
+    private void btnVentas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnComunicacionBajaMouseClicked
+    }//GEN-LAST:event_btnVentas1MouseClicked
 
-    private void btnComunicacionBajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnComunicacionBajaMouseEntered
+    private void btnVentas1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnComunicacionBajaMouseEntered
+    }//GEN-LAST:event_btnVentas1MouseEntered
 
-    private void btnComunicacionBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComunicacionBajaActionPerformed
+    private void btnVentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas1ActionPerformed
+        NotasCreditoDebito nd=new NotasCreditoDebito();
+        nd.setVisible(true);
+    }//GEN-LAST:event_btnVentas1ActionPerformed
+
+    private void btnVentas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas2MouseClicked
+
+    private void btnVentas2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentas2MouseEntered
+
+    private void btnVentas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas2ActionPerformed
         ComunicacionBaja c=new ComunicacionBaja();
         c.setVisible(true);
-    }//GEN-LAST:event_btnComunicacionBajaActionPerformed
+    }//GEN-LAST:event_btnVentas2ActionPerformed
 
-    private void btnReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseClicked
+    private void btnVentas3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReportesMouseClicked
+    }//GEN-LAST:event_btnVentas3MouseClicked
 
-    private void btnReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseEntered
+    private void btnVentas3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas3MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReportesMouseEntered
+    }//GEN-LAST:event_btnVentas3MouseEntered
 
-    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+    private void btnVentas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReportesActionPerformed
+    }//GEN-LAST:event_btnVentas3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton NotaCreditoç;
-    private javax.swing.JPanel PanelSesion;
-    public static javax.swing.JButton btnComunicacionBaja;
-    public static javax.swing.JButton btnNotaDebito;
-    public static javax.swing.JButton btnReportes;
+    private javax.swing.JPanel PanelCaja;
+    private javax.swing.JPanel PanelCaja1;
+    private javax.swing.JPanel PanelCaja2;
+    private javax.swing.JPanel PanelCaja3;
+    public static javax.swing.JButton btnVentas;
+    public static javax.swing.JButton btnVentas1;
+    public static javax.swing.JButton btnVentas2;
+    public static javax.swing.JButton btnVentas3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    public static javax.swing.JLabel lblIDSESION;
     // End of variables declaration//GEN-END:variables
 }

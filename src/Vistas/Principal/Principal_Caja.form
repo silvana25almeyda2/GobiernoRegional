@@ -184,7 +184,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="86" green="a0" red="17" type="rgb"/>
+          <Color blue="66" green="99" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -201,7 +201,7 @@
                           <Component id="lblIDSESION" min="-2" pref="214" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="212" max="32767" attributes="0"/>
                   <Component id="PanelSesion" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -240,7 +240,7 @@
         <Container class="javax.swing.JPanel" name="PanelSesion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="38" green="34" red="d1" type="rgb"/>
+              <Color blue="33" green="33" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
@@ -941,6 +941,9 @@
         </Container>
         <Component class="javax.swing.JLabel" name="lblTipo_Sede">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel6"/>
           </Properties>
           <AuxValues>
@@ -949,6 +952,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="txtUbicacion">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel6"/>
           </Properties>
           <AuxValues>

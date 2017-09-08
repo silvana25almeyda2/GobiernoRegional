@@ -221,7 +221,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                    jPanel1.setBackground(new java.awt.Color(23, 160, 134));
+                    jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
                     btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     btneditar.setForeground(new java.awt.Color(240, 240, 240));
@@ -339,7 +339,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                             .addContainerGap(66, Short.MAX_VALUE))
                     );
 
-                    jPanel6.setBackground(new java.awt.Color(25, 188, 157));
+                    jPanel6.setBackground(new java.awt.Color(45, 204, 112));
 
                     jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -360,7 +360,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
-                    panelNivel1.setBackground(new java.awt.Color(25, 188, 157));
+                    panelNivel1.setBackground(new java.awt.Color(45, 204, 112));
 
                     jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
                     jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -381,7 +381,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
-                    panelNivel2.setBackground(new java.awt.Color(25, 188, 157));
+                    panelNivel2.setBackground(new java.awt.Color(45, 204, 112));
 
                     jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
                     jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -938,9 +938,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             }else if(tbNivel2.getRowCount()>0){
               panelNuevoN3.setBackground(new Color(240,240,240));  
               btnNuevo2.setEnabled(false);
-       
             }
-             
                     panelNuevoN2.setBackground(new Color(43,43,43)); 
                     btnNuevo1.setEnabled(true);
                     panelNivel2.setVisible(true);
@@ -951,8 +949,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     btneliminar.setEnabled(true);
                     btneditar.setEnabled(true);
                     lblNivel.setText("1");
-                    
-                     if (tbNivel1.getRowCount()>0){
+                    if (tbNivel1.getRowCount()>0){
                         int fila1=tbNivel1.getSelectedRow();
                         lblCodigo.setText(String.valueOf(tbNivel1.getValueAt(fila1, 2))); 
                     }else if (tbNivel1.getRowCount()==0){

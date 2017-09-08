@@ -143,7 +143,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                jPanel1.setBackground(new java.awt.Color(23, 160, 134));
+                jPanel1.setBackground(new java.awt.Color(0, 153, 102));
                 jPanel1.setPreferredSize(new java.awt.Dimension(284, 684));
 
                 jLabel57.setBackground(new java.awt.Color(255, 255, 255));
@@ -240,7 +240,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Marker-32.png"))); // NOI18N
 
-                txtUbicacion.setBackground(new java.awt.Color(23, 160, 134));
+                txtUbicacion.setBackground(new java.awt.Color(0, 153, 102));
                 txtUbicacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 txtUbicacion.setForeground(new java.awt.Color(255, 255, 255));
                 txtUbicacion.setText("ICA");
@@ -727,10 +727,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_txtUbicacionKeyReleased
 
     private void txtUbicacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyPressed
-        char teclaPresionada = evt.getKeyChar();
-        if(teclaPresionada==KeyEvent.VK_ENTER){
-            jLabel7.doClick();
-        }
+//        char teclaPresionada = evt.getKeyChar();
+//        if(teclaPresionada==KeyEvent.VK_ENTER){
+//            jLabel7.doClick();
+//        }
     }//GEN-LAST:event_txtUbicacionKeyPressed
 
     private void jLabel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabel7ActionPerformed

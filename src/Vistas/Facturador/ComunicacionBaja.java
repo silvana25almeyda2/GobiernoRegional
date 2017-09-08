@@ -402,6 +402,11 @@ Conexion c=new Conexion();
             btnGuardar.setDefaultCapable(false);
             btnGuardar.setFocusPainted(false);
             btnGuardar.setFocusable(false);
+            btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnGuardarActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
@@ -460,6 +465,11 @@ Conexion c=new Conexion();
             btnGuardar2.setDefaultCapable(false);
             btnGuardar2.setFocusPainted(false);
             btnGuardar2.setFocusable(false);
+            btnGuardar2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnGuardar2ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
             jPanel4.setLayout(jPanel4Layout);
@@ -1120,6 +1130,14 @@ Conexion c=new Conexion();
                     lblNroCorrelativo.setText(tb_Factura_Boleta.getValueAt(filaselec, 4).toString());
                       
     }//GEN-LAST:event_tb_Factura_BoletaMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardar2ActionPerformed
 
     
      public void mostrarFacturacionDetalle( JTable table){

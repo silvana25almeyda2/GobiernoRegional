@@ -27,13 +27,12 @@ public boolean NuevaCTA2()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Cta2_INSERTAR ?,?,?,?,?";
+            String sql = "EXEC Caja_Cta2_INSERTAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getId_cuenta2());
-            cmd.setString(2, getId_cuenta1());
-            cmd.setString(3, getCuenta_2());
-            cmd.setString(4, getDescripcion());
-            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getId_cuenta1());
+            cmd.setString(2, getCuenta_2());
+            cmd.setString(3, getDescripcion());
+            cmd.setString(4, getNom_usu());
             if(!cmd.execute())
             {
                 resp = true;

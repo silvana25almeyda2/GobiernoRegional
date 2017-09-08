@@ -50,6 +50,8 @@ private String TIPO_VENTA  ;
 private int ID_APERTURA  ;
 private String ESTADO  ;
 private String TIPO_GRUPO;
+private int ID_PREVENTA;
+private int ID_DETALLE_PREVENTA;
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 private int ID_PRECIO ;
@@ -247,7 +249,7 @@ private double INAFECTA;
         return resp;
     }
     
-        public boolean ACTUALIZAR_VENTA(){
+    public boolean ACTUALIZAR_VENTA(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR "
@@ -271,6 +273,46 @@ private double INAFECTA;
         catch(Exception ex)
         {
             System.out.println("ERROR AL REGISTRAR VENTA  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean ACTUALIZAR_PREVENTA(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_PREVENTA_ACTUALIZAR_ESTADO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_PREVENTA());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ACTUALIZAR ESTADO DE LA PREVENTA  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean ANULAR_PREVENTA(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_PREVENTA_ANULAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DETALLE_PREVENTA());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ANULAR PREVENTA  " + ex.getMessage());
         }
         return resp;
     }
@@ -848,6 +890,110 @@ private double INAFECTA;
         }
     }
     
+    public void CAJA_PREVENTAS_FR(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Forma Pago","DNI","Paciente","Fecha","id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR: " + e.getMessage());
+        }
+    }
+    public void formatoPreventaFR(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.setRowHeight(40);
+    }
+    
+    public void CAJA_PREVENTAS_FR_DETALLE(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID_Detalle","ID_CABECERA","Descripción","Cantidad","Precio","Estado","ID_PR",
+            "ID_PRECIO","ID_CTP","NOMBRE","ITEM"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA_DETALLE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR_DETALLE(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
+        }
+    }
+     public void formatoPreventaFR_DETALLE(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.setRowHeight(40);
+    }
+    
      public Caja_NuevaVenta(){
         Conexion con = new Conexion();
         cn = con.conectar();
@@ -1060,7 +1206,22 @@ private double INAFECTA;
     public void setINAFECTA(double INAFECTA) {
         this.INAFECTA = INAFECTA;
     }
-     
+
+    public int getID_PREVENTA() {
+        return ID_PREVENTA;
+    }
+
+    public void setID_PREVENTA(int ID_PREVENTA) {
+        this.ID_PREVENTA = ID_PREVENTA;
+    }
+
+    public int getID_DETALLE_PREVENTA() {
+        return ID_DETALLE_PREVENTA;
+    }
+
+    public void setID_DETALLE_PREVENTA(int ID_DETALLE_PREVENTA) {
+        this.ID_DETALLE_PREVENTA = ID_DETALLE_PREVENTA;
+    }
      
     
 }
