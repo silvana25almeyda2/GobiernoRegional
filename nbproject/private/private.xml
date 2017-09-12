@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/D:/pry-Disa/GobiernoRegional/src/modelo/Facturador/CuentasPorPagarFacturasCabecera.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/modelo/Facturador/CuentasPorPagarSfsRpta.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Facturador/Facturador.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Caja/Caja_Ventas.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Facturador/ComunicacionBaja.java</file>
             <file>file:/D:/pry-Disa/GobiernoRegional/src/Vistas/Facturador/ReporteNCND.java</file>
-=======
-            <file>file:/E:/DISA/GobiernoRegional/src/modelo/Caja/Caja_AperturaCierre.java</file>
-            <file>file:/E:/DISA/GobiernoRegional/src/Vistas/Caja/Caja_Reportes.java</file>
->>>>>>> 9e4dfc61388c68654a7d15ff881e1b88db9fbda3
         </group>
     </open-files>
 </project-private>
