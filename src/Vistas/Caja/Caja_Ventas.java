@@ -186,6 +186,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     btnImprimir.setEnabled(true);
                     panelEliminar.setVisible(true);   
                     panelMensaje.setVisible(false);  
+                    panelEliminacion.setVisible(false);  
 //                    tgnuevoEliminar=1;
                     txtEnterEscapeEnter1.requestFocus();     
         }  
@@ -315,9 +316,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
       private void SUMA(){
         double total = 0;
-        double IGV=0;
-        double subtotal=0;
-        double descuento =0;
+        double subtotal =0.00;
+        double IGV =0.00;
 
         //recorrer todas las filas de la segunda columna y va sumando las cantidades
         for( int i=0 ; i<tb_CPT.getRowCount() ; i++){
@@ -336,9 +336,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             //se suma al total
           total += numero;
         }
-        IGV=total*0.18;
-        subtotal=total-IGV;
-        descuento=0;
+//        IGV=total*0.18;
+//        subtotal=total-IGV;
+        subtotal=total/1.18;//SUBTOTAL
+        IGV=total-subtotal;//IGV
+
         ////////////////////////////////////////////////////////////////////////
         
         BigDecimal bd2 = new BigDecimal(total);
@@ -3083,7 +3085,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             .addComponent(panelEliminacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                             .addComponent(panelNumeros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                .addContainerGap()
+                                                                .addGap(16, 16, 16)
                                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addComponent(lbl5)
                                                                     .addComponent(lbl6)
@@ -3104,7 +3106,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                         .addComponent(lblNroCorrelativoC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                     .addComponent(cbxAfecIGV, 0, 1, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
