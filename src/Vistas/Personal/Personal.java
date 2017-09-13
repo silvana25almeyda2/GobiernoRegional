@@ -52,16 +52,18 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
-//        CBX_DISTRITO.setBackground(Color.WHITE);
-//        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
-//        CBX_PROVINCIA.setBackground(Color.WHITE);
-//        CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
+        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
+        CBX_DISTRITO.setBackground(Color.WHITE);
+        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
+        CBX_PROVINCIA.setBackground(Color.WHITE);
+        CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
         cargareliminar1.setVisible(false);
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
         
         this.CBX_DEPARTAMENTO.setModel(departamento());
+        
+        
         
         RB_M.setSelected(true);
         
@@ -1190,6 +1192,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         btnguardar.setEnabled(true);
         LIMPIAR_GUARDAR();
         habilitar();
+        
+        CBX_DEPARTAMENTO.setSelectedIndex(11);
       
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -1903,6 +1907,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             System.err.println( "Error consulta :" + ex.getMessage() );
         }        
         return listmodel;
+        
+        
     }
     
     public void MOSTRAR_PERSONAL(){

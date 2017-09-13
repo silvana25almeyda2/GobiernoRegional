@@ -4240,7 +4240,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 retorna = false;
             } else {
                 String bloc1 = "";
-                double igv=0.00,precioV=0.00,venta=0.00,prxcan;
+                double valorU=0,igv=0.00,precioV=0.00,venta=0.00,prxcan;
                 for (int c = 0; c < tb_CPT.getRowCount(); c++){    
                     if(lblGrupo.getText().equalsIgnoreCase("TP")){
                         igv=0.00;
@@ -4253,6 +4253,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                        
                         venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
                     }
+                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)));
+                    
+                    BigDecimal bdvalorU = new BigDecimal(valorU);
+                    bdvalorU = bdvalorU.setScale(2, BigDecimal.ROUND_HALF_UP);
                     
                     BigDecimal bdigv = new BigDecimal(igv);
                     bdigv = bdigv.setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -4268,7 +4272,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         String.valueOf(tb_CPT.getValueAt(c, 4)) + "|" + String.valueOf(tb_CPT.getValueAt(c, 1))+  "|" + 
                          ""+ "|" + 
                         String.valueOf(tb_CPT.getValueAt(c, 2))+ "|" + 
-                         String.valueOf(tb_CPT.getValueAt(c, 3)) + "|" + 
+                         bdvalorU + "|" + 
                          "0.00" + "|" + //DESCUENTO
                             //IGV
                         bdigv + "|" +  //IGV
@@ -4308,8 +4312,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 double Precio_cant=0.00, tot=0.00, ig =0.00;
 
                 item = tb_CPT.getValueAt(i, 1).toString();
-                descripcion = tb_CPT.getValueAt(i, 2).toString();           
-                valor_u = tb_CPT.getValueAt(i, 3).toString();
+                descripcion = tb_CPT.getValueAt(i, 2).toString();     
+                
+                BigDecimal bdvalor_u = new BigDecimal(tb_CPT.getValueAt(i, 3).toString());
+                bdvalor_u = bdvalor_u.setScale(2, BigDecimal.ROUND_HALF_UP);
+                    
+                valor_u = String.valueOf(bdvalor_u);
                 cantidad = tb_CPT.getValueAt(i, 4).toString();
                 precio = tb_CPT.getValueAt(i, 3).toString();
 
@@ -4327,7 +4335,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
                 ig = 0.00;
 
-                tot = (Precio_cant + ig);
+                tot = Precio_cant + ig;
 
                 total = String.valueOf(tot);
 

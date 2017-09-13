@@ -365,8 +365,8 @@ public class Facturador extends javax.swing.JFrame {
                     bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                     String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
                     String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
-                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
-                     ""+ "|" + 
+                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))
+                    +  "|" +   ""+ "|" + 
                     String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                      String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
                      "0.00" + "|" + //DESCUENTO
