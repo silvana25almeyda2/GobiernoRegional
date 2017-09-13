@@ -2509,7 +2509,7 @@ public class Facturador extends javax.swing.JFrame {
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
                     CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
-                    lblId.setText(facturaDetalle1.facturaCabeceraId());
+                    lblId.setText(facturaDetalle1.facturaCabeceraId(lblusu.getText()));
                     String archivo = ruc1.factura_ruc() + "-" + 
                     cbxDocumento.getSelectedItem().toString().charAt(0) + 
                     cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +

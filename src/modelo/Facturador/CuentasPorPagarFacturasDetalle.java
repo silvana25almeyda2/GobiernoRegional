@@ -128,12 +128,14 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         return resp;
     }
     
-    public String facturaCabeceraId(){
+    
+    public String facturaCabeceraId(String usu){
         String cod="";
         try
         {
-            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID";
+            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, usu);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
