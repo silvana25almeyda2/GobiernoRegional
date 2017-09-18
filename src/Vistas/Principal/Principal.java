@@ -39,6 +39,10 @@ public class Principal extends javax.swing.JFrame {
         ErrorExistente.setLocationRelativeTo(null);//en el centro
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         jPanel138.setVisible(false);
+        Paginas.setEnabled(false);
+        Paginas.setEnabledAt(0,false);
+        Paginas.setEnabledAt(1, false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
     }
     public void Caja_Abrir(){
         Caja_AperturaCierre CAID =new Caja_AperturaCierre();
@@ -50,7 +54,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        PaginasP.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
     }
             
     
@@ -63,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        PaginasP.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
     }
     public void Personal_Abrir(){
         Personal PR = new Personal();
@@ -123,7 +127,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel119 = new javax.swing.JLabel();
         jPanel135 = new javax.swing.JPanel();
         btnAlertConsulta7 = new javax.swing.JButton();
-        PaginasP = new javax.swing.JTabbedPane();
+        Paginas = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblPersonal = new javax.swing.JLabel();
@@ -587,9 +591,9 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PaginasP.setForeground(new java.awt.Color(255, 255, 255));
-        PaginasP.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-        PaginasP.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
+        Paginas.setForeground(new java.awt.Color(255, 255, 255));
+        Paginas.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+        Paginas.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
         jPanel1.setPreferredSize(new java.awt.Dimension(639, 118));
@@ -867,7 +871,7 @@ public class Principal extends javax.swing.JFrame {
         btnHuandoy.setBackground(new java.awt.Color(102, 102, 102));
         btnHuandoy.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnHuandoy.setForeground(new java.awt.Color(51, 51, 51));
-        btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/CONNECTA.png"))); // NOI18N
+        btnHuandoy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"))); // NOI18N
         btnHuandoy.setText("Conecta-M5");
         btnHuandoy.setContentAreaFilled(false);
         btnHuandoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1115,7 +1119,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PaginasP.addTab(".", jPanel3);
+        Paginas.addTab(".", jPanel3);
 
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
@@ -1128,17 +1132,17 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        PaginasP.addTab(".", Contenedor);
+        Paginas.addTab(".", Contenedor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PaginasP, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PaginasP, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -1211,7 +1215,7 @@ public class Principal extends javax.swing.JFrame {
         btnFacturador.setForeground(new Color(51,51,51)); 
         PanelFacturador.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1239,7 +1243,7 @@ public class Principal extends javax.swing.JFrame {
         btnCaja.setForeground(new Color(51,51,51)); 
         PanelCaja.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255));
@@ -1279,7 +1283,7 @@ public class Principal extends javax.swing.JFrame {
         btnFacturador.setForeground(new Color(51,51,51)); 
         PanelFacturador.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255));
@@ -1345,7 +1349,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPersonalMouseClicked
 
     private void btnPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPersonalMouseEntered
-       ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
+       ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1388,7 +1392,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosMouseClicked
 
     private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(51,51,51)); 
         PanelHunadoy.setBackground(new Color(255,255,255)); 
@@ -1429,7 +1433,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHuandoyMouseClicked
 
     private void btnHuandoyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHuandoyMouseEntered
-        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/CONNECTA1.png"));
+        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(1).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(255,255,255)); 
         PanelHunadoy.setBackground(new Color(240,175,19)); 
@@ -1464,7 +1468,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        PaginasP.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
     }//GEN-LAST:event_btnHuandoyActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -1517,7 +1521,7 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane Contenedor;
     private javax.swing.JDialog ErrorExistente;
     private javax.swing.JDialog NivelSuperior;
-    public static javax.swing.JTabbedPane PaginasP;
+    public static javax.swing.JTabbedPane Paginas;
     private javax.swing.JPanel PanelCaja;
     private javax.swing.JPanel PanelCaja1;
     private javax.swing.JPanel PanelCaja2;

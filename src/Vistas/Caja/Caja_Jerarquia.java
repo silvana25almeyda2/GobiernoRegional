@@ -33,6 +33,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(new Color(255,255,255)); 
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
          setLocationRelativeTo(null);//en el centro
          cnn.LISTARNIVEL0(tbNivel0);
          tbNivel0.getTableHeader().setVisible(false);

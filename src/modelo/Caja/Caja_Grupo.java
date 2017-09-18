@@ -51,7 +51,7 @@ public boolean modificarGrupoNomenclatura(){
         boolean resp = false;
         try
         {
-            String sql = "CAJA_GRUPOS_ACTUALIZAR ?,?,?,?";
+            String sql = "EXEC CAJA_GRUPOS_ACTUALIZAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_grupo_nomen_aten());
             cmd.setString(2, getCodigo_grupo());

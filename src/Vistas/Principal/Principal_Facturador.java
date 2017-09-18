@@ -78,10 +78,7 @@ private Dimension DimensionBarra = null;
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addContainerGap(62, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(242, 242, 242));
@@ -307,7 +304,7 @@ private Dimension DimensionBarra = null;
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         this.dispose();
-        Principal.PaginasP.setSelectedIndex(0);
+        Principal.Paginas.setSelectedIndex(0);
 
     }//GEN-LAST:event_jLabel1MouseClicked
 

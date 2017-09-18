@@ -38,7 +38,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
      */
     public Caja_ReporteMensual() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
 //        Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
 //        CNVRCCB.ReporteSESION_ACTIVA(tb_ReporteDiario1);
         this.cbxAnios.setModel(Anio());

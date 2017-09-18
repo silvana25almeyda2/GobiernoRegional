@@ -44,7 +44,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
      */
     public Caja_Cierre_sa() {
         initComponents();
-//          setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+          setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
        
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro

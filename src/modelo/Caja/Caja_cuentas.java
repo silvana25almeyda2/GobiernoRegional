@@ -66,7 +66,7 @@ public boolean modificarCta1(){
         boolean resp = false;
         try
         {
-            String sql = "Caja_Cta1_Actualizar ?,?,?,?";
+            String sql = "EXEC Caja_Cta1_Actualizar ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_cuenta1());
             cmd.setString(2, getCuenta_1());

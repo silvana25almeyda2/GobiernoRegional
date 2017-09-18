@@ -34,6 +34,7 @@ import Vistas.Principal.Principal_Caja;
 import java.io.File;
 import java.sql.PreparedStatement;
 import java.util.Formatter;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import modelo.Facturador.CuentasPorPagarFacturasCabecera;
 import modelo.Facturador.CuentasPorPagarFacturasDetalle;
@@ -66,6 +67,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     public Caja_Ventas() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         CLIENTES.setLocationRelativeTo(null);//en el centro
         CPT.setLocationRelativeTo(null);//en el centro
         ErrorExistente.setLocationRelativeTo(null);//en el centro

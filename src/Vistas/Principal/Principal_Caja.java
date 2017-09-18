@@ -15,7 +15,7 @@ import Vistas.Caja.Caja_ReporteMensual;
 import Vistas.Caja.Caja_Reportes;
 import Vistas.Caja.Caja_Transaccion;
 import Vistas.Caja.Caja_Ventas;
-import static Vistas.Principal.Principal.PaginasP;
+import static Vistas.Principal.Principal.Paginas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
@@ -889,7 +889,7 @@ private Dimension DimensionBarra = null;
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
        this.dispose();
-       Principal.PaginasP.setSelectedIndex(0);
+       Principal.Paginas.setSelectedIndex(0);
        
     }//GEN-LAST:event_jLabel1MouseClicked
 

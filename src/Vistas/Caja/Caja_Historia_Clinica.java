@@ -21,6 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import modelo.Caja.Caja_Cliente;
 import modelo.Caja.Caja_Historia;
 import modelo.Caja.Caja_NuevaVenta;
@@ -42,6 +43,7 @@ Caja_Historia hC = new Caja_Historia();
     public Caja_Historia_Clinica() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         cargareliminar.setVisible(false);
         Caja_Historia A = new Caja_Historia();
         Caja_Historia N = new Caja_Historia();

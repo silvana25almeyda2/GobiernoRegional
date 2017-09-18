@@ -48,7 +48,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
        initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         this.setExtendedState(MAXIMIZED_BOTH);
-        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         LlenarTransCT2.setLocationRelativeTo(null);//en el centro
         LlenarTransCT2.getContentPane().setBackground(Color.WHITE); 
         LlenarGenericaCT3.setLocationRelativeTo(null);//en el centro

@@ -66,7 +66,7 @@ Connection conexion=c.conectar();
 //        panelMenu1.setVisible(false);
         jButton1.setVisible(false);
         
-//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         
    
 //      setLayout(new FlowLayout());

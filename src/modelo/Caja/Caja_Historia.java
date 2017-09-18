@@ -56,7 +56,7 @@ Conexion con = new Conexion();
     public void codHistoriaClinica(String usu){
         String consulta="";
         try {
-            consulta="CAJA_HISTORIA_GENERAR_NUMERO ?";
+            consulta="EXEC CAJA_HISTORIA_GENERAR_NUMERO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -183,7 +183,7 @@ Conexion con = new Conexion();
     public void LISTAR_PERMISOS_HC(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            consulta="EXEC CAJA_VERIFICAR_NIVEL_USUARIO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();

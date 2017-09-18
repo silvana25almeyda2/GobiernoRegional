@@ -30,7 +30,7 @@ private String PA_MODULO;
     public void CajaPC_Listar(){
         String consulta="";
         try {
-            consulta="[CAJA_PC_NOMBRE] ";
+            consulta="EXEC CAJA_PC_NOMBRE ";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
 //            cmd.setString(1, cp_id);
             ResultSet r= cmd.executeQuery();
@@ -49,7 +49,7 @@ private String PA_MODULO;
     public void PERFIL_USUARIO(String cp_id){
         String consulta="";
         try {
-            consulta="[CAJA_PERSONAL_USUARIO] ?";
+            consulta="EXEC CAJA_PERSONAL_USUARIO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, cp_id);
             ResultSet r= cmd.executeQuery();
@@ -172,7 +172,7 @@ private String PA_MODULO;
     public void NUMERACION(){
         String consulta="";
         try {
-            consulta="SISTEMA_CONFIGURACION_NUMERO_TERMINAL";
+            consulta="EXEC SISTEMA_CONFIGURACION_NUMERO_TERMINAL";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
 //            cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();

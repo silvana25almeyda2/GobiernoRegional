@@ -33,6 +33,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public Caja_Reportes() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
         CNVRCCB.ReporteSESION_ACTIVA(tb_ReporteDiario1);
         this.cbxAnios.setModel(Anio());

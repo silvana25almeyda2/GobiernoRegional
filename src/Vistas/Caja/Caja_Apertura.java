@@ -52,7 +52,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public Caja_Apertura() {
 
         initComponents();
-//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
        
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
@@ -80,7 +80,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Principal.PaginasP.setSelectedIndex(1);
+        Principal.Paginas.setSelectedIndex(1);
     }
     public void APERTURANDO(){
         Caja_Abrir();

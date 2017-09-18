@@ -774,17 +774,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="PaginasP" alignment="1" max="32767" attributes="0"/>
+          <Component id="Paginas" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="PaginasP" alignment="1" max="32767" attributes="0"/>
+          <Component id="Paginas" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="PaginasP">
+    <Container class="javax.swing.JTabbedPane" name="Paginas">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1341,7 +1341,7 @@
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Imagenes/Iconos/CONNECTA.png"/>
+                          <Image iconType="3" name="/Imagenes/Iconos/icons8-Mind Map-64(2).png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Conecta-M5"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>

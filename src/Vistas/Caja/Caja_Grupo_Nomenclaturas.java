@@ -35,7 +35,7 @@ Caja_Grupo cnn = new Caja_Grupo();
         setLocationRelativeTo(null);//en el centro
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-       
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         tb_Grupo.getTableHeader().setVisible(false);
 
         tb_Grupo.setTableHeader(null);

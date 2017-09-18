@@ -242,7 +242,7 @@ public boolean CIERRE(){
     public void DDATOS_GENERALES(String usu){
         String consulta="";
         try {
-            consulta="SISTEMA_DATOS_ACCESO ?";
+            consulta="exec SISTEMA_DATOS_ACCESO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -254,7 +254,7 @@ public boolean CIERRE(){
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: DATOS: " + e.getMessage());
+            System.out.println("DATOS: " + e.getMessage());
         }
     }
 
@@ -276,7 +276,7 @@ public boolean CIERRE(){
 public void CajaPC_NRO(String usu){
         String consulta="";
         try {
-            consulta="CAJA_PC_SERIE_APERTURA ?";
+            consulta="exec CAJA_PC_SERIE_APERTURA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -295,7 +295,7 @@ public void CajaPC_NRO(String usu){
 public void CajaPC_NRO_CIERRE(String usu){
         String consulta="";
         try {
-            consulta="CAJA_PC_SERIE_APERTURA ?";
+            consulta="exec CAJA_PC_SERIE_APERTURA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -314,7 +314,7 @@ public void CajaPC_NRO_CIERRE(String usu){
 public void CajaPC_NRO_CIERRE_SA(String usu){
         String consulta="";
         try {
-            consulta="CAJA_PC_SERIE_APERTURA ?";
+            consulta="exec CAJA_PC_SERIE_APERTURA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -333,7 +333,7 @@ public void CajaPC_NRO_CIERRE_SA(String usu){
 public void CajaID_SESION(String usu){
         String consulta="";
         try {
-            consulta="CAJA_ID_SESION_APERTURA_CAJA ?";
+            consulta="exec CAJA_ID_SESION_APERTURA_CAJA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -417,7 +417,7 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
     public void CIERRE_DETALLE_APERTURA(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            consulta="exec CAJA_VERIFICAR_APERTURA_CIERRE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -441,7 +441,7 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
     public void CIERRE_DETALLE_APERTURA_SA(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            consulta="exec CAJA_VERIFICAR_APERTURA_CIERRE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -465,7 +465,7 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
     public void CIERRE_DETALLE_APERTURA_PRINCIPAL(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            consulta="exec CAJA_VERIFICAR_APERTURA_CIERRE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -486,7 +486,7 @@ public void Caja_Verificar_Apertura(String usu,JTable tabla){
     public void CIERRE_DETALLE_APERTURA_SSESION_ACTIVA(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_APERTURA_CIERRE ?";
+            consulta="exec CAJA_VERIFICAR_APERTURA_CIERRE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();

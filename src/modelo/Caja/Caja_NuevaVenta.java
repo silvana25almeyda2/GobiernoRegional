@@ -150,7 +150,7 @@ private double INAFECTA;
         public void ULTIMO_CLIENTE_REGISTRADO(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VENTA_ULTIMO_CLIENTE ?";
+            consulta="EXEC CAJA_VENTA_ULTIMO_CLIENTE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();

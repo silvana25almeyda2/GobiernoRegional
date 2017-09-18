@@ -44,6 +44,7 @@ Caja_CPT nuevaR = new Caja_CPT();
         N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         cargareliminar.setVisible(false);
         this.setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         Cta6.setLocationRelativeTo(null);//en el centro
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         LIMPIAR();

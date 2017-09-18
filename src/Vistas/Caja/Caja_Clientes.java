@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import modelo.Caja.Caja_Cliente;
 import modelo.Caja.Caja_NuevaVenta;
 
@@ -39,6 +40,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         cargareliminar.setVisible(false);
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         this.setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         LIMPIAR();
         HABILITAR(false);
         btnguardar.setEnabled(false);

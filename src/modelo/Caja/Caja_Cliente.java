@@ -152,7 +152,7 @@ Conexion con = new Conexion();
     public void LISTAR_PERMISOS(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            consulta="EXEC CAJA_VERIFICAR_NIVEL_USUARIO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
@@ -174,7 +174,7 @@ Conexion con = new Conexion();
     public void LISTAR_LOCALIDAD_SEDE(String usu){
         String consulta="";
         try {
-            consulta="CAJA_VERIFICAR_UNIDAD_EJECUTORA ?";
+            consulta="EXEC CAJA_VERIFICAR_UNIDAD_EJECUTORA ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
