@@ -4173,17 +4173,19 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     File crea_archivo = new File(archivo);
                     for (int i = 0; i < tb_CPT.getRowCount(); i++){
                         
-                        double igv=0.00,precioV=0.00,venta=0.00,prxcan;                      
+                        double valorU=0.00,igv=0.00,precioV=0.00,venta=0.00,prxcan;                      
                         if(lblGrupo.getText().equalsIgnoreCase("TP")){
+                                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
                                     igv=0.00;
                                     precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
                                     venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
                                 }else{
-                                    prxcan=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)))*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
+                                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)))*100/118;
+                                    prxcan=valorU*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
                                     igv=prxcan*0.18;
-                                    precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)))+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4))));
-
+                                    precioV=valorU+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4))));
                                     venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
+                        
                         }
 //            
                         CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
@@ -4193,7 +4195,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         facturaDetalle.setCpdCantidad(Integer.parseInt(tb_CPT.getValueAt(i,4).toString()));
                         facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tb_CPT.getValueAt(i,1).toString()));
                         facturaDetalle.setCpdCodProdSunat("");
-                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tb_CPT.getValueAt(i,3).toString())));
+                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(valorU));
                         facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
                         facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble("0.00")));
                         facturaDetalle.setCpdIgv(BigDecimal.valueOf(igv));
@@ -4297,17 +4299,18 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 double valorU=0,igv=0.00,precioV=0.00,venta=0.00,prxcan;
                 for (int c = 0; c < tb_CPT.getRowCount(); c++){    
                     if(lblGrupo.getText().equalsIgnoreCase("TP")){
+                        valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)));
                         igv=0.00;
                         precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)));
                         venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
                     }else{
-                        prxcan=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)))*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
+                        valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)))*100/118;
+                        prxcan=valorU*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
                         igv=prxcan*0.18;
-                        precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)))+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4))));
-                       
+                        precioV=valorU+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4))));
                         venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 4)));
                     }
-                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(c, 3)));
+                    
                     
                     BigDecimal bdvalorU = new BigDecimal(valorU);
                     bdvalorU = bdvalorU.setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -4363,35 +4366,42 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             for (int i=0;i<modelo1.getRowCount(); i++){
                 String item, descripcion, valor_u, cantidad,
                 precio, igv="", dscto, total;
-                double Precio_cant=0.00, tot=0.00, ig =0.00;
+                double Precio_cant=0.00, tot=0.00, ig =0.00,vu=0.00;
 
                 item = tb_CPT.getValueAt(i, 1).toString();
                 descripcion = tb_CPT.getValueAt(i, 2).toString();     
                 
-                BigDecimal bdvalor_u = new BigDecimal(tb_CPT.getValueAt(i, 3).toString());
-                bdvalor_u = bdvalor_u.setScale(2, BigDecimal.ROUND_HALF_UP);
-                    
-                valor_u = String.valueOf(bdvalor_u);
+                vu = Double.parseDouble(tb_CPT.getValueAt(i, 3).toString());
+                
                 cantidad = tb_CPT.getValueAt(i, 4).toString();
                 precio = tb_CPT.getValueAt(i, 3).toString();
-
+                
                 if(lblGrupo.getText().equalsIgnoreCase("TP")){
                     igv = "0.00";
+                    total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
                     Facturador.cbxAfecIGV.setSelectedItem("30 INAFECTO-OPERACIÓN ONEROSA");
                 }else if(lblGrupo.getText().equalsIgnoreCase("FR")){
-                    igv=String.valueOf(Integer.parseInt(tb_CPT.getValueAt(i, 5).toString())*0.18);
+                    
+                    vu = Double.parseDouble( tb_CPT.getValueAt(i, 3).toString())*100/118;
+                    igv=String.valueOf(vu*Double.parseDouble(cantidad)*0.18);
+                    
+                    precio=String.valueOf(vu+(Double.parseDouble(igv)/Double.parseDouble(cantidad)));
+                    total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
                     Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
-                    precio=String.valueOf(Double.parseDouble(valor_u)+(Double.parseDouble(igv)/Double.parseDouble(cantidad)));
                 }
+                
+                            
+                
+                BigDecimal bdvalor_u = new BigDecimal(vu);
+                bdvalor_u = bdvalor_u.setScale(2, BigDecimal.ROUND_HALF_UP);
+                      
+                valor_u = String.valueOf(bdvalor_u);
                 
                 dscto = "0.00";
 
                 Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
-                ig = 0.00;
 
-                tot = Precio_cant + ig;
-
-                total = String.valueOf(tot);
+                total = String.valueOf(Precio_cant);
 
                 //Cargar los datos a la otra tabla 
                 modelo2 = (DefaultTableModel) Facturador.tbFacturacion.getModel();
