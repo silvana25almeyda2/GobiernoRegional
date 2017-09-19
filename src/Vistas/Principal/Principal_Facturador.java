@@ -7,6 +7,7 @@ package Vistas.Principal;
 
 import Vistas.Facturador.ComunicacionBaja;
 import Vistas.Facturador.NotasCreditoDebito;
+import Vistas.Facturador.ReporteNCND;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
@@ -374,7 +375,9 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnVentas3MouseEntered
 
     private void btnVentas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas3ActionPerformed
-        // TODO add your handling code here:
+        ReporteNCND r=new ReporteNCND();
+        r.setVisible(true);
+        r.lblUsu.setText(Principal.lblUsu.getText());
     }//GEN-LAST:event_btnVentas3ActionPerformed
 
 

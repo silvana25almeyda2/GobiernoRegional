@@ -52,6 +52,7 @@ private String ESTADO  ;
 private String TIPO_GRUPO;
 private int ID_PREVENTA;
 private int ID_DETALLE_PREVENTA;
+private String DESCRIP_PRE;
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 private int ID_PRECIO ;
@@ -302,7 +303,7 @@ private double INAFECTA;
         try{
             String sql = "exec CAJA_PREVENTA_ANULAR ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getID_DETALLE_PREVENTA());
+            cmd.setString(1, getDESCRIP_PRE());
             if(!cmd.execute())
             {
                 resp = true;
@@ -936,7 +937,7 @@ private double INAFECTA;
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID_Detalle","ID_CABECERA","Descripción","Cantidad","Precio","Estado","ID_PR",
+            String titulos[]={"ID_CABECERA","ID_CABECERA","Descripción","Cantidad","Precio","Estado","ID_CABECERA",
             "ID_PRECIO","ID_CTP","NOMBRE","ITEM"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -971,7 +972,7 @@ private double INAFECTA;
             System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
         }
     }
-     public void formatoPreventaFR_DETALLE(JTable tabla){
+public void formatoPreventaFR_DETALLE(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
         tabla.getColumnModel().getColumn(1).setMinWidth(0);
@@ -993,7 +994,6 @@ private double INAFECTA;
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
-    
      public Caja_NuevaVenta(){
         Conexion con = new Conexion();
         cn = con.conectar();
@@ -1221,6 +1221,14 @@ private double INAFECTA;
 
     public void setID_DETALLE_PREVENTA(int ID_DETALLE_PREVENTA) {
         this.ID_DETALLE_PREVENTA = ID_DETALLE_PREVENTA;
+    }
+
+    public String getDESCRIP_PRE() {
+        return DESCRIP_PRE;
+    }
+
+    public void setDESCRIP_PRE(String DESCRIP_PRE) {
+        this.DESCRIP_PRE = DESCRIP_PRE;
     }
      
     

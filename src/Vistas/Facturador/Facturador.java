@@ -2557,22 +2557,30 @@ public class Facturador extends javax.swing.JFrame {
                         }
                 }
                     if(rpta==true){
+                    dispose();
+                        Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(164,192,79));
+                        Caja_Ventas.Mensaje7.setText("Factura Electrónica Generada, Imprimir ?");
+                        Caja_Ventas.ImpS.setVisible(true);
+                        Caja_Ventas.ImpN.setVisible(true);
                     
-                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
-                    
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
-                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if(guardar == 0){ // SELECCION SI
-                        dispose();
-                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-                        rpta2.reporteFactura(cab3.idFactura());
-                    }else{
-                        dispose();
-                    }
+//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                    if(guardar == 0){ // SELECCION SI
+//                        dispose();
+//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+//                        rpta2.reporteFactura(cab3.idFactura(lblusu.getText()));
+//                    }else{
+//                        dispose();
+//                    }
                   
                     } else {
-                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
+                        Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
+                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
+                        Caja_Ventas.ImpS.setVisible(false);
+                        Caja_Ventas.ImpN.setVisible(false);
                     }
             }//fin if crearCabecera    
             }
@@ -2581,6 +2589,11 @@ public class Facturador extends javax.swing.JFrame {
         }
         } catch (Exception e) {
             System.out.println("error factura:" + e.getMessage());
+            Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
+                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
+                        Caja_Ventas.ImpS.setVisible(false);
+                        Caja_Ventas.ImpN.setVisible(false);
         }
     }//GEN-LAST:event_btnGenerarDocActionPerformed
 

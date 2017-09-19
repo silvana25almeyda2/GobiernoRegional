@@ -606,7 +606,7 @@ public class Principal extends javax.swing.JFrame {
         lblNivel.setForeground(new java.awt.Color(51, 51, 51));
         lblNivel.setText("CAJERO");
 
-        PanelSesion.setBackground(new java.awt.Color(39, 174, 97));
+        PanelSesion.setBackground(new java.awt.Color(230, 230, 230));
         PanelSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PanelSesionMouseEntered(evt);
@@ -614,11 +614,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsu.setForeground(new java.awt.Color(51, 51, 51));
         lblUsu.setText("RicardoCR");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Cerrar Sesión");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1272,7 +1272,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturadorActionPerformed
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
-        PanelSesion.setBackground(new Color(39,174,97)); 
+//        PanelSesion.setBackground(new Color(39,174,97)); 
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64 (1).png"));
         btnCaja.setIcon(CambioC);
         btnCaja.setForeground(new Color(51,51,51)); 
@@ -1295,7 +1295,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseEntered
 
     private void PanelSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSesionMouseEntered
-        PanelSesion.setBackground(new Color(255,51,51)); 
+//        PanelSesion.setBackground(new Color(255,51,51)); 
     }//GEN-LAST:event_PanelSesionMouseEntered
 
     private void btnCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseClicked
@@ -1436,7 +1436,7 @@ public class Principal extends javax.swing.JFrame {
         ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(1).png"));
         btnHuandoy.setIcon(CambioH);
         btnHuandoy.setForeground(new Color(255,255,255)); 
-        PanelHunadoy.setBackground(new Color(240,175,19)); 
+        PanelHunadoy.setBackground(new Color(0,188,212)); 
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);

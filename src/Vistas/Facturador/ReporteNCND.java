@@ -445,10 +445,10 @@ Conexion c=new Conexion();
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 520, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
@@ -1387,7 +1387,7 @@ Conexion c=new Conexion();
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblLineCre;
     private javax.swing.JLabel lblLineDeb;
-    private javax.swing.JLabel lblUsu;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelCPT50;
     private javax.swing.JPanel panelCPT51;
     private javax.swing.JTabbedPane tab;

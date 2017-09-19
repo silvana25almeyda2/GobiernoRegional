@@ -248,12 +248,15 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         }
     }
 
-    public String idFactura(){
+    
+    public String idFactura(String usu){
         String id = "";
         try {
-            String consulta = "EXEC CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID";
-            ResultSet r;
-            r=con.Listar(consulta);
+            String consulta = "EXEC CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+
         if(r.next()){
                id = r.getString(1);
         }
