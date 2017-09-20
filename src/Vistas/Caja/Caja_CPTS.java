@@ -602,7 +602,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel1.setText("<html>Items<span style=\"font-size:'14px'\"><br>Items, CPT</br></span></html>");
+                jLabel1.setText("<html>TUPA<span style=\"font-size:'14px'\"><br>Items</br></span></html>");
 
                 btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnNuevo.setForeground(new java.awt.Color(240, 240, 240));

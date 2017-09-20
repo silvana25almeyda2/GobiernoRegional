@@ -238,7 +238,7 @@ private Dimension DimensionBarra = null;
         btnCPT.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnCPT.setForeground(new java.awt.Color(51, 51, 51));
         btnCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"))); // NOI18N
-        btnCPT.setText("Items");
+        btnCPT.setText("TUPA");
         btnCPT.setContentAreaFilled(false);
         btnCPT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCPT.setFocusPainted(false);

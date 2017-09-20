@@ -218,7 +218,7 @@ String hora, minutos, segundos, ampm;
 
         jPanel1.setBackground(new java.awt.Color(52, 152, 219));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cuenta");
 

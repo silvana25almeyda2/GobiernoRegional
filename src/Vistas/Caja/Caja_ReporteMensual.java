@@ -468,7 +468,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 ));
                 tb_ReporteDiario1.setGridColor(new java.awt.Color(255, 255, 255));
                 tb_ReporteDiario1.setRowHeight(25);
-                tb_ReporteDiario1.setSelectionBackground(new java.awt.Color(0, 130, 114));
+                tb_ReporteDiario1.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tb_ReporteDiario1.getTableHeader().setReorderingAllowed(false);
                 tb_ReporteDiario1.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -501,9 +501,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12))
                 );
 
                 pack();

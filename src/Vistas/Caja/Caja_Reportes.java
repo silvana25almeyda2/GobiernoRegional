@@ -114,7 +114,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         btnLista = new javax.swing.JButton();
         lblusu1 = new javax.swing.JLabel();
         lblusu = new javax.swing.JLabel();
-        lblID_SESION = new javax.swing.JLabel();
         Paginas = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -664,15 +663,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 lblusu.setForeground(new java.awt.Color(255, 255, 255));
                 lblusu.setText("RicardoCR");
-                lblusu.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
                 lblusu.setFocusable(false);
                 lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
                 lblusu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-                lblID_SESION.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-                lblID_SESION.setForeground(new java.awt.Color(255, 255, 255));
-                lblID_SESION.setText("jLabel51");
-                lblID_SESION.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -697,9 +690,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                                 .addContainerGap()
                                 .addComponent(lblusu1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblID_SESION, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(19, Short.MAX_VALUE))
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -722,11 +713,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         .addGap(18, 18, 18)
                         .addComponent(btnLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblusu1)
-                                .addComponent(lblID_SESION))
-                            .addComponent(lblusu))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblusu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
 
@@ -753,7 +742,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 ));
                 tb_ReporteDiario1.setGridColor(new java.awt.Color(255, 255, 255));
                 tb_ReporteDiario1.setRowHeight(25);
-                tb_ReporteDiario1.setSelectionBackground(new java.awt.Color(0, 130, 114));
+                tb_ReporteDiario1.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tb_ReporteDiario1.getTableHeader().setReorderingAllowed(false);
                 tb_ReporteDiario1.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -865,8 +854,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                     }
                 });
 
+                lblID_APERTURA.setForeground(new java.awt.Color(230, 230, 230));
                 lblID_APERTURA.setText("jLabel5");
 
+                lblUSUARIO.setForeground(new java.awt.Color(230, 230, 230));
                 lblUSUARIO.setText("jLabel5");
 
                 javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -931,7 +922,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 ));
                 tb_ReporteDiario2.setGridColor(new java.awt.Color(255, 255, 255));
                 tb_ReporteDiario2.setRowHeight(25);
-                tb_ReporteDiario2.setSelectionBackground(new java.awt.Color(0, 130, 114));
+                tb_ReporteDiario2.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tb_ReporteDiario2.getTableHeader().setReorderingAllowed(false);
                 tb_ReporteDiario2.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1283,7 +1274,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public static javax.swing.JLabel lblFecha;
     public static javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblID_APERTURA;
-    public static javax.swing.JLabel lblID_SESION;
     public static javax.swing.JLabel lblSerie;
     public static javax.swing.JLabel lblTerminal;
     private javax.swing.JLabel lblUSUARIO;
