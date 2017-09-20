@@ -240,7 +240,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Marker-32.png"))); // NOI18N
 
-                txtUbicacion.setBackground(new java.awt.Color(0, 153, 102));
+                txtUbicacion.setBackground(new java.awt.Color(39, 174, 96));
                 txtUbicacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 txtUbicacion.setForeground(new java.awt.Color(255, 255, 255));
                 txtUbicacion.setText("ICA");

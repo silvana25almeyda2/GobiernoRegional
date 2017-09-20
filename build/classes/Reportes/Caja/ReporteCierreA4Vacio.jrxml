@@ -18,7 +18,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_CIERRE_CTA7_VACIO $P{SESION}]]>
+		<![CDATA[exec CAJA_REPORTE_CIERRE_CTA7_VACIO $P{SESION}]]>
 	</queryString>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>

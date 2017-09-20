@@ -18,13 +18,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_MENSUAL_CUENTA6]]>
+		<![CDATA[exec CAJA_REPORTE_MENSUAL_CUENTA6]]>
 	</queryString>
+	<field name="cuenta_6" class="java.lang.String"/>
 	<field name="CUENTA" class="java.lang.String"/>
-	<field name="NOMBRE" class="java.lang.String"/>
-	<field name="TIPO_VENTA" class="java.lang.String"/>
-	<field name="PRECIO" class="java.math.BigDecimal"/>
-	<field name="CANTIDAD" class="java.lang.Integer"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{TIPO_VENTA}]]></groupExpression>

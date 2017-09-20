@@ -7,6 +7,7 @@ package modelo.Caja;
 
 import Servicios.Conexion;
 import Vistas.Caja.Caja_CPTS;
+import Vistas.Caja.Caja_TUPA;
 import Vistas.Caja.Caja_ReporteMensual;
 import Vistas.Principal.Principal_Caja;
 import java.sql.Connection;
@@ -45,17 +46,17 @@ private double PRECIO;
     public boolean NUEVO_CPT(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_CPT_NUEVO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getID_GRUPO());
-            cmd.setInt(2, getID_Cuenta7());
-            cmd.setString(3, getNRO_ITEM());
-            cmd.setString(4, getNOMBRE());
-            cmd.setString(5, getBASE_LEGAL());
-            cmd.setString(6, getDESCRIPCION());
-            cmd.setString(7, getPORCENTAJE());
-            cmd.setString(8, getUSUARIO());
-            cmd.setInt(9, getID_CPT());
+//            cmd.setInt(1, getID_GRUPO());
+            cmd.setInt(1, getID_Cuenta7());
+            cmd.setString(2, getNRO_ITEM());
+            cmd.setString(3, getNOMBRE());
+            cmd.setString(4, getBASE_LEGAL());
+            cmd.setString(5, getDESCRIPCION());
+            cmd.setString(6, getPORCENTAJE());
+            cmd.setString(7, getUSUARIO());
+            cmd.setInt(8, getID_CPT());
             if(!cmd.execute())
             {
                 resp = true;
@@ -73,17 +74,16 @@ private double PRECIO;
     public boolean MODIFICAR_CPT(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CPT());
-            cmd.setInt(2, getID_GRUPO());
-            cmd.setInt(3, getID_Cuenta7());
-            cmd.setString(4, getNRO_ITEM());
-            cmd.setString(5, getNOMBRE());
-            cmd.setString(6, getBASE_LEGAL());
-            cmd.setString(7, getDESCRIPCION());
-            cmd.setString(8, getPORCENTAJE());
-            cmd.setString(9, getUSUARIO());
+            cmd.setInt(2, getID_Cuenta7());
+            cmd.setString(3, getNRO_ITEM());
+            cmd.setString(4, getNOMBRE());
+            cmd.setString(5, getBASE_LEGAL());
+            cmd.setString(6, getDESCRIPCION());
+            cmd.setString(7, getPORCENTAJE());
+            cmd.setString(8, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -189,7 +189,22 @@ private double PRECIO;
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
         if(r.next()){
-               Caja_CPTS.txtGrupo.setText(r.getString(2));
+//               Caja_TUPA.txtGrupo.setText(r.getString(2));
+               Caja_TUPA.lblIDGRUPO.setText(r.getString(1));
+        }
+        }catch(Exception ex){
+            System.out.println("ERROR AL CARGAR DATOS " + ex.getMessage());
+        }
+    }
+    
+    public void DATOS_GRUPO_CPT(String usu){
+        try {
+            String consulta = "exec CAJA_GRUPO_DATOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+        if(r.next()){
+               Caja_CPTS.txtnomenclatura.setText(r.getString(2));
                Caja_CPTS.lblIDGRUPO.setText(r.getString(1));
         }
         }catch(Exception ex){
@@ -280,7 +295,7 @@ private double PRECIO;
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Caja_CPTS.txtPrecio_Base.setText(r.getString(1)); 
+                Caja_TUPA.txtPrecio_Base.setText(r.getString(1)); 
                 }
             //
         } catch (Exception e) {
@@ -297,11 +312,11 @@ private double PRECIO;
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Caja_CPTS.lblNivel.setText(r.getString(1)); 
+                Caja_TUPA.lblNivel.setText(r.getString(1)); 
                 if(r.getString(2).equals("X")){
-                    Caja_CPTS.lblPermiso.setText("L"); 
+                    Caja_TUPA.lblPermiso.setText("L"); 
                 }else   if(r.getString(3).equals("X")){
-                    Caja_CPTS.lblPermiso.setText("E"); 
+                    Caja_TUPA.lblPermiso.setText("E"); 
                 }
                 }
             //
@@ -373,7 +388,7 @@ private double PRECIO;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/TUPA.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("TUPA");
-           ventanavisor.setVisible(true);
+            ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error_REPORTE TUPA:"+e.getMessage());
         }

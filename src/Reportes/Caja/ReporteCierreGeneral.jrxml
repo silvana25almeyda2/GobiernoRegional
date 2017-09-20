@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_VENTA_CIERRRE_GENERAL $P{USUARIO},$P{SESION}]]>
+		<![CDATA[exec CAJA_VENTA_CIERRRE_GENERAL $P{USUARIO},$P{SESION}]]>
 	</queryString>
 	<field name="TIPO" class="java.lang.String"/>
 	<field name="DOCUMENTO" class="java.lang.String"/>

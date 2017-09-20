@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.5026296018031564"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="49"/>
+	<property name="ireport.y" value="481"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -94,6 +94,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 	<field name="TELEFONO" class="java.lang.String"/>
 	<field name="nombre_distrito" class="java.lang.String"/>
 	<field name="PERSONAL" class="java.lang.String"/>
+	<field name="ID_SESION" class="java.lang.String"/>
 	<field name="LETRAS" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -398,7 +399,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<text><![CDATA[FECHA DE EMISIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="117" width="191" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
+				<reportElement x="2" y="142" width="191" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -426,14 +427,14 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textFieldExpression><![CDATA[$F{HORA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="2" y="129" width="191" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
+				<reportElement x="2" y="154" width="191" height="20" uuid="687c9a76-b299-4ce4-9a92-8c7b37da806c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["TELÉFONOS  "+$F{TELEFONO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="149" width="196" height="20" forecolor="#FFFFFF" uuid="f6402273-1ac0-4dab-a706-444482d15091"/>
+				<reportElement x="2" y="174" width="196" height="20" forecolor="#FFFFFF" uuid="f6402273-1ac0-4dab-a706-444482d15091"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--]]></text>
 			</staticText>
@@ -459,12 +460,31 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<text><![CDATA[Electrónica, consulte en www.sunat.gob.pe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="149" width="191" height="20" uuid="0d7614d7-c904-4989-8094-03f15844541e"/>
+				<reportElement x="2" y="174" width="191" height="20" uuid="0d7614d7-c904-4989-8094-03f15844541e"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[VISÍTENOS  www.diresaica.gob.pe/]]></text>
 			</staticText>
+			<line>
+				<reportElement x="2" y="114" width="198" height="1" uuid="a4dde2d5-c72b-48dd-9de7-08dd1ba3c5b1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="2" y="134" width="198" height="1" uuid="192473ce-e652-4a77-ac43-450b38fc319b"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="2" y="115" width="191" height="20" uuid="6772a0a4-6c89-4501-8a1f-16109f15b02f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_SESION}]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

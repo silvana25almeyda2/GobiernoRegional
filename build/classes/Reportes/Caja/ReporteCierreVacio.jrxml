@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="778"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -18,7 +18,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_CIERRE_CTA7_VACIO $P{SESION}]]>
+		<![CDATA[exec CAJA_REPORTE_CIERRE_CTA7_VACIO $P{SESION}]]>
 	</queryString>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>

@@ -5,7 +5,7 @@
  */
 package Vistas.Principal;
 
-import Vistas.Caja.Caja_CPTS;
+import Vistas.Caja.Caja_TUPA;
 import Vistas.Caja.Caja_Ventas;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -85,7 +85,7 @@ private Dimension DimensionBarra = null;
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Conecta-M5®");
+        jLabel1.setText("Acerca de");
         jLabel1.setIconTextGap(30);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -97,7 +97,7 @@ private Dimension DimensionBarra = null;
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +132,7 @@ private Dimension DimensionBarra = null;
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Conecta-M5");
+        jLabel2.setText("Conecta-M5®");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);

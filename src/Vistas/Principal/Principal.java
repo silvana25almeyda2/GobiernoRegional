@@ -6,7 +6,7 @@
 package Vistas.Principal;
 
 import Vistas.Caja.Caja_Apertura;
-import Vistas.Caja.Caja_CPTS;
+import Vistas.Caja.Caja_TUPA;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
 import Vistas.Caja.Caja_Jerarquia;
@@ -996,16 +996,14 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addComponent(lblPersonal1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPersonal)
                         .addGap(18, 18, 18)
                         .addComponent(lblCod_Modulo))
                     .addComponent(lblNivel)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblUsu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3))))
+                    .addComponent(lblUsu)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1018,10 +1016,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(lblCod_Modulo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNivel)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsu)
-                    .addComponent(jLabel3))
+                .addGap(39, 39, 39)
+                .addComponent(lblUsu)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1032,7 +1030,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1045,7 +1043,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1060,10 +1058,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(52, 152, 219));

@@ -2,12 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4_CCT6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68aa4cbc-4f9e-4b97-8f4d-81d5a1c0415e">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="104"/>
+	<property name="ireport.y" value="348"/>
 	<parameter name="SESION" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_CIERRE_CTA6 $P{SESION}]]>
+		<![CDATA[exec CAJA_REPORTE_CIERRE_CTA6 $P{SESION}]]>
 	</queryString>
 	<field name="CUENTA" class="java.lang.String"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>

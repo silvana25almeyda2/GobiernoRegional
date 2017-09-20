@@ -246,7 +246,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
             btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
-            btnNuevo.setText("Agregar");
+            btnNuevo.setText("Nuevo");
             btnNuevo.setContentAreaFilled(false);
             btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnNuevo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

@@ -6,6 +6,7 @@
 package Vistas.Principal;
 
 import Vistas.Caja.Caja_CPTS;
+import Vistas.Caja.Caja_TUPA;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
 import Vistas.Caja.Caja_Grupo_Nomenclaturas;
@@ -97,6 +98,8 @@ private Dimension DimensionBarra = null;
         lblTipo_Sede = new javax.swing.JLabel();
         txtUbicacion = new javax.swing.JLabel();
         ibiIDAPERTURA = new javax.swing.JLabel();
+        PanelCPT2 = new javax.swing.JPanel();
+        btnCPT2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -265,7 +268,7 @@ private Dimension DimensionBarra = null;
         PanelCPT.setLayout(PanelCPTLayout);
         PanelCPTLayout.setHorizontalGroup(
             PanelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCPT, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(btnCPT, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
         );
         PanelCPTLayout.setVerticalGroup(
             PanelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +407,7 @@ private Dimension DimensionBarra = null;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(lblPersonal1)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblIDSESION)
@@ -590,6 +593,46 @@ private Dimension DimensionBarra = null;
         ibiIDAPERTURA.setForeground(new java.awt.Color(242, 242, 242));
         ibiIDAPERTURA.setText("jLabel48");
 
+        PanelCPT2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCPT2.setBackground(new java.awt.Color(102, 102, 102));
+        btnCPT2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnCPT2.setForeground(new java.awt.Color(51, 51, 51));
+        btnCPT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Product-64.png"))); // NOI18N
+        btnCPT2.setText("Items");
+        btnCPT2.setContentAreaFilled(false);
+        btnCPT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCPT2.setFocusPainted(false);
+        btnCPT2.setFocusable(false);
+        btnCPT2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCPT2.setIconTextGap(30);
+        btnCPT2.setVerifyInputWhenFocusTarget(false);
+        btnCPT2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCPT2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCPT2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCPT2MouseEntered(evt);
+            }
+        });
+        btnCPT2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCPT2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCPT2Layout = new javax.swing.GroupLayout(PanelCPT2);
+        PanelCPT2.setLayout(PanelCPT2Layout);
+        PanelCPT2Layout.setHorizontalGroup(
+            PanelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCPT2Layout.setVerticalGroup(
+            PanelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -598,24 +641,11 @@ private Dimension DimensionBarra = null;
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(txtUbicacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTipo_Sede))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(ibiIDAPERTURA))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(PanelCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -623,13 +653,30 @@ private Dimension DimensionBarra = null;
                                 .addGap(18, 18, 18)
                                 .addComponent(PanelCaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(PanelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(PanelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(55, 55, 55)
+                                        .addComponent(txtUbicacion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblTipo_Sede)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPermiso)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(17, 17, 17)
+                                        .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(PanelCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(lblNivel))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(lblPermiso)))
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -637,24 +684,23 @@ private Dimension DimensionBarra = null;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblTipo_Sede)
-                                    .addComponent(txtUbicacion)))
+                                    .addComponent(txtUbicacion)
+                                    .addComponent(lblPermiso)))
                             .addComponent(ibiIDAPERTURA))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPermiso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(lblNivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,7 +708,9 @@ private Dimension DimensionBarra = null;
                             .addComponent(PanelCaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelCaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(88, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(36, Short.MAX_VALUE))))
         );
 
         jPanel4.setBackground(new java.awt.Color(39, 174, 96));
@@ -733,7 +781,7 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnCPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseClicked
-        Caja_CPTS TP = new Caja_CPTS();
+        Caja_TUPA TP = new Caja_TUPA();
 
         TP.lblusu.setText(Principal.lblUsu.getText());
         TP.setVisible(true);
@@ -925,11 +973,26 @@ private Dimension DimensionBarra = null;
         frmCIERRE.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void btnCPT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPT2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPT2MouseClicked
+
+    private void btnCPT2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPT2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPT2MouseEntered
+
+    private void btnCPT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPT2ActionPerformed
+        Caja_CPTS CP = new Caja_CPTS();
+        CP.lblusu.setText(Principal.lblUsu.getText());
+        CP.setVisible(true);
+    }//GEN-LAST:event_btnCPT2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog NivelSuperior;
     private javax.swing.JPanel PanelCPT;
     private javax.swing.JPanel PanelCPT1;
+    private javax.swing.JPanel PanelCPT2;
     private javax.swing.JPanel PanelCaja;
     private javax.swing.JPanel PanelCaja1;
     private javax.swing.JPanel PanelCaja2;
@@ -939,6 +1002,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JButton btnAlertConsulta10;
     public static javax.swing.JButton btnCPT;
     public static javax.swing.JButton btnCPT1;
+    public static javax.swing.JButton btnCPT2;
     public static javax.swing.JButton btnCaja3;
     public static javax.swing.JButton btnClientes;
     public static javax.swing.JButton btnVentas;

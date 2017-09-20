@@ -393,7 +393,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
        Statement  st = null;   
         try {
               st = ConexionS.createStatement();
-              r = st.executeQuery ("CAJA_PAGOS_LISTAR_FORMA_PAGO"); 
+              r = st.executeQuery ("EXEC CAJA_PAGOS_LISTAR_FORMA_PAGO"); 
 //              listmodel.addElement("Seleccionar...");
             while( r.next() ){
                 listmodel.addElement( r.getString( "DESCIPCION" ) );                

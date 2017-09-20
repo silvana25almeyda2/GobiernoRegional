@@ -21,7 +21,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[CAJA_REPORTE_MENSUAL_CTA6_TODOS $P{MES},$P{SESION}]]>
+		<![CDATA[EXEC CAJA_REPORTE_MENSUAL_CTA6_TODOS $P{MES},$P{SESION}]]>
 	</queryString>
 	<field name="CUENTA" class="java.lang.String"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
