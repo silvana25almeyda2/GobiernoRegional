@@ -216,7 +216,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 188, 212));
+        jPanel1.setBackground(new java.awt.Color(52, 152, 219));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -296,22 +296,22 @@ String hora, minutos, segundos, ampm;
 
         lblFecha.setBackground(new java.awt.Color(0, 188, 212));
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(0, 188, 212));
+        lblFecha.setForeground(new java.awt.Color(52, 152, 219));
         lblFecha.setText("00/00/00");
 
         jLabel2.setBackground(new java.awt.Color(0, 188, 212));
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 188, 212));
+        jLabel2.setForeground(new java.awt.Color(52, 152, 219));
         jLabel2.setText("Fecha");
 
         jLabel5.setBackground(new java.awt.Color(0, 188, 212));
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 188, 212));
+        jLabel5.setForeground(new java.awt.Color(52, 152, 219));
         jLabel5.setText("Hora");
 
         lblHora.setBackground(new java.awt.Color(0, 188, 212));
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(0, 188, 212));
+        lblHora.setForeground(new java.awt.Color(52, 152, 219));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -383,7 +383,7 @@ String hora, minutos, segundos, ampm;
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel17.setBackground(new java.awt.Color(0, 188, 212));
+        jPanel17.setBackground(new java.awt.Color(52, 152, 219));
         jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
