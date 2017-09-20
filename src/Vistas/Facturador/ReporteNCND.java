@@ -426,7 +426,7 @@ Conexion c=new Conexion();
 
                         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
                         jLabel1.setForeground(new java.awt.Color(41, 127, 184));
-                        jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Notas de Crédito y Débito</html>");
+                        jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuentas por Cobrar - </span>Notas de Crédito y Débito</html>");
 
                         lblUsu.setBackground(new java.awt.Color(255, 255, 255));
                         lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -445,7 +445,7 @@ Conexion c=new Conexion();
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -488,7 +488,7 @@ Conexion c=new Conexion();
 
             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(41, 127, 184));
-            jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Comunicación de Baja</html>");
+            jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuentas por Cobrar - </span>Comunicación de Baja</html>");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);

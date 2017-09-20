@@ -229,7 +229,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="500" max="32767" attributes="0"/>
+                  <EmptySpace pref="466" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblUsu" min="-2" pref="68" max="-2" attributes="0"/>
@@ -321,7 +321,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="7f" red="29" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;span style=&quot;font-size:&apos;30px&apos;&quot;&gt;Cuenta por Pagar - &lt;/span&gt;Notas de Cr&#xe9;dito y D&#xe9;bito&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;span style=&quot;font-size:&apos;30px&apos;&quot;&gt;Cuentas por Cobrar - &lt;/span&gt;Notas de Cr&#xe9;dito y D&#xe9;bito&lt;/html&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblUsu">

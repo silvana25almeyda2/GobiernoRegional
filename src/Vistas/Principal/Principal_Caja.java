@@ -665,7 +665,7 @@ private Dimension DimensionBarra = null;
                         .addContainerGap(88, Short.MAX_VALUE))))
         );
 
-        jPanel4.setBackground(new java.awt.Color(52, 152, 219));
+        jPanel4.setBackground(new java.awt.Color(39, 174, 96));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));

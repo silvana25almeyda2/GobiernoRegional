@@ -72,7 +72,7 @@ private Dimension DimensionBarra = null;
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
