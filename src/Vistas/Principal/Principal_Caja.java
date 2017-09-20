@@ -185,7 +185,7 @@ private Dimension DimensionBarra = null;
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(50, 154, 102));
+        jPanel1.setBackground(new java.awt.Color(39, 174, 96));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -727,23 +727,16 @@ private Dimension DimensionBarra = null;
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64 (1).png"));
         btnVentas.setIcon(CambioV);
-        btnVentas.setForeground(new Color(255,255,255)); 
-        PanelCaja.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
         btnCPT.setIcon(CambioC);
-        btnCPT.setForeground(new Color(51,51,51)); 
-        PanelCPT.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
-        btnClientes.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
-        btnCaja3.setForeground(new Color(51,51,51)); 
-        PanelCaja3.setBackground(new Color(255,255,255)); 
+
     }//GEN-LAST:event_btnVentasMouseEntered
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
@@ -766,23 +759,15 @@ private Dimension DimensionBarra = null;
     private void btnCPTMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseEntered
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64 (1).png"));
         btnCPT.setIcon(CambioC);
-        btnCPT.setForeground(new Color(255,255,255)); 
-        PanelCPT.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
-        btnVentas.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
-        btnClientes.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
-        btnCaja3.setForeground(new Color(51,51,51)); 
-        PanelCaja3.setBackground(new Color(255,255,255)); 
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
@@ -797,24 +782,15 @@ private Dimension DimensionBarra = null;
 
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
         btnClientes.setIcon(CambioP);
-        btnClientes.setForeground(new Color(255,255,255)); 
-        PanelCaja2.setBackground(new Color(0,153,102)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
-        btnVentas.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
         btnCPT.setIcon(CambioC);
-        btnCPT.setForeground(new Color(51,51,51)); 
-        PanelCPT.setBackground(new Color(255,255,255)); 
-        
-        
+
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64.png"));
         btnCaja3.setIcon(CambioCT);
-        btnCaja3.setForeground(new Color(51,51,51)); 
-        PanelCaja3.setBackground(new Color(255,255,255)); 
     }//GEN-LAST:event_btnClientesMouseEntered
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
@@ -838,23 +814,15 @@ private Dimension DimensionBarra = null;
     private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnClientes.setIcon(CambioP);
-        btnClientes.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioV=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Monedas-64.png"));
         btnVentas.setIcon(CambioV);
-        btnVentas.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64.png"));
         btnCPT.setIcon(CambioC);
-        btnCPT.setForeground(new Color(51,51,51)); 
-        PanelCPT.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioCT=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Accounting-64(1).png"));
         btnCaja3.setIcon(CambioCT);
-        btnCaja3.setForeground(new Color(255,255,255)); 
-        PanelCaja3.setBackground(new Color(0,153,102));
     }//GEN-LAST:event_btnCaja3MouseEntered
 
     private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed

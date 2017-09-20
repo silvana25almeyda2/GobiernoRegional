@@ -222,7 +222,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                    jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                    jPanel1.setBackground(new java.awt.Color(39, 174, 96));
 
                     btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     btneditar.setForeground(new java.awt.Color(240, 240, 240));

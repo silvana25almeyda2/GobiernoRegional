@@ -592,7 +592,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                jPanel1.setBackground(new java.awt.Color(39, 174, 96));
                 jPanel1.setPreferredSize(new java.awt.Dimension(284, 678));
                 jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -814,11 +814,11 @@ Caja_CPT nuevaR = new Caja_CPT();
                 lblCrick.setText("0");
 
                 lblNivel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                lblNivel.setForeground(new java.awt.Color(0, 153, 102));
+                lblNivel.setForeground(new java.awt.Color(39, 174, 96));
                 lblNivel.setText("jLabel2");
 
                 lblPermiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                lblPermiso.setForeground(new java.awt.Color(0, 153, 102));
+                lblPermiso.setForeground(new java.awt.Color(39, 174, 96));
                 lblPermiso.setText("jLabel2");
 
                 lblEditar.setForeground(new java.awt.Color(23, 160, 134));

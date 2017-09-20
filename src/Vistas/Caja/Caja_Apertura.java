@@ -374,13 +374,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel1.setBackground(new java.awt.Color(39, 174, 96));
 
         lblTexto.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         lblTexto.setForeground(new java.awt.Color(255, 255, 255));
         lblTexto.setText("Apertura de Caja");
 
-        lblID.setForeground(new java.awt.Color(0, 153, 102));
+        lblID.setForeground(new java.awt.Color(39, 174, 96));
         lblID.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

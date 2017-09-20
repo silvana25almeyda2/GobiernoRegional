@@ -364,7 +364,7 @@ Connection conexion=c.conectar();
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setMinimumSize(new java.awt.Dimension(807, 525));
+            setMinimumSize(new java.awt.Dimension(807, 535));
             setResizable(false);
             getContentPane().setLayout(null);
 

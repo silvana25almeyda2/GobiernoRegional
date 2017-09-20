@@ -444,6 +444,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     
     public void NUEVO_REGISTRO(java.sql.Connection con) {
         try {
+            Caja_NuevaVenta cno2 = new Caja_NuevaVenta();
+            cno2.DATOS_FP(cbxFormaPago.getSelectedItem().toString());
+            Caja_NuevaVenta cno3 = new Caja_NuevaVenta();
+            cno3.DATOS_FP(cbxFormaPago.getSelectedItem().toString());
             // instanciamos el objeto callable
             CallableStatement cstmt = con.prepareCall("exec CAJA_VENTA_CABECERA_NUEVO ?,?,?,?,?,?,?,?");
             // seteamos los parametros de entrada
@@ -511,26 +515,30 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     
     public void ACTUALIZAR_PREVENTA(){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
-                cno1.setID_PREVENTA(Integer.parseInt(lblID_CAB_PREVENTAS.getText()));
-                    if(cno1.ACTUALIZAR_PREVENTA()==true){
-                        System.out.println("SE CAMBIO EL ESTADO DE LA PREVENTA"); 
-                    } else {
-                        System.out.println("NO  SE RELIZARON CAMBIOS EN LA PREVENTA");
-                    }
+                cno1.setID_PREVENTA(lblID_CAB_PREVENTAS.getText());
+                cno1.ACTUALIZAR_PREVENTA();
+                System.out.println("SE CAMBIO EL ESTADO DE LA PREVENTA"); 
+                 
+                    
+    }
+    public void ACTUALIZAR_PREVENTA_CAB(){
+                Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
+                cno1.setID_PREVENTA(lblID_CAB_PREVENTAS.getText());
+                cno1.ACTUALIZAR_PREVENTA_CAB();
+                System.out.println("SE CAMBIO EL ESTADO DE LA PREVENTA CAB");  
     }
     
     public void ANULAR_PREVENTA(){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
-                cno1.setDESCRIP_PRE(lblID_CAB_PREVENTAS.getText());
-                    if(cno1.ANULAR_PREVENTA()==true){
-                        Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
-                        CPFR.CAJA_PREVENTAS_FR_DETALLE(lblID_CAB.getName(),tFRDet);
-                        panelEliminarFR.setVisible(false);
-                        System.out.println("SE ANULO LA PREVENTA"); 
-                    } else {
-                        System.out.println("NO SE ANULO LA PREVENTA");
-                    }
+                cno1.setDESCRIP_PRE(lblID_DETALLE.getText());
+                cno1.ANULAR_PREVENTA();
+                Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
+                CPFR.CAJA_PREVENTAS_FR_DETALLE(lblID_CAB.getName(),tFRDet);
+                panelEliminarFR.setVisible(false);
+                System.out.println("SE ANULO LA PREVENTA"); 
+                   
     }
+    
     
     public void NUEVO_REGISTRO_DETALLE(){
         CuentasPorPagarFacturasCabecera cuentasCab3 = new CuentasPorPagarFacturasCabecera();
@@ -1947,7 +1955,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                                                        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                                                        jPanel1.setBackground(new java.awt.Color(39, 174, 96));
                                                         jPanel1.setPreferredSize(new java.awt.Dimension(284, 684));
 
                                                         jLabel57.setBackground(new java.awt.Color(255, 255, 255));
@@ -2082,13 +2090,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         lblID_SESION.setText("jLabel51");
                                                         lblID_SESION.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-                                                        lblID_DOCUEMENTO.setForeground(new java.awt.Color(0, 153, 102));
+                                                        lblID_DOCUEMENTO.setForeground(new java.awt.Color(39, 174, 96));
                                                         lblID_DOCUEMENTO.setText("jLabel1");
 
-                                                        Tipo_Documento.setForeground(new java.awt.Color(0, 153, 102));
+                                                        Tipo_Documento.setForeground(new java.awt.Color(39, 174, 96));
                                                         Tipo_Documento.setText("jLabel1");
 
-                                                        lblTIPO_DOC.setForeground(new java.awt.Color(23, 160, 134));
+                                                        lblTIPO_DOC.setForeground(new java.awt.Color(39, 174, 96));
                                                         lblTIPO_DOC.setText("0");
 
                                                         txtDsctoGlobal.setText("jLa");
@@ -3137,10 +3145,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             panleBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(panleBoletaLayout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addComponent(Mensaje7, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Mensaje7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(ImpS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addGap(18, 18, 18)
                                                                 .addComponent(ImpN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         );
@@ -3212,15 +3220,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                             .addComponent(lblCorrelativo))))
                                                                                 .addGap(21, 21, 21)
                                                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                                        .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                        .addComponent(txtSubTotal)
-                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                        .addComponent(txtIGV)
-                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                        .addComponent(txtTotal))
-                                                                                    .addComponent(jButton2))))
+                                                                                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                    .addComponent(jButton2))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtSubTotal)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtIGV)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtTotal)))
                                                                         .addGap(151, 151, 151))
                                                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                                                         .addComponent(lblID_Documento)
@@ -3997,7 +4004,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             ACTUALIZAR_CABECERA();
             GENERAR_BOLETA_ELECTRONICA();
             if(!lblID_CAB_PREVENTAS.getText().equals("jLabel1")){
-//                ACTUALIZAR_PREVENTA();
+                ACTUALIZAR_PREVENTA();
+                ACTUALIZAR_PREVENTA_CAB();
             }
             
             nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
@@ -4058,14 +4066,18 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tb_ReporteDiario1KeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NUEVO_REGISTRO(ConexionS);
+            CARGAR_PREVENTA(); 
+            CARGAR();
+            NUEVO_REGISTRO(ConexionS);   
+            MostrarPreventa();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
             if(!lblID_CAB_PREVENTAS.getText().equals("jLabel1")){
-//                ACTUALIZAR_PREVENTA();
+                ACTUALIZAR_PREVENTA();
+                ACTUALIZAR_PREVENTA_CAB();
             }
 //            nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
             panelAnular.setVisible(false);
@@ -4098,13 +4110,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
 //            Caja_Documento_Detalle FPFR = new Caja_Documento_Detalle();
             lblID_CAB_PREVENTAS.setText(String.valueOf(tbFR.getValueAt(fila, 4)));
+            System.out.println("CODIGO PARA ACTUALIZAR    "+String.valueOf(tbFR.getValueAt(fila, 4)));
 //            lblCabecera.setText(String.valueOf(tbFR.getValueAt(fila, 4)));
             ////////////////////////////////////////////////CAMBIO FORMA DE PAGO
 //            txtFormaPago.setText(String.valueOf(tbFR.getValueAt(fila, 0)));
 //            FPFR.CONSULTAR_COD_FP_FR(txtFormaPago.getText());
-
             ////////////////////////////////////////////////////////////////////
-
             CPFR.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDet);
         }
     }//GEN-LAST:event_tbFRMouseClicked
@@ -4125,7 +4136,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     private void tFRDetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFRDetMouseClicked
         int fila=tFRDet.getSelectedRow();
         if(evt.getClickCount()==1){
-            lblID_DETALLE.setText(String.valueOf(tFRDet.getValueAt(fila, 1)));
+            lblID_DETALLE.setText(String.valueOf(tFRDet.getValueAt(fila, 2)));
+            System.out.println("VAMO ELIMINANDO       "+String.valueOf(tFRDet.getValueAt(fila, 2)));
             lblID_CAB.setText(String.valueOf(tFRDet.getValueAt(fila, 0)));
             btnEliminarHOS1.setEnabled(true);
         }

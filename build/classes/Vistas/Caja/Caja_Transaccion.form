@@ -1019,7 +1019,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="99" red="0" type="rgb"/>
+          <Color blue="60" green="ae" red="27" type="rgb"/>
         </Property>
       </Properties>
 
@@ -1306,7 +1306,7 @@
         <Component class="javax.swing.JLabel" name="lblBusqueda">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="99" red="0" type="rgb"/>
+              <Color blue="60" green="ae" red="27" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1314,7 +1314,7 @@
         <Component class="javax.swing.JLabel" name="lblMant">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="99" red="0" type="rgb"/>
+              <Color blue="60" green="ae" red="27" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>

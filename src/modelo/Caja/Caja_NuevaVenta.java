@@ -50,7 +50,7 @@ private String TIPO_VENTA  ;
 private int ID_APERTURA  ;
 private String ESTADO  ;
 private String TIPO_GRUPO;
-private int ID_PREVENTA;
+private String ID_PREVENTA;
 private int ID_DETALLE_PREVENTA;
 private String DESCRIP_PRE;
 ////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +283,7 @@ private double INAFECTA;
         try{
             String sql = "exec CAJA_PREVENTA_ACTUALIZAR_ESTADO ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getID_PREVENTA());
+            cmd.setString(1, getID_PREVENTA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -294,6 +294,25 @@ private double INAFECTA;
         catch(Exception ex)
         {
             System.out.println("ERROR AL ACTUALIZAR ESTADO DE LA PREVENTA  " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean ACTUALIZAR_PREVENTA_CAB(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_PREVENTA_ACTUALIZAR_ESTADO_CAB ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getID_PREVENTA());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ACTUALIZAR ESTADO DE LA PREVENTA CAB " + ex.getMessage());
         }
         return resp;
     }
@@ -1207,11 +1226,11 @@ public void formatoPreventaFR_DETALLE(JTable tabla){
         this.INAFECTA = INAFECTA;
     }
 
-    public int getID_PREVENTA() {
+    public String getID_PREVENTA() {
         return ID_PREVENTA;
     }
 
-    public void setID_PREVENTA(int ID_PREVENTA) {
+    public void setID_PREVENTA(String ID_PREVENTA) {
         this.ID_PREVENTA = ID_PREVENTA;
     }
 

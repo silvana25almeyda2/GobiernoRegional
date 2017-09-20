@@ -539,7 +539,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-                jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                jPanel1.setBackground(new java.awt.Color(39, 174, 96));
                 jPanel1.setPreferredSize(new java.awt.Dimension(284, 684));
 
                 jLabel57.setBackground(new java.awt.Color(255, 255, 255));

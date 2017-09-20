@@ -1207,56 +1207,37 @@ public class Principal extends javax.swing.JFrame {
     private void btnCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseEntered
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64.png"));
         btnCaja.setIcon(CambioC);
-        btnCaja.setForeground(new Color(255,255,255)); 
-        PanelCaja.setBackground(new Color(0,153,102));  
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);
-        btnFacturador.setForeground(new Color(51,51,51)); 
-        PanelFacturador.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
-        btnHuandoy.setIcon(CambioH);
-        btnHuandoy.setForeground(new Color(51,51,51)); 
-        PanelHunadoy.setBackground(new Color(255,255,255)); 
+        btnHuandoy.setIcon(CambioH); 
         
         ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"));
         btnUsuarios.setIcon(CambioU);
-        btnUsuarios.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnPersonal.setIcon(CambioP);
-        btnPersonal.setForeground(new Color(51,51,51)); 
-        PanelCaja1.setBackground(new Color(255,255,255)); 
         
     }//GEN-LAST:event_btnCajaMouseEntered
 
     private void btnFacturadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFacturadorMouseEntered
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64 (1).png"));
         btnFacturador.setIcon(CambioF);
-        btnFacturador.setForeground(Color.white);
-        PanelFacturador.setBackground(new Color(41,127,184)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64 (1).png"));
         btnCaja.setIcon(CambioC);
-        btnCaja.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
-        btnHuandoy.setForeground(new Color(51,51,51)); 
-        PanelHunadoy.setBackground(new Color(255,255,255));
         
         ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"));
         btnUsuarios.setIcon(CambioU);
-        btnUsuarios.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnPersonal.setIcon(CambioP);
-        btnPersonal.setForeground(new Color(51,51,51)); 
-        PanelCaja1.setBackground(new Color(255,255,255)); 
+        
     }//GEN-LAST:event_btnFacturadorMouseEntered
 
     private void btnFacturadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturadorActionPerformed
@@ -1351,28 +1332,19 @@ public class Principal extends javax.swing.JFrame {
     private void btnPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPersonalMouseEntered
        ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
-        btnHuandoy.setForeground(new Color(51,51,51)); 
-        PanelHunadoy.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);
-        btnFacturador.setForeground(new Color(51,51,51)); 
-        PanelFacturador.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64 (1).png"));
         btnCaja.setIcon(CambioC);
-        btnCaja.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"));
         btnUsuarios.setIcon(CambioU);
-        btnUsuarios.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64.png"));
+        ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-User Group Man Man-64.png"));
         btnPersonal.setIcon(CambioP);
-        btnPersonal.setForeground(new Color(255,255,255)); 
-        PanelCaja1.setBackground(new Color(122,77,135)); 
+
     }//GEN-LAST:event_btnPersonalMouseEntered
 
     private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
@@ -1394,28 +1366,19 @@ public class Principal extends javax.swing.JFrame {
     private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
         ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(2).png"));
         btnHuandoy.setIcon(CambioH);
-        btnHuandoy.setForeground(new Color(51,51,51)); 
-        PanelHunadoy.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);
-        btnFacturador.setForeground(new Color(51,51,51)); 
-        PanelFacturador.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64 (1).png"));
         btnCaja.setIcon(CambioC);
-        btnCaja.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
-        ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64.png"));
+        ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Password-64.png"));
         btnUsuarios.setIcon(CambioU);
-        btnUsuarios.setForeground(new Color(255,255,255)); 
-        PanelCaja2.setBackground(new Color(209,52,56)); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnPersonal.setIcon(CambioP);
-        btnPersonal.setForeground(new Color(51,51,51)); 
-        PanelCaja1.setBackground(new Color(255,255,255)); 
+
     }//GEN-LAST:event_btnUsuariosMouseEntered
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
@@ -1435,28 +1398,18 @@ public class Principal extends javax.swing.JFrame {
     private void btnHuandoyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHuandoyMouseEntered
         ImageIcon CambioH=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Mind Map-64(1).png"));
         btnHuandoy.setIcon(CambioH);
-        btnHuandoy.setForeground(new Color(255,255,255)); 
-        PanelHunadoy.setBackground(new Color(0,188,212)); 
         
         ImageIcon CambioF=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Dinero-64.png"));
         btnFacturador.setIcon(CambioF);
-        btnFacturador.setForeground(new Color(51,51,51)); 
-        PanelFacturador.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Caja fuerte-64 (1).png"));
         btnCaja.setIcon(CambioC);
-        btnCaja.setForeground(new Color(51,51,51)); 
-        PanelCaja.setBackground(new Color(255,255,255)); 
         
         ImageIcon CambioU=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Bloquear-64 (1).png"));
-        btnUsuarios.setIcon(CambioU);
-        btnUsuarios.setForeground(new Color(51,51,51)); 
-        PanelCaja2.setBackground(new Color(255,255,255)); 
+        btnUsuarios.setIcon(CambioU); 
         
         ImageIcon CambioP=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Grupo de usuarios hombre hombre-64 (1).png"));
         btnPersonal.setIcon(CambioP);
-        btnPersonal.setForeground(new Color(51,51,51)); 
-        PanelCaja1.setBackground(new Color(255,255,255)); 
     }//GEN-LAST:event_btnHuandoyMouseEntered
 
     private void btnHuandoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuandoyActionPerformed

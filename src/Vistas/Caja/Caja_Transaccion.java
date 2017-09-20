@@ -2150,7 +2150,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                                                             setMinimumSize(new java.awt.Dimension(749, 473));
 
-                                                            jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                                                            jPanel1.setBackground(new java.awt.Color(39, 174, 96));
 
                                                             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
@@ -2270,10 +2270,10 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
                                                             lbldetalle.setText("Cuenta, Descripción");
 
-                                                            lblBusqueda.setForeground(new java.awt.Color(0, 153, 102));
+                                                            lblBusqueda.setForeground(new java.awt.Color(39, 174, 96));
                                                             lblBusqueda.setText("0");
 
-                                                            lblMant.setForeground(new java.awt.Color(0, 153, 102));
+                                                            lblMant.setForeground(new java.awt.Color(39, 174, 96));
                                                             lblMant.setText("jLabel1");
 
                                                             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
