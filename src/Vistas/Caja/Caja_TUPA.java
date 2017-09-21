@@ -44,7 +44,7 @@ Caja_CPT nuevaR = new Caja_CPT();
         N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         cargareliminar.setVisible(false);
         this.setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         Cta6.setLocationRelativeTo(null);//en el centro
         NivelSuperior.setLocationRelativeTo(null);//en el centro
         LIMPIAR();
@@ -99,9 +99,9 @@ Caja_CPT nuevaR = new Caja_CPT();
         eli1.setForeground(new Color(51,51,51));
         save.setForeground(new Color(51,51,51));
         cancel.setForeground(new Color(51,51,51));
-        ImageIcon CambioS=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Save-22.png"));
+        ImageIcon CambioS=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/Imagenes/icons8-Save-22.png"));
         save.setIcon(CambioS);
-        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22.png"));
+        ImageIcon CambioC=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/Imagenes/icons8-Long Arrow Left-22.png"));
         cancel.setIcon(CambioC);
         lblEditar.setText("0");
         jLabel33.setText("Listado");
@@ -145,7 +145,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                 Caja_CPT cno1 = new Caja_CPT();
 //                cno1.setID_GRUPO(Integer.parseInt(lblIDGRUPO.getText()));
                 cno1.setID_Cuenta7(Integer.parseInt(lblIDCTA6.getText()));
-                cno1.setNRO_ITEM(txtGrupoDes.getText());
+                cno1.setNRO_ITEM("TP"+txtGrupoDes.getText());
                 cno1.setNOMBRE(txtNombre.getText());
                 cno1.setDESCRIPCION(txtCPTDES.getText());
                 cno1.setBASE_LEGAL(txtBASE_LEGAL.getText());
@@ -404,7 +404,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                         .addGap(0, 0, 0))
                 );
 
-                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                 btnBuscarPaciente2.setContentAreaFilled(false);
                 btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
@@ -581,7 +581,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-                btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+                btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
                 btnNuevo.setText("Nuevo");
                 btnNuevo.setContentAreaFilled(false);
                 btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -597,7 +597,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btneditar.setForeground(new java.awt.Color(240, 240, 240));
-                btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
+                btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
                 btneditar.setText("Editar");
                 btneditar.setContentAreaFilled(false);
                 btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -613,7 +613,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-                btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
+                btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
                 btnguardar.setText("Guardar");
                 btnguardar.setContentAreaFilled(false);
                 btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -629,7 +629,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-                btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+                btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
                 btneliminar.setText("Eliminar");
                 btneliminar.setContentAreaFilled(false);
                 btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -645,7 +645,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Usuario-40.png"))); // NOI18N
+                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                 lblusu.setText("MARTHA");
                 lblusu.setFocusable(false);
                 lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -679,7 +679,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
-                btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
                 btnBuscarPaciente.setContentAreaFilled(false);
                 btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -693,7 +693,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnLista.setForeground(new java.awt.Color(240, 240, 240));
-                btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Orden de compra-32.png"))); // NOI18N
+                btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
                 btnLista.setText("Listado");
                 btnLista.setContentAreaFilled(false);
                 btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -714,7 +714,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnImprimir.setForeground(new java.awt.Color(240, 240, 240));
-                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imprimir-32.png"))); // NOI18N
+                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Imprimir-32.png"))); // NOI18N
                 btnImprimir.setText("Imprimir");
                 btnImprimir.setContentAreaFilled(false);
                 btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -898,7 +898,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 eli1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 eli1.setForeground(new java.awt.Color(51, 51, 51));
-                eli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Edit-22.png"))); // NOI18N
+                eli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Edit-22.png"))); // NOI18N
                 eli1.setText("Editar");
                 eli1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 eli1.setContentAreaFilled(false);
@@ -935,7 +935,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 save.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 save.setForeground(new java.awt.Color(51, 51, 51));
-                save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Save-22.png"))); // NOI18N
+                save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Save-22.png"))); // NOI18N
                 save.setText("Guardar");
                 save.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 save.setContentAreaFilled(false);
@@ -951,7 +951,7 @@ Caja_CPT nuevaR = new Caja_CPT();
 
                 cancel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 cancel.setForeground(new java.awt.Color(51, 51, 51));
-                cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Long Arrow Left-22.png"))); // NOI18N
+                cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Long Arrow Left-22.png"))); // NOI18N
                 cancel.setText("Calcelar");
                 cancel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 cancel.setContentAreaFilled(false);
@@ -1121,7 +1121,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))
                 );
 
                 Paginas.addTab(".", jPanel2);
@@ -1146,7 +1146,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                     }
                 });
 
-                b1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                b1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                 b1.setContentAreaFilled(false);
                 b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 b1.addActionListener(new java.awt.event.ActionListener() {
@@ -1437,7 +1437,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(48, Short.MAX_VALUE))
+                        .addContainerGap(44, Short.MAX_VALUE))
                 );
 
                 Paginas.addTab(".", jPanel3);
@@ -1455,13 +1455,13 @@ Caja_CPT nuevaR = new Caja_CPT();
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(Paginas))
+                        .addComponent(Paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 );
 
                 pack();

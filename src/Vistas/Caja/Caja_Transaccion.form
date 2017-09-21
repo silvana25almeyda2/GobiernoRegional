@@ -88,7 +88,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -249,7 +249,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -410,7 +410,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -569,7 +569,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -730,7 +730,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -891,7 +891,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1089,7 +1089,7 @@
                   <Component id="lblBusqueda" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblMant" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Component id="lblusu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1106,7 +1106,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Documento-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Documento-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1131,7 +1131,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Editar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Editar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1156,7 +1156,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Guardar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Guardar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1181,7 +1181,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Basura-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Basura-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1207,7 +1207,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Usuario-40.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Usuario-40.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Silvana"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -1284,7 +1284,7 @@
         <Component class="javax.swing.JButton" name="btnBuscarPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-27.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-27.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1382,7 +1382,7 @@
                               <Component id="bc3" min="-2" pref="273" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="289" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -1429,7 +1429,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Vista general 2-50.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Vista general 2-50.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tipo de Transacci&#xf3;n"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1458,7 +1458,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Tipo de archivo de libro gen&#xe9;rico-50.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Tipo de archivo de libro gen&#xe9;rico-50.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="G&#xe9;nerica"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1487,7 +1487,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Informaci&#xf3;n general P&#xe1;gina 4-50.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Informaci&#xf3;n general P&#xe1;gina 4-50.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sub G&#xe9;nerica Detalle"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1516,7 +1516,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Documentos-50.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Documentos-50.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sub Gen&#xe9;rica"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1545,7 +1545,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Vista general 2-50 (1).png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Vista general 2-50 (1).png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Especifica"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1574,7 +1574,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Alinear a la derecha-50.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Alinear a la derecha-50.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Especifica de Detalle"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1603,7 +1603,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/icons8-Vista general 2-50 (1).png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Vista general 2-50 (1).png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Especifica Cta7"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1674,7 +1674,7 @@
                           <Component id="jScrollPane1" min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="248" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="299" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1906,7 +1906,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" pref="192" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" pref="243" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2081,7 +2081,7 @@
                 <Component class="javax.swing.JButton" name="B1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2270,7 +2270,7 @@
                           <Component id="jScrollPane14" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jScrollPane9" pref="204" max="32767" attributes="0"/>
+                      <Component id="jScrollPane9" pref="255" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2439,7 +2439,7 @@
                 <Component class="javax.swing.JButton" name="b2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2622,7 +2622,7 @@
                           <Component id="jScrollPane15" min="-2" pref="75" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jScrollPane10" pref="198" max="32767" attributes="0"/>
+                      <Component id="jScrollPane10" pref="249" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2791,7 +2791,7 @@
                 <Component class="javax.swing.JButton" name="B3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2972,7 +2972,7 @@
                           <Component id="jScrollPane16" min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jScrollPane11" pref="205" max="32767" attributes="0"/>
+                      <Component id="jScrollPane11" pref="256" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3141,7 +3141,7 @@
                 <Component class="javax.swing.JButton" name="b4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -3320,7 +3320,7 @@
                           <Component id="jScrollPane17" min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jScrollPane12" pref="195" max="32767" attributes="0"/>
+                      <Component id="jScrollPane12" pref="246" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3489,7 +3489,7 @@
                 <Component class="javax.swing.JButton" name="b6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -3666,7 +3666,7 @@
                           <Component id="jScrollPane18" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jScrollPane19" pref="195" max="32767" attributes="0"/>
+                      <Component id="jScrollPane19" pref="246" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3828,7 +3828,7 @@
                 <Component class="javax.swing.JButton" name="b7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-25.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -3960,7 +3960,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="384" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="435" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
@@ -3971,7 +3971,7 @@
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="34" max="32767" attributes="0"/>
+                          <EmptySpace pref="85" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

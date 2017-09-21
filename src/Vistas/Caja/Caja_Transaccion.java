@@ -48,7 +48,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
        initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         this.setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         LlenarTransCT2.setLocationRelativeTo(null);//en el centro
         LlenarTransCT2.getContentPane().setBackground(Color.WHITE); 
         LlenarGenericaCT3.setLocationRelativeTo(null);//en el centro
@@ -1523,7 +1523,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel19.setText("Transacciones");
 
                                                             btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar1.setToolTipText("");
                                                             btnbuscar1.setContentAreaFilled(false);
                                                             btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1629,7 +1629,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel21.setText("Genérica");
 
                                                             btnbuscar2.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar2.setToolTipText("");
                                                             btnbuscar2.setContentAreaFilled(false);
                                                             btnbuscar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1735,7 +1735,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel29.setText("Sub Generica");
 
                                                             btnbuscar3.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar3.setToolTipText("");
                                                             btnbuscar3.setContentAreaFilled(false);
                                                             btnbuscar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1841,7 +1841,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel39.setText("Sub Generica Detalle");
 
                                                             btnbuscar4.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar4.setToolTipText("");
                                                             btnbuscar4.setContentAreaFilled(false);
                                                             btnbuscar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1946,7 +1946,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel53.setText("Especifica");
 
                                                             btnbuscar5.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar5.setToolTipText("");
                                                             btnbuscar5.setContentAreaFilled(false);
                                                             btnbuscar5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2052,7 +2052,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             jLabel55.setText("Especifica CT7");
 
                                                             btnbuscar6.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnbuscar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                            btnbuscar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             btnbuscar6.setToolTipText("");
                                                             btnbuscar6.setContentAreaFilled(false);
                                                             btnbuscar6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2154,7 +2154,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+                                                            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
                                                             btnNuevo.setText("Nuevo");
                                                             btnNuevo.setContentAreaFilled(false);
                                                             btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2170,7 +2170,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                             btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             btneditar.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
+                                                            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
                                                             btneditar.setText("Editar");
                                                             btneditar.setContentAreaFilled(false);
                                                             btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2186,7 +2186,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                             btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
+                                                            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
                                                             btnguardar.setText("Guardar");
                                                             btnguardar.setContentAreaFilled(false);
                                                             btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2202,7 +2202,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
 
                                                             btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-                                                            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+                                                            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
                                                             btneliminar.setText("Eliminar");
                                                             btneliminar.setContentAreaFilled(false);
                                                             btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2219,7 +2219,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             lblusu.setForeground(new java.awt.Color(255, 255, 255));
                                                             lblusu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                                                            lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                                                            lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                                                             lblusu.setText("Silvana");
                                                             lblusu.setFocusable(false);
                                                             lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -2258,7 +2258,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                             );
 
-                                                            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                                            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
                                                             btnBuscarPaciente.setContentAreaFilled(false);
                                                             btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -2331,7 +2331,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                     .addComponent(lblBusqueda)
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                     .addComponent(lblMant)
-                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                                                                     .addComponent(lblusu)
                                                                     .addContainerGap())
                                                             );
@@ -2351,7 +2351,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Vista general 2-50.png"))); // NOI18N
+                                                            bc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Vista general 2-50.png"))); // NOI18N
                                                             bc.setText("Tipo de Transacción");
                                                             bc.setContentAreaFilled(false);
                                                             bc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2369,7 +2369,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc1.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc1.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tipo de archivo de libro genérico-50.png"))); // NOI18N
+                                                            bc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Tipo de archivo de libro genérico-50.png"))); // NOI18N
                                                             bc1.setText("Génerica");
                                                             bc1.setContentAreaFilled(false);
                                                             bc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2387,7 +2387,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc2.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc2.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Información general Página 4-50.png"))); // NOI18N
+                                                            bc2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Información general Página 4-50.png"))); // NOI18N
                                                             bc2.setText("Sub Génerica Detalle");
                                                             bc2.setContentAreaFilled(false);
                                                             bc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2405,7 +2405,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc3.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc3.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Documentos-50.png"))); // NOI18N
+                                                            bc3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Documentos-50.png"))); // NOI18N
                                                             bc3.setText("Sub Genérica");
                                                             bc3.setContentAreaFilled(false);
                                                             bc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2423,7 +2423,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc4.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc4.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Vista general 2-50 (1).png"))); // NOI18N
+                                                            bc4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Vista general 2-50 (1).png"))); // NOI18N
                                                             bc4.setText("Especifica");
                                                             bc4.setContentAreaFilled(false);
                                                             bc4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2441,7 +2441,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc5.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc5.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Alinear a la derecha-50.png"))); // NOI18N
+                                                            bc5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Alinear a la derecha-50.png"))); // NOI18N
                                                             bc5.setText("Especifica de Detalle");
                                                             bc5.setContentAreaFilled(false);
                                                             bc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2459,7 +2459,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             bc6.setBackground(new java.awt.Color(102, 102, 102));
                                                             bc6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                             bc6.setForeground(new java.awt.Color(51, 51, 51));
-                                                            bc6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Vista general 2-50 (1).png"))); // NOI18N
+                                                            bc6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Vista general 2-50 (1).png"))); // NOI18N
                                                             bc6.setText("Especifica Cta7");
                                                             bc6.setContentAreaFilled(false);
                                                             bc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2496,7 +2496,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                                             .addContainerGap()
                                                                             .addComponent(bc3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                    .addGap(0, 289, Short.MAX_VALUE))
+                                                                    .addGap(0, 0, Short.MAX_VALUE))
                                                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                                                     .addContainerGap()
                                                                     .addComponent(bc6, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2626,7 +2626,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel11)
                                                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(11, 11, 11)
-                                                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C1", jPanel4);
@@ -2701,7 +2701,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            B1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            B1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             B1.setContentAreaFilled(false);
                                                             B1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             B1.addActionListener(new java.awt.event.ActionListener() {
@@ -2832,7 +2832,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                 .addComponent(jLabel16))))
                                                                     .addGap(18, 18, 18)
-                                                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C2", jPanel11);
@@ -2905,7 +2905,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            b2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            b2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             b2.setContentAreaFilled(false);
                                                             b2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             b2.addActionListener(new java.awt.event.ActionListener() {
@@ -3033,7 +3033,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel43)
                                                                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(13, 13, 13)
-                                                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C2", jPanel12);
@@ -3106,7 +3106,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            B3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            B3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             B3.setContentAreaFilled(false);
                                                             B3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             B3.addActionListener(new java.awt.event.ActionListener() {
@@ -3230,7 +3230,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel26)
                                                                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(13, 13, 13)
-                                                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C2", jPanel13);
@@ -3303,7 +3303,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            b4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            b4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             b4.setContentAreaFilled(false);
                                                             b4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             b4.addActionListener(new java.awt.event.ActionListener() {
@@ -3426,7 +3426,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel36)
                                                                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(13, 13, 13)
-                                                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C2", jPanel14);
@@ -3499,7 +3499,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            b6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            b6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             b6.setContentAreaFilled(false);
                                                             b6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             b6.addActionListener(new java.awt.event.ActionListener() {
@@ -3624,7 +3624,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel48)
                                                                         .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(13, 13, 13)
-                                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("C2", jPanel16);
@@ -3698,7 +3698,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                 }
                                                             });
 
-                                                            b7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                                                            b7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                             b7.setContentAreaFilled(false);
                                                             b7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                             b7.addActionListener(new java.awt.event.ActionListener() {
@@ -3815,7 +3815,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                         .addComponent(jLabel54)
                                                                         .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                     .addGap(13, 13, 13)
-                                                                    .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                                                                    .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                                                             );
 
                                                             PaginasCuentas.addTab("tab9", jPanel2);
@@ -3845,7 +3845,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             );
                                                             jPanel6Layout.setVerticalGroup(
                                                                 jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGap(0, 384, Short.MAX_VALUE)
+                                                                .addGap(0, 435, Short.MAX_VALUE)
                                                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                                                         .addGap(216, 216, 216)
@@ -3854,7 +3854,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                                                 .addGap(55, 55, 55)
                                                                                 .addComponent(jLabel20)))
-                                                                        .addContainerGap(34, Short.MAX_VALUE)))
+                                                                        .addContainerGap(85, Short.MAX_VALUE)))
                                                             );
 
                                                             PaginasCuentas.addTab("B", jPanel6);

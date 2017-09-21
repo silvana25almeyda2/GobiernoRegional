@@ -781,10 +781,7 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnCPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseClicked
-        Caja_TUPA TP = new Caja_TUPA();
-
-        TP.lblusu.setText(Principal.lblUsu.getText());
-        TP.setVisible(true);
+        
     }//GEN-LAST:event_btnCPTMouseClicked
 
     private void btnCPTMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPTMouseEntered
@@ -802,7 +799,9 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCPTMouseEntered
 
     private void btnCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPTActionPerformed
-        
+        Caja_TUPA TP = new Caja_TUPA();
+        TP.lblusu.setText(Principal.lblUsu.getText());
+        TP.setVisible(true);
     }//GEN-LAST:event_btnCPTActionPerformed
 
     private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked

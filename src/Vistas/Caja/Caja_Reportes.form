@@ -219,7 +219,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Iconos/icons8-Detener-30.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Detener-30.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cerrar Caja Remotamente"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -443,7 +443,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Iconos/icons8-Print-64N.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Print-64N.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Elija un formato"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -877,7 +877,7 @@
         <Component class="javax.swing.JButton" name="btnBuscarPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-27.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-27.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -905,7 +905,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/icons8-Play-32D.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Play-32D.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sesiones Activas"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -932,7 +932,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/icons8-Stop-32D.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Stop-32D.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sesiones Cerradas"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -959,7 +959,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/icons8-Shutdown-32D.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Shutdown-32D.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -986,7 +986,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Imprimir-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Imprimir-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Imprimir"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1014,7 +1014,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Usuario-40.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Usuario-40.png"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -1369,7 +1369,7 @@
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/icons8-Play-32.png"/>
+                      <Image iconType="3" name="/Imagenes/Iconos/Imagen/icons8-Play-32.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Iniciar Busqueda"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

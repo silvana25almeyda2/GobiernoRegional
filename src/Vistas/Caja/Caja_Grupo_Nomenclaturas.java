@@ -35,7 +35,7 @@ Caja_Grupo cnn = new Caja_Grupo();
         setLocationRelativeTo(null);//en el centro
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         tb_Grupo.getTableHeader().setVisible(false);
 
         tb_Grupo.setTableHeader(null);
@@ -285,7 +285,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
             btnNuevo.setText("Nuevo");
             btnNuevo.setContentAreaFilled(false);
             btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -301,7 +301,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btneditar.setForeground(new java.awt.Color(240, 240, 240));
-            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
+            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
             btneditar.setText("Editar");
             btneditar.setContentAreaFilled(false);
             btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -317,7 +317,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
+            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
             btnguardar.setText("Guardar");
             btnguardar.setContentAreaFilled(false);
             btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -333,7 +333,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
             btneliminar.setText("Eliminar");
             btneliminar.setContentAreaFilled(false);
             btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -353,7 +353,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblusu.setForeground(new java.awt.Color(255, 255, 255));
-            lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+            lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
             lblusu.setText("Silvana");
             lblusu.setFocusable(false);
             lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -387,7 +387,7 @@ Caja_Grupo cnn = new Caja_Grupo();
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
-            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
             btnBuscarPaciente.setContentAreaFilled(false);
             btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {

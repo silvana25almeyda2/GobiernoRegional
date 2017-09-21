@@ -68,7 +68,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     public Caja_Ventas() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         CLIENTES.setLocationRelativeTo(null);//en el centro
         CPT.setLocationRelativeTo(null);//en el centro
         ErrorExistente.setLocationRelativeTo(null);//en el centro
@@ -877,7 +877,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         bus3.setForeground(new java.awt.Color(230, 230, 230));
                                                         bus3.setText("jLabel37");
 
-                                                        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                         btnBuscarPaciente2.setContentAreaFilled(false);
                                                         btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                         btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
@@ -1060,7 +1060,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 34)); // NOI18N
                                                         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-                                                        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Búsqueda-64.png"))); // NOI18N
+                                                        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Búsqueda-64.png"))); // NOI18N
                                                         jLabel9.setText("Busqueda de Clientes ");
 
                                                         javax.swing.GroupLayout panelBuscarHCLayout = new javax.swing.GroupLayout(panelBuscarHC);
@@ -1185,7 +1185,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
                                                         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                                                        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Invitado masculino-64.png"))); // NOI18N
+                                                        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Invitado masculino-64.png"))); // NOI18N
                                                         jLabel18.setText("Nuevo Registro");
                                                         jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                                                         jLabel18.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1307,7 +1307,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 .addComponent(txtBuscarCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         );
 
-                                                        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                         btnBuscarPaciente3.setContentAreaFilled(false);
                                                         btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                         btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
@@ -1346,7 +1346,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         jLabel22.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
                                                         jLabel22.setForeground(new java.awt.Color(102, 102, 102));
-                                                        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Búsqueda-64.png"))); // NOI18N
+                                                        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Búsqueda-64.png"))); // NOI18N
                                                         jLabel22.setText("Busqueda de TUPA ");
 
                                                         javax.swing.GroupLayout panelBuscarLayout = new javax.swing.GroupLayout(panelBuscar);
@@ -1453,7 +1453,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnImprimir2.setForeground(new java.awt.Color(51, 51, 51));
-                                                        btnImprimir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Sell Stock-40.png"))); // NOI18N
+                                                        btnImprimir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Sell Stock-40.png"))); // NOI18N
                                                         btnImprimir2.setText("Agregar");
                                                         btnImprimir2.setContentAreaFilled(false);
                                                         btnImprimir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1548,7 +1548,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
                                                         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                                                        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Editar propiedad-64 (1).png"))); // NOI18N
+                                                        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Editar propiedad-64 (1).png"))); // NOI18N
                                                         jLabel25.setText("Nuevo CPT");
                                                         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                                                         jLabel25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1882,7 +1882,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         btnCargarHOS1.setBackground(new java.awt.Color(51, 51, 51));
                                                         btnCargarHOS1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnCargarHOS1.setForeground(new java.awt.Color(51, 51, 51));
-                                                        btnCargarHOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Sell Stock-40.png"))); // NOI18N
+                                                        btnCargarHOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Sell Stock-40.png"))); // NOI18N
                                                         btnCargarHOS1.setText("Cargar para venta");
                                                         btnCargarHOS1.setContentAreaFilled(false);
                                                         btnCargarHOS1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1897,7 +1897,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         btnEliminarHOS1.setBackground(new java.awt.Color(51, 51, 51));
                                                         btnEliminarHOS1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnEliminarHOS1.setForeground(new java.awt.Color(51, 51, 51));
-                                                        btnEliminarHOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Trash-40.png"))); // NOI18N
+                                                        btnEliminarHOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Trash-40.png"))); // NOI18N
                                                         btnEliminarHOS1.setText("Eliminar Registro");
                                                         btnEliminarHOS1.setContentAreaFilled(false);
                                                         btnEliminarHOS1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1997,7 +1997,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         );
 
-                                                        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
+                                                        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
                                                         btnBuscarPaciente.setContentAreaFilled(false);
                                                         btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                         btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -2011,7 +2011,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
-                                                        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+                                                        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
                                                         btnNuevo.setText("Nuevo");
                                                         btnNuevo.setContentAreaFilled(false);
                                                         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2026,7 +2026,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-                                                        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imprimir-32.png"))); // NOI18N
+                                                        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Imprimir-32.png"))); // NOI18N
                                                         btnImprimir.setText("Imprimir");
                                                         btnImprimir.setContentAreaFilled(false);
                                                         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2041,7 +2041,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btneliminar.setForeground(new java.awt.Color(255, 255, 255));
-                                                        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+                                                        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
                                                         btneliminar.setText("Anular");
                                                         btneliminar.setContentAreaFilled(false);
                                                         btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2056,7 +2056,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnLista.setForeground(new java.awt.Color(255, 255, 255));
-                                                        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Orden de compra-32.png"))); // NOI18N
+                                                        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
                                                         btnLista.setText("Ventas");
                                                         btnLista.setContentAreaFilled(false);
                                                         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2072,7 +2072,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
                                                         lblusu1.setForeground(new java.awt.Color(255, 255, 255));
-                                                        lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                                                        lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                                                         lblusu1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
                                                         lblusu1.setFocusable(false);
                                                         lblusu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -2353,7 +2353,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(0, 0, 0)
-                                                                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                                                                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                                                                 .addGap(0, 0, 0)
                                                                 .addComponent(panelDetalleHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         );
@@ -2418,7 +2418,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             }
                                                         });
 
-                                                        btnBuscarCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                        btnBuscarCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                         btnBuscarCPT.setContentAreaFilled(false);
                                                         btnBuscarCPT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                         btnBuscarCPT.addActionListener(new java.awt.event.ActionListener() {
@@ -2488,7 +2488,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnEliminarDetalle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnEliminarDetalle.setForeground(new java.awt.Color(240, 240, 240));
-                                                        btnEliminarDetalle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Trash-32B.png"))); // NOI18N
+                                                        btnEliminarDetalle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Trash-32B.png"))); // NOI18N
                                                         btnEliminarDetalle.setText("Eliminar Este Registro ?");
                                                         btnEliminarDetalle.setContentAreaFilled(false);
                                                         btnEliminarDetalle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2568,7 +2568,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             }
                                                         });
 
-                                                        btnBuscarCPT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                                                        btnBuscarCPT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                                                         btnBuscarCPT1.setContentAreaFilled(false);
                                                         btnBuscarCPT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                         btnBuscarCPT1.addActionListener(new java.awt.event.ActionListener() {
@@ -2796,7 +2796,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnTerminiarVenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnTerminiarVenta.setForeground(new java.awt.Color(51, 51, 51));
-                                                        btnTerminiarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-32BANNER.png"))); // NOI18N
+                                                        btnTerminiarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Print-32BANNER.png"))); // NOI18N
                                                         btnTerminiarVenta.setText("Guardar y Generar Boleta");
                                                         btnTerminiarVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                         btnTerminiarVenta.setContentAreaFilled(false);
@@ -2832,7 +2832,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnAnularVenta.setForeground(new java.awt.Color(255, 255, 255));
-                                                        btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Trash-32B.png"))); // NOI18N
+                                                        btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Trash-32B.png"))); // NOI18N
                                                         btnAnularVenta.setText("Cancelar Venta");
                                                         btnAnularVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                         btnAnularVenta.setContentAreaFilled(false);
@@ -3076,7 +3076,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         Mensaje6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         Mensaje6.setForeground(new java.awt.Color(255, 255, 255));
-                                                        Mensaje6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Alert-32.png"))); // NOI18N
+                                                        Mensaje6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Alert-32.png"))); // NOI18N
                                                         Mensaje6.setText("Preventas pendiente de pago, cargar?");
                                                         Mensaje6.setIconTextGap(30);
                                                         Mensaje6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3102,7 +3102,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         Mensaje7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         Mensaje7.setForeground(new java.awt.Color(255, 255, 255));
-                                                        Mensaje7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Tree Planting-32.png"))); // NOI18N
+                                                        Mensaje7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Tree Planting-32.png"))); // NOI18N
                                                         Mensaje7.setText("Boleta Electrónica Generada");
                                                         Mensaje7.setIconTextGap(30);
                                                         Mensaje7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3314,7 +3314,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                             .addComponent(lblValorVentaInafectada))
                                                                         .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                 .addGap(20, 20, 20)
-                                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                                                                 .addGap(0, 0, 0)
                                                                 .addComponent(panelEliminacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(0, 0, 0)
@@ -3334,7 +3334,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                         btnImprimir1.setForeground(new java.awt.Color(51, 51, 51));
-                                                        btnImprimir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-32.png"))); // NOI18N
+                                                        btnImprimir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Print-32.png"))); // NOI18N
                                                         btnImprimir1.setText("Imprimir");
                                                         btnImprimir1.setContentAreaFilled(false);
                                                         btnImprimir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -3466,7 +3466,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(0, 0, 0)
-                                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+                                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
                                                                 .addGap(0, 0, 0)
                                                                 .addComponent(panelDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         );
@@ -3484,7 +3484,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         );
                                                         layout.setVerticalGroup(
                                                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                                                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
                                                             .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         );
 

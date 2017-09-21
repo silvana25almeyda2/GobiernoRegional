@@ -33,13 +33,16 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public Caja_Reportes() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
         CNVRCCB.ReporteSESION_ACTIVA(tb_ReporteDiario1);
         this.cbxAnios.setModel(Anio());
         ImprimirCierre.setLocationRelativeTo(null);//en el centro
         btneliminar.setEnabled(false);
         btnLista.setEnabled(false);
+        Paginas.setEnabled(false);
+        Paginas.setEnabledAt(0,false);
+        Paginas.setEnabledAt(1, false);
     }
     
     public DefaultComboBoxModel Anio(){
@@ -179,7 +182,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnAnularVenta.setForeground(new java.awt.Color(255, 255, 255));
-                btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Detener-30.png"))); // NOI18N
+                btnAnularVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Detener-30.png"))); // NOI18N
                 btnAnularVenta.setText("Cerrar Caja Remotamente");
                 btnAnularVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 btnAnularVenta.setContentAreaFilled(false);
@@ -313,7 +316,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 jLabel25.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Print-64N.png"))); // NOI18N
+                jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Print-64N.png"))); // NOI18N
                 jLabel25.setText("Elija un formato");
                 jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 jLabel25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -580,7 +583,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
-                btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
+                btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
                 btnBuscarPaciente.setContentAreaFilled(false);
                 btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -594,7 +597,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
-                btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Play-32D.png"))); // NOI18N
+                btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Play-32D.png"))); // NOI18N
                 btnNuevo.setText("Sesiones Activas");
                 btnNuevo.setContentAreaFilled(false);
                 btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -609,7 +612,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Stop-32D.png"))); // NOI18N
+                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Stop-32D.png"))); // NOI18N
                 btnImprimir.setText("Sesiones Cerradas");
                 btnImprimir.setContentAreaFilled(false);
                 btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -624,7 +627,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btneliminar.setForeground(new java.awt.Color(255, 255, 255));
-                btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Shutdown-32D.png"))); // NOI18N
+                btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Shutdown-32D.png"))); // NOI18N
                 btneliminar.setText("Cerrar Sesión");
                 btneliminar.setContentAreaFilled(false);
                 btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -639,7 +642,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnLista.setForeground(new java.awt.Color(255, 255, 255));
-                btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imprimir-32.png"))); // NOI18N
+                btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Imprimir-32.png"))); // NOI18N
                 btnLista.setText("Imprimir");
                 btnLista.setContentAreaFilled(false);
                 btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -655,7 +658,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
                 lblusu1.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                 lblusu1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
                 lblusu1.setFocusable(false);
                 lblusu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -840,7 +843,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
                 btnBuscarReporte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnBuscarReporte.setForeground(new java.awt.Color(51, 51, 51));
-                btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Play-32.png"))); // NOI18N
+                btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Play-32.png"))); // NOI18N
                 btnBuscarReporte.setText("Iniciar Busqueda");
                 btnBuscarReporte.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 btnBuscarReporte.setContentAreaFilled(false);

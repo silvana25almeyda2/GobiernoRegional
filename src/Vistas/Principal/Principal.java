@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JFrame {
         Paginas.setEnabled(false);
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
     }
     public void Caja_Abrir(){
         Caja_AperturaCierre CAID =new Caja_AperturaCierre();

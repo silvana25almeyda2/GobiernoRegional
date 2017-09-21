@@ -38,9 +38,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
      */
     public Caja_ReporteMensual() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
+//        this.setExtendedState(MAXIMIZED_BOTH);setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
 //        Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
 //        CNVRCCB.ReporteSESION_ACTIVA(tb_ReporteDiario1);
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.cbxAnios.setModel(Anio());
         btnImprimir.setEnabled(false);
         btnBuscarReporte.setEnabled(false);
@@ -156,7 +157,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 btnBuscarReporte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnBuscarReporte.setForeground(new java.awt.Color(255, 255, 255));
-                btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Play-32D.png"))); // NOI18N
+                btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Play-32D.png"))); // NOI18N
                 btnBuscarReporte.setText("Iniciar Busqueda");
                 btnBuscarReporte.setContentAreaFilled(false);
                 btnBuscarReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -171,7 +172,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imprimir-32.png"))); // NOI18N
+                btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Imprimir-32.png"))); // NOI18N
                 btnImprimir.setText("Imprimir");
                 btnImprimir.setContentAreaFilled(false);
                 btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -187,7 +188,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
                 lblusu1.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                 lblusu1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
                 lblusu1.setFocusable(false);
                 lblusu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -238,7 +239,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 lblBase.setForeground(new java.awt.Color(255, 255, 255));
                 lblBase.setText("<html>BASE LEGAL<BR>(R.D. N° 033-2016-EF/50.01)</HTML>");
 
-                jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Marker-32.png"))); // NOI18N
+                jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Marker-32.png"))); // NOI18N
 
                 txtUbicacion.setBackground(new java.awt.Color(39, 174, 96));
                 txtUbicacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -273,7 +274,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                 jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
                 jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-                jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Marcador de mapa-20.png"))); // NOI18N
+                jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Marcador de mapa-20.png"))); // NOI18N
                 jLabel7.setText("Iniciar Busqueda");
                 jLabel7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 jLabel7.setContentAreaFilled(false);
@@ -390,13 +391,16 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 jLabel6.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel6.setText("Total General S/ ");
 
+                lblTipo_Sede.setForeground(new java.awt.Color(230, 230, 230));
                 lblTipo_Sede.setText("jLabel8");
 
+                jScrollPane24.setBackground(new java.awt.Color(230, 230, 230));
                 jScrollPane24.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 jScrollPane24.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
                 jScrollPane24.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
                 jScrollPane24.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
 
+                tbSEDES.setBackground(new java.awt.Color(230, 230, 230));
                 tbSEDES.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 tbSEDES.setForeground(new java.awt.Color(51, 51, 51));
                 tbSEDES.setToolTipText("");
@@ -430,7 +434,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(lblTipo_Sede)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel12Layout.setVerticalGroup(
@@ -443,9 +447,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                             .addComponent(lblCajeroS)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTipo_Sede)
-                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTipo_Sede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
