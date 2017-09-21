@@ -9,6 +9,7 @@ import Vistas.Caja.Caja_CPTS;
 import Vistas.Caja.Caja_TUPA;
 import Vistas.Caja.Caja_Cierre;
 import Vistas.Caja.Caja_Clientes;
+import Vistas.Caja.Caja_Farmacia;
 import Vistas.Caja.Caja_Grupo_Nomenclaturas;
 import Vistas.Caja.Caja_Historia_Clinica;
 import Vistas.Caja.Caja_Jerarquia;
@@ -102,6 +103,8 @@ private Dimension DimensionBarra = null;
         btnCPT2 = new javax.swing.JButton();
         PanelCPT3 = new javax.swing.JPanel();
         btnCPT3 = new javax.swing.JButton();
+        PanelCPT4 = new javax.swing.JPanel();
+        btnCPT4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -646,7 +649,7 @@ private Dimension DimensionBarra = null;
         btnCPT3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnCPT3.setForeground(new java.awt.Color(51, 51, 51));
         btnCPT3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Price Tag-64.png"))); // NOI18N
-        btnCPT3.setText("Precios");
+        btnCPT3.setText("Tarifario");
         btnCPT3.setContentAreaFilled(false);
         btnCPT3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCPT3.setFocusPainted(false);
@@ -679,6 +682,47 @@ private Dimension DimensionBarra = null;
         PanelCPT3Layout.setVerticalGroup(
             PanelCPT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnCPT3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
+        PanelCPT4.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCPT4.setBackground(new java.awt.Color(102, 102, 102));
+        btnCPT4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnCPT4.setForeground(new java.awt.Color(51, 51, 51));
+        btnCPT4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Doctors Bag-64.png"))); // NOI18N
+        btnCPT4.setText("Farmacia");
+        btnCPT4.setContentAreaFilled(false);
+        btnCPT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCPT4.setFocusPainted(false);
+        btnCPT4.setFocusable(false);
+        btnCPT4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCPT4.setIconTextGap(30);
+        btnCPT4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Doctors Bag-64(1).png"))); // NOI18N
+        btnCPT4.setVerifyInputWhenFocusTarget(false);
+        btnCPT4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCPT4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCPT4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCPT4MouseEntered(evt);
+            }
+        });
+        btnCPT4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCPT4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCPT4Layout = new javax.swing.GroupLayout(PanelCPT4);
+        PanelCPT4.setLayout(PanelCPT4Layout);
+        PanelCPT4Layout.setHorizontalGroup(
+            PanelCPT4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT4, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCPT4Layout.setVerticalGroup(
+            PanelCPT4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCPT4, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -726,7 +770,9 @@ private Dimension DimensionBarra = null;
                         .addGap(18, 18, 18)
                         .addComponent(PanelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(PanelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(PanelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -761,7 +807,8 @@ private Dimension DimensionBarra = null;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PanelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PanelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(36, Short.MAX_VALUE))))
         );
 
@@ -1050,6 +1097,20 @@ private Dimension DimensionBarra = null;
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCPT3ActionPerformed
 
+    private void btnCPT4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPT4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPT4MouseClicked
+
+    private void btnCPT4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPT4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCPT4MouseEntered
+
+    private void btnCPT4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPT4ActionPerformed
+        Caja_Farmacia FR = new Caja_Farmacia();
+        FR.lblusu.setText(Principal.lblUsu.getText());
+        FR.setVisible(true);
+    }//GEN-LAST:event_btnCPT4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog NivelSuperior;
@@ -1057,6 +1118,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel PanelCPT1;
     private javax.swing.JPanel PanelCPT2;
     private javax.swing.JPanel PanelCPT3;
+    private javax.swing.JPanel PanelCPT4;
     private javax.swing.JPanel PanelCaja;
     private javax.swing.JPanel PanelCaja1;
     private javax.swing.JPanel PanelCaja2;
@@ -1068,6 +1130,7 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JButton btnCPT1;
     public static javax.swing.JButton btnCPT2;
     public static javax.swing.JButton btnCPT3;
+    public static javax.swing.JButton btnCPT4;
     public static javax.swing.JButton btnCaja3;
     public static javax.swing.JButton btnClientes;
     public static javax.swing.JButton btnVentas;

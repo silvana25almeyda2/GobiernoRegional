@@ -126,7 +126,7 @@ private String AFECTO;
         public boolean MODIFICAR_ITEM(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?";
+            String sql = "exec CAJA_ITEM_MODIFICAR ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CPT());
             cmd.setInt(2, getID_GRUPO());

@@ -66,7 +66,7 @@ byte tgm;
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
         b1.setVisible(false);
-        txtnom2.setVisible(false);
+        txtITEM_COMPLETO.setVisible(false);
         Paginas.setSelectedIndex(1);
          Paginas.setEnabledAt(0,false);
          Paginas.setEnabledAt(1, false);
@@ -104,7 +104,7 @@ byte tgm;
     }
     
     public void NUEVO_REGISTRO(){
-       if((txtnom1.getText().equals(""))){
+       if((txtITEM.getText().equals(""))){
             cargareliminar.setVisible(true);        
             cargareliminar.setBackground(new Color(255,91,70)); 
             Mensaje.setText("Debe completar los campos requeridos");
@@ -115,8 +115,8 @@ byte tgm;
                 Caja_CPT cno1 = new Caja_CPT();
                 cno1.setID_GRUPO(Integer.parseInt(lblIDGRUPO.getText()));
                 cno1.setID_Cuenta7(Integer.parseInt(lblIDCTA6.getText()));
-                cno1.setNRO_ITEM(txtnomenclatura.getText()+txtnom1.getText());
-                cno1.setNOMBRE(txtdes.getText());
+                cno1.setNRO_ITEM(txtnomenclatura.getText()+txtITEM.getText());
+                cno1.setNOMBRE(txtDESCRIPCION.getText());
                 cno1.setUSUARIO(lblusu.getText());
                 cno1.setID_CPT(0);
                     if(cno1.NUEVO_ITEM()==true){
@@ -149,8 +149,8 @@ byte tgm;
                 cno1.setID_CPT(Integer.parseInt(lblID_CPT.getText()));
                 cno1.setID_GRUPO(Integer.parseInt(lblIDGRUPO.getText()));
                 cno1.setID_Cuenta7(Integer.parseInt(lblIDCTA6.getText()));
-                cno1.setNRO_ITEM(txtnom2.getText());
-                cno1.setNOMBRE(txtdes.getText());
+                cno1.setNRO_ITEM(txtITEM_COMPLETO.getText());
+                cno1.setNOMBRE(txtDESCRIPCION.getText());
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.MODIFICAR_ITEM()==true){
                         cargareliminar.setVisible(true);
@@ -189,7 +189,7 @@ byte tgm;
                     Caja_CPT A = new Caja_CPT();
                     A.LISTA_ITEM("",tb_CPT);
                     jLabel33.setText("Listado");
-                    Paginas.setSelectedIndex(0);
+                    Paginas.setSelectedIndex(1);
                     
                 }
         }catch(Exception e){
@@ -248,11 +248,11 @@ byte tgm;
             lblIDGRUPO = new javax.swing.JLabel();
             lblIDCTA6 = new javax.swing.JLabel();
             unior = new javax.swing.JLabel();
-            txtnom1 = new javax.swing.JTextField();
+            txtITEM = new javax.swing.JTextField();
             nm = new javax.swing.JLabel();
             jScrollPane1 = new javax.swing.JScrollPane();
-            txtdes = new javax.swing.JEditorPane();
-            txtnom2 = new javax.swing.JTextField();
+            txtDESCRIPCION = new javax.swing.JEditorPane();
+            txtITEM_COMPLETO = new javax.swing.JTextField();
             panelCPT1 = new javax.swing.JPanel();
             txtct6 = new javax.swing.JTextField();
             b1 = new javax.swing.JButton();
@@ -726,38 +726,38 @@ byte tgm;
                 unior.setForeground(new java.awt.Color(255, 255, 255));
                 unior.setText("jLabel5");
 
-                txtnom1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                txtnom1.setForeground(new java.awt.Color(51, 51, 51));
-                txtnom1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(109, 109, 109)));
-                txtnom1.addKeyListener(new java.awt.event.KeyAdapter() {
+                txtITEM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                txtITEM.setForeground(new java.awt.Color(51, 51, 51));
+                txtITEM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(109, 109, 109)));
+                txtITEM.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                        txtnom1KeyPressed(evt);
+                        txtITEMKeyPressed(evt);
                     }
                     public void keyReleased(java.awt.event.KeyEvent evt) {
-                        txtnom1KeyReleased(evt);
+                        txtITEMKeyReleased(evt);
                     }
                 });
 
                 nm.setForeground(new java.awt.Color(255, 255, 255));
                 nm.setText("jLabel5");
 
-                txtdes.setForeground(new java.awt.Color(51, 51, 51));
-                txtdes.addKeyListener(new java.awt.event.KeyAdapter() {
+                txtDESCRIPCION.setForeground(new java.awt.Color(51, 51, 51));
+                txtDESCRIPCION.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyReleased(java.awt.event.KeyEvent evt) {
-                        txtdesKeyReleased(evt);
+                        txtDESCRIPCIONKeyReleased(evt);
                     }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
-                        txtdesKeyTyped(evt);
+                        txtDESCRIPCIONKeyTyped(evt);
                     }
                 });
-                jScrollPane1.setViewportView(txtdes);
+                jScrollPane1.setViewportView(txtDESCRIPCION);
 
-                txtnom2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                txtnom2.setForeground(new java.awt.Color(51, 51, 51));
-                txtnom2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(109, 109, 109)));
-                txtnom2.addKeyListener(new java.awt.event.KeyAdapter() {
+                txtITEM_COMPLETO.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                txtITEM_COMPLETO.setForeground(new java.awt.Color(51, 51, 51));
+                txtITEM_COMPLETO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(109, 109, 109)));
+                txtITEM_COMPLETO.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                        txtnom2KeyPressed(evt);
+                        txtITEM_COMPLETOKeyPressed(evt);
                     }
                 });
 
@@ -835,6 +835,7 @@ byte tgm;
                     }
                 });
 
+                lblID_CPT.setForeground(new java.awt.Color(255, 255, 255));
                 lblID_CPT.setText("jLabel1");
 
                 javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -865,9 +866,9 @@ byte tgm;
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(txtnomenclatura, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(txtnom1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtITEM, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtnom2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtITEM_COMPLETO, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(396, 396, 396)
                                 .addComponent(nm)
@@ -898,8 +899,8 @@ byte tgm;
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(txtnomenclatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtITEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtITEM_COMPLETO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -1080,25 +1081,25 @@ byte tgm;
       //  txtcod.setText(cnn.idNomen());
       
         tg=1;
-         txtnom1.setEditable(false);
+         txtITEM.setEditable(false);
          txtct6.setEditable(false);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
          
-         txtnom1.setEditable(true);
+         txtITEM.setEditable(true);
          txtnomenclatura.setVisible(true);
-         txtnom1.setVisible(true);
-         txtnom2.setVisible(false);
-         txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+         txtITEM.setVisible(true);
+         txtITEM_COMPLETO.setVisible(false);
+         txtITEM.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
     
          btnguardar.setEnabled(true);
          btneditar.setEnabled(false);
          btneliminar.setEnabled(false);
 
          txtnomenclatura.setText("");
-         txtdes.setText("");
-         txtnom1.setText("");
+         txtDESCRIPCION.setText("");
+         txtITEM.setText("");
          txtct6.setText("");
          b1.setVisible(true);
         
@@ -1109,31 +1110,38 @@ byte tgm;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
- Paginas.setSelectedIndex(0);
-        txtnomenclatura.setEditable(true);
-         txtdes.setEditable(true);
-          txtnom2.setEditable(true);
-         txtdes.setEditable(true);
- 
-         btnguardar.setEnabled(true);
-         btneditar.setEnabled(false);
-         
-         b1.setVisible(true);
-         tg=2;
+
+        if(lblPermiso.getText().equals("E")){
+            tg=2;
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            Paginas.setSelectedIndex(0);
+            txtnomenclatura.setEditable(true);
+            txtDESCRIPCION.setEditable(true);
+            txtITEM_COMPLETO.setEditable(true);
+            txtDESCRIPCION.setEditable(true);
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            b1.setVisible(true);
+        }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+            
+        }    
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
        if(tg==1){
             Caja_CPT cn = new Caja_CPT();
             Caja_CPT cn1 = new Caja_CPT();
-            if((cn.VALIDAR_TUPA(txtnom1.getText())>0)||(cn1.VALIDAR_TUPA_DES(txtdes.getText())>0)){
+            if((cn.VALIDAR_TUPA(txtITEM.getText())>0)||(cn1.VALIDAR_TUPA_DES(txtDESCRIPCION.getText())>0)){
                 cargareliminar.setVisible(true);
                  cargareliminar.setBackground(new Color(255,91,70)); 
                  Mensaje.setText("El Ítem ingresado ya existe, Verifique ");
                  eli.setVisible(false);
                  noeli.setVisible(false);
-                 txtnom1.setText("");
-                 txtnom1.requestFocus();
+                 txtITEM.setText("");
+                 txtITEM.requestFocus();
                 
             }else
                 NUEVO_REGISTRO(); 
@@ -1170,14 +1178,13 @@ byte tgm;
     int fila=tb_CPT.getSelectedRow();
      if(evt.getClickCount()==1){
 
-       txtcod.setText(String.valueOf(tb_CPT.getValueAt(fila, 0)));  
-       txtct6.setText(String.valueOf(tb_CPT.getValueAt(fila, 5)));
-       txtdes.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
-       
-       lblIDGRUPO.setText(String.valueOf(tb_CPT.getValueAt(fila, 9)));
-       lblIDCTA6.setText(String.valueOf(tb_CPT.getValueAt(fila, 11)));  
-       unior.setText(String.valueOf(tb_CPT.getValueAt(fila, 10))); 
-       txtnom2.setText(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
+       lblID_CPT.setText(String.valueOf(tb_CPT.getValueAt(fila, 0))); 
+       cbxTipoDocumento.setSelectedItem(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
+       txtct6.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
+       txtDESCRIPCION.setText(String.valueOf(tb_CPT.getValueAt(fila, 10)));
+       lblIDGRUPO.setText(String.valueOf(tb_CPT.getValueAt(fila, 4)));
+       lblIDCTA6.setText(String.valueOf(tb_CPT.getValueAt(fila, 5)));  
+       txtITEM_COMPLETO.setText(String.valueOf(tb_CPT.getValueAt(fila, 9))); 
 
    }
      if(evt.getClickCount()==2){
@@ -1201,26 +1208,26 @@ byte tgm;
 //        }
         tg=2;
          txtnomenclatura.setEditable(true);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
      
          btnguardar.setEnabled(false);
          btneditar.setEnabled(true);
          btneliminar.setEnabled(true);
          b1.setEnabled(true);
          b1.setVisible(false);
-          txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+          txtITEM.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
          txtnomenclatura.setVisible(false);
-         txtnom1.setVisible(false);
-         txtnom2.setVisible(true);
+         txtITEM.setVisible(false);
+         txtITEM_COMPLETO.setVisible(true);
          txtcod.setEditable(true);
          txtnomenclatura.setEditable(true);
          txtct6.setEditable(true);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
          txtcod.setEditable(false);
          txtnomenclatura.setEditable(false);
          txtct6.setEditable(false);
-         txtnom2.setEditable(false);
-         txtdes.setEditable(false);
+         txtITEM_COMPLETO.setEditable(false);
+         txtDESCRIPCION.setEditable(false);
          
 
     }//GEN-LAST:event_tb_CPTMouseClicked
@@ -1237,12 +1244,12 @@ byte tgm;
 
        txtcod.setText(String.valueOf(tb_CPT.getValueAt(fila, 0)));  
        txtct6.setText(String.valueOf(tb_CPT.getValueAt(fila, 5)));
-       txtdes.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
+       txtDESCRIPCION.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
        
        lblIDGRUPO.setText(String.valueOf(tb_CPT.getValueAt(fila, 9)));
        lblIDCTA6.setText(String.valueOf(tb_CPT.getValueAt(fila, 11)));  
        unior.setText(String.valueOf(tb_CPT.getValueAt(fila, 10))); 
-       txtnom2.setText(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
+       txtITEM_COMPLETO.setText(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
 //       visible.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
        jLabel33.setText("Edición");
       
@@ -1263,38 +1270,38 @@ byte tgm;
 //        }
         tg=2;
          txtnomenclatura.setEditable(true);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
      
          btnguardar.setEnabled(false);
          btneditar.setEnabled(true);
          btneliminar.setEnabled(true);
          b1.setEnabled(true);
          b1.setVisible(false);
-          txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+          txtITEM.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
          txtnomenclatura.setVisible(false);
-         txtnom1.setVisible(false);
-         txtnom2.setVisible(true);
+         txtITEM.setVisible(false);
+         txtITEM_COMPLETO.setVisible(true);
          txtcod.setEditable(true);
          txtnomenclatura.setEditable(true);
          txtct6.setEditable(true);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
          txtcod.setEditable(false);
          txtnomenclatura.setEditable(false);
          txtct6.setEditable(false);
-         txtnom2.setEditable(false);
-         txtdes.setEditable(false);
+         txtITEM_COMPLETO.setEditable(false);
+         txtDESCRIPCION.setEditable(false);
          btnLista.setVisible(true);
 
        
 
     }//GEN-LAST:event_tb_CPTKeyPressed
 
-    private void txtnom1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom1KeyPressed
+    private void txtITEMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtITEMKeyPressed
           char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            txtdes.requestFocus(); 
+            txtDESCRIPCION.requestFocus(); 
         }
-    }//GEN-LAST:event_txtnom1KeyPressed
+    }//GEN-LAST:event_txtITEMKeyPressed
 
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
         if (tgm==3){
@@ -1333,22 +1340,22 @@ byte tgm;
      cargareliminar.setVisible(false);
     }//GEN-LAST:event_noeliActionPerformed
 
-    private void txtnom2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom2KeyPressed
+    private void txtITEM_COMPLETOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtITEM_COMPLETOKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnom2KeyPressed
+    }//GEN-LAST:event_txtITEM_COMPLETOKeyPressed
 
-    private void txtdesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesKeyReleased
-        txtdes.setText(txtdes.getText().toUpperCase());
+    private void txtDESCRIPCIONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDESCRIPCIONKeyReleased
+        txtDESCRIPCION.setText(txtDESCRIPCION.getText().toUpperCase());
          
-    }//GEN-LAST:event_txtdesKeyReleased
+    }//GEN-LAST:event_txtDESCRIPCIONKeyReleased
 
-    private void txtdesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesKeyTyped
+    private void txtDESCRIPCIONKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDESCRIPCIONKeyTyped
              
-    }//GEN-LAST:event_txtdesKeyTyped
+    }//GEN-LAST:event_txtDESCRIPCIONKeyTyped
 
-    private void txtnom1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom1KeyReleased
-        txtnom1.setText(txtnom1.getText().toUpperCase());
-    }//GEN-LAST:event_txtnom1KeyReleased
+    private void txtITEMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtITEMKeyReleased
+        txtITEM.setText(txtITEM.getText().toUpperCase());
+    }//GEN-LAST:event_txtITEMKeyReleased
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         jLabel33.setText("Listado"); 
@@ -1359,25 +1366,25 @@ byte tgm;
         btneliminar.setEnabled(false);
         
         ///////////////
-         txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+         txtITEM.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
          cargareliminar.setVisible(false);
-         txtnom1.setEditable(false);
+         txtITEM.setEditable(false);
          txtct6.setEditable(false);
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
          
-         txtnom1.setEditable(true);
+         txtITEM.setEditable(true);
          txtnomenclatura.setVisible(true);
-         txtnom1.setVisible(true);
-         txtnom2.setVisible(false);
+         txtITEM.setVisible(true);
+         txtITEM_COMPLETO.setVisible(false);
         
         
-         txtdes.setEditable(true);
+         txtDESCRIPCION.setEditable(true);
     
          btneditar.setEnabled(false);
 
          txtnomenclatura.setText("");
-         txtdes.setText("");
-         txtnom1.setText("");
+         txtDESCRIPCION.setText("");
+         txtITEM.setText("");
          txtct6.setText("");
          btnLista.setVisible(false);
         Caja_CPT A = new Caja_CPT();
@@ -1569,11 +1576,11 @@ byte tgm;
     private javax.swing.JTable tb_CPT;
     private javax.swing.JTable tb_Grupos2;
     private javax.swing.JTextField txtBuscar2;
+    private javax.swing.JEditorPane txtDESCRIPCION;
+    private javax.swing.JTextField txtITEM;
+    private javax.swing.JTextField txtITEM_COMPLETO;
     private javax.swing.JTextField txtcod;
     public static javax.swing.JTextField txtct6;
-    private javax.swing.JEditorPane txtdes;
-    private javax.swing.JTextField txtnom1;
-    private javax.swing.JTextField txtnom2;
     public static javax.swing.JTextField txtnomenclatura;
     private javax.swing.JLabel unior;
     // End of variables declaration//GEN-END:variables

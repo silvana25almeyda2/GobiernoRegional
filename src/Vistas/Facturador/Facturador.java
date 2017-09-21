@@ -2645,7 +2645,7 @@ public class Facturador extends javax.swing.JFrame {
                 sumInafectas= sumInafectas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
                         *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
             }else{
-                sumGravadas=sumGravadas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
+               sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
                         *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
             }
                 
