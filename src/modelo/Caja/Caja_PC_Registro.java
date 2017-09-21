@@ -14,6 +14,11 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
 import Vistas.Caja.Caja_Registro;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 
 /**
  *
@@ -26,6 +31,8 @@ private String NOM_USU;
 private int NRO_PC;
 private int AR_ID; 
 private String PA_MODULO;
+private String IMPRESORA;
+Conexion con = new Conexion();
 
     public void CajaPC_Listar(){
         String consulta="";
@@ -93,6 +100,29 @@ private String PA_MODULO;
         }
     }
         
+        public int VALIDAR_PC(){
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
+        
         
     public boolean NuevoTerminal(){
         boolean resp = false;
@@ -124,13 +154,13 @@ private String PA_MODULO;
         boolean resp = false;
         try{
             String sql = "exec CAJA_CONFIGURAR_TERMINAL_C_F "
-                        + "?,?";
+                        + "?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             //cmd.setString(1, getCod_nomen_caja());
 
             cmd.setString(1, getNOM_USU());
             cmd.setInt(2, getNRO_PC());
-
+            cmd.setString(3, getIMPRESORA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -168,6 +198,17 @@ private String PA_MODULO;
         }
         return resultado;
     }
+    
+    public void reportePRUEBA_TICKET() {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("id",4);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/PRUEBA_TICKET.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
     
     public void NUMERACION(){
         String consulta="";
@@ -228,6 +269,14 @@ private String PA_MODULO;
 
     public void setPA_MODULO(String PA_MODULO) {
         this.PA_MODULO = PA_MODULO;
+    }
+
+    public String getIMPRESORA() {
+        return IMPRESORA;
+    }
+
+    public void setIMPRESORA(String IMPRESORA) {
+        this.IMPRESORA = IMPRESORA;
     }
     
     

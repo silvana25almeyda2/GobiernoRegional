@@ -139,6 +139,62 @@ Connection ConexionS=c.conectar();
                     }
         }                 
     }
+    
+    public void MODIFICAR_REGISTRO(){
+                Caja_Tarifario cno1 = new Caja_Tarifario();
+                cno1.setID_PRECIO(Integer.parseInt(lblID_PRECIO.getText()));
+                Caja_Tarifario cno2 = new Caja_Tarifario();
+                String prov = cbxFormaPago.getSelectedItem().toString();
+                String FP = cno2.DATOS_FOR_PAGO(prov);
+                cno1.setID_FORMA_PAGO(Integer.parseInt(FP));
+                cno1.setID_CPT(Integer.parseInt(lblID_ITEM.getText()));
+                cno1.setPRECIO(Double.parseDouble(txtPrecio.getText()));
+                cno1.setUsuario(lblusu.getText());
+                    if(cno1.ACTUALIZAR_PRECIO()==true){
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(0,153,102)); 
+                        Mensaje.setText("Datos Actualizados de forma correcta");
+                        eli.setText("OK");
+                        eli.setVisible(true);
+                        noeli.setVisible(false);
+                        tgm=2;
+                        btnguardar.setEnabled(false);
+                        btneditar.setEnabled(false);
+                        btneliminar.setEnabled(false);
+                        panelDetalle.setVisible(false);
+                        Caja_Tarifario A = new Caja_Tarifario();
+                        A.LISTA_PRECIOS("",tb_Tarifas);
+                        jLabel33.setText("Listado");
+                    } else {
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("Ocurrio un error, Verifique");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                    }               
+    }
+    
+    public void ELIMINAR_CPT(){ 
+        try{
+                Caja_Tarifario hCEl = new Caja_Tarifario();
+                hCEl.setID_PRECIO(Integer.parseInt(lblID_PRECIO.getText()));
+                if(hCEl.ELIMINAR_PRECIO()){
+                    cargareliminar.setBackground(new Color(0,153,102)); 
+                    Mensaje.setText("Registro Eliminado");
+                    eli.setText("OK");
+                    eli.setVisible(true);
+                    noeli.setVisible(false);
+                    panelDetalle.setVisible(false);
+                    tgm=9;
+                    Caja_Tarifario A = new Caja_Tarifario();
+                    A.LISTA_PRECIOS("",tb_Tarifas);
+                    jLabel33.setText("Listado");
+                    
+                }
+        }catch(Exception e){
+            System.out.println("Error: " + e.toString());
+        }   
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1046,7 +1102,7 @@ Connection ConexionS=c.conectar();
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
         if (tgm==3){
             if(lblPermiso.getText().equals("E")){
-//                MODIFICAR_REGISTRO();
+                MODIFICAR_REGISTRO();
             }else if(!lblPermiso.getText().equals("E")){
                 NivelSuperior.setUndecorated(true);
                 NivelSuperior.setVisible(true);
@@ -1058,7 +1114,7 @@ Connection ConexionS=c.conectar();
         } else
         if (tgm==8){
             if(lblPermiso.getText().equals("E")){
-//                ELIMINAR_CPT();
+                ELIMINAR_CPT();
             }else if(!lblPermiso.getText().equals("E")){
                 NivelSuperior.setUndecorated(true);
                 NivelSuperior.setVisible(true);

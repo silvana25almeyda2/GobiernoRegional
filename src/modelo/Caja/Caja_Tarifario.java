@@ -77,6 +77,50 @@ Conexion con = new Conexion();
         return resp;
     }
     
+    public boolean ACTUALIZAR_PRECIO(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_PRECIOS_ACTUALIZAR ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_PRECIO());
+            cmd.setInt(2, getID_FORMA_PAGO());
+            cmd.setInt(3, getID_CPT());
+            cmd.setDouble(4, getPRECIO());
+            cmd.setString(5, getUsuario());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ACTUALIZAR  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean ELIMINAR_PRECIO(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_PRECIOS_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_PRECIO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ELIMINAR  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public int VALIDAR_PRECIO(String nombre,String CPT){
         int resultado=0;
         try

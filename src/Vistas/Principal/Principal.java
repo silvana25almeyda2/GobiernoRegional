@@ -164,6 +164,8 @@ public class Principal extends javax.swing.JFrame {
         lblUsu = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblPersonal1 = new javax.swing.JLabel();
+        PanelCaja3 = new javax.swing.JPanel();
+        btnCaja1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Contenedor = new javax.swing.JDesktopPane();
@@ -1023,6 +1025,47 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCaja1.setBackground(new java.awt.Color(102, 102, 102));
+        btnCaja1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnCaja1.setForeground(new java.awt.Color(51, 51, 51));
+        btnCaja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Settings-64.png"))); // NOI18N
+        btnCaja1.setText("Configuración");
+        btnCaja1.setContentAreaFilled(false);
+        btnCaja1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja1.setFocusPainted(false);
+        btnCaja1.setFocusable(false);
+        btnCaja1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaja1.setIconTextGap(30);
+        btnCaja1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Settings-64(1).png"))); // NOI18N
+        btnCaja1.setVerifyInputWhenFocusTarget(false);
+        btnCaja1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCaja1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCaja1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCaja1MouseEntered(evt);
+            }
+        });
+        btnCaja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaja1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja3Layout = new javax.swing.GroupLayout(PanelCaja3);
+        PanelCaja3.setLayout(PanelCaja3Layout);
+        PanelCaja3Layout.setHorizontalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+        );
+        PanelCaja3Layout.setVerticalGroup(
+            PanelCaja3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1042,7 +1085,10 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(361, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1055,10 +1101,15 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(PanelCaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelHunadoy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(52, 152, 219));
@@ -1110,7 +1161,7 @@ public class Principal extends javax.swing.JFrame {
         );
         ContenedorLayout.setVerticalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
 
         Paginas.addTab(".", Contenedor);
@@ -1411,6 +1462,25 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFacturadorMouseExited
 
+    private void btnCaja1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja1MouseClicked
+
+    private void btnCaja1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja1MouseEntered
+
+    private void btnCaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja1ActionPerformed
+        Principal_Configuracion C =new Principal_Configuracion();
+        Contenedor.add(C);
+        try {
+            C.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Paginas.setSelectedIndex(1);
+    }//GEN-LAST:event_btnCaja1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1455,12 +1525,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelCaja;
     private javax.swing.JPanel PanelCaja1;
     private javax.swing.JPanel PanelCaja2;
+    private javax.swing.JPanel PanelCaja3;
     private javax.swing.JPanel PanelFacturador;
     private javax.swing.JPanel PanelHunadoy;
     private javax.swing.JButton btnAlertConsulta10;
     private javax.swing.JButton btnAlertConsulta7;
     private javax.swing.JButton btnAnularVenta;
     public static javax.swing.JButton btnCaja;
+    public static javax.swing.JButton btnCaja1;
     public static javax.swing.JButton btnFacturador;
     public static javax.swing.JButton btnHuandoy;
     public static javax.swing.JButton btnPersonal;
