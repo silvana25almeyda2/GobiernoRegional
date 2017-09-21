@@ -25,6 +25,7 @@ import javax.swing.table.TableRowSorter;
 
 import modelo.Caja.Caja_CPT;
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
@@ -39,8 +40,7 @@ Conexion c=new Conexion();
 Connection conexion=c.conectar();
 ResultSet r;
 byte tg;
-byte tge;
-byte tga;
+byte tgm;
     /**
      * Creates new form Caja_CPTs
      */
@@ -52,11 +52,13 @@ byte tga;
          Cta6.setLocationRelativeTo(null);//en el centro
          Cta6.getContentPane().setBackground(Color.WHITE); 
         this.cbxTipoDocumento.setModel(CargarGrupo()); 
-                
-        //setResizable(false);//para que no funcione el boton maximizar
-        LISTAR();
+
         Caja_Cta6 A = new Caja_Cta6();
         A.LISTA_CTA6("", tb_Grupos2);
+        Caja_CPT AL = new Caja_CPT();
+        Caja_CPT N = new Caja_CPT();
+        AL.LISTA_ITEM("",tb_CPT);
+        N.LISTAR_PERMISOS_ITEM(Principal.lblUsu.getText());
         //formatoventanas();
         cargareliminar.setVisible(false);
         btnNuevo.setEnabled(true);
@@ -65,9 +67,9 @@ byte tga;
         btneliminar.setEnabled(false);
         b1.setVisible(false);
         txtnom2.setVisible(false);
-        jTabbedPane1.setSelectedIndex(1);
-         jTabbedPane1.setEnabledAt(0,false);
-         jTabbedPane1.setEnabledAt(1, false);
+        Paginas.setSelectedIndex(1);
+         Paginas.setEnabledAt(0,false);
+         Paginas.setEnabledAt(1, false);
          btnLista.setVisible(false);
 //         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
     
@@ -91,119 +93,7 @@ byte tga;
         }        
         return listmodel;
     }
-    public void Buscar(){
-                   // TODO add your handling code here:
-        String consulta="";
-        try {
-            tb_Grupo1.setModel(new DefaultTableModel());
-             String titulos[]={"Codigo","CPT","Descripcion CPT","Area","Grupo","Cuenta 6","","","","","",""};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[12];
-
-            Caja_CPT obj=new Caja_CPT();
-                    consulta="exec Nomenclatura_BUSCAR ?";
-                    
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, buscartodo.getText());
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=r.getString(1); 
-                fila[1]=r.getString(2); 
-                fila[2]=r.getString(3);
-                fila[3]=r.getString(4);
-                fila[4]=r.getString(5);
-                fila[5]=r.getString(6);
-                fila[6]=r.getString(7);
-                fila[7]=r.getString(8);
-                fila[8]=r.getString(9); 
-                fila[9]=r.getString(10); 
-                fila[10]=r.getString(11);
-                fila[11]=r.getString(12);
-            
-      
-             
-
-                m.addRow(fila);
-                c++;
-            }
-            tb_Grupo1.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_Grupo1.setRowSorter(elQueOrdena);
-            this.tb_Grupo1.setModel(m);
-
-            formato();
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-      }
- 
-    public void LISTAR(){
-    try {
-             String titulos[]={"Codigo","CPT","Descripcion CPT","Area","Grupo","Cuenta 6","","","","","",""};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[12];
-
-            Conexion obj = new Conexion();  
-        String consulta="exec Nomenclatura_Listar";
-        ResultSet r;
-        r=obj.Listar(consulta);
-        int c=1;
-          while(r.next()){
-                fila[0]=r.getString(1); 
-                fila[1]=r.getString(2); 
-                fila[2]=r.getString(3);
-                fila[3]=r.getString(4);
-                fila[4]=r.getString(5);
-                fila[5]=r.getString(6);
-                fila[6]=r.getString(7);
-                fila[7]=r.getString(8);
-                fila[8]=r.getString(9); 
-                fila[9]=r.getString(10); 
-                fila[10]=r.getString(11);
-                fila[11]=r.getString(12);
-      
-                    m.addRow(fila);
-                    c++;
-            }
-            tb_Grupo1.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_Grupo1.setRowSorter(elQueOrdena);
-            this.tb_Grupo1.setModel(m);
-            formato();
-            
-    } catch (Exception e) {
-    }
-}
-
-    
-
-    public void formato(){
-    tb_Grupo1.getColumnModel().getColumn(0).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(0).setMaxWidth(0);    
-    tb_Grupo1.getColumnModel().getColumn(1).setPreferredWidth(80);
-    tb_Grupo1.getColumnModel().getColumn(2).setPreferredWidth(600);
-    tb_Grupo1.getColumnModel().getColumn(3).setPreferredWidth(80);
-    tb_Grupo1.getColumnModel().getColumn(4).setPreferredWidth(80);
-    tb_Grupo1.getColumnModel().getColumn(5).setPreferredWidth(300);
-    
-    tb_Grupo1.getColumnModel().getColumn(6).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(6).setMaxWidth(0); 
-    tb_Grupo1.getColumnModel().getColumn(7).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(7).setMaxWidth(0); 
-    tb_Grupo1.getColumnModel().getColumn(8).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(8).setMaxWidth(0); 
-    tb_Grupo1.getColumnModel().getColumn(9).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(9).setMaxWidth(0); 
-    tb_Grupo1.getColumnModel().getColumn(10).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(10).setMaxWidth(0); 
-    tb_Grupo1.getColumnModel().getColumn(11).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(11).setMaxWidth(0); 
-    tb_Grupo1.setRowHeight(45);
-    
-}
+   
     public void formatoventanas(){
     tb_Grupos2.getColumnModel().getColumn(0).setPreferredWidth(50);
     tb_Grupos2.getColumnModel().getColumn(1).setPreferredWidth(250);
@@ -212,6 +102,100 @@ byte tga;
     tb_Grupos2.setRowHeight(45);
     
     }
+    
+    public void NUEVO_REGISTRO(){
+       if((txtnom1.getText().equals(""))){
+            cargareliminar.setVisible(true);        
+            cargareliminar.setBackground(new Color(255,91,70)); 
+            Mensaje.setText("Debe completar los campos requeridos");
+            eli.setVisible(true);
+            noeli.setVisible(false);
+            tgm=0;                 
+        } else {
+                Caja_CPT cno1 = new Caja_CPT();
+                cno1.setID_GRUPO(Integer.parseInt(lblIDGRUPO.getText()));
+                cno1.setID_Cuenta7(Integer.parseInt(lblIDCTA6.getText()));
+                cno1.setNRO_ITEM(txtnomenclatura.getText()+txtnom1.getText());
+                cno1.setNOMBRE(txtdes.getText());
+                cno1.setUSUARIO(lblusu.getText());
+                cno1.setID_CPT(0);
+                    if(cno1.NUEVO_ITEM()==true){
+                            cargareliminar.setVisible(true);
+                            cargareliminar.setBackground(new Color(0,153,102)); 
+                            Mensaje.setText("Datos Guardados de forma correcta");
+                            eli.setText("OK");
+                            eli.setVisible(true);
+                            noeli.setVisible(false);
+                            tgm=1;
+                            btnguardar.setEnabled(false);
+                            btneditar.setEnabled(false);
+                            btneliminar.setEnabled(true);
+                            Caja_CPT A = new Caja_CPT();
+                            A.LISTA_ITEM("",tb_CPT);
+                            jLabel33.setText("Listado");
+                            Paginas.setSelectedIndex(1);
+                    } else {
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("Ocurrio un error, Verifique");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                    }
+        }                 
+    }
+        
+    public void MODIFICAR_REGISTRO(){
+                Caja_CPT cno1 = new Caja_CPT();
+                cno1.setID_CPT(Integer.parseInt(lblID_CPT.getText()));
+                cno1.setID_GRUPO(Integer.parseInt(lblIDGRUPO.getText()));
+                cno1.setID_Cuenta7(Integer.parseInt(lblIDCTA6.getText()));
+                cno1.setNRO_ITEM(txtnom2.getText());
+                cno1.setNOMBRE(txtdes.getText());
+                cno1.setUSUARIO(lblusu.getText());
+                    if(cno1.MODIFICAR_ITEM()==true){
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(0,153,102)); 
+                        Mensaje.setText("Datos Actualizados de forma correcta");
+                        eli.setText("OK");
+                        eli.setVisible(true);
+                        noeli.setVisible(false);
+                        tgm=2;
+                        btnguardar.setEnabled(false);
+                        btneditar.setEnabled(false);
+                        btneliminar.setEnabled(true);
+                        Caja_CPT A = new Caja_CPT();
+                        A.LISTA_ITEM("",tb_CPT);
+                        jLabel33.setText("Listado");
+                        Paginas.setSelectedIndex(1);
+                    } else {
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(255,91,70)); 
+                        Mensaje.setText("Ocurrio un error, Verifique");
+                        eli.setVisible(false);
+                        noeli.setVisible(false);
+                    }               
+    }
+    public void ELIMINAR_CPT(){ 
+        try{
+                Caja_CPT hCEl = new Caja_CPT();
+                hCEl.setID_CPT(Integer.parseInt(lblID_CPT.getText()));
+                if(hCEl.ELIMINAR_ITEM()){
+                    cargareliminar.setBackground(new Color(0,153,102)); 
+                    Mensaje.setText("Registro Eliminado");
+                    eli.setText("OK");
+                    eli.setVisible(true);
+                    noeli.setVisible(false);
+                    tgm=9;
+                    Caja_CPT A = new Caja_CPT();
+                    A.LISTA_ITEM("",tb_CPT);
+                    jLabel33.setText("Listado");
+                    Paginas.setSelectedIndex(0);
+                    
+                }
+        }catch(Exception e){
+            System.out.println("Error: " + e.toString());
+        }   
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -251,7 +235,9 @@ byte tga;
             btnBuscarPaciente = new javax.swing.JButton();
             lbldetalle = new javax.swing.JLabel();
             btnLista = new javax.swing.JButton();
-            jTabbedPane1 = new javax.swing.JTabbedPane();
+            lblNivel = new javax.swing.JLabel();
+            lblPermiso = new javax.swing.JLabel();
+            Paginas = new javax.swing.JTabbedPane();
             jPanel4 = new javax.swing.JPanel();
             txtnomenclatura = new javax.swing.JTextField();
             jLabel7 = new javax.swing.JLabel();
@@ -271,9 +257,10 @@ byte tga;
             txtct6 = new javax.swing.JTextField();
             b1 = new javax.swing.JButton();
             cbxTipoDocumento = new javax.swing.JComboBox();
+            lblID_CPT = new javax.swing.JLabel();
             jPanel2 = new javax.swing.JPanel();
             jScrollPane3 = new javax.swing.JScrollPane();
-            tb_Grupo1 = new javax.swing.JTable(){
+            tb_CPT = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
                 }};
@@ -564,7 +551,7 @@ byte tga;
                 lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 lblusu.setForeground(new java.awt.Color(255, 255, 255));
                 lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
-                lblusu.setText("Silvana");
+                lblusu.setText("ALGUIEN");
                 lblusu.setFocusable(false);
                 lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -629,6 +616,14 @@ byte tga;
                     }
                 });
 
+                lblNivel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                lblNivel.setForeground(new java.awt.Color(39, 174, 96));
+                lblNivel.setText("jLabel2");
+
+                lblPermiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                lblPermiso.setForeground(new java.awt.Color(39, 174, 96));
+                lblPermiso.setText("jLabel2");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -653,7 +648,11 @@ byte tga;
                                             .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(lbldetalle)))
                                 .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblNivel)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPermiso)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -678,18 +677,23 @@ byte tga;
                         .addGap(18, 18, 18)
                         .addComponent(btnLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNivel)
+                            .addComponent(lblPermiso))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
 
-                jTabbedPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-                jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
-                jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-                jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-                jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
+                Paginas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+                Paginas.setForeground(new java.awt.Color(255, 255, 255));
+                Paginas.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+                Paginas.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+                Paginas.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
                 jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
                 txtnomenclatura.setEditable(false);
+                txtnomenclatura.setBackground(new java.awt.Color(255, 255, 255));
                 txtnomenclatura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 txtnomenclatura.setForeground(new java.awt.Color(51, 51, 51));
                 txtnomenclatura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -831,6 +835,8 @@ byte tga;
                     }
                 });
 
+                lblID_CPT.setText("jLabel1");
+
                 javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
                 jPanel4.setLayout(jPanel4Layout);
                 jPanel4Layout.setHorizontalGroup(
@@ -870,7 +876,9 @@ byte tga;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(unior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblIDGRUPO)))
+                                .addComponent(lblIDGRUPO)
+                                .addGap(51, 51, 51)
+                                .addComponent(lblID_CPT)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel4Layout.setVerticalGroup(
@@ -894,7 +902,10 @@ byte tga;
                             .addComponent(txtnom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblID_CPT))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(129, 129, 129)
@@ -906,14 +917,14 @@ byte tga;
                         .addContainerGap(127, Short.MAX_VALUE))
                 );
 
-                jTabbedPane1.addTab("...", jPanel4);
+                Paginas.addTab("...", jPanel4);
 
                 jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
                 jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-                tb_Grupo1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-                tb_Grupo1.setModel(new javax.swing.table.DefaultTableModel(
+                tb_CPT.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+                tb_CPT.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                         {null, null, null, null},
                         {null, null, null, null},
@@ -924,24 +935,24 @@ byte tga;
                         "Title 1", "Title 2", "Title 3", "Title 4"
                     }
                 ));
-                tb_Grupo1.setGridColor(new java.awt.Color(255, 255, 255));
-                tb_Grupo1.setRowHeight(25);
-                tb_Grupo1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-                tb_Grupo1.getTableHeader().setReorderingAllowed(false);
-                tb_Grupo1.addMouseListener(new java.awt.event.MouseAdapter() {
+                tb_CPT.setGridColor(new java.awt.Color(255, 255, 255));
+                tb_CPT.setRowHeight(25);
+                tb_CPT.setSelectionBackground(new java.awt.Color(102, 102, 102));
+                tb_CPT.getTableHeader().setReorderingAllowed(false);
+                tb_CPT.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        tb_Grupo1MouseClicked(evt);
+                        tb_CPTMouseClicked(evt);
                     }
                     public void mousePressed(java.awt.event.MouseEvent evt) {
-                        tb_Grupo1MousePressed(evt);
+                        tb_CPTMousePressed(evt);
                     }
                 });
-                tb_Grupo1.addKeyListener(new java.awt.event.KeyAdapter() {
+                tb_CPT.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                        tb_Grupo1KeyPressed(evt);
+                        tb_CPTKeyPressed(evt);
                     }
                 });
-                jScrollPane3.setViewportView(tb_Grupo1);
+                jScrollPane3.setViewportView(tb_CPT);
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
@@ -958,7 +969,7 @@ byte tga;
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
                 );
 
-                jTabbedPane1.addTab("...", jPanel2);
+                Paginas.addTab("...", jPanel2);
 
                 cargareliminar.setBackground(new java.awt.Color(255, 153, 51));
 
@@ -1049,7 +1060,7 @@ byte tga;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
                             .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTabbedPane1)))
+                            .addComponent(Paginas)))
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1058,7 +1069,7 @@ byte tga;
                         .addGap(0, 0, 0)
                         .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                        .addComponent(Paginas, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                 );
 
@@ -1091,14 +1102,14 @@ byte tga;
          txtct6.setText("");
          b1.setVisible(true);
         
-        jTabbedPane1.setSelectedIndex(0);
+        Paginas.setSelectedIndex(0);
         jLabel33.setText("Edición"); 
         Caja_CPT cno2 = new Caja_CPT();
         cno2.DATOS_GRUPO_CPT(cbxTipoDocumento.getSelectedItem().toString());
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
- jTabbedPane1.setSelectedIndex(0);
+ Paginas.setSelectedIndex(0);
         txtnomenclatura.setEditable(true);
          txtdes.setEditable(true);
           txtnom2.setEditable(true);
@@ -1112,51 +1123,67 @@ byte tga;
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        if(tg==1){
-//            Guardar();
-            b1.setVisible(false);
-        }else if(tg==2){
-           cargareliminar.setVisible(true);
-           cargareliminar.setBackground(new Color(255,153,51)); 
-           Mensaje.setText("Desea Actualizar el Registro ?");
-           eli.setText("Si");
-           eli.setVisible(true);
-           noeli.setVisible(true);
-           tge=2;
+       if(tg==1){
+            Caja_CPT cn = new Caja_CPT();
+            Caja_CPT cn1 = new Caja_CPT();
+            if((cn.VALIDAR_TUPA(txtnom1.getText())>0)||(cn1.VALIDAR_TUPA_DES(txtdes.getText())>0)){
+                cargareliminar.setVisible(true);
+                 cargareliminar.setBackground(new Color(255,91,70)); 
+                 Mensaje.setText("El Ítem ingresado ya existe, Verifique ");
+                 eli.setVisible(false);
+                 noeli.setVisible(false);
+                 txtnom1.setText("");
+                 txtnom1.requestFocus();
+                
+            }else
+                NUEVO_REGISTRO(); 
+            
+        }
+        if(tg==2){
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,153,51));
+            Mensaje.setText("Desea Actualizar el Registro ?");
+            eli.setText("Si");
+            eli.setVisible(true);
+            noeli.setVisible(true);
+            tgm=3;
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-  
-              cargareliminar.setVisible(true);
-              cargareliminar.setBackground(new Color(255,91,70)); 
-              Mensaje.setText("Desea Eliminar este registro?");
-              eli.setText("Si");
-              eli.setVisible(true);
-              noeli.setText("No");
-              noeli.setVisible(true);
-              tge=6;
-       
+        if(lblPermiso.getText().equals("E")){
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,91,70));
+            Mensaje.setText("Desea Eliminar este registro?");
+            eli.setText("Si");
+            eli.setVisible(true);
+            noeli.setText("No");
+            noeli.setVisible(true);
+            tgm=8;
+        }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+        }
     }//GEN-LAST:event_btneliminarActionPerformed
 
-    private void tb_Grupo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MouseClicked
-    int fila=tb_Grupo1.getSelectedRow();
+    private void tb_CPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CPTMouseClicked
+    int fila=tb_CPT.getSelectedRow();
      if(evt.getClickCount()==1){
 
-       txtcod.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));  
-       txtct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-       txtdes.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
+       txtcod.setText(String.valueOf(tb_CPT.getValueAt(fila, 0)));  
+       txtct6.setText(String.valueOf(tb_CPT.getValueAt(fila, 5)));
+       txtdes.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
        
-       lblIDGRUPO.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
-       lblIDCTA6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));  
-       unior.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10))); 
-       txtnom2.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1))); 
+       lblIDGRUPO.setText(String.valueOf(tb_CPT.getValueAt(fila, 9)));
+       lblIDCTA6.setText(String.valueOf(tb_CPT.getValueAt(fila, 11)));  
+       unior.setText(String.valueOf(tb_CPT.getValueAt(fila, 10))); 
+       txtnom2.setText(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
 
    }
      if(evt.getClickCount()==2){
       jLabel33.setText("Edición");
       btnLista.setVisible(true);
-      jTabbedPane1.setSelectedIndex(0);
+      Paginas.setSelectedIndex(0);
 
       }
 //      try {
@@ -1196,26 +1223,26 @@ byte tga;
          txtdes.setEditable(false);
          
 
-    }//GEN-LAST:event_tb_Grupo1MouseClicked
+    }//GEN-LAST:event_tb_CPTMouseClicked
 
-    private void tb_Grupo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MousePressed
+    private void tb_CPTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CPTMousePressed
 
-    }//GEN-LAST:event_tb_Grupo1MousePressed
+    }//GEN-LAST:event_tb_CPTMousePressed
 
-    private void tb_Grupo1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo1KeyPressed
+    private void tb_CPTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTKeyPressed
 
           char teclaPresionada = evt.getKeyChar();
        if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tb_Grupo1.getSelectedRow();
+            int fila = tb_CPT.getSelectedRow();
 
-       txtcod.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));  
-       txtct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-       txtdes.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
+       txtcod.setText(String.valueOf(tb_CPT.getValueAt(fila, 0)));  
+       txtct6.setText(String.valueOf(tb_CPT.getValueAt(fila, 5)));
+       txtdes.setText(String.valueOf(tb_CPT.getValueAt(fila, 2)));
        
-       lblIDGRUPO.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
-       lblIDCTA6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));  
-       unior.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10))); 
-       txtnom2.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1))); 
+       lblIDGRUPO.setText(String.valueOf(tb_CPT.getValueAt(fila, 9)));
+       lblIDCTA6.setText(String.valueOf(tb_CPT.getValueAt(fila, 11)));  
+       unior.setText(String.valueOf(tb_CPT.getValueAt(fila, 10))); 
+       txtnom2.setText(String.valueOf(tb_CPT.getValueAt(fila, 1))); 
 //       visible.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
        jLabel33.setText("Edición");
       
@@ -1260,7 +1287,7 @@ byte tga;
 
        
 
-    }//GEN-LAST:event_tb_Grupo1KeyPressed
+    }//GEN-LAST:event_tb_CPTKeyPressed
 
     private void txtnom1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom1KeyPressed
           char teclaPresionada = evt.getKeyChar();
@@ -1270,44 +1297,40 @@ byte tga;
     }//GEN-LAST:event_txtnom1KeyPressed
 
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
-        if (tge==3 || tge==1 ||tge==9 ||tge==7||tge==9){
+        if (tgm==3){
+            if(lblPermiso.getText().equals("E")){
+                MODIFICAR_REGISTRO();
+            }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+            
+        }    
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            btneliminar.setEnabled(false);
+        } else
+        if (tgm==8){
+            if(lblPermiso.getText().equals("E")){
+                ELIMINAR_CPT();
+            }else if(!lblPermiso.getText().equals("E")){
+            NivelSuperior.setUndecorated(true);
+            NivelSuperior.setVisible(true);
+        }
+            btnguardar.setEnabled(true);
+            btneditar.setEnabled(false);
+            btneliminar.setEnabled(false);
+        }
+        else if (tgm==2 ||tgm==1||tgm==9){
             cargareliminar.setVisible(false);
-
         }
-        if (tge==2){
-//            Modificar();
-            btnguardar.setEnabled(false);
-            btneditar.setEnabled(true);
-            btneliminar.setEnabled(true);
-            b1.setVisible(false);
-
-
-        }
-          if (tge==6){
-//            eliminar();
-
+        if (tgm==0){
+            cargareliminar.setVisible(false);
         }
 
     }//GEN-LAST:event_eliActionPerformed
 
     private void noeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeliActionPerformed
-        
-         if (tge==3 || tge==1 || tge==6){
-           cargareliminar.setVisible(false);
-
-        }
-        if (tge==2){
-             cargareliminar.setVisible(true);
-           cargareliminar.setBackground(new Color(255,153,51)); 
-           Mensaje.setText("No se han realizado modificaciones");
-           eli.setText("OK");
-           eli.setVisible(true);
-           noeli.setVisible(false);
-           tge=9;
-        
-        }
-        
-             
+     cargareliminar.setVisible(false);
     }//GEN-LAST:event_noeliActionPerformed
 
     private void txtnom2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom2KeyPressed
@@ -1329,7 +1352,7 @@ byte tga;
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         jLabel33.setText("Listado"); 
-        jTabbedPane1.setSelectedIndex(1);
+        Paginas.setSelectedIndex(1);
         btnNuevo.setEnabled(true);
         btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
@@ -1357,8 +1380,10 @@ byte tga;
          txtnom1.setText("");
          txtct6.setText("");
          btnLista.setVisible(false);
-        Buscar();  
-
+        Caja_CPT A = new Caja_CPT();
+        A.LISTA_ITEM(buscartodo.getText(),tb_CPT);
+        Paginas.setSelectedIndex(0);
+        jLabel33.setText("Resultados de la Busqueda");
     }//GEN-LAST:event_buscartodoCaretUpdate
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
@@ -1370,35 +1395,12 @@ byte tga;
     }//GEN-LAST:event_txtct6CaretUpdate
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
-         jLabel33.setText("Listado"); 
-        jTabbedPane1.setSelectedIndex(1);
-         btnNuevo.setEnabled(true);
-        btnguardar.setEnabled(false);
-        btneditar.setEnabled(false);
-        btneliminar.setEnabled(false);
-        
-        ///////////////
-         txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-         cargareliminar.setVisible(false);
-         txtnom1.setEditable(false);
-         txtct6.setEditable(false);
-         txtdes.setEditable(true);
-         
-         txtnom1.setEditable(true);
-         txtnomenclatura.setVisible(true);
-         txtnom1.setVisible(true);
-         txtnom2.setVisible(false);
-        
-        
-         txtdes.setEditable(true);
-    
-         btnguardar.setEnabled(true);
-         btneditar.setEnabled(false);
+        jLabel33.setText("Listado");
+        buscartodo.setText("");
+        Caja_CPT A = new Caja_CPT();
+        A.LISTA_ITEM("",tb_CPT);
+        Paginas.setSelectedIndex(0);
 
-         txtnomenclatura.setText("");
-         txtdes.setText("");
-         txtnom1.setText("");
-         txtct6.setText("");
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void cbxTipoDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoMouseClicked
@@ -1519,6 +1521,7 @@ byte tga;
     private javax.swing.JDialog Cta6;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JDialog NivelSuperior;
+    private javax.swing.JTabbedPane Paginas;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnAlertConsulta10;
     private javax.swing.JButton btnBuscarPaciente;
@@ -1553,15 +1556,17 @@ byte tga;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblIDCTA6;
     public static javax.swing.JLabel lblIDGRUPO;
+    private javax.swing.JLabel lblID_CPT;
+    public static javax.swing.JLabel lblNivel;
+    public static javax.swing.JLabel lblPermiso;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel nm;
     private javax.swing.JButton noeli;
     private javax.swing.JPanel panelCPT1;
-    private javax.swing.JTable tb_Grupo1;
+    private javax.swing.JTable tb_CPT;
     private javax.swing.JTable tb_Grupos2;
     private javax.swing.JTextField txtBuscar2;
     private javax.swing.JTextField txtcod;

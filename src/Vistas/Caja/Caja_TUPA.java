@@ -133,7 +133,7 @@ Caja_CPT nuevaR = new Caja_CPT();
         jLabel19.setText(String.valueOf(bd4));
     }
     
-        public void NUEVO_REGISTRO(){
+    public void NUEVO_REGISTRO(){
        if((txtGrupoDes.getText().equals(""))){
             cargareliminar.setVisible(true);        
             cargareliminar.setBackground(new Color(255,91,70)); 

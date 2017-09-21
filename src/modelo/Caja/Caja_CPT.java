@@ -42,6 +42,7 @@ private String DESCRIPCION ;
 private String PORCENTAJE ;
 private String USUARIO;
 private double PRECIO;
+private String AFECTO;
 
     public boolean NUEVO_CPT(){
         boolean resp = false;
@@ -71,6 +72,30 @@ private double PRECIO;
         return resp;
     }
     
+    public boolean NUEVO_ITEM(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_ITEM_NUEVO ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_GRUPO());
+            cmd.setInt(2, getID_Cuenta7());
+            cmd.setString(3, getNRO_ITEM());
+            cmd.setString(4, getNOMBRE());
+            cmd.setString(5, getUSUARIO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL REGISTRAR  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public boolean MODIFICAR_CPT(){
         boolean resp = false;
         try{
@@ -84,6 +109,31 @@ private double PRECIO;
             cmd.setString(6, getDESCRIPCION());
             cmd.setString(7, getPORCENTAJE());
             cmd.setString(8, getUSUARIO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL REGISTRAR  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        public boolean MODIFICAR_ITEM(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CPT_MODIFICAR ?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_CPT());
+            cmd.setInt(2, getID_GRUPO());
+            cmd.setInt(3, getID_Cuenta7());
+            cmd.setString(4, getNRO_ITEM());
+            cmd.setString(5, getNOMBRE());
+            cmd.setString(6, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -182,6 +232,25 @@ private double PRECIO;
         return resp;
     }
     
+    public boolean ELIMINAR_ITEM(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_ITEM_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_CPT());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ELIMINAR  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public void DATOS_GRUPO(String usu){
         try {
             String consulta = "exec CAJA_GRUPO_DATOS ?";
@@ -205,6 +274,7 @@ private double PRECIO;
             ResultSet r= cmd.executeQuery();
         if(r.next()){
                Caja_CPTS.txtnomenclatura.setText(r.getString(2));
+               System.out.println("   "+r.getString(2));
                Caja_CPTS.lblIDGRUPO.setText(r.getString(1));
         }
         }catch(Exception ex){
@@ -216,7 +286,7 @@ private double PRECIO;
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Grupo","Cuenta 6","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre","Porcentaje","Porcentaje","","Precio"};
+            String titulos[]={"ID","Grupo","Cuenta 7","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre","Porcentaje","Porcentaje","","Precio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[15];
@@ -255,6 +325,45 @@ private double PRECIO;
         }
     }
     
+    public void LISTA_ITEM(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Grupo","Cuenta 7","Item","IDGRUPO","IDCT6","NCTA6","DCT6","CGRUPO","DCPT","Nombre"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_ITEM_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); 
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10); 
+                fila[10]=r.getString(11);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            Formato_ITEM(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR AL LISTAR : " + e.getMessage());
+        }
+    }
+    
     public void Formato(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -283,6 +392,30 @@ private double PRECIO;
         tabla.getColumnModel().getColumn(13).setMinWidth(0);
         tabla.getColumnModel().getColumn(13).setMaxWidth(0);
         tabla.getColumnModel().getColumn(14).setPreferredWidth(100);
+        tabla.setRowHeight(40);
+    }
+    
+    public void Formato_ITEM(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(600);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+
         tabla.setRowHeight(40);
     }
     
@@ -317,6 +450,28 @@ private double PRECIO;
                     Caja_TUPA.lblPermiso.setText("L"); 
                 }else   if(r.getString(3).equals("X")){
                     Caja_TUPA.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+        public void LISTAR_PERMISOS_ITEM(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_CPTS.lblNivel.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Caja_CPTS.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Caja_CPTS.lblPermiso.setText("E"); 
                 }
                 }
             //
@@ -488,6 +643,14 @@ private double PRECIO;
 
     public void setPRECIO(double PRECIO) {
         this.PRECIO = PRECIO;
+    }
+
+    public String getAFECTO() {
+        return AFECTO;
+    }
+
+    public void setAFECTO(String AFECTO) {
+        this.AFECTO = AFECTO;
     }
     
     

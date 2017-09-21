@@ -20,17 +20,19 @@ private String cod_grupo_nomen_aten;
 private String codigo_grupo;
 private String nombre_grupo_nomen;  
 private String nom_usu;  
+private String AFECTO;
 Conexion con = new Conexion();  
 
 public boolean nuevoGrupoNomenclatura(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_GRUPOS_NUEVO "
-                        + "?,?,?";
+                        + "?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCodigo_grupo());
             cmd.setString(2, getNombre_grupo_nomen());
-            cmd.setString(3, getNom_usu());
+            cmd.setString(3, getAFECTO());
+            cmd.setString(4, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -51,12 +53,13 @@ public boolean modificarGrupoNomenclatura(){
         boolean resp = false;
         try
         {
-            String sql = "EXEC CAJA_GRUPOS_ACTUALIZAR ?,?,?,?";
+            String sql = "EXEC CAJA_GRUPOS_ACTUALIZAR ?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_grupo_nomen_aten());
             cmd.setString(2, getCodigo_grupo());
             cmd.setString(3, getNombre_grupo_nomen());
-            cmd.setString(4, getNom_usu());
+            cmd.setString(4, getAFECTO());
+            cmd.setString(5, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -155,6 +158,14 @@ public boolean modificarGrupoNomenclatura(){
         this.nom_usu = nom_usu;
     }
 
+    public String getAFECTO() {
+        return AFECTO;
+    }
 
+    public void setAFECTO(String AFECTO) {
+        this.AFECTO = AFECTO;
+    }
+
+    
 
 }
