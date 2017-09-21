@@ -13,6 +13,7 @@ import Vistas.Caja.Caja_Farmacia;
 import Vistas.Caja.Caja_Grupo_Nomenclaturas;
 import Vistas.Caja.Caja_Historia_Clinica;
 import Vistas.Caja.Caja_Jerarquia;
+import Vistas.Caja.Caja_Precios;
 import Vistas.Caja.Caja_ReporteMensual;
 import Vistas.Caja.Caja_Reportes;
 import Vistas.Caja.Caja_Transaccion;
@@ -1094,7 +1095,9 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCPT3MouseEntered
 
     private void btnCPT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPT3ActionPerformed
-        // TODO add your handling code here:
+        Caja_Precios CT = new Caja_Precios();
+        CT.lblusu.setText(Principal.lblUsu.getText());
+        CT.setVisible(true);
     }//GEN-LAST:event_btnCPT3ActionPerformed
 
     private void btnCPT4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPT4MouseClicked

@@ -162,7 +162,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                             tgm=1;
                             btnguardar.setEnabled(false);
                             btneditar.setEnabled(false);
-                            btneliminar.setEnabled(true);
+                            btneliminar.setEnabled(false);
                             Caja_CPT A = new Caja_CPT();
                             A.LISTA_CPT("",tb_CPT);
                             jLabel33.setText("Listado");
@@ -198,7 +198,7 @@ Caja_CPT nuevaR = new Caja_CPT();
                         tgm=2;
                         btnguardar.setEnabled(false);
                         btneditar.setEnabled(false);
-                        btneliminar.setEnabled(true);
+                        btneliminar.setEnabled(false);
                         Caja_CPT A = new Caja_CPT();
                         A.LISTA_CPT("",tb_CPT);
                         jLabel33.setText("Listado");
@@ -1053,9 +1053,9 @@ Caja_CPT nuevaR = new Caja_CPT();
                 cargareliminarLayout.setHorizontalGroup(
                     cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cargareliminarLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addContainerGap()
                         .addComponent(Mensaje)
-                        .addGap(46, 46, 46)
+                        .addGap(55, 55, 55)
                         .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1064,12 +1064,12 @@ Caja_CPT nuevaR = new Caja_CPT();
                 cargareliminarLayout.setVerticalGroup(
                     cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cargareliminarLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(19, 19, 19)
                         .addGroup(cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Mensaje)
                             .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Mensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
                 Paginas.setForeground(new java.awt.Color(255, 255, 255));
@@ -1612,6 +1612,7 @@ Caja_CPT nuevaR = new Caja_CPT();
             btnguardar.setEnabled(false);
             btneditar.setEnabled(true);
             btneliminar.setEnabled(true);
+            
         }
         if(evt.getClickCount()==2){
             jLabel33.setText("Edición");

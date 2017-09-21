@@ -372,14 +372,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             this.txtSubTotal.setText(String.valueOf(bd2) );
             this.txtIGV.setText("0.00");
             this.txtTotal.setText(String.valueOf(bd2) );
-            lblMontos.setText("Total a Pagar    S/. "+String.valueOf(bd2));
+            lblMontos.setText("Total a Pagar    S/ "+String.valueOf(bd2));
             lblValorVentaInafectada.setText(String.valueOf(bd2));
             lblValorVentaGravada.setText("0.00");
         }else if (!lblGrupo.getText().equals("TP")){
             this.txtSubTotal.setText(String.valueOf(bd4) );
             this.txtIGV.setText(String.valueOf(bd3) );
             this.txtTotal.setText(String.valueOf(bd2) );
-            lblMontos.setText("Subtotal    S/. "+String.valueOf(bd4)+"       "+"IGV    S/. "+String.valueOf(bd3)+"       "+"Total a Pagar    S/. "+String.valueOf(bd2));
+            lblMontos.setText("Subtotal    S/ "+String.valueOf(bd4)+"       "+"IGV    S/ "+String.valueOf(bd3)+"       "+"Total a Pagar    S/. "+String.valueOf(bd2));
             lblValorVentaInafectada.setText("0.00");
             lblValorVentaGravada.setText(String.valueOf(bd5));
         }

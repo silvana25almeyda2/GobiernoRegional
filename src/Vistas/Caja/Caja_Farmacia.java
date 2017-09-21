@@ -107,7 +107,7 @@ public class Caja_Farmacia extends javax.swing.JFrame {
             });
 
             lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
-            lbldetalle.setText("CPT, Grupo");
+            lbldetalle.setText("Descripción");
 
             btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnImprimir.setForeground(new java.awt.Color(240, 240, 240));
