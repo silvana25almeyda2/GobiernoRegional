@@ -306,7 +306,29 @@ public boolean guardarUsuario()
         return cod;
     }
     
-    
+    public int VALIDAR_NOMBRE_USU(String NOM_USU)
+    {
+        int resultado=0;
+        try
+        {
+            String sql = "select usu_usuario from sistema_usuario where usu_usuario =? and USU_estado='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, NOM_USU);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error VALIDAR_NOM_USU: " + ex.getMessage());
+        }
+        return resultado;
+    }
      
     
     public Usuario()

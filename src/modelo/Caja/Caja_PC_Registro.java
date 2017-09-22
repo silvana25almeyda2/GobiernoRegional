@@ -199,10 +199,10 @@ Conexion con = new Conexion();
         return resultado;
     }
     
-    public void reportePRUEBA_TICKET() {
+    public void reportePRUEBA_TICKET(String H) {
         try {
             Map parametros = new HashMap();
-            parametros.put("id",4);
+            parametros.put("H",H);
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/PRUEBA_TICKET.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {

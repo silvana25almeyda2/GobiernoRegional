@@ -46,8 +46,11 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<parameter name="H" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[exec caja_pc_nombre]]>
+		<![CDATA[exec caja_pc_nombre ]]>
 	</queryString>
 	<field name="pc" class="java.lang.String"/>
 	<background>

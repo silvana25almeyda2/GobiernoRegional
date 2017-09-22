@@ -54,7 +54,7 @@ Connection ConexionS=c.conectar();
        Statement  st = null;   
         try {
               st = ConexionS.createStatement();
-              r = st.executeQuery ("EXEC CAJA_PAGOS_LISTAR_FORMA_PAGO"); 
+              r = st.executeQuery ("EXEC CAJA_PRECIOS_LISTAR_FORMA_PAGO"); 
 //              listmodel.addElement("Seleccionar...");
             while( r.next() ){
                 listmodel.addElement( r.getString( "DESCIPCION" ) );                

@@ -7,6 +7,8 @@ package Vistas.Personal;
 
 import Servicios.Conexion;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
@@ -22,9 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -40,7 +45,7 @@ Conexion conectar=new Conexion();
 Connection con;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m1, m2;
+DefaultTableModel m1, m2, m3, m4;
 private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     /**
@@ -52,27 +57,45 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        CBX_DEPARTAMENTO.setBackground(Color.WHITE);
-        CBX_DISTRITO.setBackground(Color.WHITE);
-        CBX_UNIDAD_EJECUTORA.setBackground(Color.WHITE);
-        CBX_PROVINCIA.setBackground(Color.WHITE);
+        UNIDAD_EJECUTORA.getContentPane().setBackground(Color.white);
+        UNIDAD_EJECUTORA.setLocationRelativeTo(null);
+        
         CBX_ESTADO_CIVIL.setBackground(Color.WHITE);
         cargareliminar1.setVisible(false);
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
-        
-        this.CBX_DEPARTAMENTO.setModel(departamento());
-        
-        
+        lbl_cod_dis.setVisible(false);
+        lbl_cod_ue.setVisible(false);
         
         RB_M.setSelected(true);
         
         MOSTRAR_PERSONAL();
+        MOSTRAR_UNIDAD_EJECUTORA();
         
         btnguardar.setEnabled(false);
         btnmodificar.setEnabled(false);
         deshabilitar();
         TXT_CODIGO_PERSONAL.setVisible(false);
+        
+        tbUnidadEjecutora.getTableHeader().setVisible(false);
+        tbUnidadEjecutora.setTableHeader(null);
+        
+        TXT_UBICACION.setEditable(false);
+        addEscapeListenerWindowDialog(UNIDAD_EJECUTORA);
+        
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
     }
 
     /**
@@ -85,6 +108,25 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        UNIDAD_EJECUTORA = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbUnidadEjecutora = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        bus = new javax.swing.JLabel();
+        bus3 = new javax.swing.JLabel();
+        lblDNI_PREVENTA = new javax.swing.JLabel();
+        lblNOMBRE_PREVENTA = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        btnBuscarPaciente2 = new javax.swing.JButton();
+        jPanel33 = new javax.swing.JPanel();
+        txtBuscarUnidadEjecutora = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel36 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
@@ -128,11 +170,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         RB_M = new javax.swing.JRadioButton();
         RB_F = new javax.swing.JRadioButton();
         jLabel24 = new javax.swing.JLabel();
-        CBX_DEPARTAMENTO = new javax.swing.JComboBox();
-        CBX_PROVINCIA = new javax.swing.JComboBox();
-        jLabel25 = new javax.swing.JLabel();
-        CBX_DISTRITO = new javax.swing.JComboBox();
-        jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jPanel28 = new javax.swing.JPanel();
         TXT_DIRECCION = new javax.swing.JTextField();
@@ -147,12 +184,250 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         TXT_CORREO_ELECTRONICO = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         CBX_ESTADO_CIVIL = new javax.swing.JComboBox();
-        jLabel32 = new javax.swing.JLabel();
-        CBX_UNIDAD_EJECUTORA = new javax.swing.JComboBox();
+        jPanel32 = new javax.swing.JPanel();
+        TXT_UBICACION = new javax.swing.JTextField();
+        btn_buscar_UE = new javax.swing.JButton();
+        lbl_cod_dis = new javax.swing.JLabel();
+        lbl_cod_ue = new javax.swing.JLabel();
         cargareliminar1 = new javax.swing.JPanel();
         Mensaje1 = new javax.swing.JLabel();
         eli1 = new javax.swing.JButton();
         noeli1 = new javax.swing.JButton();
+
+        UNIDAD_EJECUTORA.setMinimumSize(new java.awt.Dimension(761, 423));
+
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        tbUnidadEjecutora = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
+        tbUnidadEjecutora.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbUnidadEjecutora.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbUnidadEjecutora.setRowHeight(35);
+        tbUnidadEjecutora.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tbUnidadEjecutora.getTableHeader().setReorderingAllowed(false);
+        tbUnidadEjecutora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbUnidadEjecutoraMouseClicked(evt);
+            }
+        });
+        tbUnidadEjecutora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbUnidadEjecutoraKeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbUnidadEjecutora);
+
+        jPanel7.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel7.setMinimumSize(new java.awt.Dimension(310, 441));
+
+        bus.setForeground(new java.awt.Color(230, 230, 230));
+        bus.setText("jLabel37");
+
+        bus3.setForeground(new java.awt.Color(230, 230, 230));
+        bus3.setText("jLabel37");
+
+        lblDNI_PREVENTA.setForeground(new java.awt.Color(230, 230, 230));
+        lblDNI_PREVENTA.setText("jLabel1");
+
+        lblNOMBRE_PREVENTA.setForeground(new java.awt.Color(230, 230, 230));
+        lblNOMBRE_PREVENTA.setText("jLabel1");
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel25.setText("Unidad Ejecutora");
+
+        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+        btnBuscarPaciente2.setContentAreaFilled(false);
+        btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPaciente2ActionPerformed(evt);
+            }
+        });
+
+        jPanel33.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtBuscarUnidadEjecutora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtBuscarUnidadEjecutora.setForeground(new java.awt.Color(98, 98, 98));
+        txtBuscarUnidadEjecutora.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        txtBuscarUnidadEjecutora.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarUnidadEjecutoraCaretUpdate(evt);
+            }
+        });
+        txtBuscarUnidadEjecutora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtBuscarUnidadEjecutoraMouseClicked(evt);
+            }
+        });
+        txtBuscarUnidadEjecutora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarUnidadEjecutoraActionPerformed(evt);
+            }
+        });
+        txtBuscarUnidadEjecutora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarUnidadEjecutoraKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(txtBuscarUnidadEjecutora, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(txtBuscarUnidadEjecutora, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("Departamento, Provincia o Distrito");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(bus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNOMBRE_PREVENTA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bus3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDNI_PREVENTA)
+                        .addGap(148, 148, 148))))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(10, 10, 10)
+                                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(lblDNI_PREVENTA)
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bus)
+                            .addComponent(bus3)
+                            .addComponent(lblNOMBRE_PREVENTA))))
+                .addGap(17, 17, 17))
+        );
+
+        jPanel36.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel36.setPreferredSize(new java.awt.Dimension(0, 2));
+
+        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+        jPanel36.setLayout(jPanel36Layout);
+        jPanel36Layout.setHorizontalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel36Layout.setVerticalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel47.setText("Nro.");
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel40.setText("Departamento");
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel50.setText("Provincia");
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel51.setText("Distrito");
+
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel52.setText("Unidad Ejecutora");
+
+        javax.swing.GroupLayout UNIDAD_EJECUTORALayout = new javax.swing.GroupLayout(UNIDAD_EJECUTORA.getContentPane());
+        UNIDAD_EJECUTORA.getContentPane().setLayout(UNIDAD_EJECUTORALayout);
+        UNIDAD_EJECUTORALayout.setHorizontalGroup(
+            UNIDAD_EJECUTORALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UNIDAD_EJECUTORALayout.createSequentialGroup()
+                .addGroup(UNIDAD_EJECUTORALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addGroup(UNIDAD_EJECUTORALayout.createSequentialGroup()
+                        .addComponent(jLabel47)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(UNIDAD_EJECUTORALayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        UNIDAD_EJECUTORALayout.setVerticalGroup(
+            UNIDAD_EJECUTORALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UNIDAD_EJECUTORALayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(UNIDAD_EJECUTORALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -226,7 +501,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-        lblusu.setText("RicardoCR");
+        lblusu.setText("CARLOS");
         lblusu.setFocusable(false);
         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -258,9 +533,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
+            .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(buscartodo))
+                .addComponent(buscartodo)
+                .addContainerGap())
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,14 +750,14 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1103, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1091, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -524,7 +800,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(TXT_DNI, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addComponent(TXT_DNI, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -622,10 +898,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TXT_APE_MAT, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addComponent(TXT_APE_MAT)
+                .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -693,7 +968,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel23.setText("Género                      :");
+        jLabel23.setText("Género            :");
 
         buttonGroup1.add(RB_M);
         RB_M.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -722,36 +997,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         });
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel24.setText("Departamento            :");
-
-        CBX_DEPARTAMENTO.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        CBX_DEPARTAMENTO.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        CBX_DEPARTAMENTO.setPreferredSize(new java.awt.Dimension(56, 26));
-        CBX_DEPARTAMENTO.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                CBX_DEPARTAMENTOItemStateChanged(evt);
-            }
-        });
-
-        CBX_PROVINCIA.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        CBX_PROVINCIA.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                CBX_PROVINCIAItemStateChanged(evt);
-            }
-        });
-
-        jLabel25.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel25.setText("Provincia                    :");
-
-        CBX_DISTRITO.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        CBX_DISTRITO.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                CBX_DISTRITOItemStateChanged(evt);
-            }
-        });
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel26.setText("Distrito                       :");
+        jLabel24.setText("Ubicación                   :");
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel27.setText("Dirección                   :");
@@ -842,7 +1088,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(TXT_TELEFONO, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addComponent(TXT_TELEFONO, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel29Layout.setVerticalGroup(
@@ -854,7 +1100,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         );
 
         jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel29.setText("Celular                       :");
+        jLabel29.setText("Celular             :");
 
         jPanel30.setBackground(new java.awt.Color(255, 255, 255));
         jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -892,7 +1138,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(TXT_CELULAR)
+                .addComponent(TXT_CELULAR, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel30Layout.setVerticalGroup(
@@ -959,11 +1205,57 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         CBX_ESTADO_CIVIL.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         CBX_ESTADO_CIVIL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a)", "Conviviente" }));
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel32.setText("Unidad Ejecutora        :");
+        jPanel32.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        CBX_UNIDAD_EJECUTORA.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        CBX_UNIDAD_EJECUTORA.setEnabled(false);
+        TXT_UBICACION.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        TXT_UBICACION.setForeground(new java.awt.Color(51, 51, 51));
+        TXT_UBICACION.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TXT_UBICACION.setBorder(null);
+        TXT_UBICACION.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TXT_UBICACIONCaretUpdate(evt);
+            }
+        });
+        TXT_UBICACION.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TXT_UBICACIONKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_UBICACIONKeyTyped(evt);
+            }
+        });
+
+        btn_buscar_UE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+        btn_buscar_UE.setContentAreaFilled(false);
+        btn_buscar_UE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_UEActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
+                .addComponent(TXT_UBICACION, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_buscar_UE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TXT_UBICACION, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(btn_buscar_UE, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lbl_cod_dis.setText("cod_dis");
+
+        lbl_cod_ue.setText("cod_ue");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -981,48 +1273,40 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     .addComponent(jLabel27)
                     .addComponent(jLabel28)
                     .addComponent(jLabel30)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel26))
+                    .addComponent(jLabel31))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
-                    .addComponent(jPanel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
-                    .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 638, Short.MAX_VALUE)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
+                                .addComponent(jLabel29)
+                                .addGap(32, 32, 32)
+                                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                            .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                            .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                            .addComponent(jPanel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                        .addComponent(lbl_cod_dis)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_cod_ue)
+                        .addGap(260, 260, 260))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)
                                 .addComponent(jLabel23)
-                                .addGap(24, 24, 24)
+                                .addGap(33, 33, 33)
                                 .addComponent(RB_M)
                                 .addGap(39, 39, 39)
                                 .addComponent(RB_F))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(26, 26, 26)
-                                .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(26, 26, 26)
-                                .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel29)
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
-                    .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE))
-                .addGap(287, 287, 287))
+                            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1031,75 +1315,61 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                                    .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CBX_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(CBX_DISTRITO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(RB_M)
-                                    .addComponent(RB_F))
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CBX_PROVINCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CBX_UNIDAD_EJECUTORA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                .addComponent(FECHA_NACIMIENTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(RB_M)
+                                .addComponent(RB_F)))
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbl_cod_dis)
+                                .addComponent(lbl_cod_ue)))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))))
+                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("", jPanel2);
 
         cargareliminar1.setBackground(new java.awt.Color(255, 153, 51));
 
@@ -1163,14 +1433,16 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1108, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1)
-                    .addComponent(cargareliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cargareliminar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1096, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -1193,8 +1465,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         LIMPIAR_GUARDAR();
         habilitar();
         
-        CBX_DEPARTAMENTO.setSelectedIndex(11);
-      
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -1210,8 +1480,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         if(LBL_GM.getText().equalsIgnoreCase("G")){
                 if(TXT_DNI.getText().equalsIgnoreCase("") || TXT_APE_PAT.getText().equalsIgnoreCase("")
                         || TXT_APE_MAT.getText().equalsIgnoreCase("") || TXT_NOMBRES.getText().equalsIgnoreCase("")
-                        || FECHA_NACIMIENTO.getDate().equals("") || CBX_DEPARTAMENTO.getSelectedIndex()==0
-                        || CBX_PROVINCIA.getSelectedIndex()==0 || CBX_DISTRITO.getSelectedIndex()==0
+                        || FECHA_NACIMIENTO.getDate().equals("") || TXT_UBICACION.getText().equalsIgnoreCase("")
                         || TXT_DIRECCION.getText().equalsIgnoreCase("")
                         || valida_Email(TXT_CORREO_ELECTRONICO.getText())==false){
 
@@ -1247,8 +1516,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             if(LBL_GM.getText().equalsIgnoreCase("M")){
                 if(TXT_DNI.getText().equalsIgnoreCase("") || TXT_APE_PAT.getText().equalsIgnoreCase("")
                         || TXT_APE_MAT.getText().equalsIgnoreCase("") || TXT_NOMBRES.getText().equalsIgnoreCase("")
-                        || FECHA_NACIMIENTO.getDate().equals("") || CBX_DEPARTAMENTO.getSelectedIndex()==0
-                        || CBX_PROVINCIA.getSelectedIndex()==0 || CBX_DISTRITO.getSelectedIndex()==0
+                        || FECHA_NACIMIENTO.getDate().equals("") || TXT_UBICACION.getText().equalsIgnoreCase("")
                         || TXT_DIRECCION.getText().equalsIgnoreCase("")
                         || valida_Email(TXT_CORREO_ELECTRONICO.getText())==false){
 
@@ -1419,7 +1687,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_DIRECCIONActionPerformed
 
     private void TXT_DIRECCIONKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DIRECCIONKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_TELEFONO.requestFocus();
+        }
     }//GEN-LAST:event_TXT_DIRECCIONKeyPressed
 
     private void TXT_DIRECCIONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DIRECCIONKeyReleased
@@ -1439,7 +1710,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_TELEFONOActionPerformed
 
     private void TXT_TELEFONOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_TELEFONOKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_CELULAR.requestFocus();
+        }
     }//GEN-LAST:event_TXT_TELEFONOKeyPressed
 
     private void TXT_TELEFONOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_TELEFONOKeyReleased
@@ -1478,7 +1752,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }//GEN-LAST:event_TXT_CELULARActionPerformed
 
     private void TXT_CELULARKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CELULARKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            TXT_CORREO_ELECTRONICO.requestFocus();
+        }
     }//GEN-LAST:event_TXT_CELULARKeyPressed
 
     private void TXT_CELULARKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CELULARKeyReleased
@@ -1525,68 +1802,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void TXT_CORREO_ELECTRONICOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CORREO_ELECTRONICOKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_TXT_CORREO_ELECTRONICOKeyTyped
-
-    private void CBX_DEPARTAMENTOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBX_DEPARTAMENTOItemStateChanged
-        try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.CBX_DEPARTAMENTO.getSelectedIndex()>0){
-                        this.CBX_PROVINCIA.removeAllItems(); 
-                    Statement sta=con.createStatement();
-                    String dpto=CBX_DEPARTAMENTO.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC PERSONAL_NOMBRE_PROVINCIA '"+dpto+"'");
-                    this.CBX_PROVINCIA.addItem("Seleccionar...");
-                    while(rs.next()){
-                     this.CBX_PROVINCIA.addItem(rs.getString("NOMBRE_PROVINCIA"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                     }else{
-                            this.CBX_PROVINCIA.removeAllItems();
-
-                        this.CBX_PROVINCIA.addItem("Seleccionar...");
-                            }
-
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error CBX DEPARTAMNETO: " + ex.getMessage());
-            }
-        
-        CBX_PROVINCIA.setEnabled(true);
-        CBX_DISTRITO.setEnabled(false);
-        
-    }//GEN-LAST:event_CBX_DEPARTAMENTOItemStateChanged
-
-    private void CBX_PROVINCIAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBX_PROVINCIAItemStateChanged
-          //TRAE LOS DISTRITOS DE ACUERDO A LA PROVINCIA SELECCIONADA
-            try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.CBX_PROVINCIA.getSelectedIndex()>0){
-                        this.CBX_DISTRITO.removeAllItems(); 
-                    Statement sta=con.createStatement();
-                    String prov=CBX_PROVINCIA.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC PERSONAL_NOMBRE_DISTRITO '"+prov+ "'");
-                    
-                    this.CBX_DISTRITO.addItem("Seleccionar...");
-                    
-                    while(rs.next()){
-                     this.CBX_DISTRITO.addItem(rs.getString("NOMBRE_DISTRITO"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                     }else{
-                            this.CBX_DISTRITO.removeAllItems();
-
-                        this.CBX_DISTRITO.addItem("Seleccionar...");
-                            }
-
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error CBX PROVINCIA: " + ex.getMessage());
-            }
-            
-            CBX_DISTRITO.setEnabled(true);
-            
-    }//GEN-LAST:event_CBX_PROVINCIAItemStateChanged
 
     private void eli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli1ActionPerformed
         if(eli1.getText().equalsIgnoreCase("OK")){
@@ -1657,11 +1872,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                         }
                     }
                     
-                    CBX_UNIDAD_EJECUTORA.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 7));
-                    
-                    CBX_DEPARTAMENTO.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 15));
-                    CBX_PROVINCIA.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 14));
-                    CBX_DISTRITO.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 8));
                     TXT_DIRECCION.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 9)));
                     TXT_TELEFONO.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 10)));
                     TXT_CELULAR.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 11)));
@@ -1679,6 +1889,12 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     
                     CBX_ESTADO_CIVIL.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 16));
 
+                    TXT_UBICACION.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 7)) + " - " +
+                            String.valueOf(TB_PERSONAL.getValueAt(filaselec, 8)));
+                    
+                    lbl_cod_dis.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 17)));
+                    lbl_cod_ue.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 18)));
+                    
                     jTabbedPane1.setSelectedIndex(1);
                     btneliminar.setEnabled(true);
                     btnmodificar.setEnabled(true);
@@ -1708,11 +1924,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                         }
                     }
                     
-                    CBX_UNIDAD_EJECUTORA.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 7));
-                    
-                    CBX_DEPARTAMENTO.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 15));
-                    CBX_PROVINCIA.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 14));
-                    CBX_DISTRITO.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 8));
                     TXT_DIRECCION.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 9)));
                     TXT_TELEFONO.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 10)));
                     TXT_CELULAR.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 11)));
@@ -1727,10 +1938,16 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                      FECHA_NACIMIENTO.setDate(fecha);
                      
                     CBX_ESTADO_CIVIL.setSelectedItem(TB_PERSONAL.getValueAt(filaselec, 16));
+                    
+                    TXT_UBICACION.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 7)) + " - " +
+                            String.valueOf(TB_PERSONAL.getValueAt(filaselec, 8)));
+                    
+                    lbl_cod_dis.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 17)));
+                    lbl_cod_ue.setText(String.valueOf(TB_PERSONAL.getValueAt(filaselec, 18)));
 
                     } catch (Exception e) {
                     }
-                    
+                     
                                         
                     jTabbedPane1.setSelectedIndex(1);
                     btneliminar.setEnabled(true);
@@ -1739,41 +1956,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         }
     }//GEN-LAST:event_TB_PERSONALKeyPressed
-
-    private void CBX_DISTRITOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBX_DISTRITOItemStateChanged
-//        String COD_PROV=this.CBX_PROVINCIA.getSelectedItem().toString();
-//                    
-//        CLS_Personal PT = new CLS_Personal();
-//        TXT_CODIGO_PROVINCIA.setText(String.valueOf(PT.PERSONAL_COD_provincia(COD_PROV)));
-//
-        
-        //CARGAR EL NOMBRE DE LA UNIDAD EJECUTORA
-            try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.CBX_PROVINCIA.getSelectedIndex()>0){
-                        this.CBX_UNIDAD_EJECUTORA.removeAllItems(); 
-                    Statement sta=con.createStatement();
-                    String distrito=CBX_DISTRITO.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC PERSONAL_NOMBRE_UNIDAD_EJECUTORA '"+distrito+ "'");
-                    
-//                    this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
-                    
-                    while(rs.next()){
-                     this.CBX_UNIDAD_EJECUTORA.addItem(rs.getString("UE_DESC"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                     }else{
-                            this.CBX_UNIDAD_EJECUTORA.removeAllItems();
-
-//                        this.CBX_UNIDAD_EJECUTORA.addItem("Seleccionar...");
-                            }
-
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error CBX DIRESA: " + ex.getMessage());
-            }
-    }//GEN-LAST:event_CBX_DISTRITOItemStateChanged
 
     private void RB_MKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_MKeyPressed
                
@@ -1790,6 +1972,90 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void RB_FMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RB_FMouseClicked
         
     }//GEN-LAST:event_RB_FMouseClicked
+
+    private void TXT_UBICACIONCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_UBICACIONCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_UBICACIONCaretUpdate
+
+    private void TXT_UBICACIONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UBICACIONKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_UBICACIONKeyReleased
+
+    private void TXT_UBICACIONKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UBICACIONKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_UBICACIONKeyTyped
+
+    private void btn_buscar_UEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_UEActionPerformed
+        txtBuscarUnidadEjecutora.setText("");
+        UNIDAD_EJECUTORA.setVisible(true);
+    }//GEN-LAST:event_btn_buscar_UEActionPerformed
+
+    private void txtBuscarUnidadEjecutoraCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutoraCaretUpdate
+        BUSCAR_UNIDAD_EJECUTORA();
+    }//GEN-LAST:event_txtBuscarUnidadEjecutoraCaretUpdate
+
+    private void txtBuscarUnidadEjecutoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutoraMouseClicked
+
+    }//GEN-LAST:event_txtBuscarUnidadEjecutoraMouseClicked
+
+    private void txtBuscarUnidadEjecutoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarUnidadEjecutoraActionPerformed
+
+    private void txtBuscarUnidadEjecutoraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutoraKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            //int fila = tb_Grupo3.getSelectedRow();
+            tbUnidadEjecutora.getSelectionModel().setSelectionInterval (0,0) ;
+            tbUnidadEjecutora.requestFocus();
+
+        }
+    }//GEN-LAST:event_txtBuscarUnidadEjecutoraKeyPressed
+
+    private void btnBuscarPaciente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente2ActionPerformed
+
+    private void tbUnidadEjecutoraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbUnidadEjecutoraKeyPressed
+       int filaselec=tbUnidadEjecutora.getSelectedRow();
+       char teclaPresionada = evt.getKeyChar();
+       if(teclaPresionada==KeyEvent.VK_ENTER){
+            if(filaselec<0){
+                   JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+            }else{
+                
+                    TXT_UBICACION.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 6)) + " - " +
+                            String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 5)));
+                    
+                    lbl_cod_dis.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 2)));
+                    lbl_cod_ue.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 1)));
+                    
+            }
+            UNIDAD_EJECUTORA.dispose();
+            TXT_DIRECCION.requestFocus();
+        }
+    }//GEN-LAST:event_tbUnidadEjecutoraKeyPressed
+
+    private void tbUnidadEjecutoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUnidadEjecutoraMouseClicked
+        if(evt.getClickCount()==2){
+            int filaselec=tbUnidadEjecutora.getSelectedRow();
+       
+            if(filaselec<0){
+                   JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+            }else{
+                
+                    TXT_UBICACION.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 6)) + " - " +
+                            String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 5)));
+                    
+                    lbl_cod_dis.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 2)));
+                    lbl_cod_ue.setText(String.valueOf(tbUnidadEjecutora.getValueAt(filaselec, 1)));
+                    
+            }
+            UNIDAD_EJECUTORA.dispose();
+            TXT_DIRECCION.requestFocus();
+        
+        }
+    }//GEN-LAST:event_tbUnidadEjecutoraMouseClicked
     
     public void GUARDAR_PERSONAL(){
         try {
@@ -1805,11 +2071,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         String MES = new SimpleDateFormat("MM").format(FECHA_NACIMIENTO.getDate());
         String ANIO = new SimpleDateFormat("yyy").format(FECHA_NACIMIENTO.getDate());
 
-        String COD_DIS = CBX_DISTRITO.getSelectedItem().toString();      
-        String prov = CBX_PROVINCIA.getSelectedItem().toString();
-        String unidad_eje = CBX_UNIDAD_EJECUTORA.getSelectedItem().toString();
-        String provincia = CP4.PERSONAL_COD_provincia(prov);
-        
         CP.setDNI_per(TXT_DNI.getText());
         CP.setApe_pat_per(TXT_APE_PAT.getText());
         CP.setApe_mat_per(TXT_APE_MAT.getText());
@@ -1824,8 +2085,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         }
         
-        CP.setCod_dis(CP1.PERSONAL_COD_DISTRITO(COD_DIS,provincia));
-        CP.setUE_ID(Integer.parseInt(CP2.PERSONAL_COD_UNIDAD_EJECUTORA(unidad_eje)));
+        CP.setCod_dis(lbl_cod_dis.getText());
+        CP.setUE_ID(Integer.parseInt(lbl_cod_ue.getText()));
         CP.setDireccion_per(TXT_DIRECCION.getText());
         CP.setTelefono(TXT_TELEFONO.getText());
         CP.setCelular(TXT_CELULAR.getText());
@@ -1853,11 +2114,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         String MESM = new SimpleDateFormat("MM").format(FECHA_NACIMIENTO.getDate());
         String ANIOM = new SimpleDateFormat("yyy").format(FECHA_NACIMIENTO.getDate());
         
-        String COD_DIS = CBX_DISTRITO.getSelectedItem().toString();      
-        String prov = CBX_PROVINCIA.getSelectedItem().toString();
-        String unidad_eje = CBX_UNIDAD_EJECUTORA.getSelectedItem().toString();
-        String provincia = MP4.PERSONAL_COD_provincia(prov);
-        
         MP.setCod_per(Integer.parseInt(TXT_CODIGO_PERSONAL.getText()));
         MP.setDNI_per(TXT_DNI.getText());
         MP.setApe_pat_per(TXT_APE_PAT.getText());
@@ -1873,8 +2129,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             }
         }
         
-        MP.setCod_dis(MP1.PERSONAL_COD_DISTRITO(COD_DIS,provincia));
-        MP.setUE_ID(Integer.parseInt(MP2.PERSONAL_COD_UNIDAD_EJECUTORA(unidad_eje)));
+        MP.setCod_dis(lbl_cod_dis.getText());
+        MP.setUE_ID(Integer.parseInt(lbl_cod_ue.getText()));
         MP.setDireccion_per(TXT_DIRECCION.getText());
         MP.setTelefono(TXT_TELEFONO.getText());
         MP.setCelular(TXT_CELULAR.getText());
@@ -1919,10 +2175,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             TB_PERSONAL.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Código","DNI","Ape. Paterno","Ape. Materno","Nombres","Sexo","Unidad Ejecutora","Distrito",
                 "Dirección", "Teléfono", "Celular","Correo Electrónico", "Fecha de Nac.","PROVINCIA","DEPARTAMENTO",
-            "Estado Civil"};
+                "Estado Civil","cod_dis", "UE_ID"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
-            String fila[]=new String[17];
+            String fila[]=new String[19];
             Usuario obj=new Usuario();
             consulta="exec PERSONAL_LISTAR";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -1948,6 +2204,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 fila[14]=r.getString(14);
                 fila[15]=r.getString(15);
                 fila[16]=r.getString(16);
+                fila[17]=r.getString(17);
+                fila[18]=r.getString(18);
                 
                 m1.addRow(fila);
                 c++;
@@ -1972,17 +2230,24 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             TB_PERSONAL.getColumnModel().getColumn(4).setPreferredWidth(100);
             TB_PERSONAL.getColumnModel().getColumn(5).setPreferredWidth(200);                
             TB_PERSONAL.getColumnModel().getColumn(6).setPreferredWidth(50); 
-            TB_PERSONAL.getColumnModel().getColumn(7).setPreferredWidth(150);
+            TB_PERSONAL.getColumnModel().getColumn(7).setPreferredWidth(250);
             TB_PERSONAL.getColumnModel().getColumn(8).setPreferredWidth(130);
             TB_PERSONAL.getColumnModel().getColumn(9).setPreferredWidth(250);                
             TB_PERSONAL.getColumnModel().getColumn(10).setPreferredWidth(80); 
             TB_PERSONAL.getColumnModel().getColumn(11).setPreferredWidth(80);
             TB_PERSONAL.getColumnModel().getColumn(12).setPreferredWidth(220);
             TB_PERSONAL.getColumnModel().getColumn(13).setPreferredWidth(100);  
+            TB_PERSONAL.getColumnModel().getColumn(14).setPreferredWidth(100);
+            TB_PERSONAL.getColumnModel().getColumn(15).setPreferredWidth(130); 
+            TB_PERSONAL.getColumnModel().getColumn(16).setPreferredWidth(100); 
             
             //Ocultar
             TB_PERSONAL.getColumnModel().getColumn(1).setMinWidth(0);
             TB_PERSONAL.getColumnModel().getColumn(1).setMaxWidth(0);
+            TB_PERSONAL.getColumnModel().getColumn(17).setMinWidth(0);
+            TB_PERSONAL.getColumnModel().getColumn(17).setMaxWidth(0);
+            TB_PERSONAL.getColumnModel().getColumn(18).setMinWidth(0);
+            TB_PERSONAL.getColumnModel().getColumn(18).setMaxWidth(0);
     }
     
     public void BUSCAR_PERSONAL(){
@@ -1996,10 +2261,11 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
        
             TB_PERSONAL.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Código","DNI","Ape. Paterno","Ape. Materno","Nombres","Sexo","Unidad Ejecutora","Distrito",
-                "Dirección", "Teléfono", "Celular","Correo Electrónico", "Fecha de Nac.","PROVINCIA","DEPARTAMENTO","Estado civil"};
+                "Dirección", "Teléfono", "Celular","Correo Electrónico", "Fecha de Nac.","PROVINCIA","DEPARTAMENTO","Estado civil",
+                "cod_dis", "UE_ID"};
             m2=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m2);
-            String fila[]=new String[17];
+            String fila[]=new String[19];
 
             Usuario obj=new Usuario();
             consulta="exec PERSONAL_BUSCAR ?";
@@ -2027,6 +2293,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 fila[14]=r.getString(14);
                 fila[15]=r.getString(15);
                 fila[16]=r.getString(16);
+                fila[17]=r.getString(17);
+                fila[18]=r.getString(18);
                 
                 m2.addRow(fila);
                 c++;
@@ -2043,6 +2311,110 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         }
     }
     
+    public void MOSTRAR_UNIDAD_EJECUTORA(){
+        try {
+                     
+            String consulta="";
+            
+            tbUnidadEjecutora.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","UE_ID","COD_DIS","Departamento","Provincia","Distrito","Unidad Ejecutora"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[7];
+            Usuario obj=new Usuario();
+            consulta="exec PERSONAL_UNIDAD_EJECUTORA_LISTAR";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                                
+                m3.addRow(fila);
+                c++;
+ 
+            }
+            tbUnidadEjecutora.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tbUnidadEjecutora.setRowSorter(elQueOrdena);
+            tbUnidadEjecutora.setModel(m3);
+                       
+            formato_TB_UNIDAD_EJECUTORA();
+            
+        } catch (Exception e) {
+            System.out.println("Error mostrar unidad_ejecutora: " + e.getMessage());
+        }     
+    }
+    
+    public void formato_TB_UNIDAD_EJECUTORA(){        
+            tbUnidadEjecutora.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tbUnidadEjecutora.getColumnModel().getColumn(2).setPreferredWidth(150); 
+            tbUnidadEjecutora.getColumnModel().getColumn(3).setPreferredWidth(145);
+            tbUnidadEjecutora.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tbUnidadEjecutora.getColumnModel().getColumn(5).setPreferredWidth(150);                
+            tbUnidadEjecutora.getColumnModel().getColumn(6).setPreferredWidth(250); 
+                       
+            //Ocultar
+            tbUnidadEjecutora.getColumnModel().getColumn(1).setMinWidth(0);
+            tbUnidadEjecutora.getColumnModel().getColumn(1).setMaxWidth(0);
+            tbUnidadEjecutora.getColumnModel().getColumn(2).setMinWidth(0);
+            tbUnidadEjecutora.getColumnModel().getColumn(2).setMaxWidth(0);
+    }
+    
+    public void BUSCAR_UNIDAD_EJECUTORA(){
+           
+            String buscar="";
+            buscar = txtBuscarUnidadEjecutora.getText();
+
+        String consulta="";
+        
+        try {
+       
+            TB_PERSONAL.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","UE_ID","COD_DIS","Departamento","Provincia","Distrito","Unidad Ejecutora"};
+            m4=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m4);
+            String fila[]=new String[7];
+
+            Usuario obj=new Usuario();
+            consulta="exec PERSONAL_UNIDAD_EJECUTORA_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, buscar);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){   
+                
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                
+                m4.addRow(fila);
+                c++;
+            }
+            tbUnidadEjecutora.setModel(m4);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m4);
+            tbUnidadEjecutora.setRowSorter(elQueOrdena);
+            this.tbUnidadEjecutora.setModel(m4);
+            
+            formato_TB_UNIDAD_EJECUTORA();
+            
+        } catch (Exception e) {
+            System.out.println("Error buscar unidad_ejecutora: " + e.getMessage());
+        }
+    }
+    
     public void LIMPIAR_GUARDAR(){
         try {
             
@@ -2055,9 +2427,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         TXT_TELEFONO.setText("");
         TXT_CELULAR.setText("");
         TXT_CORREO_ELECTRONICO.setText("");
-        CBX_DEPARTAMENTO.setSelectedIndex(0);
-        CBX_PROVINCIA.setSelectedIndex(0);
-        CBX_DISTRITO.setSelectedIndex(0);
+        TXT_UBICACION.setText("");
 //        CBX_UNIDAD_EJECUTORA.setSelectedIndex(0);
         CBX_ESTADO_CIVIL.setSelectedIndex(0);
         FECHA_NACIMIENTO.setDate(null);
@@ -2111,15 +2481,13 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setEnabled(false);
         RB_F.setEnabled(false);
         RB_M.setEnabled(false);
-        CBX_DEPARTAMENTO.setEnabled(false);
-        CBX_PROVINCIA.setEnabled(false);
-        CBX_DISTRITO.setEnabled(false);
-        CBX_UNIDAD_EJECUTORA.setEnabled(false);
+        TXT_UBICACION.setEditable(false);
+        btn_buscar_UE.setEnabled(false);
         TXT_DIRECCION.setEditable(false);
         TXT_TELEFONO.setEditable(false);
         TXT_CELULAR.setEditable(false);
         TXT_CORREO_ELECTRONICO.setEditable(false);
-        CBX_ESTADO_CIVIL.setEditable(false);
+        CBX_ESTADO_CIVIL.setEnabled(false);
     }
     
     public void habilitar(){
@@ -2130,18 +2498,40 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         FECHA_NACIMIENTO.setEnabled(true);
         RB_F.setEnabled(true);
         RB_M.setEnabled(true);
-        CBX_DEPARTAMENTO.setEnabled(true);
-        CBX_PROVINCIA.setEnabled(false);
-        CBX_DISTRITO.setEnabled(false);
+        TXT_UBICACION.setEditable(false);
+        btn_buscar_UE.setEnabled(true);
 //        CBX_UNIDAD_EJECUTORA.setEnabled(true);
         TXT_DIRECCION.setEditable(true);
         TXT_TELEFONO.setEditable(true);
         TXT_CELULAR.setEditable(true);
         TXT_CORREO_ELECTRONICO.setEditable(true);
-        CBX_ESTADO_CIVIL.setEditable(true);
+        CBX_ESTADO_CIVIL.setEnabled(true);
     }
     
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+        ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+    }
     
+    public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
     
     /**
      * @param args the command line arguments
@@ -2179,11 +2569,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox CBX_DEPARTAMENTO;
-    private javax.swing.JComboBox CBX_DISTRITO;
     private javax.swing.JComboBox CBX_ESTADO_CIVIL;
-    private javax.swing.JComboBox CBX_PROVINCIA;
-    private javax.swing.JComboBox CBX_UNIDAD_EJECUTORA;
     private com.toedter.calendar.JDateChooser FECHA_NACIMIENTO;
     private javax.swing.JLabel LBL_GM;
     private javax.swing.JLabel Mensaje1;
@@ -2199,16 +2585,23 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     public static javax.swing.JTextField TXT_DNI;
     public static javax.swing.JTextField TXT_NOMBRES;
     public static javax.swing.JTextField TXT_TELEFONO;
+    public static javax.swing.JTextField TXT_UBICACION;
+    private javax.swing.JDialog UNIDAD_EJECUTORA;
     private javax.swing.JButton btnBuscarPaciente;
+    private javax.swing.JButton btnBuscarPaciente2;
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btn_buscar_UE;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnmodificar;
+    private javax.swing.JLabel bus;
+    private javax.swing.JLabel bus3;
     public static javax.swing.JTextField buscartodo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel cargareliminar1;
     private javax.swing.JButton eli1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
@@ -2217,13 +2610,16 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -2237,16 +2633,28 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
     public static javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblCodModulo;
     private javax.swing.JLabel lblCodPer;
     private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDNI_PREVENTA;
     private javax.swing.JLabel lblFrase;
+    private javax.swing.JLabel lblNOMBRE_PREVENTA;
     public static javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lbl_cod_dis;
+    private javax.swing.JLabel lbl_cod_ue;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli1;
+    private javax.swing.JTable tbUnidadEjecutora;
+    private javax.swing.JTextField txtBuscarUnidadEjecutora;
     // End of variables declaration//GEN-END:variables
 }

@@ -872,7 +872,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(cbxImpresoras.getSelectedItem().equals("Ticket - Papel Termico")){
-            nuevaV.reportePRUEBA_TICKET();
+            nuevaV.reportePRUEBA_TICKET("");
         }else if(!cbxImpresoras.getSelectedItem().equals("Ticket - Papel Termico")){
             
         }

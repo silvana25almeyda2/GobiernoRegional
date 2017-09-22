@@ -82,10 +82,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
         cbxModulo.removeAllItems();
         try {
             Statement sta=c.conectar().createStatement();
-            ResultSet rs=sta.executeQuery("select modulo from SISTEMA_MODULO ORDER BY modulo");
+            ResultSet rs=sta.executeQuery("select descripcion from SISTEMA_MODULO ORDER BY descripcion");
             this.cbxModulo.addItem("Seleccionar...");
             while(rs.next()){
-                 this.cbxModulo.addItem(rs.getString("modulo"));
+                 this.cbxModulo.addItem(rs.getString("descripcion"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
@@ -748,6 +748,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         jLabel12.setText("Confirmar");
 
                         txtConfirmar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                        txtConfirmar.addCaretListener(new javax.swing.event.CaretListener() {
+                            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                                txtConfirmarCaretUpdate(evt);
+                            }
+                        });
 
                         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         jLabel13.setText("Nombre de Usuario");
@@ -756,6 +761,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtUsuarioActionPerformed(evt);
+                            }
+                        });
+                        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyReleased(java.awt.event.KeyEvent evt) {
+                                txtUsuarioKeyReleased(evt);
                             }
                         });
 
@@ -775,6 +785,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         cbxPregunta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         cbxPregunta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "¿En que País nació?", "¿Cual es su comida preferida?", "¿Nombre de su mascota?", "¿Cual es su deporte preferido?" }));
+                        cbxPregunta.setMinimumSize(new java.awt.Dimension(216, 30));
+                        cbxPregunta.setPreferredSize(new java.awt.Dimension(216, 30));
                         cbxPregunta.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 cbxPreguntaActionPerformed(evt);
@@ -786,6 +798,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         txtRespuesta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtRespuesta.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyReleased(java.awt.event.KeyEvent evt) {
+                                txtRespuestaKeyReleased(evt);
+                            }
                             public void keyTyped(java.awt.event.KeyEvent evt) {
                                 txtRespuestaKeyTyped(evt);
                             }
@@ -902,21 +917,20 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                         .addComponent(txtL, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel17))
-                                    .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtUsuario)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUsuarioLayout.createSequentialGroup()
-                                            .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnBuscarPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtRespuesta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbxPregunta, javax.swing.GroupLayout.Alignment.LEADING, 0, 234, Short.MAX_VALUE))
                                     .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(txtConfirmar, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(cbxNivel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cbxModulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtContra, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addContainerGap(114, Short.MAX_VALUE))
+                                        .addComponent(txtContra, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGroup(pnlUsuarioLayout.createSequentialGroup()
+                                        .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtRespuesta, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbxPregunta, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(33, Short.MAX_VALUE))
                         );
                         pnlUsuarioLayout.setVerticalGroup(
                             pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1425,6 +1439,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
                     PERSONAL.setVisible(false);
                 }
                 
+                txtUsuario.requestFocus();
+                
             }
             catch(Exception ex){
                 System.out.println("Error: " + ex.getMessage());
@@ -1503,10 +1519,25 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private void txtLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLActionPerformed
+
+    private void txtConfirmarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtConfirmarCaretUpdate
+        
+    }//GEN-LAST:event_txtConfirmarCaretUpdate
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        txtUsuario.setText(txtUsuario.getText().toUpperCase());
+    }//GEN-LAST:event_txtUsuarioKeyReleased
+
+    private void txtRespuestaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRespuestaKeyReleased
+        txtRespuesta.setText(txtRespuesta.getText().toUpperCase());
+    }//GEN-LAST:event_txtRespuestaKeyReleased
     public void enableDatos(boolean e){
         btnBuscarPersonal.setEnabled(e);
         txtUsuario.setEnabled(e);
         cbxModulo.setEnabled(e);
+        cbxNivel.setEnabled(e);
+        txtCT.setEnabled(e);
+        txtL.setEnabled(e);
         txtContra.setEnabled(e);
         txtConfirmar.setEnabled(e);
         cbxPregunta.setEnabled(e);
@@ -1525,7 +1556,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                     tb_Usuario.getValueAt(filaselec, 3).toString()+' '+
                                     tb_Usuario.getValueAt(filaselec, 4).toString()+' ');
                             txtUsuario.setText(tb_Usuario.getValueAt(filaselec, 6).toString());
-                            cbxModulo.setSelectedItem(tb_Usuario.getValueAt(filaselec, 7).toString());
+                            cbxModulo.setSelectedItem(tb_Usuario.getValueAt(filaselec, 8).toString());
                             txtContra.setText(tb_Usuario.getValueAt(filaselec, 9).toString());
                             txtConfirmar.setText(tb_Usuario.getValueAt(filaselec, 9).toString());
                             
@@ -1567,10 +1598,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
     cbxModulo.removeAllItems();
         try {
             Statement sta=c.conectar().createStatement();
-            ResultSet rs=sta.executeQuery("select modulo from SISTEMA_MODULO ORDER BY modulo");
+            ResultSet rs=sta.executeQuery("select descripcion from SISTEMA_MODULO ORDER BY descripcion");
             this.cbxModulo.addItem("Seleccionar...");
             while(rs.next()){
-                 this.cbxModulo.addItem(rs.getString("modulo"));
+                 this.cbxModulo.addItem(rs.getString("descripcion"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Seleccion incorrecta");

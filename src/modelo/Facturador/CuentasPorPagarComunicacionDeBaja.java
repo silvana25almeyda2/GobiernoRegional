@@ -51,7 +51,7 @@ public class CuentasPorPagarComunicacionDeBaja {
         {
         boolean resp = false;
         try{
-            String sql = "sp_CUENTAS_POR_PAGAR_COMUNICACION_BAJA ?,?,?,?";
+            String sql = "EXEC sp_CUENTAS_POR_PAGAR_COMUNICACION_BAJA ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getIdFactura());
             cmd.setString(2, getDescripcion());

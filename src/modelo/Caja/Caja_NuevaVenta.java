@@ -96,7 +96,7 @@ private double INAFECTA;
         }
     }
     
-    public void VENTA_LISTA_CPT(String descripcion,JTable tabla){
+    public void VENTA_LISTA_CPT(String descripcion,String FP,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -105,9 +105,10 @@ private double INAFECTA;
             JTable p=new JTable(m);
             String fila[]=new String[5];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_VENTA_CPT_LISTA ?";
+            consulta="EXEC CAJA_VENTA_CPT_LISTA ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, descripcion);
+            cmd.setString(2, FP);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -198,6 +199,24 @@ private double INAFECTA;
         }
         }catch(Exception ex){
             System.out.println("ERROR AL CARGAR DATOS " + ex.getMessage());
+        }
+    }
+    
+    public void CAJA_CIERRE_TOTAL(String usu,int descrip){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_CIERRE_TOTAL_VENTAS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            cmd.setInt(2, descrip);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Ventas.lblTR.setText("Total Recaudado S/  "+r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("DATOS del cierre: " + e.getMessage());
         }
     }
     
