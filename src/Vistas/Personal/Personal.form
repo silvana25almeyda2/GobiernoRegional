@@ -404,7 +404,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -440,7 +440,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="1" attributes="0">
-          <Component id="jPanel3" pref="817" max="32767" attributes="0"/>
+          <Component id="jPanel3" pref="750" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -539,7 +539,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Documento-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Documento-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -564,7 +564,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Editar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Editar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -589,7 +589,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Guardar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Guardar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -614,7 +614,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Basura-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Basura-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -639,7 +639,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Usuario-40.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Usuario-40.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CARLOS"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -715,7 +715,7 @@
         <Component class="javax.swing.JButton" name="btnBuscarPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-27.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-27.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -743,7 +743,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Orden de compra-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Orden de compra-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Listado"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -947,7 +947,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="1" pref="633" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="566" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1171,7 +1171,7 @@
                           <Component id="jLabel31" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="CBX_ESTADO_CIVIL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="118" max="32767" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

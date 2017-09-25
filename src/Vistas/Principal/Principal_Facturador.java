@@ -120,7 +120,7 @@ private Dimension DimensionBarra = null;
         btnVentas.setBackground(new java.awt.Color(102, 102, 102));
         btnVentas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnVentas.setForeground(new java.awt.Color(51, 51, 51));
-        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Cheque de nómina-64.png"))); // NOI18N
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Cheque de nómina-64.png"))); // NOI18N
         btnVentas.setText("Notas de Crédito");
         btnVentas.setContentAreaFilled(false);
         btnVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

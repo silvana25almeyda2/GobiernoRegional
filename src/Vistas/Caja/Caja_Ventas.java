@@ -297,10 +297,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 p=Double.parseDouble(tFRDet.getValueAt(i, 4).toString());
                 t=c*p;
                 SUBTOTAL=(String.valueOf(t) );
+                BigDecimal ST = new BigDecimal(SUBTOTAL);
+                ST = ST.setScale(2, BigDecimal.ROUND_HALF_UP);
+                String STS;
+                STS=(String.valueOf(ST) );
 
                 //Cargar los datos a la otra tabla 
                 modeloFR2 = (DefaultTableModel) tb_CPT.getModel();
-                String filaelemento[] = {ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,SUBTOTAL};
+                String filaelemento[] = {ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,STS};
                 modeloFR2.addRow(filaelemento);     
             }   
                 PanelCantidad.setVisible(false);
@@ -4361,12 +4365,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnCargarHOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarHOS1ActionPerformed
         if(!lblID_CAB_PREVENTAS.getText().equals("lblID_CAB_PREVENTAS")){
+            lblGrupo.setText("10 GRAVADO-OPERACIÓN ONEROSA");
             CARGAR_TB_FR();
             SUMA();
-            lblGrupo.setText("10 GRAVADO-OPERACIÓN ONEROSA");
             jPanel15.setVisible(false);
         }
-        
     }//GEN-LAST:event_btnCargarHOS1ActionPerformed
 
     private void btnEliminarHOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHOS1ActionPerformed
@@ -4643,7 +4646,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             //pasar datos de una tabla a otra
             for (int i=0;i<modelo1.getRowCount(); i++){
                 String item, descripcion, valor_u, cantidad,
-                precio, igv="", dscto, total;
+                precio, igv="", dscto, total="";
                 double Precio_cant=0.00, tot=0.00, ig =0.00,vu=0.00;
 
                 item = tb_CPT.getValueAt(i, 1).toString();
@@ -4668,6 +4671,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
                 }
                 
+                BigDecimal ST = new BigDecimal(total);
+                ST = ST.setScale(2, BigDecimal.ROUND_HALF_UP);
+                String STS;
+                STS=(String.valueOf(ST) );
+                
                 BigDecimal precior = new BigDecimal(precio);
                 precior = precior.setScale(2, BigDecimal.ROUND_HALF_UP);
                       
@@ -4686,15 +4694,15 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 
                 dscto = "0.00";
 
-                Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
-
-                total = String.valueOf(Precio_cant);
+//                Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
+//
+//                total = String.valueOf(Precio_cant);
 
                 //Cargar los datos a la otra tabla 
                 modelo2 = (DefaultTableModel) Facturador.tbFacturacion.getModel();
 
                 String filaelemento[] = {item, descripcion, valor_u, cantidad,
-                precio, igv, dscto, total};
+                precio, igv, dscto, STS};
 
                 modelo2.addRow(filaelemento);
 

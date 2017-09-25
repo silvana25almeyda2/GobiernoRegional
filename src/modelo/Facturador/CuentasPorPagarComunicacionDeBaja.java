@@ -91,6 +91,27 @@ public class CuentasPorPagarComunicacionDeBaja {
         return resp;
     }
 
+    public boolean CAMBIAR_ESTADO_DOCUMENTO_CAJA(int id_documento){
+         boolean resp = false;
+        try{
+            String sql = "EXEC CUENTAS_POR_PAGAR_COMUNICACION_DE_BAJA_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, id_documento);
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ESTADO CAJA: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     /**
      * @return the con
      */

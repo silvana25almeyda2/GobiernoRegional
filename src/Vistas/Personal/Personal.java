@@ -429,14 +429,14 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(122, 77, 135));
         jPanel3.setPreferredSize(new java.awt.Dimension(292, 437));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.setContentAreaFilled(false);
         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -452,7 +452,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         btnmodificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnmodificar.setForeground(new java.awt.Color(240, 240, 240));
-        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
+        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
         btnmodificar.setText("Editar");
         btnmodificar.setContentAreaFilled(false);
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -468,7 +468,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
         btnguardar.setText("Guardar");
         btnguardar.setContentAreaFilled(false);
         btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -484,7 +484,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
         btneliminar.setText("Eliminar");
         btneliminar.setContentAreaFilled(false);
         btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -500,7 +500,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
-        lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+        lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
         lblusu.setText("CARLOS");
         lblusu.setFocusable(false);
         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -546,7 +546,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
+        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
         btnBuscarPaciente.setContentAreaFilled(false);
         btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -560,7 +560,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnLista.setForeground(new java.awt.Color(240, 240, 240));
-        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Orden de compra-32.png"))); // NOI18N
+        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
         btnLista.setText("Listado");
         btnLista.setContentAreaFilled(false);
         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -754,7 +754,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("", jPanel1);
@@ -1366,7 +1366,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CBX_ESTADO_CIVIL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("", jPanel2);
@@ -1442,7 +1442,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -2635,7 +2635,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     public static javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

@@ -111,6 +111,8 @@ public class Facturador extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);//en el centro
         
         inicializar_TB_FACTURADOR();
+        TXT_ID_CLIENTE_F.setVisible(false);
+        lbl_id_cabecera_factura.setVisible(false);
         cbxTipoOperacion.setBackground(Color.WHITE);
         cbxCodUnidad.setBackground(Color.WHITE);
         cbxDocumento.setBackground(Color.WHITE);
@@ -493,7 +495,7 @@ public class Facturador extends javax.swing.JFrame {
                     return false; //Disallow the editing of any cell
                 }};
                 jPanel2 = new javax.swing.JPanel();
-                jLabel1 = new javax.swing.JLabel();
+                lblTitulo = new javax.swing.JLabel();
                 lblId = new javax.swing.JLabel();
                 lblMant = new javax.swing.JLabel();
                 lblEmpresa = new javax.swing.JLabel();
@@ -1443,9 +1445,9 @@ public class Facturador extends javax.swing.JFrame {
 
                 jPanel2.setBackground(new java.awt.Color(41, 127, 184));
 
-                jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
-                jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel1.setText("<html><span style=\"font-size:'30px'\">Factura Electrónica - </span>Cuentas por Cobrar</html>");
+                lblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
+                lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+                lblTitulo.setText("<html><span style=\"font-size:'30px'\">Factura Electrónica - </span>Cuentas por Cobrar</html>");
 
                 lblId.setForeground(new java.awt.Color(41, 127, 184));
                 lblId.setText("jLabel3");
@@ -1521,7 +1523,7 @@ public class Facturador extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnGenerarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
@@ -1556,7 +1558,7 @@ public class Facturador extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblusu)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblId)
                                 .addComponent(lblMant)
                                 .addComponent(lblEmpresa)
@@ -2766,7 +2768,6 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JComboBox cbxTipoDocumento;
     private javax.swing.JComboBox cbxTipoMoneda;
     private javax.swing.JComboBox cbxTipoOperacion;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2832,6 +2833,7 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNroCorrelativo;
+    private javax.swing.JLabel lblTitulo;
     public static javax.swing.JLabel lbl_id_cabecera_factura;
     private javax.swing.JLabel lblusu;
     private javax.swing.JPanel panelCPT;
