@@ -49,8 +49,9 @@ byte tgm;
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
-         Cta6.setLocationRelativeTo(null);//en el centro
-         Cta6.getContentPane().setBackground(Color.WHITE); 
+        Cta6.setLocationRelativeTo(null);//en el centro
+        NivelSuperior.setLocationRelativeTo(null);//en el centro
+        Cta6.getContentPane().setBackground(Color.WHITE); 
         this.cbxTipoDocumento.setModel(CargarGrupo()); 
 
         Caja_Cta6 A = new Caja_Cta6();

@@ -251,6 +251,7 @@ public boolean CIERRE(){
                 Principal.lblPersonal.setText(r.getString(1)); 
                 Principal.lblNivel.setText(r.getString(2)); 
                 Principal.lblCod_Modulo.setText(r.getString(3)); 
+                Principal.lblUbicacion.setText(r.getString(4)); 
                 }
             //
         } catch (Exception e) {

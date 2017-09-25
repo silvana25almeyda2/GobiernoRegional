@@ -164,6 +164,8 @@ public class Principal extends javax.swing.JFrame {
         lblUsu = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblPersonal1 = new javax.swing.JLabel();
+        lblUbicacion = new javax.swing.JLabel();
+        lblPersonal2 = new javax.swing.JLabel();
         PanelCaja3 = new javax.swing.JPanel();
         btnCaja1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -991,6 +993,14 @@ public class Principal extends javax.swing.JFrame {
         lblPersonal1.setForeground(new java.awt.Color(51, 51, 51));
         lblPersonal1.setText("Mi cuenta");
 
+        lblUbicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        lblUbicacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblUbicacion.setText("RicardoCR");
+
+        lblPersonal2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        lblPersonal2.setForeground(new java.awt.Color(102, 102, 102));
+        lblPersonal2.setText("Ubicación");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -998,6 +1008,8 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPersonal2)
+                    .addComponent(lblUbicacion)
                     .addComponent(jLabel3)
                     .addComponent(lblPersonal1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1019,10 +1031,14 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNivel)
                 .addGap(39, 39, 39)
+                .addComponent(lblPersonal2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUbicacion)
+                .addGap(39, 39, 39)
                 .addComponent(lblUsu)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         PanelCaja3.setBackground(new java.awt.Color(255, 255, 255));
@@ -1108,8 +1124,8 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(52, 152, 219));
@@ -1161,7 +1177,7 @@ public class Principal extends javax.swing.JFrame {
         );
         ContenedorLayout.setVerticalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         Paginas.addTab(".", Contenedor);
@@ -1578,8 +1594,10 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNivel;
     public static javax.swing.JLabel lblPersonal;
     public static javax.swing.JLabel lblPersonal1;
+    public static javax.swing.JLabel lblPersonal2;
     public static javax.swing.JLabel lblSerie;
     public static javax.swing.JLabel lblTerminal;
+    public static javax.swing.JLabel lblUbicacion;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;

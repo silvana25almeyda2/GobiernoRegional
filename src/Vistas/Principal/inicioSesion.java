@@ -390,7 +390,7 @@ String hora, minutos, segundos, ampm;
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("Iniciar Sesión");
-        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         btnIniciarSesion.setContentAreaFilled(false);
         btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -625,7 +625,9 @@ String hora, minutos, segundos, ampm;
                   Principal.btnFacturador.setEnabled(true);
                 }else if(filtroModulo==3){
                  Principal.btnPersonal.setEnabled(true);
+                 Principal.btnUsuarios.setEnabled(true);
                 }else if(filtroModulo==4){
+                 Principal.btnPersonal.setEnabled(true);
                  Principal.btnUsuarios.setEnabled(true);
                 }
            }

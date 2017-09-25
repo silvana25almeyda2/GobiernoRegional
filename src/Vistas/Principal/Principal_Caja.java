@@ -1006,6 +1006,8 @@ private Dimension DimensionBarra = null;
             CR.setVisible(true);
             String u=Principal.lblUsu.getText();
             CR.lblusu.setText(u);
+            CR.txtUbicacion.setText(Principal.lblUbicacion.getText());
+            
         }else if(!lblNivel.getText().equals("ADMINISTRADOR")||lblPermiso.getText().equals("E")){
             NivelSuperior.setVisible(true);
 

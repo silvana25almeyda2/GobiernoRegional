@@ -493,8 +493,10 @@ private String AFECTO;
                 Caja_ReporteMensual.txtUbicacion.setText(r.getString(2));
                 if(Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
                     Caja_ReporteMensual.txtUbicacion.setEditable(true);
+                    Caja_ReporteMensual.lblA.setText("A");
                 }else if(!Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
                     Caja_ReporteMensual.txtUbicacion.setEditable(false);
+                    Caja_ReporteMensual.lblA.setText("D");
                 }
                 }
             //

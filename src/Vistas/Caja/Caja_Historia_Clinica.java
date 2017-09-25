@@ -41,6 +41,7 @@ Caja_Historia hC = new Caja_Historia();
      * Creates new form Caja_Historia_Clinica
      */
     public Caja_Historia_Clinica() {
+        NivelSuperior.setLocationRelativeTo(null);//en el centro
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());

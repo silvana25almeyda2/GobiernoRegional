@@ -6,6 +6,7 @@
 package modelo.Caja;
 
 import Servicios.Conexion;
+import Vistas.Caja.Caja_Reportes;
 import Vistas.Caja.Caja_Ventas;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -393,7 +394,31 @@ private double INAFECTA;
         }
     }
     
-    public void ReporteSESION_ACTIVA(JTable tabla){
+    public void LISTAR_LOCALIDAD_SEDE(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_VERIFICAR_UNIDAD_EJECUTORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Reportes.lblTipo_Sede.setText(r.getString(1));
+                if(Caja_Reportes.lblTipo_Sede.getText().equals("P")){
+                    Caja_Reportes.txtUbicacion.setEditable(true);
+                    Caja_Reportes.lblA.setText("A");
+                }else if(!Caja_Reportes.lblTipo_Sede.getText().equals("P")){
+                    Caja_Reportes.txtUbicacion.setEditable(false);
+                    Caja_Reportes.lblA.setText("D");
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR TIPO SEDE: " + e.getMessage());
+        }
+    }
+    
+    public void ReporteSESION_ACTIVA(String Ubicacion,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -402,8 +427,46 @@ private double INAFECTA;
             JTable p=new JTable(m);
             String fila[]=new String[9];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_VENTAS_SESIONES_ACTIVAS";
+            consulta="EXEC CAJA_VENTAS_SESIONES_ACTIVAS ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Ubicacion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteAPERTURA_CIERRE(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE BUSQUEDA" + e.getMessage());
+        }
+    }
+    
+    public void ReporteSESION_ACTIVA_TODOS(JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Sesión Activa","Cajero","Usuario","PC","Serie","Base","Fecha","Hora","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[9];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_VENTAS_SESIONES_ACTIVAS_TODOS";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, Ubicacion);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -570,6 +633,8 @@ private double INAFECTA;
             System.out.println("ERROR LISTAR SEDES" + e.getMessage());
         }
     }
+    
+    
     
     public void ReporteMENSUAL_CCTA6_TODOS(int MES,int ANIO, JTable tabla){
         String consulta="";

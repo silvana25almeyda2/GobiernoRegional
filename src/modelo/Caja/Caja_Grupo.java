@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import Servicios.Conexion;
+import Vistas.Caja.Caja_Grupo_Nomenclaturas;
 /**
  *
  * @author Ricardo
@@ -109,6 +110,28 @@ public boolean modificarGrupoNomenclatura(){
         }catch(Exception ex){
         }
         return cod;
+    }
+    
+    public void LISTAR_PERMISOS_ITEM(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Grupo_Nomenclaturas.lblNivel.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Caja_Grupo_Nomenclaturas.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Caja_Grupo_Nomenclaturas.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
     }
     
 

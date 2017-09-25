@@ -1426,7 +1426,7 @@ public class Facturador extends javax.swing.JFrame {
                 ));
                 tbFacturacion.setGridColor(new java.awt.Color(255, 255, 255));
                 tbFacturacion.setRowHeight(25);
-                tbFacturacion.setSelectionBackground(new java.awt.Color(153, 153, 153));
+                tbFacturacion.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tbFacturacion.getTableHeader().setReorderingAllowed(false);
                 tbFacturacion.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {

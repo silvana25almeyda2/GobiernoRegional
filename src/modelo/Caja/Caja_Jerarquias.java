@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
+import Vistas.Caja.Caja_Jerarquia;
 /**
  *
  * @author MYS1
@@ -276,7 +277,27 @@ public String codTipo(String tipo)
     }
 
 
-
+      public void LISTAR_PERMISOS_ITEM(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_VERIFICAR_NIVEL_USUARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Jerarquia.lblNivel1.setText(r.getString(1)); 
+                if(r.getString(2).equals("X")){
+                    Caja_Jerarquia.lblPermiso.setText("L"); 
+                }else   if(r.getString(3).equals("X")){
+                    Caja_Jerarquia.lblPermiso.setText("E"); 
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
 
 
  public Caja_Jerarquias(){

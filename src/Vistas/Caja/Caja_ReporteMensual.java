@@ -117,6 +117,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
+            lblA = new javax.swing.JLabel();
             jScrollPane12 = new javax.swing.JScrollPane();
             tb_ReporteDiario1 = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -419,6 +420,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 });
                 jScrollPane24.setViewportView(tbSEDES);
 
+                lblA.setForeground(new java.awt.Color(230, 230, 230));
+                lblA.setText("jLabel8");
+
                 javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
                 jPanel12.setLayout(jPanel12Layout);
                 jPanel12Layout.setHorizontalGroup(
@@ -434,7 +438,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(lblTipo_Sede)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(lblA)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel12Layout.setVerticalGroup(
@@ -447,9 +453,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                             .addComponent(lblCajeroS)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblTipo_Sede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblTipo_Sede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(lblA))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -694,6 +702,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tbSEDESKeyPressed
 
     private void txtUbicacionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtUbicacionCaretUpdate
+        
+        if(lblA.getText().equals("A")){
         if(txtUbicacion.getText().equals("TODOS")||txtUbicacion.getText().equals("TODO")){
             jPanel2.setVisible(false);
         }else  if(!txtUbicacion.getText().equals("TODOS")||!txtUbicacion.getText().equals("TODO")){
@@ -707,6 +717,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 } catch (Exception e) {
                 }
         }
+    }else if(!lblA.getText().equals("A")){
+         jPanel2.setVisible(false);
+    }
+        
+        
     }//GEN-LAST:event_txtUbicacionCaretUpdate
 
     private void tbSEDESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSEDESMouseClicked
@@ -799,6 +814,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane24;
+    public static javax.swing.JLabel lblA;
     private javax.swing.JLabel lblBase;
     public static javax.swing.JLabel lblCajeroS;
     public static javax.swing.JLabel lblCliente2;

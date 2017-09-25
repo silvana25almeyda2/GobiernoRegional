@@ -313,15 +313,15 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         PERSONAL.setMinimumSize(new java.awt.Dimension(747, 383));
                         PERSONAL.setResizable(false);
 
-                        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+                        jPanel1.setBackground(new java.awt.Color(230, 230, 230));
 
-                        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-                        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
-                        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
+                        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         jLabel3.setText("Personal");
 
-                        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel4.setText(" DNI; Apellidos y Nombres");
 
                         txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
@@ -344,7 +344,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                             }
                         });
 
-                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                         btnBuscar.setBorder(null);
                         btnBuscar.setContentAreaFilled(false);
                         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1421,7 +1421,25 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tbPersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonalMouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            try{
+                
+                int filaselec=tbPersonal.getSelectedRow();
+                if( tbPersonal.getRowCount()>0){
+                    lblCodPer.setText(tbPersonal.getValueAt(filaselec, 1).toString());
+                    txtPersonal.setText(tbPersonal.getValueAt(filaselec, 3).toString()+' '+
+                            tbPersonal.getValueAt(filaselec, 4).toString()+' '+
+                            tbPersonal.getValueAt(filaselec, 5).toString());
+                    PERSONAL.setVisible(false);
+                }
+                
+                txtUsuario.requestFocus();
+                
+            }
+            catch(Exception ex){
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
     }//GEN-LAST:event_tbPersonalMouseClicked
 
     private void tbPersonalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPersonalKeyPressed
