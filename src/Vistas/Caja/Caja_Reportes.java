@@ -1136,11 +1136,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             Paginas.setSelectedIndex(0);
             System.out.println("TODOS");
         }
-        
-        
-        
-        
-        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
