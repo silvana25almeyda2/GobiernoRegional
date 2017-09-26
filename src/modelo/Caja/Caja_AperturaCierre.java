@@ -728,6 +728,24 @@ public void Caja_Verificar_SESIONES(String usu,JTable tabla){
         }
     }
     
+    public void CAJA_CIERRE_TOTAL_SA(String usu,int descrip){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_CIERRE_TOTAL_VENTAS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            cmd.setInt(2, descrip);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre_sa.lblVC.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("DATOS del cierre: " + e.getMessage());
+        }
+    }
+    
  public Caja_AperturaCierre(){
         Conexion con = new Conexion();
         cn = con.conectar();

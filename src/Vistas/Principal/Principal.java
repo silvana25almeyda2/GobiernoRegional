@@ -1046,15 +1046,15 @@ public class Principal extends javax.swing.JFrame {
         btnCaja1.setBackground(new java.awt.Color(102, 102, 102));
         btnCaja1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnCaja1.setForeground(new java.awt.Color(51, 51, 51));
-        btnCaja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Settings-64.png"))); // NOI18N
-        btnCaja1.setText("Configuración");
+        btnCaja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-About-64.png"))); // NOI18N
+        btnCaja1.setText("Información");
         btnCaja1.setContentAreaFilled(false);
         btnCaja1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCaja1.setFocusPainted(false);
         btnCaja1.setFocusable(false);
         btnCaja1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCaja1.setIconTextGap(30);
-        btnCaja1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Settings-64(1).png"))); // NOI18N
+        btnCaja1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-About-64(1).png"))); // NOI18N
         btnCaja1.setVerifyInputWhenFocusTarget(false);
         btnCaja1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCaja1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1489,6 +1489,11 @@ public class Principal extends javax.swing.JFrame {
     private void btnCaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja1ActionPerformed
         Principal_Configuracion C =new Principal_Configuracion();
         Contenedor.add(C);
+        Caja_PC_Registro CPC = new Caja_PC_Registro();
+        CPC.PERFIL_SEDE_CONFIGURACION(Principal.lblUsu.getText());
+        Caja_PC_Registro CPEC = new Caja_PC_Registro();
+        CPEC.SISTEMA_EQUIPO_TRABAJO(lblUbicacion.getText(),Principal_Configuracion.tbClientes);
+        
         try {
             C.setMaximum(true);
         } catch (PropertyVetoException ex) {

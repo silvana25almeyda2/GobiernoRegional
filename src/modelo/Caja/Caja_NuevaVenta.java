@@ -492,7 +492,47 @@ private double INAFECTA;
         }
     }
     
-        public void ReporteSESION_CERRADA(int MES,int ANIO, JTable tabla){
+        public void ReporteSESION_CERRADA(int MES,int ANIO,String Lugar,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Sesión","Cajero","Usuario","PC","Serie","Total Ventas","Fecha","Hora","ID","IDA"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[10];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_CIERRES ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, MES);
+            cmd.setInt(2, ANIO);
+            cmd.setString(3, Lugar);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteAPERTURA_CIERRE1(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE BUSQUEDA" + e.getMessage());
+        }
+    }
+        
+    public void ReporteSESION_CERRADA_TODOS(int MES,int ANIO,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -713,10 +753,10 @@ private double INAFECTA;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO","ANULADO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[10];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -734,6 +774,7 @@ private double INAFECTA;
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
                     m.addRow(fila);
                     c++;
             }
@@ -907,6 +948,8 @@ private double INAFECTA;
             tabla.getColumnModel().getColumn(7).setMaxWidth(0);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(9).setMinWidth(0);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(0);
             tabla.setRowHeight(40);  
     }
     public void formatoTablaReporteCabeceraBUSQUEDA(JTable tabla){

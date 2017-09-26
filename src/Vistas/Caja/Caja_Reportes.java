@@ -1140,13 +1140,17 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         Paginas.setSelectedIndex(1);
+        btneliminar.setEnabled(false);
+        btnLista.setEnabled(false);
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         Caja_Cierre_sa frmCIERRED = new Caja_Cierre_sa();
         frmCIERRED.lblusu.setText(lblCajeroS.getText());
         frmCIERRED.setVisible(true);
-        AperturaOraPC.dispose();
+        Caja_AperturaCierre CNVRCC = new  Caja_AperturaCierre(); 
+        CNVRCC.CAJA_CIERRE_TOTAL_SA(Caja_Reportes.lblCajeroS.getText(),Integer.parseInt(frmCIERRED.lblID_APERTURA.getText()));    
+        
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
@@ -1221,8 +1225,15 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             int A=0;
             A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
            
-            Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
-            CNVRCCF.ReporteSESION_CERRADA(m,A, tb_ReporteDiario2);
+            if(txtUbicacion.getText().equals("TODOS")||txtUbicacion.getText().equals("TODO")){
+                Caja_NuevaVenta CNVRCC = new  Caja_NuevaVenta();
+                CNVRCC.ReporteSESION_CERRADA_TODOS(m,A,tb_ReporteDiario2);
+            }else if(!txtUbicacion.getText().equals("TODOS")||!txtUbicacion.getText().equals("TODO")){
+                Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
+                CNVRCCF.ReporteSESION_CERRADA(m,A,txtUbicacion.getText(),tb_ReporteDiario2);
+            }
+            
+            
 //            lblMes.setText(cbxMes.getSelectedItem().toString());
             cbxMeses.setEnabled(false);
             cbxAnios.setEnabled(false);
@@ -1361,8 +1372,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private void txtUbicacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyPressed
         //        char teclaPresionada = evt.getKeyChar();
         //        if(teclaPresionada==KeyEvent.VK_ENTER){
-            //            jLabel7.doClick();
-            //        }
+        //            jLabel7.doClick();
+        //        }
     }//GEN-LAST:event_txtUbicacionKeyPressed
 
     private void txtUbicacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyReleased
@@ -1370,12 +1381,51 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }//GEN-LAST:event_txtUbicacionKeyReleased
 
     private void jLabel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabel7ActionPerformed
-        int fila=tbSEDES.getSelectedRow();
-        txtUbicacion.setText(String.valueOf(tbSEDES.getValueAt(fila, 1)));
-        jPanel7.setVisible(false);
-        Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
-        CNVRCCB.ReporteSESION_ACTIVA(txtUbicacion.getText(),tb_ReporteDiario1);
-        Paginas.setSelectedIndex(0);
+//        int m=0;
+//            if(cbxMeses.getSelectedItem().equals("ENERO")){
+//                m=1;
+//            }else if(cbxMeses.getSelectedItem().equals("FEBRERO")){
+//                m=2;
+//            }else if(cbxMeses.getSelectedItem().equals("MARZO")){
+//                m=3;
+//            }else if(cbxMeses.getSelectedItem().equals("ABRIL")){
+//                m=4;
+//            }else if(cbxMeses.getSelectedItem().equals("MAYO")){
+//                m=5;
+//            }else if(cbxMeses.getSelectedItem().equals("JUNIO")){
+//                m=6;
+//            }else if(cbxMeses.getSelectedItem().equals("JULIO")){
+//                m=7;
+//            }else if(cbxMeses.getSelectedItem().equals("AGOSTO")){
+//                m=8;
+//            }else if(cbxMeses.getSelectedItem().equals("SETIEMBRE")){
+//                m=9;
+//            }else if(cbxMeses.getSelectedItem().equals("OCTUBRE")){
+//                m=10;
+//            }else if(cbxMeses.getSelectedItem().equals("NOVIEMBRE")){
+//                m=11;
+//            }else if(cbxMeses.getSelectedItem().equals("DICIEMBRE")){
+//                m=12;
+//            }
+//            int A=0;
+//            A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
+//            
+//        if(Paginas.getSelectedIndex()==0){
+            int fila=tbSEDES.getSelectedRow();
+            txtUbicacion.setText(String.valueOf(tbSEDES.getValueAt(fila, 1)));
+            jPanel7.setVisible(false);
+//            Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
+//            CNVRCCB.ReporteSESION_ACTIVA(txtUbicacion.getText(),tb_ReporteDiario1);
+//        }else if(Paginas.getSelectedIndex()==1){
+//            if(txtUbicacion.getText().equals("TODOS")||txtUbicacion.getText().equals("TODO")){
+//                Caja_NuevaVenta CNVRCC = new  Caja_NuevaVenta();
+//                CNVRCC.ReporteSESION_CERRADA_TODOS(m,A,tb_ReporteDiario2);
+//            }else if(!txtUbicacion.getText().equals("TODOS")||!txtUbicacion.getText().equals("TODO")){
+//                Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
+//                CNVRCCF.ReporteSESION_CERRADA(m,A,txtUbicacion.getText(),tb_ReporteDiario2);
+//            }
+//        }
+        
     }//GEN-LAST:event_jLabel7ActionPerformed
 
     private void tbSEDESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSEDESMouseClicked

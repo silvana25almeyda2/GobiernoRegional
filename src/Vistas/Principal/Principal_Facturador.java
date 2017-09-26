@@ -65,7 +65,7 @@ private Dimension DimensionBarra = null;
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -128,6 +128,7 @@ private Dimension DimensionBarra = null;
         btnVentas.setFocusable(false);
         btnVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVentas.setIconTextGap(30);
+        btnVentas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Paycheque-64.png"))); // NOI18N
         btnVentas.setVerifyInputWhenFocusTarget(false);
         btnVentas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,6 +169,7 @@ private Dimension DimensionBarra = null;
         btnVentas1.setFocusable(false);
         btnVentas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVentas1.setIconTextGap(30);
+        btnVentas1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Profit-64.png"))); // NOI18N
         btnVentas1.setVerifyInputWhenFocusTarget(false);
         btnVentas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnVentas1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,13 +203,14 @@ private Dimension DimensionBarra = null;
         btnVentas2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         btnVentas2.setForeground(new java.awt.Color(51, 51, 51));
         btnVentas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/icons8-Solicitud de dinero-64.png"))); // NOI18N
-        btnVentas2.setText("<html><center>Comunicación <br>de Baja </center></html>");
+        btnVentas2.setText("C. de Baja");
         btnVentas2.setContentAreaFilled(false);
         btnVentas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVentas2.setFocusPainted(false);
         btnVentas2.setFocusable(false);
         btnVentas2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVentas2.setIconTextGap(30);
+        btnVentas2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Request Money-64.png"))); // NOI18N
         btnVentas2.setVerifyInputWhenFocusTarget(false);
         btnVentas2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnVentas2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,6 +251,7 @@ private Dimension DimensionBarra = null;
         btnVentas3.setFocusable(false);
         btnVentas3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVentas3.setIconTextGap(30);
+        btnVentas3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Document-64A.png"))); // NOI18N
         btnVentas3.setVerifyInputWhenFocusTarget(false);
         btnVentas3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnVentas3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -366,6 +370,11 @@ private Dimension DimensionBarra = null;
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         NotasCreditoDebito n=new NotasCreditoDebito();
         n.setVisible(true);
+        n.Paginas.setSelectedIndex(0);
+//        lblLineDeb.setForeground(new Color(41,127,184));
+//        lblLineCre.setForeground(new Color(255,255,255));
+        n.lblDebito.setForeground(new Color(155,192,216));
+        n.lblCredito.setForeground(new Color(255,255,255));
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnVentas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseClicked
@@ -379,6 +388,11 @@ private Dimension DimensionBarra = null;
     private void btnVentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentas1ActionPerformed
         NotasCreditoDebito nd=new NotasCreditoDebito();
         nd.setVisible(true);
+        nd.Paginas.setSelectedIndex(1);
+//        lblLineCre.setForeground(new Color(41,127,184));
+//        lblLineDeb.setForeground(new Color(255,255,255));
+        nd.lblDebito.setForeground(new Color(255,255,255));
+        nd.lblCredito.setForeground(new Color(155,192,216));
     }//GEN-LAST:event_btnVentas1ActionPerformed
 
     private void btnVentas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas2MouseClicked

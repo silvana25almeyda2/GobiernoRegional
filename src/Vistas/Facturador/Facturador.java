@@ -1445,9 +1445,9 @@ public class Facturador extends javax.swing.JFrame {
 
                 jPanel2.setBackground(new java.awt.Color(41, 127, 184));
 
-                lblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
+                lblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
                 lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-                lblTitulo.setText("<html><span style=\"font-size:'30px'\">Factura Electrónica - </span>Cuentas por Cobrar</html>");
+                lblTitulo.setText("<html>Factura Electrónica <span style=\"font-size:'14px'\">Cuentas por Cobrar</br></span></html>");
 
                 lblId.setForeground(new java.awt.Color(41, 127, 184));
                 lblId.setText("jLabel3");
@@ -1554,7 +1554,7 @@ public class Facturador extends javax.swing.JFrame {
                 jPanel2Layout.setVerticalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(7, 7, 7)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblusu)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

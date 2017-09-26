@@ -14,6 +14,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
 import Vistas.Caja.Caja_Registro;
+import Vistas.Principal.Principal_Configuracion;
 import java.util.HashMap;
 import java.util.Map;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -52,6 +53,26 @@ Conexion con = new Conexion();
         }
     }
     
+    public void PERFIL_SEDE_CONFIGURACION(String cp_id){
+        String consulta="";
+        try {
+            consulta="EXEC SISTEMA_DATOS_CONFIGURACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Principal_Configuracion.jLabel7.setText(r.getString(4));
+                Principal_Configuracion.jLabel3.setText("SEDE   "+r.getString(5));
+                Principal_Configuracion.jLabel6.setText("DIRECCIÓN   "+r.getString(6));
+                Principal_Configuracion.jLabel9.setText("TELÉFONOS   "+r.getString(7));
+                
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: PC: " + e.getMessage());
+        }
+    }
 
     public void PERFIL_USUARIO(String cp_id){
         String consulta="";
@@ -97,6 +118,37 @@ Conexion con = new Conexion();
             tabla.setModel(m);
         } catch (Exception e) {
             System.out.println("Error: CONSULTAR PC EXISTENTE " + e.getMessage());
+        }
+    }
+        
+    public void SISTEMA_EQUIPO_TRABAJO(String Usuario,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Módulo","Usuario","Personal","PC"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec SISTEMA_GRUPO_TRABAJO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario); ///bus1 esto se busca
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR EQUIPO DE TRABAJO " + e.getMessage());
         }
     }
         

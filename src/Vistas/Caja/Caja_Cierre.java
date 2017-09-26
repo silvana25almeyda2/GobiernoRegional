@@ -657,7 +657,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         lblBaseA.setText("jLabel16");
 
         lblIDSESION_A.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblIDSESION_A.setForeground(new java.awt.Color(204, 204, 204));
+        lblIDSESION_A.setForeground(new java.awt.Color(230, 230, 230));
         lblIDSESION_A.setText("jLabel16");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);

@@ -36,6 +36,7 @@ import java.sql.PreparedStatement;
 import java.util.Formatter;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
+import modelo.Caja.FormatoTablaReporteDiarioCaja;
 import modelo.Facturador.CuentasPorPagarFacturasCabecera;
 import modelo.Facturador.CuentasPorPagarFacturasDetalle;
 import modelo.Facturador.CuentasPorPagarSfsRpta;
@@ -3551,7 +3552,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                         jScrollPane11.setForeground(new java.awt.Color(255, 255, 255));
                                                         jScrollPane11.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
-                                                        tb_ReporteDiario.setForeground(new java.awt.Color(51, 51, 51));
+                                                        tb_ReporteDiario.setForeground(new java.awt.Color(255, 255, 255));
                                                         tb_ReporteDiario.setModel(new javax.swing.table.DefaultTableModel(
                                                             new Object [][] {
                                                                 {},
@@ -3765,6 +3766,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelDetalle.setVisible(false);
         CNVRCC.ReporteDiariocajaCabecera(lblusu.getText(),Integer.parseInt(lblSESION.getText()),tb_ReporteDiario);
         CNVRCCTR.CAJA_CIERRE_TOTAL(lblusu.getText(),Integer.parseInt(lblSESION.getText()));
+        tb_ReporteDiario.setDefaultRenderer(Object.class,new FormatoTablaReporteDiarioCaja());
         lblTIPO_DOC.setText("C");
         if(tb_ReporteDiario.getRowCount()==0){
             btnImprimir1.setEnabled(false);
@@ -4101,6 +4103,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_btnBuscarCPTKeyPressed
 
     private void tb_ReporteDiarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ReporteDiarioMouseClicked
+
         int fila=tb_ReporteDiario.getSelectedRow();
         if(evt.getClickCount()==1){
             panelDetalle.setVisible(false);
