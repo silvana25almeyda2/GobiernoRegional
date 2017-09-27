@@ -370,11 +370,14 @@ private Dimension DimensionBarra = null;
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         NotasCreditoDebito n=new NotasCreditoDebito();
         n.setVisible(true);
+        n.lblUsu.setText(Principal.lblUsu.getText());
         n.Paginas.setSelectedIndex(0);
 //        lblLineDeb.setForeground(new Color(41,127,184));
 //        lblLineCre.setForeground(new Color(255,255,255));
         n.lblDebito.setForeground(new Color(155,192,216));
         n.lblCredito.setForeground(new Color(255,255,255));
+        
+  
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnVentas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentas1MouseClicked
@@ -389,6 +392,7 @@ private Dimension DimensionBarra = null;
         NotasCreditoDebito nd=new NotasCreditoDebito();
         nd.setVisible(true);
         nd.Paginas.setSelectedIndex(1);
+        nd.lblUsu.setText(Principal.lblUsu.getText());
 //        lblLineCre.setForeground(new Color(41,127,184));
 //        lblLineDeb.setForeground(new Color(255,255,255));
         nd.lblDebito.setForeground(new Color(255,255,255));

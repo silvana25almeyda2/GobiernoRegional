@@ -70,7 +70,7 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         {
         boolean resp = false;
         try{
-            String sql = "sp_CUENTAS_POR_PAGAR_NOTA_CREDITO  ?,?,?,?,?,?";
+            String sql = "exec sp_CUENTAS_POR_PAGAR_NOTA_CREDITO  ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getIdFactura());
             cmd.setString(2, getNota_credito());
@@ -95,7 +95,7 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         {
         boolean resp = false;
         try{
-            String sql = "sp_CUENTAS_POR_PAGAR_NOTA_DEBITO  ?,?,?,?,?,?";
+            String sql = "exec sp_CUENTAS_POR_PAGAR_NOTA_DEBITO  ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getIdFactura());
             cmd.setString(2, getNota_credito());

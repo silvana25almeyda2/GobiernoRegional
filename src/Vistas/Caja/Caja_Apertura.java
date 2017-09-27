@@ -106,6 +106,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             int ID;
             ID=cstmt.getInt(4);
             this.lblID.setText( String.valueOf(ID) );
+            btnNuevo.setEnabled(false);
             System.out.println("APERTURANDO");  
             jPanel3.setVisible(false);
             this.getContentPane().setBackground(new Color(23,160,134));

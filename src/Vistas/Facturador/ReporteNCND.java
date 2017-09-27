@@ -62,8 +62,6 @@ Conexion c=new Conexion();
         cbxBuscarDocumento.setBackground(Color.WHITE);
         cbxBuscarDocumentoD.setBackground(Color.WHITE);
         
-        BUSCAR_FACTURA_BOLETA.setLocationRelativeTo(null);
-        BUSCAR_FACTURA_BOLETA.getContentPane().setBackground(Color.white);
         Paginas.setEnabled(false);
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
@@ -226,11 +224,6 @@ Conexion c=new Conexion();
         Serie = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        BUSCAR_FACTURA_BOLETA = new javax.swing.JDialog();
-        jpanel = new javax.swing.JPanel();
-        titulo5 = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
@@ -303,71 +296,6 @@ Conexion c=new Conexion();
 
                         jMenuItem2.setText("jMenuItem2");
                         Serie.add(jMenuItem2);
-
-                        BUSCAR_FACTURA_BOLETA.setMinimumSize(new java.awt.Dimension(784, 561));
-
-                        jpanel.setBackground(new java.awt.Color(41, 127, 184));
-
-                        titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                        titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
-                        titulo5.setForeground(new java.awt.Color(255, 255, 255));
-                        titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo5.setText("Factura - Boleta");
-                        titulo5.setToolTipText("");
-                        titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-                        lblEstado.setText("jLabel70");
-
-                        jButton1.setBackground(new java.awt.Color(204, 0, 51));
-                        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-                        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Cancel-22.png"))); // NOI18N
-                        jButton1.setText("Salir");
-                        jButton1.setContentAreaFilled(false);
-                        jButton1.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton1ActionPerformed(evt);
-                            }
-                        });
-
-                        javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
-                        jpanel.setLayout(jpanelLayout);
-                        jpanelLayout.setHorizontalGroup(
-                            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(titulo5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
-                                .addComponent(lblEstado)
-                                .addGap(94, 94, 94))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addContainerGap())
-                        );
-                        jpanelLayout.setVerticalGroup(
-                            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(titulo5)
-                                    .addComponent(lblEstado))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(27, Short.MAX_VALUE))
-                        );
-
-                        javax.swing.GroupLayout BUSCAR_FACTURA_BOLETALayout = new javax.swing.GroupLayout(BUSCAR_FACTURA_BOLETA.getContentPane());
-                        BUSCAR_FACTURA_BOLETA.getContentPane().setLayout(BUSCAR_FACTURA_BOLETALayout);
-                        BUSCAR_FACTURA_BOLETALayout.setHorizontalGroup(
-                            BUSCAR_FACTURA_BOLETALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        );
-                        BUSCAR_FACTURA_BOLETALayout.setVerticalGroup(
-                            BUSCAR_FACTURA_BOLETALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BUSCAR_FACTURA_BOLETALayout.createSequentialGroup()
-                                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(450, Short.MAX_VALUE))
-                        );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -980,10 +908,6 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        BUSCAR_FACTURA_BOLETA.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void tb_Nota_CreditoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Nota_CreditoKeyPressed
 
     }//GEN-LAST:event_tb_Nota_CreditoKeyPressed
@@ -1290,7 +1214,6 @@ Conexion c=new Conexion();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog BUSCAR_FACTURA_BOLETA;
     private javax.swing.JTabbedPane Paginas;
     private javax.swing.JPopupMenu Serie;
     private javax.swing.JButton btnGuardar2;
@@ -1301,7 +1224,6 @@ Conexion c=new Conexion();
     private com.toedter.calendar.JDateChooser dtFechaFND;
     private com.toedter.calendar.JDateChooser dtFechaI;
     private com.toedter.calendar.JDateChooser dtFechaIND;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -1319,12 +1241,10 @@ Conexion c=new Conexion();
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblCredito;
     private javax.swing.JLabel lblDebito;
     private javax.swing.JLabel lblEmpresa1;
     private javax.swing.JLabel lblEmpresa2;
-    private javax.swing.JLabel lblEstado;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelCPT50;
     private javax.swing.JPanel panelCPT51;
@@ -1332,7 +1252,6 @@ Conexion c=new Conexion();
     private javax.swing.JTable tb_NotaDebitoDet;
     private javax.swing.JTable tb_Nota_Credito;
     private javax.swing.JTable tb_Nota_Debito;
-    private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtBuscarDocumento;
     public static javax.swing.JTextField txtBuscarDocumentoND;
     // End of variables declaration//GEN-END:variables

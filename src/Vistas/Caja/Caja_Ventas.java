@@ -730,6 +730,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                     lblIGV_B = new javax.swing.JLabel();
                                     precioV_B = new javax.swing.JLabel();
                                     venta_B = new javax.swing.JLabel();
+                                    LBL_CPF_ID = new javax.swing.JLabel();
                                     Paginas = new javax.swing.JTabbedPane();
                                     jPanel3 = new javax.swing.JPanel();
                                     jPanel12 = new javax.swing.JPanel();
@@ -2306,13 +2307,15 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                         venta_B.setText("jLa");
 
+                                                        LBL_CPF_ID.setText("jLabel1");
+
                                                         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
                                                         jPanel13.setLayout(jPanel13Layout);
                                                         jPanel13Layout.setHorizontalGroup(
                                                             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(jPanel13Layout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                         .addComponent(txtDsctoGlobal)
                                                                         .addGap(18, 18, 18)
@@ -2330,8 +2333,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                         .addGap(18, 18, 18)
                                                                         .addComponent(precioV_B)
                                                                         .addGap(18, 18, 18)
-                                                                        .addComponent(venta_B)))
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                        .addComponent(venta_B)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                        .addComponent(LBL_CPF_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                                .addContainerGap(34, Short.MAX_VALUE))
                                                         );
                                                         jPanel13Layout.setVerticalGroup(
                                                             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2352,6 +2357,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                     .addComponent(precioV_B)
                                                                     .addComponent(venta_B))
                                                                 .addGap(24, 24, 24))
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(LBL_CPF_ID)
+                                                                .addContainerGap())
                                                         );
 
                                                         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -3749,7 +3758,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         }else if(lblTIPO_DOC.getText().equals("C")){
             if(Tipo_Documento.getText().equals("B")){
                 nuevaV.reporteVenta(Integer.parseInt(lblID_DOCUEMENTO.getText()));
-            }else if(Tipo_Documento.getText().equals("B")){
+            }else if(!Tipo_Documento.getText().equals("B")){
+                Caja_NuevaVenta ER=new Caja_NuevaVenta();
+                ER.IMPRIMIR_FACTURA_CAJA(lblID_DOCUEMENTO.getText());
+
+                System.out.println("CODIGILLO "+LBL_CPF_ID.getText());
+                CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+                rpta2.reporteFactura(LBL_CPF_ID.getText());
                 System.out.println("VAMO IMPRIMIENDO LA FACTURA");
             }
         }  
@@ -4246,6 +4261,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             btnImprimir.setEnabled(true);
 //            panelIMprimir.setVisible(false);
             btneliminar.setEnabled(true);
+            
         }
         if(evt.getClickCount()==2){
             Caja_NuevaVenta CNVRCDB = new  Caja_NuevaVenta();
@@ -4399,6 +4415,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
         CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
         rpta2.reporteFactura(cab3.idFactura(Principal.lblUsu.getText()));
+        panleBoleta.setVisible(false);
     }//GEN-LAST:event_ImpSActionPerformed
 
     private void ImpNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpNActionPerformed
@@ -4794,6 +4811,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     
     }
     
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -4838,6 +4858,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     public static javax.swing.JButton ImpN;
     public static javax.swing.JButton ImpS;
     private javax.swing.JDialog Inafecto;
+    public static javax.swing.JLabel LBL_CPF_ID;
     private javax.swing.JLabel Mensaje4;
     private javax.swing.JLabel Mensaje5;
     private javax.swing.JLabel Mensaje6;

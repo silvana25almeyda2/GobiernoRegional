@@ -1407,7 +1407,7 @@ byte tgm;
         buscartodo.setText("");
         Caja_CPT A = new Caja_CPT();
         A.LISTA_ITEM("",tb_CPT);
-        Paginas.setSelectedIndex(0);
+        Paginas.setSelectedIndex(1);
 
     }//GEN-LAST:event_btnListaActionPerformed
 

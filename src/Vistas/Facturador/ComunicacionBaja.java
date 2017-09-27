@@ -56,6 +56,7 @@ Conexion c=new Conexion();
 //        agregarFacturas();
        
         tbFacturasRpta.setVisible(false);
+        jScrollPane1.setVisible(false);
 //        tbFacturacion.getTableHeader().setVisible(false);
 //        tbFacturacion.setTableHeader(null);
      

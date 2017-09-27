@@ -26,6 +26,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 import Servicios.Conexion;
+import java.awt.Image;
 import modelo.Caja.Caja_AperturaCierre;
 import modelo.Principal.Usuario;
 
@@ -72,6 +73,10 @@ String hora, minutos, segundos, ampm;
         //ICONO DE FORMULARIO
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/Imagen/icons8-Mind Map-100.png")).getImage());
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+//        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/iconos/Imagen/icons8-Mind Map-100.png"));
+//        setIconImage(icon);
+//        setVisible(true);
+ 
     }
     public void calcula() {
         Calendar calendario = new GregorianCalendar();

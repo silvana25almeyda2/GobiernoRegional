@@ -65,6 +65,23 @@ private double GRAVADA;
 private double INAFECTA;
                 
     
+
+    
+    public void IMPRIMIR_FACTURA_CAJA(String usu){
+        try {
+            String consulta = "exec CUENTAS_POR_PAGAR_ID_FACTURA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+        if(r.next()){
+               Caja_Ventas.LBL_CPF_ID.setText(r.getString(1));
+        }
+        }catch(Exception ex){
+            System.out.println("ERROR AL CARGAR el codigo de factura " + ex.getMessage());
+        }
+    }
+
+
     public void VENTA_LISTA_CLIENTES(String descripcion,JTable tabla){
     String consulta="";
         try {

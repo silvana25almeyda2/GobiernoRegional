@@ -598,7 +598,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Print-32B.png"))); // NOI18N
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Print-32BANNER.png"))); // NOI18N
         btnImprimir.setText("Prueba de Impresión");
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -773,7 +773,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         tbPaneles.addTab("tab1", jPanel2);
 
         getContentPane().add(tbPaneles);
-        tbPaneles.setBounds(30, 240, 740, 345);
+        tbPaneles.setBounds(30, 240, 740, 351);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/a.gif"))); // NOI18N
@@ -955,7 +955,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     }//GEN-LAST:event_btnAlertConsulta9ActionPerformed
 
     private void btnAlertConsulta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta12ActionPerformed
-        NivelSuperior.dispose();
+        NivelSuperior2.dispose();
     }//GEN-LAST:event_btnAlertConsulta12ActionPerformed
 
     /**
@@ -995,12 +995,8 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog NivelSuperior;
-    private javax.swing.JDialog NivelSuperior1;
     private javax.swing.JDialog NivelSuperior2;
     private javax.swing.JButton btnAlertConsulta1;
-    private javax.swing.JButton btnAlertConsulta10;
-    private javax.swing.JButton btnAlertConsulta11;
     private javax.swing.JButton btnAlertConsulta12;
     private javax.swing.JButton btnAlertConsulta9;
     public static javax.swing.JButton btnImprimir;
@@ -1017,17 +1013,11 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel145;
-    private javax.swing.JPanel jPanel146;
-    private javax.swing.JPanel jPanel147;
-    private javax.swing.JPanel jPanel148;
     private javax.swing.JPanel jPanel149;
     private javax.swing.JPanel jPanel150;
     private javax.swing.JPanel jPanel2;

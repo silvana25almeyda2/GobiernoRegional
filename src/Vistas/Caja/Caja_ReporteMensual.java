@@ -655,6 +655,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         }else if(cbxMeses1.getSelectedItem().equals("Detalle")&&txtUbicacion.getText().equals("TODOS")){
             nuevaR.ReporteMENSUAL_DETALLE_TODOS(m,A,txtUbicacion.getText());
         }
+//        else if(cbxMeses1.getSelectedItem().equals("Especifica de Detalle")&&txtUbicacion.getText().equals("TODOS")){
+//            nuevaR.ReporteMENSUAL_DETALLE_TODOS(m,A,txtUbicacion.getText());
+//        }
         
     }//GEN-LAST:event_btnImprimirActionPerformed
 
