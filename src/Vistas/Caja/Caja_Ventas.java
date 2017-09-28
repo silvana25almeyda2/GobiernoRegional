@@ -458,6 +458,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         lblCliente.setText("Cliente");
         lblDocumento.setText("DNI");
         lblID_CABECERA.setText("A");
+        panleBoleta.setVisible(false);
         
     }
     
@@ -531,7 +532,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
                 cno1.setID_DOCUMENTO(Integer.parseInt(lblID_CABECERA.getText()));
+<<<<<<< HEAD
                 cno1.setSERIE(txtSerieC.getText());
+=======
+                cno1.setSERIE("dfvfdd");
+>>>>>>> 3aec30405a378968ab241f99f20afbd7b47ca60f
                 cno1.setCORRELATIVO(lblNroCorrelativoC.getText());
                 cno1.setDESCUENTO(0.00);
                 cno1.setSUB_TOTAL(Double.parseDouble(txtSubTotal.getText()));

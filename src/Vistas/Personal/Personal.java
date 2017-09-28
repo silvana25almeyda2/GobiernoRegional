@@ -6,6 +6,7 @@
 package Vistas.Personal;
 
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -2171,6 +2172,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         try {
                      
             String consulta="";
+            String ubicacion = Principal.lblUbicacion.getText();
             
             TB_PERSONAL.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Código","DNI","Ape. Paterno","Ape. Materno","Nombres","Sexo","Unidad Ejecutora","Distrito",
@@ -2180,9 +2182,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             JTable p=new JTable(m1);
             String fila[]=new String[19];
             Usuario obj=new Usuario();
-            consulta="exec PERSONAL_LISTAR";
+            consulta="exec PERSONAL_LISTAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            
+            cmd.setString(1,ubicacion);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -2218,8 +2220,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                        
             formato_TB_PERSONAL();
             
-        } catch (Exception e) {
-            System.out.println("Error mostrar actividades: " + e.getMessage());
+        }catch (Exception e) {
+            System.out.println("Error mostrar personal: " + e.getMessage());
         }     
     }
     

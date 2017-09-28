@@ -123,6 +123,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             System.out.println("Error al generar serie y numero " + ex.getMessage());
         }
     }
+<<<<<<< HEAD
     
     public void generarSerieCorrelativoRECIBO(String usu){
         try {
@@ -138,6 +139,8 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             System.out.println("Error al generar serie y numero " + ex.getMessage());
         }
     }
+=======
+>>>>>>> 3aec30405a378968ab241f99f20afbd7b47ca60f
 
     public boolean mantenimientoCuentasPorPagarFacturasCabecera()
         {

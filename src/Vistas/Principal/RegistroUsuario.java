@@ -62,7 +62,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         txtUsuario.requestFocus();
         txtPersonal.setText("");
         
-        cargarUsuario("","1");
+        cargarUsuario("","1",Principal.lblUbicacion.getText());
         formatoUsuario();
        
 
@@ -104,7 +104,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
     }
-    public void cargarUsuario(String buscar,String tipo){
+    public void cargarUsuario(String buscar,String tipo, String ubicacion){
     try {
             String consulta="";
             String titulos[]={"Nº","Codigo","Apellido Paterno","Apellido Materno","Nombres",
@@ -115,10 +115,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
             Usuario obj=new Usuario();
            
-               consulta="exec SP_USUARIO_listar ?,?";
+               consulta="exec SP_USUARIO_listar ?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
             cmd.setString(2, tipo);
+            cmd.setString(3, ubicacion);
             ResultSet r= cmd.executeQuery();
             int c=1;
             
@@ -1350,7 +1351,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
-        cargarUsuario(buscartodo.getText(), "2");
+        cargarUsuario(buscartodo.getText(), "2","");
         formatoUsuario();
     }//GEN-LAST:event_buscartodoCaretUpdate
 
@@ -1359,10 +1360,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        String ubic = Principal.lblUbicacion.getText();
         Paginas.setSelectedIndex(0);
         limpiar();
         enableDatos(true);
-        cargarUsuario("","1");
+        cargarUsuario("","1",ubic);
         formatoUsuario();
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -1609,7 +1611,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     btneliminar.setEnabled(false);
     cbxModulo.setSelectedIndex(0);
     cbxPregunta.setSelectedIndex(0);
-    cargarUsuario("", "1");
+    cargarUsuario("", "1", Principal.lblUbicacion.getText());
     formatoUsuario();
     est=1;
     
