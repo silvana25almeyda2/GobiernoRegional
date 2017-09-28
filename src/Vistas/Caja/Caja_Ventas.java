@@ -150,6 +150,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CPPFRDNI.CAJA_PREVENTAS_FR(lblNOMBRE_PREVENTA.getText(),tbFR);
         }
         if(tbFR.getRowCount()>0){
+            CuentasPorPagarFacturasCabecera bf = new CuentasPorPagarFacturasCabecera();
+            if(cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
+            bf.generarSerieCorrelativoFARMACIA("F",lblusu.getText());
+            }else if(cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
+            bf.generarSerieCorrelativoFARMACIA("B",lblusu.getText());
+            }
             jPanel15.setVisible(true);
             System.out.println("SE ENCONTRO UNA PREVENTA");
             jLabel35.setText("Farmacia ["+String.valueOf(tbFR.getRowCount())+"]"); 
@@ -163,6 +169,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             }
             panelCPT1.setVisible(false);
             lbl6.setVisible(false);
+            
         }else if(tbFR.getRowCount()==0){
             System.out.println("No existe Preventa");
             panelCPT1.setVisible(true);
@@ -442,6 +449,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         lblCliente.setText("Cliente");
         lblDocumento.setText("DNI");
         lblID_CABECERA.setText("A");
+        panleBoleta.setVisible(false);
         
     }
     
@@ -508,6 +516,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     public void ACTUALIZAR_CABECERA(){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
                 cno1.setID_DOCUMENTO(Integer.parseInt(lblID_CABECERA.getText()));
+                cno1.setSERIE("dfvfdd");
+                cno1.setCORRELATIVO(lblNroCorrelativoC.getText());
                 cno1.setDESCUENTO(0.00);
                 cno1.setSUB_TOTAL(Double.parseDouble(txtSubTotal.getText()));
                 cno1.setIGV(Double.parseDouble(txtIGV.getText()));
@@ -516,9 +526,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 cno1.setGRAVADA(Double.parseDouble(lblValorVentaGravada.getText()));
                 cno1.setINAFECTA(Double.parseDouble(lblValorVentaInafectada.getText()));
                     if(cno1.ACTUALIZAR_VENTA()==true){
-                        System.out.println("Cabecera Actualizada"); 
+                        System.out.println("CABECERA ACTUALIZAD"); 
                     } else {
-                        System.out.println("Ocurrio un error");
+                        System.out.println("OCURRIO UN ERROR AL ACTUALIZAR LA CABECERA");
                     }
     }
     
@@ -3937,6 +3947,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CLIENTES.dispose();
             NUEVO_REGISTRO(ConexionS);   
             MostrarPreventa();
+            
         }
     }//GEN-LAST:event_tbClientesMouseClicked
 

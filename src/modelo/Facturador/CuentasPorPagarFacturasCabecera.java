@@ -92,9 +92,25 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
 //        }
 //    }
     
-        public void generarSerieCorrelativo(String documento ,String usu){
+    public void generarSerieCorrelativo(String documento ,String usu){
         try {
             String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, documento);
+            cmd.setString(2, usu);
+            ResultSet r= cmd.executeQuery();
+        if(r.next()){
+               txtSerieC.setText(r.getString(1));
+               lblNroCorrelativoC.setText(r.getString(2));
+        }
+        }catch(Exception ex){
+            System.out.println("Error al generar serie y numero " + ex.getMessage());
+        }
+    }
+    
+    public void generarSerieCorrelativoFARMACIA(String documento ,String usu){
+        try {
+            String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO_FARMACIA ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, documento);
             cmd.setString(2, usu);

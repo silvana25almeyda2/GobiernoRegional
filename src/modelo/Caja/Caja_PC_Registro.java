@@ -272,6 +272,7 @@ Conexion con = new Conexion();
             int c=1;
             while(r.next()){
                 Caja_Registro.txtNRO.setText(r.getString(1)); 
+                Caja_Registro.txtNRO1.setText(r.getString(2)); 
                 }
             //
         } catch (Exception e) {
