@@ -208,10 +208,12 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         lblARID = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         panelNRO = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         panelCPT4 = new javax.swing.JPanel();
         txtNRO = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        panelCPT7 = new javax.swing.JPanel();
+        txtNRO1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         panelCPT6 = new javax.swing.JPanel();
         txtModulo = new javax.swing.JTextField();
@@ -440,17 +442,14 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 
         panelNRO.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Este Nº de terminal ya se encuentra consignado.");
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Numero de Terminal");
+        jLabel5.setText("Serie Caja Central");
 
         panelCPT4.setBackground(new java.awt.Color(255, 255, 255));
         panelCPT4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
+        txtNRO.setEditable(false);
         txtNRO.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNRO.setForeground(new java.awt.Color(51, 51, 51));
         txtNRO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -482,6 +481,45 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("Serie Farmacia");
+
+        panelCPT7.setBackground(new java.awt.Color(255, 255, 255));
+        panelCPT7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtNRO1.setEditable(false);
+        txtNRO1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtNRO1.setForeground(new java.awt.Color(51, 51, 51));
+        txtNRO1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNRO1.setBorder(null);
+        txtNRO1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtNRO1CaretUpdate(evt);
+            }
+        });
+        txtNRO1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNRO1KeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCPT7Layout = new javax.swing.GroupLayout(panelCPT7);
+        panelCPT7.setLayout(panelCPT7Layout);
+        panelCPT7Layout.setHorizontalGroup(
+            panelCPT7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCPT7Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(txtNRO1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+        );
+        panelCPT7Layout.setVerticalGroup(
+            panelCPT7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCPT7Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(txtNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelNROLayout = new javax.swing.GroupLayout(panelNRO);
         panelNRO.setLayout(panelNROLayout);
         panelNROLayout.setHorizontalGroup(
@@ -489,20 +527,23 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
             .addGroup(panelNROLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel5)
-                .addGap(23, 23, 23)
+                .addGap(43, 43, 43)
                 .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33)
+                .addComponent(jLabel9)
+                .addGap(43, 43, 43)
+                .addComponent(panelCPT7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         panelNROLayout.setVerticalGroup(
             panelNROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNROLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(panelNROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel5)
+                .addContainerGap()
+                .addGroup(panelNROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelCPT7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
                     .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5))
                 .addContainerGap())
         );
 
@@ -556,9 +597,9 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
                             .addComponent(panelCPT6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
                         .addComponent(jLabel2))
-                    .addComponent(panelNRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblARID))
-                .addContainerGap(155, Short.MAX_VALUE))
+                    .addComponent(lblARID)
+                    .addComponent(panelNRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
             .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -843,12 +884,13 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
             btnAlertConsulta1.setEnabled(true);
             Caja_PC_Registro cn = new Caja_PC_Registro();
             if(txtModulo.getText().equals("CAJA / FACTURADOR")){
-                if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
-                     jLabel1.setForeground(new Color(255,255,255));
-                }else{
-                    jLabel1.setForeground(new Color(255,51,51));
-                    tbPaneles.setSelectedIndex(2);
-                }   
+                tbPaneles.setSelectedIndex(2);
+//                if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
+//                     jLabel1.setForeground(new Color(255,255,255));
+//                }else{
+//                    jLabel1.setForeground(new Color(255,51,51));
+//                    tbPaneles.setSelectedIndex(2);
+//                }   
                 }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
                     tbPaneles.setSelectedIndex(2);
                 } 
@@ -913,17 +955,18 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
             Caja_PC_Registro U = new Caja_PC_Registro();
             U.NUMERACION();
             txtNRO.requestFocus();
-        }else if(txtModulo.getText().equals("CAJA / FACTURADOR")){
-            jLabel2.setText("CC"); 
-//            panelMenu.setBackground(new Color(23,160,134)); 
-//            panelMenu1.setBackground(new Color(41,127,184));
-//            panelNRO.setVisible(true);
-//            panelMenu1.setVisible(true);
-//            lblUsu2.setText("Ir al Facturador");
-//            lblUsu1.setText("Ir al Modulo de Caja");
-            Caja_PC_Registro U = new Caja_PC_Registro();
-            U.NUMERACION();
-            txtNRO.requestFocus();
+//        }
+//        else if(txtModulo.getText().equals("CAJA / FACTURADOR")){
+//            jLabel2.setText("CC"); 
+////            panelMenu.setBackground(new Color(23,160,134)); 
+////            panelMenu1.setBackground(new Color(41,127,184));
+////            panelNRO.setVisible(true);
+////            panelMenu1.setVisible(true);
+////            lblUsu2.setText("Ir al Facturador");
+////            lblUsu1.setText("Ir al Modulo de Caja");
+//            Caja_PC_Registro U = new Caja_PC_Registro();
+//            U.NUMERACION();
+//            txtNRO.requestFocus();
         }else if(txtModulo.getText().equals("PERSONAL")){
             jLabel2.setText("PP"); 
 //            panelMenu.setBackground(new Color(122,77,135));
@@ -957,6 +1000,14 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     private void btnAlertConsulta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta12ActionPerformed
         NivelSuperior2.dispose();
     }//GEN-LAST:event_btnAlertConsulta12ActionPerformed
+
+    private void txtNRO1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNRO1CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNRO1CaretUpdate
+
+    private void txtNRO1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNRO1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNRO1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -1002,7 +1053,6 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     public static javax.swing.JButton btnImprimir;
     public static javax.swing.JComboBox cbxImpresoras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1017,6 +1067,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel149;
     private javax.swing.JPanel jPanel150;
@@ -1036,11 +1087,13 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     private javax.swing.JPanel panelCPT4;
     private javax.swing.JPanel panelCPT5;
     private javax.swing.JPanel panelCPT6;
+    private javax.swing.JPanel panelCPT7;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelNRO;
     private javax.swing.JTabbedPane tbPaneles;
     public static javax.swing.JTextField txtModulo;
     public static javax.swing.JTextField txtNRO;
+    public static javax.swing.JTextField txtNRO1;
     public static javax.swing.JTextField txtPC;
     // End of variables declaration//GEN-END:variables
 }

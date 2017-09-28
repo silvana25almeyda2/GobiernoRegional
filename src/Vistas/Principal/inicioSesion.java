@@ -122,7 +122,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=1;
-      }else if(cap.equalsIgnoreCase(codAdmin("FACTURADOR"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("CAJA / FACTURADOR"))){//Para editar tipo de usuario
 
         cont1=-1;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());

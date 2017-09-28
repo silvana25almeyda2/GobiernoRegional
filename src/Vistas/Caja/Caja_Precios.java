@@ -866,6 +866,7 @@ Connection ConexionS=c.conectar();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
+                lblID_ITEM.setForeground(new java.awt.Color(255, 255, 255));
                 lblID_ITEM.setText("jLabel2");
 
                 jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -931,6 +932,7 @@ Connection ConexionS=c.conectar();
                         .addGap(0, 0, 0))
                 );
 
+                lblID_PRECIO.setForeground(new java.awt.Color(255, 255, 255));
                 lblID_PRECIO.setText("jLabel2");
 
                 javax.swing.GroupLayout panelDetalleLayout = new javax.swing.GroupLayout(panelDetalle);

@@ -755,10 +755,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_txtUbicacionKeyPressed
 
     private void jLabel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabel7ActionPerformed
-         int fila=tbSEDES.getSelectedRow();
+        try {
+            int fila=tbSEDES.getSelectedRow();
             txtUbicacion.setText(String.valueOf(tbSEDES.getValueAt(fila, 1)));
             jPanel2.setVisible(false);
-
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jLabel7ActionPerformed
 
     /**

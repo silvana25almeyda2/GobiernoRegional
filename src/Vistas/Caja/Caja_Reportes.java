@@ -35,8 +35,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
-        Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
-        CNVRCCB.ReporteSESION_ACTIVA(txtUbicacion.getText(),tb_ReporteDiario1);
+        
         this.cbxAnios.setModel(Anio());
         ImprimirCierre.setLocationRelativeTo(null);//en el centro
         btneliminar.setEnabled(false);
@@ -48,6 +47,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jScrollPane24.setVisible(false);
         Caja_NuevaVenta N = new Caja_NuevaVenta();
         N.LISTAR_LOCALIDAD_SEDE(Principal.lblUsu.getText());
+        Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
+        CNVRCCB.ReporteSESION_ACTIVA(Principal.lblUbicacion.getText(),tb_ReporteDiario1);
+        
     }
     
     public DefaultComboBoxModel Anio(){
@@ -1193,6 +1195,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }//GEN-LAST:event_tb_ReporteDiario2KeyPressed
 
     private void btnBuscarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarReporteActionPerformed
+        try {
+
         ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play-32.png"));
         ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Stop-32.png"));
         if(btnBuscarReporte.getText().equals("Iniciar Busqueda")){
@@ -1246,6 +1250,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
             btnBuscarReporte.setIcon(continuar);
             btnBuscarReporte.setText("Iniciar Busqueda");
 
+        }
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_btnBuscarReporteActionPerformed
 
@@ -1411,9 +1417,13 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 //            A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
 //            
 //        if(Paginas.getSelectedIndex()==0){
+        try {
             int fila=tbSEDES.getSelectedRow();
             txtUbicacion.setText(String.valueOf(tbSEDES.getValueAt(fila, 1)));
             jPanel7.setVisible(false);
+        } catch (Exception e) {
+        }
+            
 //            Caja_NuevaVenta CNVRCCB = new  Caja_NuevaVenta();
 //            CNVRCCB.ReporteSESION_ACTIVA(txtUbicacion.getText(),tb_ReporteDiario1);
 //        }else if(Paginas.getSelectedIndex()==1){

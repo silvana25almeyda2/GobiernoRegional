@@ -290,17 +290,18 @@ private double INAFECTA;
     public boolean ACTUALIZAR_VENTA(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR "
-                        + "?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_VENTA_CABECERA_ACTUALIZAR ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_DOCUMENTO());
-            cmd.setDouble(2, getDESCUENTO());
-            cmd.setDouble(3, getSUB_TOTAL());
-            cmd.setDouble(4, getIGV());
-            cmd.setDouble(5, getTOTAL_DOC());
-            cmd.setString(6, getTIPO_GRUPO());
-            cmd.setDouble(7, getGRAVADA());
-            cmd.setDouble(8, getINAFECTA());
+            cmd.setString(2, getSERIE());
+            cmd.setString(3, getCORRELATIVO());
+            cmd.setDouble(4, getDESCUENTO());
+            cmd.setDouble(5, getSUB_TOTAL());
+            cmd.setDouble(6, getIGV());
+            cmd.setDouble(7, getTOTAL_DOC());
+            cmd.setString(8, getTIPO_GRUPO());
+            cmd.setDouble(9, getGRAVADA());
+            cmd.setDouble(10, getINAFECTA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1048,6 +1049,19 @@ private double INAFECTA;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteDiario.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Reporte Diario");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+    
+    public void RECIBO(int id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc", id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Recibo.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Recibo");
            ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
