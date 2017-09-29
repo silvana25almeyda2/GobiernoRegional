@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/PRY%20DISA/GobiernoRegional/src/Vistas/Principal/RegistroUsuario.java</file>
             <file>file:/D:/PRY%20DISA/GobiernoRegional/src/Contabilidad/Contabilidad_Ventas.java</file>
             <file>file:/D:/PRY%20DISA/GobiernoRegional/src/Vistas/Caja/Caja_Grupo_Nomenclaturas.java</file>
             <file>file:/D:/PRY%20DISA/GobiernoRegional/src/Vistas/Facturador/Facturador.java</file>
+=======
+            <file>file:/E:/DISA/GobiernoRegional/src/modelo/Caja/Caja_NuevaVenta.java</file>
+            <file>file:/E:/DISA/GobiernoRegional/src/Vistas/Caja/Caja_Ventas.java</file>
+>>>>>>> c3f824e20162c8464a0802e4d168f0a3ea224f57
         </group>
     </open-files>
 </project-private>

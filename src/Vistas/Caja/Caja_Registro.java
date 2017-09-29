@@ -150,6 +150,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
                         lblMensaje.setText("Disfrute de Conecta-M5");
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
+                        btnAlertConsulta9.setEnabled(false);
 //                        jPanel73.setVisible(false);
                     }else{
                         lblMensaje.setText("Algo salió mal");
@@ -170,6 +171,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
                         lblMensaje.setText("Disfrute de Conecta-M5");
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
+                        btnAlertConsulta9.setEnabled(false);
 //                        jPanel73.setVisible(false);
                     }else{
                         lblMensaje.setText("Algo salió mal");

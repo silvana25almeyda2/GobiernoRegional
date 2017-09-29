@@ -185,7 +185,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnImprimir1.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir1.setText("Genaral Formato A4");
+        btnImprimir1.setText("General Formato A4");
         btnImprimir1.setContentAreaFilled(false);
         btnImprimir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnImprimir1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -521,12 +521,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addGap(190, 190, 190)
-                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

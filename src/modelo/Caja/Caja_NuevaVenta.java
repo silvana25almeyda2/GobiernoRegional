@@ -181,8 +181,6 @@ private double INAFECTA;
                 Caja_Ventas.txtCliente.setText(r.getString(3)); 
                 Caja_Ventas.lblIDCliente.setText(r.getString(1)); 
                 Caja_Ventas.btnBuscarCPT1.setEnabled(false);
-                Caja_Ventas.jButton1.doClick();
-
                 }
             //
         } catch (Exception e) {
@@ -1052,6 +1050,19 @@ private double INAFECTA;
            ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+    
+    public void RECIBO(int id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc", id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Recibo.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Recibo");
+            ventanavisor.setVisible(true);
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR RECIBO"+e.getMessage());
         }
     }
     

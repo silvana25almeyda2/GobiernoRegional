@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
-	<property name="ireport.zoom" value="1.5026296018031564"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.200000000000002"/>
+	<property name="ireport.x" value="41"/>
+	<property name="ireport.y" value="686"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -413,7 +413,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<text><![CDATA[HORA DE EMISIÓN]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="108" width="100" height="20" uuid="a891e1c7-1375-45ad-96f3-e848732a4628"/>
+				<reportElement x="89" y="110" width="100" height="18" uuid="a891e1c7-1375-45ad-96f3-e848732a4628"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -448,14 +448,14 @@ FROM            CAJA_PRECIOS INNER JOIN
 			<staticText>
 				<reportElement x="2" y="59" width="191" height="20" uuid="bdd48146-9429-4627-986f-ad320c89e010"/>
 				<textElement textAlignment="Center">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Representación Impresa de Boleta ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="70" width="191" height="20" uuid="10bd76ea-e082-4323-b2fc-73964c7b7edc"/>
 				<textElement textAlignment="Center">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Electrónica, consulte en www.sunat.gob.pe]]></text>
 			</staticText>
@@ -490,7 +490,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[AUTORIZADO MEDIANTE RESOLUCION NRO.]]></text>
+				<text><![CDATA[AUTORIZADO MEDIANTE RESOLUCIÓN NRO.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="36" width="191" height="24" uuid="7796e398-f9c0-4b7f-b11a-2709317d7c65"/>

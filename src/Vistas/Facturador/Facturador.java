@@ -7,8 +7,10 @@ package Vistas.Facturador;
 
 //import campos.LimitadorDeDocumento;
 //import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
+import Servicios.Conexion;
 import Vistas.Caja.Caja_Ventas;
 import static Vistas.Caja.Caja_Ventas.lblID_CABECERA;
+import Vistas.Principal.Principal;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -29,6 +31,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -93,7 +97,8 @@ import org.xml.sax.SAXException;
  * @author PC02
  */
 public class Facturador extends javax.swing.JFrame {
-
+    Conexion c=new Conexion();
+    Connection conexion=c.conectar();
     String barra = File.separator;
     String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
@@ -175,6 +180,169 @@ public class Facturador extends javax.swing.JFrame {
         txtValorVentaInafectada.setText("");
         txtVentaExonerada.setText("");
        
+    }
+    
+    public void GenerarFacturaElectronica(java.sql.Connection con){
+
+        try {
+            
+        boolean rpta = false;
+        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
+        if(!txtTipoDocumento.getText().equals("")){
+                    Caja_Ventas.jButton2.doClick();
+                    Caja_Ventas.btnNuevo.doClick();
+                    
+                    try {
+                        // instanciamos el objeto callable
+                        CallableStatement cstmt = con.prepareCall("exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
+                        // seteamos los parametros de entrada
+                        cstmt.setString(1,TXT_ID_CLIENTE_F.getText());
+                        cstmt.setString(2,txtSerieF.getText());
+                        cstmt.setString(3,lblNroCorrelativo.getText());
+                        cstmt.setString(4,cbxTipoOperacion.getSelectedItem().toString());
+                        cstmt.setString(5,lblFechaEmision.getText());
+                        cstmt.setString(6,cbxTipoMoneda.getSelectedItem().toString());
+                        cstmt.setString(7,cbxDocumento.getSelectedItem().toString());
+
+                        cstmt.setDouble(8,Double.parseDouble(txtDsctoGlobal.getText()));
+                        cstmt.setDouble(9,Double.parseDouble(txtOtrosCargos.getText()));
+                        cstmt.setDouble(10,Double.parseDouble(txtTotalDscto.getText()));
+                        cstmt.setDouble(11,Double.parseDouble(txtValorVentaGravada.getText()));
+                        cstmt.setDouble(12,Double.parseDouble(txtValorVentaInafectada.getText()));
+                        cstmt.setDouble(13,Double.parseDouble(txtVentaExonerada.getText()));
+                        cstmt.setDouble(14,Double.parseDouble(txtMtoIGV.getText()));
+                        cstmt.setDouble(15,Double.parseDouble(txtMtoISC.getText()));
+                        cstmt.setDouble(16,Double.parseDouble(txtOtrosTributos.getText()));
+                        cstmt.setDouble(17,Double.parseDouble(txtImporteTotalVenta.getText()));
+                        cstmt.setString(18,Principal.lblUsu.getText());
+                        cstmt.setInt(19,Integer.parseInt(lbl_id_cabecera_factura.getText()));
+
+                        // registramos el parametro de retorno (si fueran mas, repetimos la linea cambiando el nro de orden del parametro)
+                        cstmt.registerOutParameter(20, java.sql.Types.INTEGER);
+                        // ejecutamos
+                        cstmt.execute();
+                        // mostramos al usuario el codigo creado
+                        int ID;
+                        ID=cstmt.getInt(20);
+                        this.lblId.setText( String.valueOf(ID) );
+
+                    
+//                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
+//                    facturaCabecera.setSerie(txtSerieF.getText());
+//                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
+//                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
+//                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
+//                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
+//                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
+//                    
+//                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
+//                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
+//                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
+//                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
+//                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
+//                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
+//                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
+//                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
+//                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
+//                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
+//                    facturaCabecera.setCod_usu(Principal.lblUsu.getText());
+//                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lbl_id_cabecera_factura.getText()));
+//            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()==true){
+                if(crearCabecera()){
+                    
+                    CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
+                    
+                    String archivo = ruc1.factura_ruc() + "-" + 
+                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
+                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
+                    txtSerieF.getText() + "-" + 
+                    lblNroCorrelativo.getText() + ".DET";
+                    
+                    File crea_archivo = new File(archivo);
+//                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+//                    facturaDetalle1.facturaCabeceraId(Principal.lblUsu.getText());
+                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
+                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
+                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
+                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
+                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
+                        facturaDetalle.setCpdCodProdSunat("");
+                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
+                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
+                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
+                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
+//                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdAfecIsc(""); 
+                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
+                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
+                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
+                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
+                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
+                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
+                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
+                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
+                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCodUsu(Principal.lblUsu.getText());
+//                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
+                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
+                            if(crearDetalles(crea_archivo, archivo)){
+                                rpta = true;                     
+                                
+
+                            } else
+                                rpta = false;
+                        }
+                }
+                    if(rpta==true){
+                    dispose();
+                        Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(164,192,79));
+                        Caja_Ventas.Mensaje7.setText("Factura Electrónica Generada, Imprimir ?");
+                        Caja_Ventas.ImpS.setVisible(true);
+                        Caja_Ventas.ImpN.setVisible(true);
+                    
+//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                    if(guardar == 0){ // SELECCION SI
+//                        dispose();
+//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+//                        rpta2.reporteFactura(cab3.idFactura(lblusu.getText()));
+//                    }else{
+//                        dispose();
+//                    }
+                  
+                    } else {
+                        Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
+                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
+                        Caja_Ventas.ImpS.setVisible(false);
+                        Caja_Ventas.ImpN.setVisible(false);
+                    }
+            }//fin if crearCabecera 
+                System.out.println("CABECERA DE LA FACTURA GENERADA");
+            }
+                    catch (Exception e) {
+                      e.printStackTrace();
+                    }
+        } else{
+         
+        }
+        } catch (Exception e) {
+            System.out.println("UPS!!!!!!!! error factura :" + e.getMessage());
+            Caja_Ventas.panleBoleta.setVisible(true);
+                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
+                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
+                        Caja_Ventas.ImpS.setVisible(false);
+                        Caja_Ventas.ImpN.setVisible(false);
+        }
     }
     
 //    public void enviarDatosEmpresa(){
@@ -2353,125 +2521,7 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_TXT_ID_CLIENTE_FCaretUpdate
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
-        try {
-            
-        boolean rpta = false;
-        CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
-        if(!txtTipoDocumento.getText().equals("")){
-                    Caja_Ventas.jButton2.doClick();
-                    Caja_Ventas.btnNuevo.doClick();
-                    
-                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
-                    facturaCabecera.setCodigoEmpresa(TXT_ID_CLIENTE_F.getText());
-                    facturaCabecera.setSerie(txtSerieF.getText());
-                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
-                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
-                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
-                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
-                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
-                    
-                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
-                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
-                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
-                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
-                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
-                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
-                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
-                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
-                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
-                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
-                    facturaCabecera.setCod_usu(lblusu.getText());
-                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lbl_id_cabecera_factura.getText()));
-            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
-                if(crearCabecera()){
-                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
-                    CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
-                    lblId.setText(facturaDetalle1.facturaCabeceraId(lblusu.getText()));
-                    String archivo = ruc1.factura_ruc() + "-" + 
-                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
-                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                    txtSerieF.getText() + "-" + 
-                    lblNroCorrelativo.getText() + ".DET";
-                    File crea_archivo = new File(archivo);
-                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
-                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
-                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
-                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
-                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
-                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
-                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
-                        facturaDetalle.setCpdCodProdSunat("");
-                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
-                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
-                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
-                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
-                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
-//                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
-                        facturaDetalle.setCpdAfecIsc(""); 
-                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
-                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
-                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
-                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
-                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
-                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
-                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
-                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
-                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
-                        facturaDetalle.setCodUsu(lblusu.getText());
-//                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
-                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle()){
-                            if(crearDetalles(crea_archivo, archivo)){
-                                rpta = true;                     
-                                
-
-                            } else
-                                rpta = false;
-                                
-                        }
-                }
-                    if(rpta==true){
-                    dispose();
-                        Caja_Ventas.panleBoleta.setVisible(true);
-                        Caja_Ventas.panleBoleta.setBackground(new Color(164,192,79));
-                        Caja_Ventas.Mensaje7.setText("Factura Electrónica Generada, Imprimir ?");
-                        Caja_Ventas.ImpS.setVisible(true);
-                        Caja_Ventas.ImpN.setVisible(true);
-                    
-//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
-//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//                    if(guardar == 0){ // SELECCION SI
-//                        dispose();
-//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-//                        rpta2.reporteFactura(cab3.idFactura(lblusu.getText()));
-//                    }else{
-//                        dispose();
-//                    }
-                  
-                    } else {
-                        Caja_Ventas.panleBoleta.setVisible(true);
-                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
-                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
-                        Caja_Ventas.ImpS.setVisible(false);
-                        Caja_Ventas.ImpN.setVisible(false);
-                    }
-            }//fin if crearCabecera    
-            }
-        } else{
-         
-        }
-        } catch (Exception e) {
-            System.out.println("error factura:" + e.getMessage());
-            Caja_Ventas.panleBoleta.setVisible(true);
-                        Caja_Ventas.panleBoleta.setBackground(new Color(255,51,51));
-                        Caja_Ventas.Mensaje7.setText("Ocurrió un error al Generar la Factura Electrónica, Verifique");
-                        Caja_Ventas.ImpS.setVisible(false);
-                        Caja_Ventas.ImpN.setVisible(false);
-        }
+        GenerarFacturaElectronica(conexion);
     }//GEN-LAST:event_btnGenerarDocActionPerformed
 
     public void MOSTRAR_DATOS_CLIENTE(String cod){
@@ -2638,7 +2688,7 @@ public class Facturador extends javax.swing.JFrame {
     public static javax.swing.JLabel lblDNI3;
     private javax.swing.JLabel lblEmpresa;
     private javax.swing.JLabel lblFechaEmision;
-    private javax.swing.JLabel lblId;
+    public static javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNroCorrelativo;
     private javax.swing.JLabel lblTitulo;

@@ -123,6 +123,21 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             System.out.println("Error al generar serie y numero " + ex.getMessage());
         }
     }
+    
+    public void generarSerieCorrelativoRECIBO(String usu){
+        try {
+            String consulta = "exec CAJA_VENTA_SERIE_CORRELATIVO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+        if(r.next()){
+               txtSerieC.setText(r.getString(1));
+               lblNroCorrelativoC.setText(r.getString(2));
+        }
+        }catch(Exception ex){
+            System.out.println("Error al generar serie y numero " + ex.getMessage());
+        }
+    }
 
     public boolean mantenimientoCuentasPorPagarFacturasCabecera()
         {
@@ -149,8 +164,6 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setDouble(17, getImportaTotalVta());
             cmd.setString(18, getCod_usu());
             cmd.setInt(19, getID_DOCUMENTO_FACTURA());
-            
-            
             if(!cmd.execute())
             {
                 resp = true;

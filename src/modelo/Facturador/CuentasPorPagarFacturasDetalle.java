@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 
 import javax.swing.table.DefaultTableModel;
 import Servicios.Conexion;
+import Vistas.Facturador.Facturador;
 
 public class CuentasPorPagarFacturasDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -128,26 +129,44 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         return resp;
     }
     
+//    public void facturaCabeceraId(String usu){
+//        String consulta="";
+//        try {
+//            consulta="exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID ?";
+//            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+//            ResultSet r= cmd.executeQuery();
+//            int c=1;
+//            while(r.next()){
+//                Facturador.lblId.setText(r.getString(1)); 
+//
+//                }
+//            //
+//        } catch (Exception e) {
+//            System.out.println("DATOS: " + e.getMessage());
+//        }
+//    }
+//    
     
-    public String facturaCabeceraId(String usu){
-        String cod="";
-        try
-        {
-            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID ?";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, usu);
-            ResultSet rs = cmd.executeQuery();
-            if(rs.next())
-            {
-               cod = rs.getString(1);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error facturaCabeceraId: " + ex.getMessage());
-        }
-        return cod;
-    }
+//    public String facturaCabeceraId(String usu){
+//        String cod="";
+//        try
+//        {
+//            String sql = "exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID ?";
+//            PreparedStatement cmd = getCn().prepareStatement(sql);
+//            cmd.setString(1, usu);
+//            ResultSet rs = cmd.executeQuery();
+//            if(rs.next())
+//            {
+//               cod = rs.getString(1);
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            System.out.println("Error facturaCabeceraId: " + ex.getMessage());
+//        }
+//        return cod;
+//    }
     
      public String codNomen(String nomenclatura)
     {

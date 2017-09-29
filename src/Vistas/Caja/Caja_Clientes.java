@@ -102,6 +102,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         cbxTipoDoc.setEnabled(opcion);
     }
     public void CARGAR(){
+        try {
         int fila=tb_Clientes.getSelectedRow();
         lblID.setText(String.valueOf(tb_Clientes.getValueAt(fila, 0)));  
         cbxTipoDoc.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 1))); 
@@ -114,8 +115,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         txtCorreo.setText(String.valueOf(tb_Clientes.getValueAt(fila, 8)));  
         cbxMoneda.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 9))); 
         txtCodigo.setText(String.valueOf(tb_Clientes.getValueAt(fila, 10)));  
-        
-        if (tb_Clientes.getValueAt(fila, 11).equals("N") ){
+        if (tb_Clientes.getValueAt(fila, 11).equals("N          ") ){
             txtT1.setText("X");
             txtT2.setText(""); 
             jPanel7.setVisible(false);
@@ -126,7 +126,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             lblCab.setText("Datos del Cliente");
             lblDet.setVisible(false);
         }
-        if (tb_Clientes.getValueAt(fila, 11).equals("J") ){
+        if (tb_Clientes.getValueAt(fila, 11).equals("J          ") ){
             txtT2.setText("X");
             txtT1.setText(""); 
             jPanel7.setVisible(true);
@@ -136,6 +136,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             lblCab.setText("Datos del Representante");
             lblDet.setText("Datos de la Empresa");
 
+        }
+        } catch (Exception e) {
         }
     }
     
@@ -185,7 +187,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                             Paginas.setSelectedIndex(0);
                         }else if(lblTipoR.getText().equals("C")){
                             Caja_NuevaVenta CNC = new Caja_NuevaVenta();
-                            CNC.ULTIMO_CLIENTE_REGISTRADO(lblusu.getText());
+                            CNC.ULTIMO_CLIENTE_REGISTRADO(Principal.lblUsu.getText());
+                            Caja_Ventas.jButton1.doClick();
                             dispose();
                             
                         }

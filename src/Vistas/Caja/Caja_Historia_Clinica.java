@@ -41,7 +41,7 @@ Caja_Historia hC = new Caja_Historia();
      * Creates new form Caja_Historia_Clinica
      */
     public Caja_Historia_Clinica() {
-        NivelSuperior.setLocationRelativeTo(null);//en el centro
+        
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
@@ -60,6 +60,8 @@ Caja_Historia hC = new Caja_Historia();
         cbxEstadoCivil1.setBackground(Color.WHITE);
         this.cbxDepartamentoNac.setModel(CargarDEPARTAMENTO());
         this.cbxDepartamentoNac1.setModel(CargarDEPARTAMENTO());
+        NivelSuperior.setLocationRelativeTo(null);//en el centro
+        btnCaja.setVisible(false);
     }
     public void LIMPIAR(){
        txtDni.setText("");
@@ -672,7 +674,7 @@ Caja_Historia hC = new Caja_Historia();
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
-            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
+            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Buscar-32.png"))); // NOI18N
             btnBuscarPaciente.setContentAreaFilled(false);
             btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -1118,7 +1120,7 @@ Caja_Historia hC = new Caja_Historia();
 
             cbxGenero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             cbxGenero.setForeground(new java.awt.Color(102, 102, 102));
-            cbxGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Femenino", "Masculino", "Sin Especificar" }));
+            cbxGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Femenino", "Masculino" }));
             cbxGenero.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     cbxGeneroKeyPressed(evt);
@@ -1608,14 +1610,14 @@ Caja_Historia hC = new Caja_Historia();
         c=sdni.length();
         System.out.println(""+c);
         if(tg==1){
-            if(c<8){
+            if(c<=8){
                 cargareliminar.setVisible(true);
                 cargareliminar.setBackground(new Color(255,91,70));
                 Mensaje.setText("El DNI ingresado es Incorrecto, Verifique ");
                 eli.setVisible(false);
                 noeli.setVisible(false);
                 txtDni.requestFocus();
-            NUEVO_REGISTRO();
+               NUEVO_REGISTRO();
         }}
         if(tg==2){
             cargareliminar.setVisible(true);
@@ -1751,11 +1753,22 @@ Caja_Historia hC = new Caja_Historia();
     }//GEN-LAST:event_txtDniKeyPressed
 
     private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
-        char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();
+
+        try {        
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+                evt.consume();
+                getToolkit().beep();            
+            }
+            
+            if (txtDni.getText().length()>7)
+            {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            System.out.println("error DNI: " + e.getMessage());
         }
     }//GEN-LAST:event_txtDniKeyTyped
 
@@ -2105,7 +2118,22 @@ Caja_Historia hC = new Caja_Historia();
     }//GEN-LAST:event_txtReligion2KeyReleased
 
     private void txtReligion2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReligion2KeyTyped
-        // TODO add your handling code here:
+        try {        
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+                evt.consume();
+                getToolkit().beep();            
+            }
+            
+            if (txtDni.getText().length()>8)
+            {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            System.out.println("error DNI: " + e.getMessage());
+        }
     }//GEN-LAST:event_txtReligion2KeyTyped
 
     private void btnAlertConsulta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta10ActionPerformed
