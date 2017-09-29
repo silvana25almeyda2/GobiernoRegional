@@ -48,6 +48,7 @@ import modelo.Facturador.CuentasPorPagarSfsRpta;
 public class Caja_Ventas extends javax.swing.JFrame {
 Conexion c=new Conexion();
 Connection ConexionS=c.conectar();
+Connection conexion=c.conectar();
 CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
 
 static CuentasPorPagarFacturasCabecera F = new CuentasPorPagarFacturasCabecera();
@@ -3353,12 +3354,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             panleBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(panleBoletaLayout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addComponent(Mensaje7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(Mensaje7, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(ImpS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(18, 18, 18)
                                                                 .addComponent(ImpN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                .addContainerGap(297, Short.MAX_VALUE))
                                                         );
                                                         panleBoletaLayout.setVerticalGroup(
                                                             panleBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3769,17 +3770,18 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(lblTIPO_DOC.getText().equals("N")){
-           if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
-                    btnImprimir.setEnabled(true);
-                    panelAnular.setVisible(true);
-                    panelMensaje.setVisible(false);  
-                    txtEnterEscapeEnter.requestFocus();
-            }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
-                        Facturador frm_F = new Facturador();
-                        frm_F.setVisible(true);
-                        Facturador.TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
-                        CARGAR_TB_FACTURADOR();
-            } 
+//           if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
+//                    btnImprimir.setEnabled(true);
+//                    panelAnular.setVisible(true);
+//                    panelMensaje.setVisible(false);  
+//                    txtEnterEscapeEnter.requestFocus();
+//            }else  if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
+//                        Facturador frm_F = new Facturador();
+//                        frm_F.setVisible(true);
+//                        Facturador.TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());
+//                        CARGAR_TB_FACTURADOR();
+//            } 
+            SalirFormulario();
         }else if(lblTIPO_DOC.getText().equals("C")){
             if(Tipo_Documento.getText().equals("B")){
                 nuevaV.reporteVenta(Integer.parseInt(lblID_DOCUEMENTO.getText()));
@@ -4237,7 +4239,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         if(cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
-            GENERAR_BOLETA_ELECTRONICA();
+            GENERAR_BOLETA_ELECTRONICA(conexion);
             if(!lblID_CAB_PREVENTAS.getText().equals("jLabel1")){
                 ACTUALIZAR_PREVENTA();
                 ACTUALIZAR_PREVENTA_CAB();
@@ -4316,8 +4318,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tb_ReporteDiario1KeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            CARGAR_PREVENTA(); 
-            CARGAR();
+//            CARGAR_PREVENTA(); 
+//            CARGAR();
             NUEVO_REGISTRO(ConexionS);   
             MostrarPreventa();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -4467,39 +4469,73 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         Inafecto.dispose();
     }//GEN-LAST:event_btnAlertConsulta11ActionPerformed
 
-    public void GENERAR_BOLETA_ELECTRONICA(){
+    public void GENERAR_BOLETA_ELECTRONICA(java.sql.Connection con){
         boolean rpta = false;
         CuentasPorPagarFacturasCabecera cabecera = new CuentasPorPagarFacturasCabecera();
         if(!txtCliente.getText().equals("")){
 //                    Caja_Ventas.jButton2.doClick();
 //                    Caja_Ventas.btnNuevo.doClick();
-                    
-                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
-                    facturaCabecera.setCodigoEmpresa(lblIDCliente.getText());
-                    facturaCabecera.setSerie(txtSerieC.getText());
-                    facturaCabecera.setCorrelativo(lblNroCorrelativoC.getText());
-                    facturaCabecera.setTipoOperacion("01");
-                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
-                    facturaCabecera.setTipoMoneda("PEN");
-                    facturaCabecera.setDocumento("03 BOLETA");
+            try {
+            // instanciamos el objeto callable
+            CallableStatement cstmt = con.prepareCall("exec CUENTAS_POR_PAGAR_FACTURAS_CABECERA_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
+            // seteamos los parametros de entrada
+            cstmt.setString(1,lblIDCliente.getText());
+            cstmt.setString(2,txtSerieC.getText());
+            cstmt.setString(3,lblNroCorrelativoC.getText());
+            cstmt.setString(4,"01");
+            cstmt.setString(5,lblFechaEmision.getText());
+            cstmt.setString(6,"PEN");
+            cstmt.setString(7,"03 BOLETA");
 //                    
-                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
-                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
-                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
-                    facturaCabecera.setValorVGravada(Double.parseDouble(lblValorVentaGravada.getText()));
-                    facturaCabecera.setValorVInafectada(Double.parseDouble(lblValorVentaInafectada.getText()));
-                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
-                    facturaCabecera.setMontoIgv(Double.parseDouble(txtIGV.getText()));
-                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
-                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
-                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtTotal.getText()));
-                    facturaCabecera.setCod_usu(lblusu.getText());
-                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lblID_CABECERA.getText()));
-            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
+            cstmt.setDouble(8,Double.parseDouble(txtDsctoGlobal.getText()));
+            cstmt.setDouble(9,Double.parseDouble(txtOtrosCargos.getText()));
+            cstmt.setDouble(10,Double.parseDouble(txtTotalDscto.getText()));
+            cstmt.setDouble(11,Double.parseDouble(lblValorVentaGravada.getText()));
+            cstmt.setDouble(12,Double.parseDouble(lblValorVentaInafectada.getText()));
+            cstmt.setDouble(13,Double.parseDouble(txtVentaExonerada.getText()));
+            cstmt.setDouble(14,Double.parseDouble(txtIGV.getText()));
+            cstmt.setDouble(15,Double.parseDouble(txtMtoISC.getText()));
+            cstmt.setDouble(16,Double.parseDouble(txtOtrosTributos.getText()));
+            cstmt.setDouble(17,Double.parseDouble(txtTotal.getText()));
+            cstmt.setString(18,lblusu.getText());
+            cstmt.setInt(19,Integer.parseInt(lblID_CABECERA.getText()));
+            // registramos el parametro de retorno (si fueran mas, repetimos la linea cambiando el nro de orden del parametro)
+            cstmt.registerOutParameter(20, java.sql.Types.INTEGER);
+            // ejecutamos
+            cstmt.execute();
+            // mostramos al usuario el codigo creado
+            int ID;
+            ID=cstmt.getInt(20);
+            this.lblId.setText( String.valueOf(ID) );
+           
+
+        
+//                    CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
+//                    facturaCabecera.setCodigoEmpresa(lblIDCliente.getText());
+//                    facturaCabecera.setSerie(txtSerieC.getText());
+//                    facturaCabecera.setCorrelativo(lblNroCorrelativoC.getText());
+//                    facturaCabecera.setTipoOperacion("01");
+//                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
+//                    facturaCabecera.setTipoMoneda("PEN");
+//                    facturaCabecera.setDocumento("03 BOLETA");
+////                    
+//                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
+//                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
+//                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
+//                    facturaCabecera.setValorVGravada(Double.parseDouble(lblValorVentaGravada.getText()));
+//                    facturaCabecera.setValorVInafectada(Double.parseDouble(lblValorVentaInafectada.getText()));
+//                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
+//                    facturaCabecera.setMontoIgv(Double.parseDouble(txtIGV.getText()));
+//                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
+//                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
+//                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtTotal.getText()));
+//                    facturaCabecera.setCod_usu(lblusu.getText());
+//                    facturaCabecera.setID_DOCUMENTO_FACTURA(Integer.parseInt(lblID_CABECERA.getText()));
+//            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera()){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasCabecera ruc1=new CuentasPorPagarFacturasCabecera();
-                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
-                    lblId.setText(facturaDetalle1.facturaCabeceraId(lblusu.getText()));
+//                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+//                    facturaDetalle1.facturaCabeceraId(lblusu.getText());
                     String archivo = ruc1.factura_ruc() + "-" + 
                     "03" + "-" +
                     txtSerieC.getText() + "-" + 
@@ -4578,7 +4614,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         
                     }
             }//fin if crearCabecera    
-            }
+//            }
+                }
+        catch (Exception e) {
+          e.printStackTrace();
+        }
         } else{
          JOptionPane.showMessageDialog(this, "Error al crear la BOLETA");
         }

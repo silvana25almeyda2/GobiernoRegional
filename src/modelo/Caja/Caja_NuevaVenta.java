@@ -181,8 +181,6 @@ private double INAFECTA;
                 Caja_Ventas.txtCliente.setText(r.getString(3)); 
                 Caja_Ventas.lblIDCliente.setText(r.getString(1)); 
                 Caja_Ventas.btnBuscarCPT1.setEnabled(false);
-                Caja_Ventas.jButton1.doClick();
-
                 }
             //
         } catch (Exception e) {

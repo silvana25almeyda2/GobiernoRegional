@@ -164,8 +164,6 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setDouble(17, getImportaTotalVta());
             cmd.setString(18, getCod_usu());
             cmd.setInt(19, getID_DOCUMENTO_FACTURA());
-            
-            
             if(!cmd.execute())
             {
                 resp = true;

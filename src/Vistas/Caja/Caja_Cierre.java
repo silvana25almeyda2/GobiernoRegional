@@ -185,7 +185,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnImprimir1.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir1.setText("Genaral Formato A4");
+        btnImprimir1.setText("General Formato A4");
         btnImprimir1.setContentAreaFilled(false);
         btnImprimir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnImprimir1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
