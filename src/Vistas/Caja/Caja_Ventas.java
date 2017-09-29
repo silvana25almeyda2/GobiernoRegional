@@ -501,7 +501,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             int ID;
             ID=cstmt.getInt(8);
             this.lblID_CABECERA.setText( String.valueOf(ID) );
-            System.out.println("CABECERA GURADADA");  
+            System.out.println("CABECERA GUARDADA");  
             panelMensaje.setVisible(false);
             txtBuscarCliente.setText("");
             lbl5.setVisible(true);
@@ -596,7 +596,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 }
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.NUEVA_VENTA_DETALLE()==true){
-                        System.out.println("DETALLE DE VENTA GURADADO"); 
+                        System.out.println("DETALLE DE VENTA GUARDADO"); 
                     } else {
                         panelMensaje.setVisible(true);
                         panelMensaje.setBackground(new Color(255,51,51)); 
