@@ -140,7 +140,7 @@ public class Contabilidad_Ventas extends javax.swing.JFrame {
 
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel57.setText("<html>Grupos<span style=\"font-size:'14px'\"><br>Nomenclaturas</br></span></html>");
+        jLabel57.setText("<html>Ventas<span style=\"font-size:'14px'\"><br>Libro Electronico</br></span></html>");
 
         lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
@@ -296,7 +296,7 @@ public class Contabilidad_Ventas extends javax.swing.JFrame {
                 .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(571, Short.MAX_VALUE))
         );
         cargareliminarLayout.setVerticalGroup(
             cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +326,7 @@ public class Contabilidad_Ventas extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(471, 471, 471))
+                .addGap(444, 444, 444))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 

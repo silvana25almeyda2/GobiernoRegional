@@ -63,6 +63,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         txtPersonal.setText("");
         
         cargarUsuario("","1",Principal.lblUbicacion.getText());
+       
         formatoUsuario();
        
 
@@ -1365,6 +1366,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         limpiar();
         enableDatos(true);
         cargarUsuario("","1",ubic);
+        
         formatoUsuario();
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -1612,6 +1614,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     cbxModulo.setSelectedIndex(0);
     cbxPregunta.setSelectedIndex(0);
     cargarUsuario("", "1", Principal.lblUbicacion.getText());
+    
     formatoUsuario();
     est=1;
     
