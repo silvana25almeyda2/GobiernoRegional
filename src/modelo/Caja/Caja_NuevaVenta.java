@@ -1062,9 +1062,9 @@ private double INAFECTA;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Recibo.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Recibo");
-           ventanavisor.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+            ventanavisor.setVisible(true);
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR RECIBO"+e.getMessage());
         }
     }
     

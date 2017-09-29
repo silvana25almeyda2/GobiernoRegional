@@ -747,11 +747,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
               <Group type="102" attributes="0">
-=======
-              <Group type="102" alignment="0" attributes="0">
->>>>>>> 3aec30405a378968ab241f99f20afbd7b47ca60f
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -787,11 +783,7 @@
                           <Component id="lblusu" min="-2" pref="181" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
                   <EmptySpace max="-2" attributes="0"/>
-=======
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
->>>>>>> 3aec30405a378968ab241f99f20afbd7b47ca60f
               </Group>
           </Group>
         </DimensionLayout>
