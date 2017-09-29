@@ -224,6 +224,8 @@ Caja_Historia hC = new Caja_Historia();
      
     
     public void CARGAR(){
+        try {
+
         int fila=tb_Clientes.getSelectedRow();
         lblID.setText(String.valueOf(tb_Clientes.getValueAt(fila, 0)));   
         txtDni.setText(String.valueOf(tb_Clientes.getValueAt(fila, 1)));  
@@ -259,7 +261,8 @@ Caja_Historia hC = new Caja_Historia();
         txtReligion.setText(String.valueOf(tb_Clientes.getValueAt(fila, 14)));
         txtTelefono.setText(String.valueOf(tb_Clientes.getValueAt(fila, 15)));  
         txtReligion2.setText(String.valueOf(tb_Clientes.getValueAt(fila, 16))); 
-
+        } catch (Exception e) {
+        }
     }
     
     public void NUEVO_REGISTRO(){
@@ -1260,6 +1263,7 @@ Caja_Historia hC = new Caja_Historia();
                 }
             });
 
+            lblID.setForeground(new java.awt.Color(255, 255, 255));
             lblID.setText("jLabel6");
 
             jLabel6.setForeground(new java.awt.Color(255, 51, 51));
