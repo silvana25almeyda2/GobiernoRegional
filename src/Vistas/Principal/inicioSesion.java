@@ -145,7 +145,7 @@ String hora, minutos, segundos, ampm;
         cont1=-1;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
-        filtroModulo=13;
+        filtroModulo=5;
       }else{
           JOptionPane.showMessageDialog(this, "NO PERTENECE A NINGÚN MÓDULO DEL SISTEMA");
       }
@@ -632,6 +632,11 @@ String hora, minutos, segundos, ampm;
                  Principal.btnPersonal.setEnabled(true);
                  Principal.btnUsuarios.setEnabled(true);
                 }else if(filtroModulo==4){
+                 Principal.btnPersonal.setEnabled(true);
+                 Principal.btnUsuarios.setEnabled(true);
+                }else if(filtroModulo==5){
+                 Principal.btnCaja.setEnabled(true);
+                 Principal.btnFacturador.setEnabled(true);
                  Principal.btnPersonal.setEnabled(true);
                  Principal.btnUsuarios.setEnabled(true);
                 }
