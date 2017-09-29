@@ -62,8 +62,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
         txtUsuario.requestFocus();
         txtPersonal.setText("");
         
-//        cargarUsuario("","1",Principal.lblUbicacion.getText());
-        cargarUsuario("","1","ICA ICA");
+        cargarUsuario("","1",Principal.lblUbicacion.getText());
+       
         formatoUsuario();
        
 
@@ -1365,8 +1365,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
         Paginas.setSelectedIndex(0);
         limpiar();
         enableDatos(true);
-//        cargarUsuario("","1",ubic);
-         cargarUsuario("","1","ICA ICA");
+        cargarUsuario("","1",ubic);
+        
         formatoUsuario();
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -1613,8 +1613,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
     btneliminar.setEnabled(false);
     cbxModulo.setSelectedIndex(0);
     cbxPregunta.setSelectedIndex(0);
-//    cargarUsuario("", "1", Principal.lblUbicacion.getText());
-    cargarUsuario("", "1","ICA ICA");
+    cargarUsuario("", "1", Principal.lblUbicacion.getText());
+    
     formatoUsuario();
     est=1;
     

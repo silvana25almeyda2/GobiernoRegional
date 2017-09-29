@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
+	<property name="ireport.zoom" value="7.400249944258181"/>
+	<property name="ireport.x" value="340"/>
+	<property name="ireport.y" value="1325"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select UPPER(UE.UE_DESC)+' '+SDEP.nombre_departamento AS 'DESCRIP',
+UPPER(UE.DIRECCION) +' - '+SP.nombre_provincia AS 'DIRECCION', UE.RUC,RTRIM(UE.TELEFONO) AS TELEFONO , SD.nombre_distrito,
+CA.Fecha_apertura,CA.Hora_apertura,
+CA.Cajero,CA.PC,CA.Caja,CA.BASE,CA.ID_SESION,PP.ape_pat_per+' '+PP.ape_mat_per+' '+PP.nombres_per AS PERSONAL
+
+FROM
+CAJA_APERTURA CA,
+SISTEMA_USUARIO U,
+PERSONAL PP,
+SISTEMA_UNIDAD_EJECUTORA UE,
+SISTEMA_DISTRITO SD,
+SISTEMA_PROVINCIA SP,
+SISTEMA_DEPARTAMENTO SDEP
+WHERE
+U.Usu_Usuario=CA.CAJERO
+AND PP.cod_per=U.cod_per
+AND UE.cod_dis = SD.cod_dis
+AND SD.cod_prov = SP.cod_prov
+AND SP.cod_dep = SDEP.cod_dep
+AND PP.UE_ID = UE.UE_ID
+AND CA.ID_APERTURA=$P{id}]]>
+	</queryString>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="RUC" class="java.lang.String"/>
+	<field name="TELEFONO" class="java.lang.String"/>
+	<field name="nombre_distrito" class="java.lang.String"/>
+	<field name="Fecha_apertura" class="java.lang.String"/>
+	<field name="Hora_apertura" class="java.lang.String"/>
+	<field name="Cajero" class="java.lang.String"/>
+	<field name="PC" class="java.lang.String"/>
+	<field name="Caja" class="java.lang.String"/>
+	<field name="BASE" class="java.math.BigDecimal"/>
+	<field name="ID_SESION" class="java.lang.String"/>
+	<field name="PERSONAL" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="-5" y="0" width="200" height="30" uuid="b3c7f37f-5126-4ebc-b676-c0e5fb4e3416"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Sans Typewriter" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-5" y="77" width="187" height="18" uuid="c4777040-6747-4403-8570-48484146a49a"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APERTURA DE CAJA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-5" y="94" width="187" height="17" uuid="4116c811-52eb-4eb8-8856-4368af92d9ea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ID_SESION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-5" y="36" width="186" height="20" uuid="b95f0a01-30fd-4e33-a7f1-df5987d48752"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RUC  "+$F{RUC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="-5" y="56" width="186" height="20" uuid="2626e0bd-f481-45a1-a24f-b21192f06924"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="-5" y="87" width="50" height="16" uuid="7dbf4ebd-527d-402e-a18d-8d279bffcf7f"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="35" width="100" height="20" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Cajero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="3" width="117" height="16" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha de Apertura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="19" width="117" height="12" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Hora de Apertura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="69" width="100" height="20" uuid="fb703e45-108b-4a10-a814-ce02f3af20bf"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Terminal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="51" width="100" height="20" uuid="727d10ec-2b02-4070-acc8-c34e0878d107"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="95" y="3" width="86" height="20" uuid="4bd1ee20-58d2-43fc-ac59-f11ccd9dd006"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha_apertura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="19" width="100" height="20" uuid="0ef5de9e-ede0-4b4a-88ea-00742fb1c422"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hora_apertura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="51" width="100" height="24" uuid="51eaf35f-5e74-4e57-950d-fe6bd00bb81d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cajero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="35" width="100" height="16" uuid="63fe0afb-4f56-4664-bb4e-2fdb6bc380c9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="87" width="100" height="16" uuid="834d9211-7948-4b61-88a2-d187b2041150"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["00"+$F{Caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="69" width="100" height="20" uuid="937b5ac9-918a-4eb9-8933-f09be6acd61a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="3"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="184" splitType="Stretch">
+			<staticText>
+				<reportElement x="-5" y="31" width="88" height="20" uuid="447976d3-841c-4662-a524-b1aed51cbd6e"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Saldo de Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="7" width="206" height="21" uuid="3069bf2b-020f-498c-bad7-ce34de38ba69"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESUMEN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-5" y="3" width="207" height="1" uuid="d4b509bc-36cd-46c5-8770-46a6e35a53f3"/>
+			</line>
+			<staticText>
+				<reportElement x="95" y="31" width="15" height="14" uuid="3bdb6e37-aab6-4aef-9671-9b2c803a7741"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="163" width="148" height="1" uuid="1b3d29dc-c6ca-476a-8b4d-d023798a7b92"/>
+			</line>
+			<staticText>
+				<reportElement x="21" y="164" width="148" height="19" uuid="67dcd1c6-6cba-4906-a78e-642f9a4ef46b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[RECAUDADOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="98" width="148" height="1" uuid="ec3f076b-db10-4d6b-97a6-32b3b1d27db8"/>
+			</line>
+			<staticText>
+				<reportElement x="21" y="111" width="148" height="20" uuid="bf227acf-fb35-45cc-9f68-39d1b2e962eb"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CAJERO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="31" width="100" height="20" uuid="993ef9f3-2cad-4938-9464-6893a5cc8ae0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BASE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="99" width="148" height="20" uuid="3b0593b3-6de0-4b6d-bc1f-b6ff3c07cdd4"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
