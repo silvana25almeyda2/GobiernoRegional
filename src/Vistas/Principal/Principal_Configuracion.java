@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JComponent;
 import modelo.Caja.Caja_PC_Registro;
+import modelo.Principal.Modulo;
 
 /**
  *
@@ -24,6 +25,8 @@ private Dimension DimensionBarra = null;
         initComponents();
         QuitarLaBarraTitulo();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
+        Modulo N = new Modulo();
+        N.LISTAR_PERMISOS(Principal.lblUsu.getText());
         jLabel7.setEditable(false);
         jLabel3.setEditable(false);
         jLabel6.setEditable(false);
@@ -56,6 +59,7 @@ private Dimension DimensionBarra = null;
         jLabel38 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
+        lblMODULO = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -149,6 +153,8 @@ private Dimension DimensionBarra = null;
                 }
             });
 
+            lblMODULO.setText("jLabel11");
+
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
             jPanel3Layout.setHorizontalGroup(
@@ -159,6 +165,7 @@ private Dimension DimensionBarra = null;
                         .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblMODULO)
                                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel2)
@@ -181,6 +188,8 @@ private Dimension DimensionBarra = null;
                     .addGap(18, 18, 18)
                     .addComponent(btnguardar)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMODULO)
+                    .addGap(36, 36, 36)
                     .addComponent(jLabel1)
                     .addGap(23, 23, 23))
             );
@@ -428,6 +437,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JLabel lblMODULO;
     public static javax.swing.JTable tbClientes;
     // End of variables declaration//GEN-END:variables
 }
