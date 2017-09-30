@@ -110,7 +110,7 @@ String hora, minutos, segundos, ampm;
             if(cap.equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña Incorrectos");
            txtContra.setText("");
-       }else if(cap.equalsIgnoreCase(codAdmin("ADMINISTRACION"))){//Para editar tipo de usuario
+       }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
                 
         //p.pack();
          cont=-1;
@@ -140,7 +140,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=4;
-      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("ADMINISTRACION"))){//Para editar tipo de usuario
 
         cont1=-1;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());

@@ -81,44 +81,6 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
   
        
     }
-        public static void printAvailable() {
- 
-        // busca los servicios de impresion...
-        PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
- 
-        // -- ver los atributos de las impresoras...
-        for (PrintService printService : services) {
-            String IM;
-            IM=(printService.getName());
-            JComboBox jComboBox1 = new JComboBox();
-
-            jComboBox1.addItem(IM);
-            cbxImpresoras.addItem(IM);
-   
- 
-            PrintServiceAttributeSet printServiceAttributeSet = printService.getAttributes();
- 
-            System.out.println("--- atributos");
- 
-            // todos los atributos de la impresora
-            Attribute[] a = printServiceAttributeSet.toArray();
-            for (Attribute unAtribute : a) {
-                System.out.println("atributo: " + unAtribute.getName());
-            }
- 
-            System.out.println("--- viendo valores especificos de los atributos ");
- 
-            // valor especifico de un determinado atributo de la impresora
-            System.out.println("PrinterLocation: " + printServiceAttributeSet.get(PrinterLocation.class));
-            System.out.println("PrinterInfo: " + printServiceAttributeSet.get(PrinterInfo.class));
-            System.out.println("PrinterState: " + printServiceAttributeSet.get(PrinterState.class));
-            System.out.println("Destination: " + printServiceAttributeSet.get(Destination.class));
-            System.out.println("PrinterMakeAndModel: " + printServiceAttributeSet.get(PrinterMakeAndModel.class));
-            System.out.println("PrinterIsAcceptingJobs: " + printServiceAttributeSet.get(PrinterIsAcceptingJobs.class));
- 
-        }
- 
-    }
         
     public DefaultComboBoxModel CargarGrupo(){
        DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
@@ -874,10 +836,14 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 //            }
         if(tbPaneles.getSelectedIndex()==0){
             btnAlertConsulta1.setEnabled(true);
-            if(lblMOD.getText().equals("CC")||lblMOD.getText().equals("CPP")){
+            if(lblMOD.getText().equals("CPP")){
             txtModulo.setText("CAJA / FACTURADOR"); 
             }else if(lblMOD.getText().equals("PP")){
                 txtModulo.setText("PERSONAL"); 
+            }else if(lblMOD.getText().equals("AD")){
+                txtModulo.setText("ADMINISTRACION"); 
+            }else if(lblMOD.getText().equals("CT")){
+                txtModulo.setText("CONTABILIDAD"); 
             }
             jButton1.doClick();
 
@@ -885,7 +851,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         }else if(tbPaneles.getSelectedIndex()==1){
             btnAlertConsulta1.setEnabled(true);
             Caja_PC_Registro cn = new Caja_PC_Registro();
-            if(txtModulo.getText().equals("CAJA / FACTURADOR")){
+//            if(txtModulo.getText().equals("CAJA / FACTURADOR")){
                 tbPaneles.setSelectedIndex(2);
 //                if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
 //                     jLabel1.setForeground(new Color(255,255,255));
@@ -893,9 +859,9 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 //                    jLabel1.setForeground(new Color(255,51,51));
 //                    tbPaneles.setSelectedIndex(2);
 //                }   
-                }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
-                    tbPaneles.setSelectedIndex(2);
-                } 
+//                }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
+//                    tbPaneles.setSelectedIndex(2);
+//                } 
         }else if(tbPaneles.getSelectedIndex()==2){
             btnAlertConsulta1.setEnabled(true);
             lblResumenPC.setText("<HTML>"+"Terminal "+txtPC.getText()+"<br>"+"Nº "+txtNRO.getText());
@@ -905,9 +871,9 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
             if(txtModulo.getText().equals("CAJA / FACTURADOR")){
             GuardarC_F();
             tbPaneles.setSelectedIndex(4);
-            }else if(txtModulo.getText().equals("PERSONAL")){
+            }else if(txtModulo.getText().equals("PERSONAL")||txtModulo.getText().equals("CONTABILIDAD")||txtModulo.getText().equals("ADMINISTRACION")){
                 Guardar();
-                tbPaneles.setSelectedIndex(4);
+                tbPaneles.setSelectedIndex(5);
             }    
         }else if(tbPaneles.getSelectedIndex()==4){
             btnAlertConsulta1.setEnabled(false);
@@ -971,13 +937,16 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 //            txtNRO.requestFocus();
         }else if(txtModulo.getText().equals("PERSONAL")){
             jLabel2.setText("PP"); 
-//            panelMenu.setBackground(new Color(122,77,135));
             panelNRO.setVisible(false);
-//            panelMenu1.setVisible(true);
-//            panelMenu1.setBackground(new Color(209,52,56));
             txtNRO.setText("0");
-//            lblUsu1.setText("Ir al Modulo de Personal");
-//            lblUsu2.setText("Ir al Modulo de Usuarios");
+        }else if(txtModulo.getText().equals("ADMINISTRACION")){
+            jLabel2.setText("AD"); 
+            panelNRO.setVisible(false);
+            txtNRO.setText("0");
+        }else if(txtModulo.getText().equals("CONTABILIDAD")){
+            jLabel2.setText("CT"); 
+            panelNRO.setVisible(false);
+            txtNRO.setText("0");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import Servicios.Conexion;
+import Vistas.Principal.Principal_Configuracion;
 
 /**
  *
@@ -162,6 +163,28 @@ public class Modulo {
             System.out.println("Error: " + ex.getMessage());
         }
         return cod;
+    }
+    
+    public void LISTAR_PERMISOS(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC SISTEMA_CONFIGURACION_ACTUALIZAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Principal_Configuracion.lblMODULO.setText(r.getString(1));
+                if(r.getString(1).equals("AD")){
+                    Principal_Configuracion.btnNuevo.setEnabled(true); 
+                }else   if(!r.getString(1).equals("AD")){
+                    Principal_Configuracion.btnNuevo.setEnabled(false);
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISO: " + e.getMessage());
+        }
     }
     
    public Modulo()

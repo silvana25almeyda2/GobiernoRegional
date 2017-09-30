@@ -1493,7 +1493,6 @@ public class Principal extends javax.swing.JFrame {
         CPC.PERFIL_SEDE_CONFIGURACION(Principal.lblUsu.getText());
         Caja_PC_Registro CPEC = new Caja_PC_Registro();
         CPEC.SISTEMA_EQUIPO_TRABAJO(lblUbicacion.getText(),Principal_Configuracion.tbClientes);
-        
         try {
             C.setMaximum(true);
         } catch (PropertyVetoException ex) {
