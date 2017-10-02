@@ -360,7 +360,7 @@ private Dimension DimensionBarra = null;
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 if (desktop.isSupported(Desktop.Action.BROWSE)) {
-                    desktop.browse(new URI("https://anydesk.es/download/"));
+                    desktop.browse(new URI("https://anydesk.es/escritorio-remoto"));
                 }
             }
         } catch (Exception e) {
