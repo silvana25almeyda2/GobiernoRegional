@@ -72,10 +72,10 @@ private Dimension DimensionBarra = null;
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel3.setBackground(new java.awt.Color(69, 70, 74));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Volver");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,7 +84,7 @@ private Dimension DimensionBarra = null;
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Acerca de");
         jLabel1.setIconTextGap(30);
 

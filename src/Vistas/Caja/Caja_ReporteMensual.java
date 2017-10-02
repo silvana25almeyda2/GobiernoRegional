@@ -522,8 +522,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnBuscarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarReporteActionPerformed
 
-        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play-32D.png"));
-        ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Stop-32D.png"));
+        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Play-32D.png"));
+        ImageIcon detener=new ImageIcon(this.getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Stop-32D.png"));
         if(btnBuscarReporte.getText().equals("Iniciar Busqueda")){
             int m=0;
             if(cbxMeses.getSelectedItem().equals("ENERO")){
