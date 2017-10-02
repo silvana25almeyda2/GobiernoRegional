@@ -50,8 +50,6 @@ private Dimension DimensionBarra = null;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -79,30 +77,10 @@ private Dimension DimensionBarra = null;
             setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
-            jPanel4.setBackground(new java.awt.Color(243, 156, 18));
-
-            jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-            jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel4.setText("Dirección Regional de Salud");
-
-            javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-            jPanel4.setLayout(jPanel4Layout);
-            jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(542, Short.MAX_VALUE))
-            );
-            jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-            );
-
-            jPanel3.setBackground(new java.awt.Color(230, 230, 230));
+            jPanel3.setBackground(new java.awt.Color(69, 70, 74));
 
             jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel1.setForeground(new java.awt.Color(255, 255, 255));
             jLabel1.setText("Volver");
             jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,23 +89,24 @@ private Dimension DimensionBarra = null;
             });
 
             jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-            jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel2.setForeground(new java.awt.Color(255, 255, 255));
             jLabel2.setText("Información");
 
             jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-            jLabel37.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel37.setForeground(new java.awt.Color(255, 255, 255));
             jLabel37.setText("ubicación del equipo de trabajo");
 
             jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-            jLabel38.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel38.setForeground(new java.awt.Color(255, 255, 255));
             jLabel38.setText("Información sobre sede y ");
 
             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            btnNuevo.setForeground(new java.awt.Color(102, 102, 102));
-            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Edit-32.png"))); // NOI18N
+            btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
             btnNuevo.setText("Editar");
             btnNuevo.setContentAreaFilled(false);
             btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnNuevo.setEnabled(false);
             btnNuevo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnNuevo.setIconTextGap(30);
@@ -138,11 +117,12 @@ private Dimension DimensionBarra = null;
             });
 
             btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            btnguardar.setForeground(new java.awt.Color(102, 102, 102));
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Save-32.png"))); // NOI18N
+            btnguardar.setForeground(new java.awt.Color(255, 255, 255));
+            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
             btnguardar.setText("Guardar");
             btnguardar.setContentAreaFilled(false);
             btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnguardar.setEnabled(false);
             btnguardar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnguardar.setIconTextGap(30);
@@ -153,6 +133,7 @@ private Dimension DimensionBarra = null;
                 }
             });
 
+            lblMODULO.setForeground(new java.awt.Color(69, 70, 74));
             lblMODULO.setText("jLabel11");
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -218,7 +199,7 @@ private Dimension DimensionBarra = null;
                 }
             ));
             tbClientes.setGridColor(new java.awt.Color(255, 255, 255));
-            tbClientes.setRowHeight(25);
+            tbClientes.setRowHeight(38);
             tbClientes.setSelectionBackground(new java.awt.Color(102, 102, 102));
             tbClientes.getTableHeader().setReorderingAllowed(false);
             tbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,14 +326,13 @@ private Dimension DimensionBarra = null;
                     .addGap(28, 28, 28)
                     .addComponent(jLabel8)
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0)
@@ -361,7 +341,7 @@ private Dimension DimensionBarra = null;
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -407,6 +387,8 @@ private Dimension DimensionBarra = null;
 //        jLabel3.setEditable(true);
         jLabel6.setEditable(true);
         jLabel9.setEditable(true);
+        btnNuevo.setEnabled(false);
+        btnguardar.setEnabled(true);
         jLabel6.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -425,7 +407,6 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JTextField jLabel3;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JTextField jLabel6;
     public static javax.swing.JTextField jLabel7;
@@ -434,7 +415,6 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JLabel lblMODULO;

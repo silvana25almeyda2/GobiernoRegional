@@ -114,7 +114,7 @@ private double DESCUENTOD;
         }
     }
     
-    public void VENTA_LISTA_CPT(String descripcion,String FP,JTable tabla){
+    public void VENTA_LISTA_CPT(String TD,String FP,String descripcion,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -123,10 +123,11 @@ private double DESCUENTOD;
             JTable p=new JTable(m);
             String fila[]=new String[5];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_VENTA_CPT_LISTA ?,?";
+            consulta="EXEC CAJA_VENTA_CPT_LISTA ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, descripcion);
+            cmd.setString(1, TD);
             cmd.setString(2, FP);
+            cmd.setString(3, descripcion);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){

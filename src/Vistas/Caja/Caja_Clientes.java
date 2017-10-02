@@ -969,7 +969,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             lblID.setText("jLabel3");
 
             cbxTipoDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-            cbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
+            cbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
 
             jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel13.setForeground(new java.awt.Color(51, 51, 51));

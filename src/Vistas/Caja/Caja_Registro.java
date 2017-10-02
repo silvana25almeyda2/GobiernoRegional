@@ -873,7 +873,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
             tbPaneles.setSelectedIndex(4);
             }else if(txtModulo.getText().equals("PERSONAL")||txtModulo.getText().equals("CONTABILIDAD")||txtModulo.getText().equals("ADMINISTRACION")){
                 Guardar();
-                tbPaneles.setSelectedIndex(5);
+                tbPaneles.setSelectedIndex(4);
             }    
         }else if(tbPaneles.getSelectedIndex()==4){
             btnAlertConsulta1.setEnabled(false);
