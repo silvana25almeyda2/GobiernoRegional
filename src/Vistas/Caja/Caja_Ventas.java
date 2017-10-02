@@ -4631,7 +4631,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 //                    
             cstmt.setDouble(8,Double.parseDouble(txtDsctoGlobal.getText()));
             cstmt.setDouble(9,Double.parseDouble(txtOtrosCargos.getText()));
-            cstmt.setDouble(10,Double.parseDouble(txtTotalDscto.getText()));
+            cstmt.setDouble(10,Double.parseDouble(lblDESCUENTO.getText()));
             cstmt.setDouble(11,Double.parseDouble(lblValorVentaGravada.getText()));
             cstmt.setDouble(12,Double.parseDouble(lblValorVentaInafectada.getText()));
             cstmt.setDouble(13,Double.parseDouble(txtVentaExonerada.getText()));
@@ -4685,19 +4685,38 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     File crea_archivo = new File(archivo);
                     for (int i = 0; i < tb_CPT.getRowCount(); i++){
                         
-                        double valorU=0.00,igv=0.00,precioV=0.00,venta=0.00,prxcan;                      
+                        double valorU=0.00,igv=0.00,precioV=0.00,venta=0.00,prxcan,dscto=0.00;                      
                         if(lblGrupo.getText().equalsIgnoreCase("30 INAFECTO-OPERACIÓN ONEROSA")){
-                                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
-                                    igv=0.00;
-                                    precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
-                                    venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
+                            if(cbxFormaPago.getSelectedItem().equals("EXONERACION")){
+                                valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
+                                igv=0.00;
+                                precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
+                                dscto=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 6)));
+                                venta=(precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)))) - dscto;
+                            }else{
+                                valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
+                                igv=0.00;
+                                precioV=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)));
+                                venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
+                                dscto=0.00;
+                            }       
+                        }else{
+                            if(lblGrupo.getText().equalsIgnoreCase("10 GRAVADO-OPERACIÓN ONEROSA")){
+                                if(cbxFormaPago.getSelectedItem().equals("EXONERACION")){
+                                    valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)))*100/118;
+                                    prxcan=valorU*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
+                                    igv=prxcan*0.18;
+                                    precioV=valorU+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4))));
+                                    dscto=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 6)));
+                                    venta=(precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)))) - dscto;
                                 }else{
                                     valorU=Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 3)))*100/118;
                                     prxcan=valorU*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
                                     igv=prxcan*0.18;
                                     precioV=valorU+(igv/Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4))));
                                     venta=precioV*Double.parseDouble(String.valueOf(tb_CPT.getValueAt(i, 4)));
-                        
+                                    }                              
+                                }                    
                         }
 //            
                         CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
@@ -4708,8 +4727,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tb_CPT.getValueAt(i,1).toString()));
                         facturaDetalle.setCpdCodProdSunat("");
                         facturaDetalle.setCpdValorU(BigDecimal.valueOf(valorU));
-                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
-                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble("0.00")));
+                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble(txtPorcentaje.getText())));
+                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tb_CPT.getValueAt(i,6).toString())));
                         facturaDetalle.setCpdIgv(BigDecimal.valueOf(igv));
                         facturaDetalle.setCpdAfecIgv(lblGrupo.getText()); 
                         facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
@@ -4722,7 +4741,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(igv));
                         facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(lblValorVentaInafectada.getText())));
                         facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(lblValorVentaGravada.getText())));
-                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(tb_CPT.getValueAt(i,6).toString())));
                         facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
                         facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
                         facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
@@ -4787,7 +4806,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         "PEN" + "|" + 
                         "0.00" + "|" + 
                         "0.00" + "|" + 
-                        "0.00" + "|" +
+                        lblDESCUENTO.getText() + "|" +
                         lblValorVentaGravada.getText() + "|" + 
                         lblValorVentaInafectada.getText() + "|" + 
                         "0.00" + "|" + 
@@ -4851,7 +4870,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                          ""+ "|" + 
                         String.valueOf(tb_CPT.getValueAt(c, 2))+ "|" + 
                          bdvalorU + "|" + 
-                         "0.00" + "|" + //DESCUENTO
+                         String.valueOf(tb_CPT.getValueAt(c, 6)) + "|" + //DESCUENTO
                             //IGV
                         bdigv + "|" +  //IGV
                        String.valueOf(lblGrupo.getText().charAt(0)) +
@@ -4885,7 +4904,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             //pasar datos de una tabla a otra
             for (int i=0;i<modelo1.getRowCount(); i++){
                 String item, descripcion, valor_u, cantidad,
-                precio, igv="", dscto, total="";
+                precio, igv="", dscto="", total="";
                 double Precio_cant=0.00, tot=0.00, ig =0.00,vu=0.00;
 
                 item = tb_CPT.getValueAt(i, 1).toString();
@@ -4897,17 +4916,37 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 precio = tb_CPT.getValueAt(i, 3).toString();
                 
                 if(lblGrupo.getText().equalsIgnoreCase("30 INAFECTO-OPERACIÓN ONEROSA")){
-                    igv = "0.00";
-                    total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
-                    Facturador.cbxAfecIGV.setSelectedItem("30 INAFECTO-OPERACIÓN ONEROSA");
+                    if(cbxFormaPago.getSelectedItem().equals("EXONERACION")){
+                        igv = "0.00";
+                        dscto=tb_CPT.getValueAt(i, 6).toString();
+                        total=(String.valueOf((Double.parseDouble(precio)*Double.parseDouble(cantidad)) - Double.parseDouble(dscto)));
+                        Facturador.cbxAfecIGV.setSelectedItem("30 INAFECTO-OPERACIÓN ONEROSA");
+                    }else{
+                        igv = "0.00";
+                        total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
+                        Facturador.cbxAfecIGV.setSelectedItem("30 INAFECTO-OPERACIÓN ONEROSA");
+                        dscto="0.00";
+                    }
+                    
                 }else if(lblGrupo.getText().equalsIgnoreCase("10 GRAVADO-OPERACIÓN ONEROSA")){
+                    if(cbxFormaPago.getSelectedItem().equals("EXONERACION")){
+                        vu = Double.parseDouble( tb_CPT.getValueAt(i, 3).toString())*100/118;
+                        igv=String.valueOf(vu*Double.parseDouble(cantidad)*0.18);
+                        
+                        precio=String.valueOf(vu+(Double.parseDouble(igv)/Double.parseDouble(cantidad)));
+                        dscto=tb_CPT.getValueAt(i, 6).toString();
+                        total=(String.valueOf((Double.parseDouble(precio)*Double.parseDouble(cantidad)) - Double.parseDouble(dscto)));
+                        Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
+                    }else{
+                        vu = Double.parseDouble( tb_CPT.getValueAt(i, 3).toString())*100/118;
+                        igv=String.valueOf(vu*Double.parseDouble(cantidad)*0.18);
+
+                        precio=String.valueOf(vu+(Double.parseDouble(igv)/Double.parseDouble(cantidad)));
+                        dscto="0.00";
+                        total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
+                        Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
+                    }
                     
-                    vu = Double.parseDouble( tb_CPT.getValueAt(i, 3).toString())*100/118;
-                    igv=String.valueOf(vu*Double.parseDouble(cantidad)*0.18);
-                    
-                    precio=String.valueOf(vu+(Double.parseDouble(igv)/Double.parseDouble(cantidad)));
-                    total=String.valueOf(Double.parseDouble(precio)*Double.parseDouble(cantidad));
-                    Facturador.cbxAfecIGV.setSelectedItem("10 GRAVADO-OPERACIÓN ONEROSA");
                 }
                 
                 BigDecimal ST = new BigDecimal(total);
@@ -4931,7 +4970,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                       
                 valor_u = String.valueOf(bdvalor_u);
                 
-                dscto = "0.00";
+                BigDecimal DSCTOR = new BigDecimal(dscto);
+                DSCTOR = DSCTOR.setScale(2, BigDecimal.ROUND_HALF_UP);
+                      
+                dscto = String.valueOf(DSCTOR);
+//                dscto = "0.00";
 
 //                Precio_cant = Double.parseDouble(tb_CPT.getValueAt(i, 5).toString());
 //

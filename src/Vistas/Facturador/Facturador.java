@@ -106,6 +106,7 @@ public class Facturador extends javax.swing.JFrame {
     double sumatoriaTotal = 0.00;
     double sumInafectas = 0.00;
     double sumGravadas = 0.00;
+    double sumDescuento=0.00;
     DefaultTableModel m;
     static CuentasPorPagarFacturasCabecera F = new CuentasPorPagarFacturasCabecera();
 //    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
@@ -479,7 +480,7 @@ public class Facturador extends javax.swing.JFrame {
                          ""+ "|" + 
                         String.valueOf(tbFacturacion.getValueAt(0, 1))+ "|" + 
                          String.valueOf(tbFacturacion.getValueAt(0, 2)) + "|" + 
-                         "0.00" + "|" + //DESCUENTO
+                         String.valueOf(tbFacturacion.getValueAt(0, 6)) + "|" + //DESCUENTO
                         "0.00" + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -500,7 +501,7 @@ public class Facturador extends javax.swing.JFrame {
                          ""+ "|" + 
                         String.valueOf(tbFacturacion.getValueAt(0, 1))+ "|" + 
                          String.valueOf(tbFacturacion.getValueAt(0, 2)) + "|"  + 
-                         "0.00" + "|" + //DESCUENTO
+                         String.valueOf(tbFacturacion.getValueAt(0, 6)) + "|" + //DESCUENTO
                         "0.00" + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -539,7 +540,7 @@ public class Facturador extends javax.swing.JFrame {
                     +  "|" +   ""+ "|" + 
                     String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                      String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
-                     "0.00" + "|" + //DESCUENTO
+                     String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" + //DESCUENTO
                         String.valueOf(tbFacturacion.getValueAt(c, 5)) + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -561,7 +562,7 @@ public class Facturador extends javax.swing.JFrame {
                      ""+ "|" + 
                     String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                      String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
-                     "0.00" + "|" + //DESCUENTO
+                     String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" + //DESCUENTO
                        String.valueOf(tbFacturacion.getValueAt(c, 5)) + "|" +  //IGV
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -2478,15 +2479,16 @@ public class Facturador extends javax.swing.JFrame {
         sumatoriaTotal = 0.00;
         sumInafectas=0.00;
         sumGravadas=0.00;
-        double igv,importeTotalVenta,inaf,grav;
+        double igv,importeTotalVenta,inaf,grav, dscto;
         for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
             sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
-            sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());  
+            sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());
+            sumDescuento = sumDescuento + Double.parseDouble(tbFacturacion.getValueAt(i, 6).toString());
             if( tbFacturacion.getValueAt(i,5).toString().equalsIgnoreCase("0.00")){
                 sumInafectas= sumInafectas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
                         *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
             }else{
-               sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
+                sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
                         *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
             }
                 
@@ -2507,10 +2509,15 @@ public class Facturador extends javax.swing.JFrame {
         BigDecimal bdG = new BigDecimal(grav);
         bdG = bdG.setScale(2, BigDecimal.ROUND_HALF_UP);
         
+        dscto = sumDescuento;
+        BigDecimal bdD = new BigDecimal(dscto);
+        bdD = bdD.setScale(2, BigDecimal.ROUND_HALF_UP);
+        
         txtMtoIGV.setText(String.valueOf(bd2));
         txtImporteTotalVenta.setText(String.valueOf(bdImporte));
         txtValorVentaInafectada.setText(String.valueOf(bdI));
         txtValorVentaGravada.setText(String.valueOf(bdG));
+        txtTotalDscto.setText(String.valueOf(bdD));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void TXT_ID_CLIENTE_FCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_ID_CLIENTE_FCaretUpdate
