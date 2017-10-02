@@ -323,6 +323,7 @@ Caja_Historia hC = new Caja_Historia();
                             System.out.println("VAMO VENDIENDO");
                             Caja_NuevaVenta CNC = new Caja_NuevaVenta();
                             CNC.ULTIMO_CLIENTE_REGISTRADO(lblusu.getText());
+                            Caja_Ventas.jButton1.doClick();
                             dispose();
                             
                         }

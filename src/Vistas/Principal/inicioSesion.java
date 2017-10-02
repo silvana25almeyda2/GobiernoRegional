@@ -200,7 +200,6 @@ String hora, minutos, segundos, ampm;
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         panelRecuperar = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -223,6 +222,9 @@ String hora, minutos, segundos, ampm;
         btnIniciarSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conecta");
@@ -235,17 +237,7 @@ String hora, minutos, segundos, ampm;
 
         jPanel2.setBackground(new java.awt.Color(69, 70, 74));
 
-        jPanel1.setBackground(new java.awt.Color(235, 235, 235));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("He olvidado mi contraseña");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         panelRecuperar.setBackground(new java.awt.Color(240, 175, 19));
         panelRecuperar.setForeground(new java.awt.Color(0, 153, 153));
@@ -301,24 +293,24 @@ String hora, minutos, segundos, ampm;
                 .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        lblFecha.setBackground(new java.awt.Color(235, 235, 235));
+        lblFecha.setBackground(new java.awt.Color(255, 255, 255));
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(235, 235, 235));
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("00/00/00");
 
-        jLabel2.setBackground(new java.awt.Color(235, 235, 235));
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(235, 235, 235));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha");
 
-        jLabel5.setBackground(new java.awt.Color(235, 235, 235));
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(235, 235, 235));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Hora");
 
-        lblHora.setBackground(new java.awt.Color(235, 235, 235));
+        lblHora.setBackground(new java.awt.Color(255, 255, 255));
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(235, 235, 235));
+        lblHora.setForeground(new java.awt.Color(255, 255, 255));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -471,11 +463,8 @@ String hora, minutos, segundos, ampm;
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(1, 1, 1)
+                                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(panelCPT, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                             .addComponent(panelCPT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -506,19 +495,46 @@ String hora, minutos, segundos, ampm;
                 .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(48, 48, 48)
                 .addComponent(panelRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cuenta");
+
+        jPanel5.setBackground(new java.awt.Color(0, 120, 215));
+        jPanel5.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("?");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("He olvidado mi contraseña");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -528,16 +544,25 @@ String hora, minutos, segundos, ampm;
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -552,9 +577,9 @@ String hora, minutos, segundos, ampm;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -783,12 +808,14 @@ String hora, minutos, segundos, ampm;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     private javax.swing.JPanel panelCPT;

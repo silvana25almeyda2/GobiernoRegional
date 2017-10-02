@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.200000000000002"/>
 	<property name="ireport.x" value="41"/>
-	<property name="ireport.y" value="686"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -83,6 +83,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 	<field name="INAFECTA" class="java.math.BigDecimal"/>
 	<field name="IGV" class="java.math.BigDecimal"/>
 	<field name="SUBTOTAL" class="java.lang.String"/>
+	<field name="DESCUENTO" class="java.math.BigDecimal"/>
 	<field name="FECHA" class="java.lang.String"/>
 	<field name="HORA" class="java.lang.String"/>
 	<field name="dni" class="java.lang.String"/>
@@ -290,9 +291,9 @@ FROM            CAJA_PRECIOS INNER JOIN
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="87">
+		<band height="109">
 			<textField>
-				<reportElement x="6" y="75" width="187" height="12" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
+				<reportElement x="6" y="90" width="187" height="12" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
 				<textElement textAlignment="Right">
 					<font fontName="SansSerif" size="8" isBold="true"/>
 				</textElement>
@@ -305,7 +306,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="2" y="75" width="100" height="12" uuid="dfaf4c8a-f437-4b45-ac53-07fabe341e0e"/>
+				<reportElement x="2" y="90" width="100" height="12" uuid="dfaf4c8a-f437-4b45-ac53-07fabe341e0e"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -319,21 +320,21 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<text><![CDATA[SUBTOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="32" width="100" height="12" uuid="cee3d1df-e592-4b65-a5cd-54dcf90761db"/>
+				<reportElement x="2" y="47" width="100" height="12" uuid="cee3d1df-e592-4b65-a5cd-54dcf90761db"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[OP. INAFECTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="46" width="100" height="12" uuid="33af048c-ab33-45e9-9393-6a71531ba755"/>
+				<reportElement x="2" y="61" width="100" height="12" uuid="33af048c-ab33-45e9-9393-6a71531ba755"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[OP. GRAVADA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="60" width="100" height="12" uuid="b0ee6a53-680b-42d9-82df-b03c1764bbd3"/>
+				<reportElement x="2" y="75" width="100" height="12" uuid="b0ee6a53-680b-42d9-82df-b03c1764bbd3"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -347,25 +348,39 @@ FROM            CAJA_PRECIOS INNER JOIN
 				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="93" y="32" width="100" height="12" uuid="33bf23e9-dafc-46b4-a067-d828ffd16a52"/>
+				<reportElement x="93" y="47" width="100" height="12" uuid="33bf23e9-dafc-46b4-a067-d828ffd16a52"/>
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{INAFECTA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="93" y="46" width="100" height="12" uuid="4799a9ff-306a-4c2e-999d-977fddb2f494"/>
+				<reportElement x="93" y="61" width="100" height="12" uuid="4799a9ff-306a-4c2e-999d-977fddb2f494"/>
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{GRAVADA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="93" y="60" width="100" height="12" uuid="9da991fd-d92f-4508-b7b2-ce31de39d380"/>
+				<reportElement x="93" y="75" width="100" height="12" uuid="9da991fd-d92f-4508-b7b2-ce31de39d380"/>
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{IGV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="33" width="100" height="11" uuid="3e97844b-2676-45cf-a91d-3b1c0240f0dc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DESCUENTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="33" width="100" height="11" uuid="c0e0ffdf-30ab-4435-ac04-4a58de0bc7f5"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCUENTO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
