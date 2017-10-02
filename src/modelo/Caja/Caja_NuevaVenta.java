@@ -60,10 +60,10 @@ private int ID_PRECIO ;
 private int CANTIDAD ;
 private double PRECIO ;
 private double TOTAL ;
-private double DESCUENTOD ;
+private double IGVD ;
 private double GRAVADA;
 private double INAFECTA;
-                
+private double DESCUENTOD;                
     
 
     
@@ -262,15 +262,16 @@ private double INAFECTA;
         boolean resp = false;
         try{
             String sql = "exec CAJA_VENTA_DETALLE_NUEVO "
-                        + "?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_DOCUMENTO());
             cmd.setInt(2, getID_PRECIO());
             cmd.setInt(3, getCANTIDAD());
             cmd.setDouble(4, getPRECIO());
             cmd.setDouble(5, getTOTAL());
-            cmd.setDouble(6, getDESCUENTOD());
-            cmd.setString(7, getUSUARIO());
+            cmd.setDouble(6, getIGVD());
+            cmd.setDouble(7, getDESCUENTOD());
+            cmd.setString(8, getUSUARIO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1350,12 +1351,12 @@ public void formatoPreventaFR_DETALLE(JTable tabla){
         this.TOTAL = TOTAL;
     }
 
-    public double getDESCUENTOD() {
-        return DESCUENTOD;
+    public double getIGVD() {
+        return IGVD;
     }
 
-    public void setDESCUENTOD(double DESCUENTOD) {
-        this.DESCUENTOD = DESCUENTOD;
+    public void setIGVD(double IGVD) {
+        this.IGVD = IGVD;
     }
 
     public String getTIPO_GRUPO() {
@@ -1404,6 +1405,14 @@ public void formatoPreventaFR_DETALLE(JTable tabla){
 
     public void setDESCRIP_PRE(String DESCRIP_PRE) {
         this.DESCRIP_PRE = DESCRIP_PRE;
+    }
+
+    public double getDESCUENTOD() {
+        return DESCUENTOD;
+    }
+
+    public void setDESCUENTOD(double DESCUENTOD) {
+        this.DESCUENTOD = DESCUENTOD;
     }
      
     
