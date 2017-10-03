@@ -36,8 +36,8 @@ public class Contabilidad_Ventas extends javax.swing.JFrame {
 ResultSet r;
 Conexion c=new Conexion();
 Connection conexion=c.conectar();
-String ubicacion = "C:\\Libro_Electronico\\";
-DefaultTableModel m;
+
+DefaultTableModel m, m1;
     /**
      * Creates new form Contabilidad_Ventas
      */
@@ -45,8 +45,11 @@ DefaultTableModel m;
         initComponents();
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        cargareliminar.setVisible(false);
         
         this.cbxAnios.setModel(Anio());
+        cbxAnios.setBackground(Color.white);
+        cbxMeses.setBackground(Color.white);
     }
 
     /**
@@ -61,12 +64,8 @@ DefaultTableModel m;
         jPanel5 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnNuevo = new javax.swing.JButton();
         jLabel57 = new javax.swing.JLabel();
         lblusu = new javax.swing.JLabel();
-        jPanel23 = new javax.swing.JPanel();
-        txtBuscar = new javax.swing.JTextField();
-        btnBuscarPaciente = new javax.swing.JButton();
         lblNivel = new javax.swing.JLabel();
         lblPermiso = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -90,7 +89,7 @@ DefaultTableModel m;
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel33.setText("Listado y Registro");
+        jLabel33.setText("Listado");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -111,22 +110,6 @@ DefaultTableModel m;
 
         jPanel1.setBackground(new java.awt.Color(39, 174, 96));
 
-        btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setContentAreaFilled(false);
-        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnNuevo.setIconTextGap(30);
-        btnNuevo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
-
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
         jLabel57.setText("<html>Ventas<span style=\"font-size:'14px'\"><br>Libro Electronico</br></span></html>");
@@ -138,44 +121,6 @@ DefaultTableModel m;
         lblusu.setFocusable(false);
         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
-
-        txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtBuscar.setForeground(new java.awt.Color(51, 51, 51));
-        txtBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtBuscar.setBorder(null);
-        txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarCaretUpdate(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-27.png"))); // NOI18N
-        btnBuscarPaciente.setContentAreaFilled(false);
-        btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPacienteActionPerformed(evt);
-            }
-        });
-
         lblNivel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblNivel.setForeground(new java.awt.Color(39, 174, 96));
         lblNivel.setText("jLabel2");
@@ -186,10 +131,10 @@ DefaultTableModel m;
 
         jPanel2.setBackground(new java.awt.Color(39, 174, 96));
 
-        btnBuscarP.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        btnBuscarP.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnBuscarP.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
-        btnBuscarP.setText("INICIAR BUSQUEDA");
+        btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Play-32D.png"))); // NOI18N
+        btnBuscarP.setText("Iniciar Busqueda");
         btnBuscarP.setContentAreaFilled(false);
         btnBuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarP.addActionListener(new java.awt.event.ActionListener() {
@@ -232,20 +177,18 @@ DefaultTableModel m;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscarP, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbxAnios, 0, 157, Short.MAX_VALUE)
-                            .addComponent(cbxMeses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(cbxMeses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,12 +202,16 @@ DefaultTableModel m;
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxMeses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(cbxAnios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
+        jButton1.setText("Generar Archivo txt");
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -282,15 +229,7 @@ DefaultTableModel m;
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -300,8 +239,8 @@ DefaultTableModel m;
                         .addGap(18, 18, 18)
                         .addComponent(lblPermiso))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -309,17 +248,11 @@ DefaultTableModel m;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 46, Short.MAX_VALUE)
-                .addComponent(btnNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(66, 66, 66)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154)
+                .addGap(144, 144, 144)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivel)
                     .addComponent(lblPermiso))
@@ -406,9 +339,7 @@ DefaultTableModel m;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jScrollPane1))))
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,21 +355,10 @@ DefaultTableModel m;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
-
-     
-    }//GEN-LAST:event_txtBuscarCaretUpdate
-
-    private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-
-    }//GEN-LAST:event_btnBuscarPacienteActionPerformed
-
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
-              
+        if(Mensaje.getText().equalsIgnoreCase("TXT Generado")){
+            cargareliminar.setVisible(false);
+        }
     }//GEN-LAST:event_eliActionPerformed
 
     private void noeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeliActionPerformed
@@ -447,11 +367,15 @@ DefaultTableModel m;
 
     private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
         try{
-
-                                    buscar_examen();
-
+                 BUSCAR_VENTAS_ESTADO_NULL();
+                 cargareliminar.setVisible(false);
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(Color.red);
+            Mensaje.setText("Seleccione un año y mes valido");
+            eli.setVisible(false);
+            noeli.setVisible(false);
+            Clear_TB_VENTAS_LE();
         }
     }//GEN-LAST:event_btnBuscarPActionPerformed
 
@@ -478,6 +402,7 @@ DefaultTableModel m;
                     this.cbxMeses.removeAllItems();
 
                     this.cbxMeses.addItem("Seleccione");
+                    
                 }
             }}
             catch(Exception ex)
@@ -495,7 +420,7 @@ DefaultTableModel m;
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxMesesActionPerformed
 
-    public void buscar_examen(){
+    public void BUSCAR_VENTAS_ESTADO_NULL(){
                           
             int mes=0;
             if(cbxMeses.getSelectedItem().equals("ENERO")){
@@ -531,10 +456,10 @@ DefaultTableModel m;
         try {
             TB_VENTAS_LE.setModel(new DefaultTableModel());
             String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
-            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE"};
+            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[16];
 
             CuentasPorPagarFacturasCabecera obj=new CuentasPorPagarFacturasCabecera();
             consulta="exec LIBRO_ELECTRONICO_VENTAS_LISTAR ?,?";
@@ -560,6 +485,7 @@ DefaultTableModel m;
                 fila[12]=r.getString(13);
                 fila[13]=r.getString(14);
                 fila[14]=r.getString(15);
+                fila[15]=r.getString(16);
                 
                 m.addRow(fila);
                 c++;
@@ -576,9 +502,92 @@ DefaultTableModel m;
         }
     }
     
+    public void BUSCAR_VENTAS_ESTADO_C(){
+                          
+            int mes=0;
+            if(cbxMeses.getSelectedItem().equals("ENERO")){
+                mes=1;
+            }else if(cbxMeses.getSelectedItem().equals("FEBRERO")){
+                mes=2;
+            }else if(cbxMeses.getSelectedItem().equals("MARZO")){
+                mes=3;
+            }else if(cbxMeses.getSelectedItem().equals("ABRIL")){
+                mes=4;
+            }else if(cbxMeses.getSelectedItem().equals("MAYO")){
+                mes=5;
+            }else if(cbxMeses.getSelectedItem().equals("JUNIO")){
+                mes=6;
+            }else if(cbxMeses.getSelectedItem().equals("JULIO")){
+                mes=7;
+            }else if(cbxMeses.getSelectedItem().equals("AGOSTO")){
+                mes=8;
+            }else if(cbxMeses.getSelectedItem().equals("SETIEMBRE")){
+                mes=9;
+            }else if(cbxMeses.getSelectedItem().equals("OCTUBRE")){
+                mes=10;
+            }else if(cbxMeses.getSelectedItem().equals("NOVIEMBRE")){
+                mes=11;
+            }else if(cbxMeses.getSelectedItem().equals("DICIEMBRE")){
+                mes=12;
+            }
+            int A=0;
+            A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
+        
+        
+        String consulta="";
+        try {
+            TB_VENTAS_LE.setModel(new DefaultTableModel());
+            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
+            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
+            m1=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m1);
+            String fila[]=new String[16];
+
+            CuentasPorPagarFacturasCabecera obj=new CuentasPorPagarFacturasCabecera();
+            consulta="exec LIBRO_ELECTRONICO_VENTAS_LISTAR_ESTADO_C ?,?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setInt(1,mes);
+            cmd.setInt(2, A);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){               
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
+                fila[11]=r.getString(12);
+                fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
+                fila[14]=r.getString(15);
+                fila[15]=r.getString(16);
+                
+                m1.addRow(fila);
+                c++;
+            }
+            TB_VENTAS_LE.setModel(m1);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m1);
+            TB_VENTAS_LE.setRowSorter(elQueOrdena);
+            this.TB_VENTAS_LE.setModel(m1);
+            
+//            formatoExamen();
+        
+        }catch (Exception e) {
+            System.out.println("Error buscar estado C: " + e.getMessage());
+        }
+    }
+    
     public void generar_libro_electronico(){
         try {
             if(TB_VENTAS_LE.getRowCount()>0){
+                
                 crearArchivo();
                 Clear_TB_VENTAS_LE();
                 cbxAnios.setSelectedIndex(0);
@@ -587,12 +596,33 @@ DefaultTableModel m;
                 System.out.println("error al crear archivo");
             }
         } catch (Exception e) {
+            System.out.println("error generar libro 1: " + e.getMessage());
         }
     }
     
     public boolean crearArchivo(){
         Contabilidad_LE ruc=new Contabilidad_LE();
         boolean retorna = false;
+        String anio= (cbxAnios.getSelectedItem().toString());
+        String mes= (cbxMeses.getSelectedItem().toString());
+        String carp = "C:\\Libro_Electronico\\" + anio + "\\";
+        String carp_mes = "C:\\Libro_Electronico\\" + anio + "\\" + mes + "\\" ;
+        File crea_carpeta_anio = new File(carp);
+        File crea_carpeta_mes = new File(carp_mes);
+        if(crea_carpeta_anio.exists()){
+            System.out.println("carpeta ya creada");
+        }else{
+            crear_carpeta();
+        }
+        if(crea_carpeta_mes.exists()){
+            System.out.println("carpeta mes ya existe");
+        }else{
+            crear_carpeta_mes();
+        }
+        
+        
+        String ubicacion = "C:\\Libro_Electronico\\" + anio + "\\" + mes + "\\";
+        
         String archivo = "LE"+ruc.factura_ruc() + "20171000" + 
                 "140100" + 
                 "00" + "1" +
@@ -611,11 +641,12 @@ DefaultTableModel m;
                     if(TB_VENTAS_LE.getRowCount()>0){
                         String bloc1 = "";
                         for (int c = 0; c < TB_VENTAS_LE.getRowCount(); c++){   
-                            bloc1 = bloc1 + String.valueOf(TB_VENTAS_LE.getValueAt(c, 0))+
-                            "|"+String.valueOf(TB_VENTAS_LE.getValueAt(c, 1))+"|"+
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 2)) +"|"+
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 3)) +"|"+
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 4)) +"|"+
+                            bloc1 = bloc1 + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 0)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 1)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 2)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 3)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 4)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 5)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 6)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 7)) + "|" + 
@@ -625,23 +656,69 @@ DefaultTableModel m;
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 11)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 12)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 13)) + "|" +
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 14)) + "\r\n";
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 14)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 15)) + "\r\n";
                             
+                            System.out.println("datos guardados txt");
                             Contabilidad_LE ER=new Contabilidad_LE();
-                            ER.LE_CAMBIAR_ESTADO_DOCUMENTO_CAJA(Integer.parseInt(String.valueOf(TB_VENTAS_LE.getValueAt(c, 2))));
+                            ER.LE_CAMBIAR_ESTADO_DOCUMENTO_CAJA(Integer.parseInt(String.valueOf(TB_VENTAS_LE.getValueAt(c, 0))));
                             
                         }
                         crea.format(bloc1);
+                        cargareliminar.setVisible(true);
+                        cargareliminar.setBackground(new Color(164,192,79));
+                        Mensaje.setText("TXT Generado");
+                        noeli.setVisible(false);
+                        eli.setText("OK");
                     } 
                     crea.close();
                     retorna = true;
                 }   
             } catch (Exception e) {
                     retorna = false;
+                    System.out.println("erro cargar datos " + e.getMessage());
             }
         }
         return retorna;
     } 
+    
+    public void crear_carpeta(){
+        String A = cbxAnios.getSelectedItem().toString();
+        String carpeta = "C:\\Libro_Electronico\\" + A ;
+        
+        File crea_carpeta = new File(carpeta);
+        if(crea_carpeta.exists()){
+            System.out.println("la carpeta ya existe");
+        }else{
+            crea_carpeta.mkdirs();
+            try {
+                if(crea_carpeta.createNewFile()){
+                    System.out.println("carpeta creada");
+                }
+            } catch (Exception e) {
+                System.out.println("error crear carpetas" + e.getMessage());
+            }
+        }
+    }
+    
+    public void crear_carpeta_mes(){
+        String M = cbxMeses.getSelectedItem().toString();
+        String A = cbxAnios.getSelectedItem().toString();
+        String carpeta = "C:\\Libro_Electronico\\" + A + "\\" + M ;
+        
+        File crea_carpeta_mes = new File(carpeta);
+        if(crea_carpeta_mes.exists()){
+            System.out.println("la carpeta mes ya existe");
+        }else{
+            crea_carpeta_mes.mkdirs();
+            try {
+                if(crea_carpeta_mes.createNewFile()){
+                    System.out.println("carpeta mes creada");
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
     
     public DefaultComboBoxModel Anio(){
        DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
@@ -709,8 +786,6 @@ DefaultTableModel m;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JTable TB_VENTAS_LE;
     private javax.swing.JButton btnBuscarP;
-    private javax.swing.JButton btnBuscarPaciente;
-    private javax.swing.JButton btnNuevo;
     private javax.swing.JPanel cargareliminar;
     private javax.swing.JComboBox cbxAnios;
     private javax.swing.JComboBox cbxMeses;
@@ -722,13 +797,11 @@ DefaultTableModel m;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel23;
     public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblNivel;
     public static javax.swing.JLabel lblPermiso;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;
-    public static javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

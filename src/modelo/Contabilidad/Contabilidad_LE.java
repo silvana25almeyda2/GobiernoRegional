@@ -49,6 +49,7 @@ public class Contabilidad_LE {
             if(!cmd.execute())
             {
                 resp = true;
+                System.out.println("estado cambiado");
             }
             cmd.close();
             getCn().close();
