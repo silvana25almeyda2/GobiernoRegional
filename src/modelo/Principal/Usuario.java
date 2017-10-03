@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import Servicios.Conexion;
+import Vistas.Principal.Principal;
 
 /**
  *
@@ -326,6 +327,45 @@ public boolean guardarUsuario()
         catch(Exception ex)
         {
             System.out.println("Error VALIDAR_NOM_USU: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    
+//    public void CAJA_CONTRASEÑA(String usu){
+//        try {
+//            String consulta = "select dbo.fnLeeClave(usu_contrasena) from SISTEMA_USUARIO where Usu_Usuario= ?";
+//            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, usu);
+//            ResultSet r= cmd.executeQuery();
+//        if(r.next()){
+//               Principal.lblCont.setText(r.getString(1));
+//        }
+//        }catch(Exception ex){
+//            System.out.println("ERROR AL CARGAR USUARIO " + ex.getMessage());
+//        }
+//    }
+//    
+    public int VALIDAR_CONTRASEÑA(String usu,String pass){
+        int resultado=0;
+        try
+        {
+            String sql = "select * from SISTEMA_USUARIO where Usu_Usuario=? and dbo.fnLeeClave(usu_contrasena)=?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, usu);
+            cmd.setString(2, pass);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
         }
         return resultado;
     }
