@@ -77,8 +77,8 @@ DefaultTableModel m, m1;
         jButton1 = new javax.swing.JButton();
         cargareliminar = new javax.swing.JPanel();
         Mensaje = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         eli = new javax.swing.JButton();
-        noeli = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TB_VENTAS_LE = new javax.swing.JTable();
 
@@ -108,7 +108,7 @@ DefaultTableModel m, m1;
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(39, 174, 96));
+        jPanel1.setBackground(new java.awt.Color(243, 156, 18));
 
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,14 +122,14 @@ DefaultTableModel m, m1;
         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         lblNivel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblNivel.setForeground(new java.awt.Color(39, 174, 96));
+        lblNivel.setForeground(new java.awt.Color(243, 156, 18));
         lblNivel.setText("jLabel2");
 
         lblPermiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblPermiso.setForeground(new java.awt.Color(39, 174, 96));
+        lblPermiso.setForeground(new java.awt.Color(243, 156, 18));
         lblPermiso.setText("jLabel2");
 
-        jPanel2.setBackground(new java.awt.Color(39, 174, 96));
+        jPanel2.setBackground(new java.awt.Color(243, 156, 18));
 
         btnBuscarP.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnBuscarP.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +210,7 @@ DefaultTableModel m, m1;
         jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
-        jButton1.setText("Generar Archivo txt");
+        jButton1.setText("Generar Archivo TXT");
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +256,7 @@ DefaultTableModel m, m1;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivel)
                     .addComponent(lblPermiso))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -266,11 +266,15 @@ DefaultTableModel m, m1;
         Mensaje.setForeground(new java.awt.Color(255, 255, 255));
         Mensaje.setText("Desea Actualizar el Registro ?");
 
+        jPanel3.setBackground(new java.awt.Color(0, 153, 102));
+
+        eli.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         eli.setForeground(new java.awt.Color(240, 240, 240));
-        eli.setText("Si");
-        eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        eli.setText("fgnhghjhmhjmhj,");
+        eli.setBorder(null);
         eli.setContentAreaFilled(false);
         eli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         eli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         eli.setIconTextGap(30);
         eli.addActionListener(new java.awt.event.ActionListener() {
@@ -279,18 +283,18 @@ DefaultTableModel m, m1;
             }
         });
 
-        noeli.setForeground(new java.awt.Color(240, 240, 240));
-        noeli.setText("No");
-        noeli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        noeli.setContentAreaFilled(false);
-        noeli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        noeli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        noeli.setIconTextGap(30);
-        noeli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noeliActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(eli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(eli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout cargareliminarLayout = new javax.swing.GroupLayout(cargareliminar);
         cargareliminar.setLayout(cargareliminarLayout);
@@ -299,21 +303,15 @@ DefaultTableModel m, m1;
             .addGroup(cargareliminarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(Mensaje)
-                .addGap(46, 46, 46)
-                .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(571, Short.MAX_VALUE))
+                .addGap(117, 117, 117)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cargareliminarLayout.setVerticalGroup(
             cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cargareliminarLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Mensaje)
-                    .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cargareliminarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -361,10 +359,6 @@ DefaultTableModel m, m1;
         }
     }//GEN-LAST:event_eliActionPerformed
 
-    private void noeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeliActionPerformed
-        cargareliminar.setVisible(false);
-    }//GEN-LAST:event_noeliActionPerformed
-
     private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
         try{
                  BUSCAR_VENTAS_ESTADO_NULL();
@@ -374,7 +368,6 @@ DefaultTableModel m, m1;
             cargareliminar.setBackground(Color.red);
             Mensaje.setText("Seleccione un año y mes valido");
             eli.setVisible(false);
-            noeli.setVisible(false);
             Clear_TB_VENTAS_LE();
         }
     }//GEN-LAST:event_btnBuscarPActionPerformed
@@ -667,9 +660,8 @@ DefaultTableModel m, m1;
                         crea.format(bloc1);
                         cargareliminar.setVisible(true);
                         cargareliminar.setBackground(new Color(164,192,79));
-                        Mensaje.setText("TXT Generado");
-                        noeli.setVisible(false);
-                        eli.setText("OK");
+                        Mensaje.setText("Archivo TXT Generado");
+                        eli.setText("Abrir Ubicacion");
                     } 
                     crea.close();
                     retorna = true;
@@ -797,11 +789,11 @@ DefaultTableModel m, m1;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblNivel;
     public static javax.swing.JLabel lblPermiso;
     public static javax.swing.JLabel lblusu;
-    private javax.swing.JButton noeli;
     // End of variables declaration//GEN-END:variables
 }

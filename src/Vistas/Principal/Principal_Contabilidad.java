@@ -5,6 +5,7 @@
  */
 package Vistas.Principal;
 
+import Contabilidad.Contabilidad_Ventas;
 import java.awt.Dimension;
 import javax.swing.JComponent;
 
@@ -244,7 +245,9 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCaja2MouseEntered
 
     private void btnCaja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja2ActionPerformed
-        // TODO add your handling code here:
+        Contabilidad_Ventas CTV = new Contabilidad_Ventas();
+        CTV.lblusu.setText(Principal.lblUsu.getText());
+        CTV.setVisible(true);
     }//GEN-LAST:event_btnCaja2ActionPerformed
 
 
