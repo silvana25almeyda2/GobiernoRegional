@@ -198,7 +198,7 @@ public boolean guardarUsuario()
         String cod="";
         try
         {
-            String sql = "SELECT usu_pregunta FROM SISTEMA_USUARIO where usu_usuario=? AND USU_ESTADO='A'";
+            String sql = "SELECT UPPER(usu_pregunta) FROM SISTEMA_USUARIO where usu_usuario=? AND USU_ESTADO='A'";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, usu);
             ResultSet rs = cmd.executeQuery();
