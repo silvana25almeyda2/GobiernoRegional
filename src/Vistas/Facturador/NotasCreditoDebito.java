@@ -35,9 +35,10 @@ public class NotasCreditoDebito extends javax.swing.JFrame {
 DefaultTableModel m;
 Conexion c=new Conexion();
 
-    String barra = File.separator;
-    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
-     CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebito();
+String barra = File.separator;
+String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
+CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebito();
+ static CuentasPorPagarNotaDeCreditoDebito DT = new CuentasPorPagarNotaDeCreditoDebito();
     public NotasCreditoDebito() {
         initComponents();
         c.conectar();
@@ -56,6 +57,8 @@ Conexion c=new Conexion();
         Paginas.setEnabled(false);
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
+        
+        LBL_ID_DOCUMENTO.setVisible(false);
         
         //Debito
         cbxTipoNotaDebito.setBackground(Color.WHITE);
@@ -458,6 +461,7 @@ Conexion c=new Conexion();
             lblCredito = new javax.swing.JLabel();
             jPanel85 = new javax.swing.JPanel();
             lblDebito = new javax.swing.JLabel();
+            LBL_ID_DOCUMENTO = new javax.swing.JLabel();
             Paginas = new javax.swing.JTabbedPane();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
@@ -999,6 +1003,8 @@ Conexion c=new Conexion();
                         .addComponent(lblDebito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
 
+                    LBL_ID_DOCUMENTO.setText("jLabel14");
+
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
                     jPanel1Layout.setHorizontalGroup(
@@ -1013,6 +1019,8 @@ Conexion c=new Conexion();
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(113, 113, 113)
+                                    .addComponent(LBL_ID_DOCUMENTO)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addContainerGap())))
@@ -1023,7 +1031,9 @@ Conexion c=new Conexion();
                             .addGap(7, 7, 7)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                                        .addComponent(LBL_ID_DOCUMENTO))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblUsu)
@@ -5681,6 +5691,7 @@ Conexion c=new Conexion();
 //                
 //            }
                 if(estado==1){
+                    ESTADO_ID_DOCUMENTO_CABECERA_CREDITO();
                     JOptionPane.showMessageDialog(this, "Nota de Crédito Generada");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdCredito.getText()),"1");
@@ -6055,6 +6066,7 @@ Conexion c=new Conexion();
 //                
 //            }
                 if(estado==1){
+                    ESTADO_ID_DOCUMENTO_CABECERA_DEBITO();
                     JOptionPane.showMessageDialog(this, "Nota de Débito Generada");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdDebito.getText()),"2");
@@ -6211,6 +6223,8 @@ Conexion c=new Conexion();
                 formatoFacturacionDetalle(tbFacturacionDebito);
                 }
                 
+                int CPF_ID = Integer.parseInt(String.valueOf(tb_Factura_Boleta.getValueAt(filaselec, 0)));
+                MOSTRAR_ID_DOCUMENTO_NOTAS(CPF_ID);
                 
             }} catch (Exception ex) {
                 System.out.println("Error: " + ex.getMessage());
@@ -6313,6 +6327,34 @@ Conexion c=new Conexion();
          table.getColumnModel().getColumn(8).setMinWidth(0);
             table.getColumnModel().getColumn(8).setMaxWidth(0);
      }
+     
+     public void MOSTRAR_ID_DOCUMENTO_NOTAS(int cod){
+        String consulta="";
+        try {
+            consulta="EXEC CUENTAS_POR_PAGAR_COMUNICACION_DE_BAJA_ID_DOCUMENTO ?";
+            PreparedStatement cmd = DT.getCn().prepareStatement(consulta);
+            cmd.setInt(1, cod);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                LBL_ID_DOCUMENTO.setText(r.getString(1));
+               
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error carga cod cabecera _NOTAS: " + e.getMessage());
+        }
+    }
+     
+    public void ESTADO_ID_DOCUMENTO_CABECERA_CREDITO(){
+        CuentasPorPagarNotaDeCreditoDebito ER=new CuentasPorPagarNotaDeCreditoDebito();
+        ER.CAMBIAR_ESTADO_DOCUMENTO_CAJA_CREDITO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));    
+    }
+     
+    public void ESTADO_ID_DOCUMENTO_CABECERA_DEBITO(){
+        CuentasPorPagarNotaDeCreditoDebito ER=new CuentasPorPagarNotaDeCreditoDebito();
+        ER.CAMBIAR_ESTADO_DOCUMENTO_CAJA_DEBITO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));    
+    }
     /**
      * @param args the command line arguments
      */
@@ -6353,6 +6395,7 @@ Conexion c=new Conexion();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BUSCAR_FACTURA_BOLETA;
+    private javax.swing.JLabel LBL_ID_DOCUMENTO;
     public static javax.swing.JTabbedPane Paginas;
     private javax.swing.JPopupMenu Serie;
     private javax.swing.JButton btnAgregarFactura;

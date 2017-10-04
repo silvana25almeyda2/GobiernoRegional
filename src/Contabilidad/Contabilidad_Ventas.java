@@ -37,7 +37,7 @@ ResultSet r;
 Conexion c=new Conexion();
 Connection conexion=c.conectar();
 
-DefaultTableModel m, m1;
+DefaultTableModel m, m1, msb;
     /**
      * Creates new form Contabilidad_Ventas
      */
@@ -50,6 +50,8 @@ DefaultTableModel m, m1;
         this.cbxAnios.setModel(Anio());
         cbxAnios.setBackground(Color.white);
         cbxMeses.setBackground(Color.white);
+        
+        inicializar_tabla_VENTAS_LE();
     }
 
     /**
@@ -327,6 +329,7 @@ DefaultTableModel m, m1;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TB_VENTAS_LE.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         TB_VENTAS_LE.setRowHeight(35);
         TB_VENTAS_LE.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(TB_VENTAS_LE);
@@ -451,7 +454,7 @@ DefaultTableModel m, m1;
         String consulta="";
         try {
             TB_VENTAS_LE.setModel(new DefaultTableModel());
-            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
+            String titulos[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Tipo de Comprobante","Sexo",
             "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -468,7 +471,7 @@ DefaultTableModel m, m1;
             while(r.next()){               
                 fila[0]=r.getString(1);
                 fila[1]=r.getString(2);
-                fila[2]=r.getString(3);
+                fila[2]=String.valueOf(c);
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
@@ -491,95 +494,13 @@ DefaultTableModel m, m1;
             TB_VENTAS_LE.setRowSorter(elQueOrdena);
             this.TB_VENTAS_LE.setModel(m);
             
-//            formatoExamen();
-        
+            formato_VENTAS_LE();
+            
         }catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
         }
     }
-    
-    public void BUSCAR_VENTAS_ESTADO_C(){
-                          
-            int mes=0;
-            if(cbxMeses.getSelectedItem().equals("ENERO")){
-                mes=1;
-            }else if(cbxMeses.getSelectedItem().equals("FEBRERO")){
-                mes=2;
-            }else if(cbxMeses.getSelectedItem().equals("MARZO")){
-                mes=3;
-            }else if(cbxMeses.getSelectedItem().equals("ABRIL")){
-                mes=4;
-            }else if(cbxMeses.getSelectedItem().equals("MAYO")){
-                mes=5;
-            }else if(cbxMeses.getSelectedItem().equals("JUNIO")){
-                mes=6;
-            }else if(cbxMeses.getSelectedItem().equals("JULIO")){
-                mes=7;
-            }else if(cbxMeses.getSelectedItem().equals("AGOSTO")){
-                mes=8;
-            }else if(cbxMeses.getSelectedItem().equals("SETIEMBRE")){
-                mes=9;
-            }else if(cbxMeses.getSelectedItem().equals("OCTUBRE")){
-                mes=10;
-            }else if(cbxMeses.getSelectedItem().equals("NOVIEMBRE")){
-                mes=11;
-            }else if(cbxMeses.getSelectedItem().equals("DICIEMBRE")){
-                mes=12;
-            }
-            int A=0;
-            A=Integer.parseInt(cbxAnios.getSelectedItem().toString());
         
-        
-        String consulta="";
-        try {
-            TB_VENTAS_LE.setModel(new DefaultTableModel());
-            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
-            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
-            m1=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m1);
-            String fila[]=new String[16];
-
-            CuentasPorPagarFacturasCabecera obj=new CuentasPorPagarFacturasCabecera();
-            consulta="exec LIBRO_ELECTRONICO_VENTAS_LISTAR_ESTADO_C ?,?";
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setInt(1,mes);
-            cmd.setInt(2, A);
-            
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){               
-                fila[0]=r.getString(1);
-                fila[1]=r.getString(2);
-                fila[2]=r.getString(3);
-                fila[3]=r.getString(4);
-                fila[4]=r.getString(5);
-                fila[5]=r.getString(6);
-                fila[6]=r.getString(7);
-                fila[7]=r.getString(8);
-                fila[8]=r.getString(9);
-                fila[9]=r.getString(10);
-                fila[10]=r.getString(11);
-                fila[11]=r.getString(12);
-                fila[12]=r.getString(13);
-                fila[13]=r.getString(14);
-                fila[14]=r.getString(15);
-                fila[15]=r.getString(16);
-                
-                m1.addRow(fila);
-                c++;
-            }
-            TB_VENTAS_LE.setModel(m1);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m1);
-            TB_VENTAS_LE.setRowSorter(elQueOrdena);
-            this.TB_VENTAS_LE.setModel(m1);
-            
-//            formatoExamen();
-        
-        }catch (Exception e) {
-            System.out.println("Error buscar estado C: " + e.getMessage());
-        }
-    }
-    
     public void generar_libro_electronico(){
         try {
             if(TB_VENTAS_LE.getRowCount()>0){
@@ -740,6 +661,46 @@ DefaultTableModel m, m1;
         for(int j=0;j<b;j++){
                     modelo1.removeRow(0);
         }
+    }
+    
+    public void inicializar_tabla_VENTAS_LE(){       
+        try {
+            
+            String titulosb[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha de Vencimiento",
+            "Tipo de Comprobante","Nro de Serie","Nro Comprobante","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
+            msb=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb);
+            String filasb[]=new String[16];
+            TB_VENTAS_LE.setModel(msb);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
+            TB_VENTAS_LE.setRowSorter(elQueOrdenasb);
+            TB_VENTAS_LE.setModel(msb);
+            
+            formato_VENTAS_LE();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla_RV: " + e);
+        }      
+    }
+    
+    public void formato_VENTAS_LE(){        
+            TB_VENTAS_LE.getColumnModel().getColumn(0).setPreferredWidth(40);
+            TB_VENTAS_LE.getColumnModel().getColumn(1).setPreferredWidth(80); 
+            TB_VENTAS_LE.getColumnModel().getColumn(2).setPreferredWidth(50);
+            TB_VENTAS_LE.getColumnModel().getColumn(3).setPreferredWidth(100);
+            TB_VENTAS_LE.getColumnModel().getColumn(4).setPreferredWidth(100);                
+            TB_VENTAS_LE.getColumnModel().getColumn(5).setPreferredWidth(150); 
+            TB_VENTAS_LE.getColumnModel().getColumn(6).setPreferredWidth(150);
+            TB_VENTAS_LE.getColumnModel().getColumn(7).setPreferredWidth(220); 
+            TB_VENTAS_LE.getColumnModel().getColumn(8).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(9).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(10).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(11).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(12).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(13).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(14).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(15).setPreferredWidth(180);
+            
     }
     
     /**
