@@ -912,6 +912,8 @@ String hora, minutos, segundos, ampm;
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
+        panelError.setVisible(false);
+        lblError.setVisible(false);
         Usuario u=new Usuario();
         Usuario u1=new Usuario();
         if(txtUsuario.getText().equalsIgnoreCase("")){
@@ -925,6 +927,7 @@ String hora, minutos, segundos, ampm;
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
         }else{
+            jLabel9.setText("Recuperación");
             jPanel7.setVisible(false);
             panelRecuperar.setVisible(true);
             txtPregunta.setEditable(false);
@@ -1014,11 +1017,13 @@ String hora, minutos, segundos, ampm;
             lblError.setVisible(true);
 //            JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");
         } else if(txtRespuesta.getText().equalsIgnoreCase("")){
+          
             panelError.setVisible(true);
             lblError.setText("Escriba su Respuesta");
             lblError.setVisible(true);
 //            JOptionPane.showMessageDialog(rootPane, "Escriba su Respuesta");
         }else if(u.Respuesta(txtUsuario.getText(), txtPregunta.getText()).equalsIgnoreCase(txtRespuesta.getText())){
+            
             jPanel7.setVisible(false);
             panelRecuperar.setVisible(false);
             String a ="";
@@ -1029,6 +1034,7 @@ String hora, minutos, segundos, ampm;
             jDialog1.setVisible(true);
             txtPregunta.setText("");
             txtRespuesta.setText("");
+            txtPregunta1.requestFocus();
         }
         else{
             panelError.setVisible(true);
@@ -1072,10 +1078,12 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_txtRespuesta1KeyTyped
 
     private void btnRecuperar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperar1ActionPerformed
+        jLabel9.setText("Cuenta");
         jLabel2.setForeground(new Color(255,255,255)); 
         jLabel17.setForeground(new Color(255,255,255)); 
         jPanel7.setVisible(true);
         jDialog1.setVisible(false);
+        txtContra.requestFocus();
     }//GEN-LAST:event_btnRecuperar1ActionPerformed
   class TimerListener implements ActionListener{
 
