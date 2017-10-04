@@ -524,9 +524,8 @@ Connection ConexionS=c.conectar();
                 .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel67)
-                .addGap(19, 19, 19))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel67))
         );
 
         jLabel64.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N

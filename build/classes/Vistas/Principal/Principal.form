@@ -416,9 +416,8 @@
                           <Component id="panelCPT1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="45" max="32767" attributes="0"/>
                           <Component id="jPanel146" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="jLabel67" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

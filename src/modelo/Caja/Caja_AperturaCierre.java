@@ -315,7 +315,7 @@ public void CajaPC_NRO_CIERRE(String usu){
 public void CajaPC_NRO_CIERRE_SA(String usu){
         String consulta="";
         try {
-            consulta="exec CAJA_PC_SERIE_APERTURA ?";
+            consulta="exec CAJA_PC_SERIE_APERTURA_REMOTO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, usu);
             ResultSet r= cmd.executeQuery();
