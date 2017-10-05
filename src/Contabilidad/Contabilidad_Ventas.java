@@ -454,11 +454,14 @@ DefaultTableModel m, m1, msb;
         String consulta="";
         try {
             TB_VENTAS_LE.setModel(new DefaultTableModel());
-            String titulos[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Tipo de Comprobante","Sexo",
-            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
+            String titulos[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Fecha Venc","Tipo Comp.",
+            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Val Fac Exp",
+            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Dscto","Inafecta","ISC","Base Imp. IVAP","IVAP",
+            "Otros Trib. y Cargos","Importe Total","Tipo Moneda","Tipo Cambio","Fecha Modifica","Tipo Modifica",
+            "Nro Serie Modifica","Nro Comp Modifica","Identificación","Error TC","Medios de Pago","Estado Comp."};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[16];
+            String fila[]=new String[35];
 
             CuentasPorPagarFacturasCabecera obj=new CuentasPorPagarFacturasCabecera();
             consulta="exec LIBRO_ELECTRONICO_VENTAS_LISTAR ?,?";
@@ -485,6 +488,25 @@ DefaultTableModel m, m1, msb;
                 fila[13]=r.getString(14);
                 fila[14]=r.getString(15);
                 fila[15]=r.getString(16);
+                fila[16]=r.getString(17);
+                fila[17]=r.getString(18);
+                fila[18]=r.getString(19);
+                fila[19]=r.getString(20);
+                fila[20]=r.getString(21);
+                fila[21]=r.getString(22);
+                fila[22]=r.getString(23);
+                fila[23]=r.getString(24);
+                fila[24]=r.getString(25);
+                fila[25]=r.getString(26);
+                fila[26]=r.getString(27);
+                fila[27]=r.getString(28);
+                fila[28]=r.getString(29);
+                fila[29]=r.getString(30);
+                fila[30]=r.getString(31);
+                fila[31]=r.getString(32);
+                fila[32]=r.getString(33);
+                fila[33]=r.getString(34);
+                fila[34]=r.getString(35);
                 
                 m.addRow(fila);
                 c++;
@@ -520,6 +542,34 @@ DefaultTableModel m, m1, msb;
     public boolean crearArchivo(){
         Contabilidad_LE ruc=new Contabilidad_LE();
         boolean retorna = false;
+        
+            int mesTXT=00;
+            if(cbxMeses.getSelectedItem().equals("ENERO")){
+                mesTXT=1;
+            }else if(cbxMeses.getSelectedItem().equals("FEBRERO")){
+                mesTXT=2;
+            }else if(cbxMeses.getSelectedItem().equals("MARZO")){
+                mesTXT=3;
+            }else if(cbxMeses.getSelectedItem().equals("ABRIL")){
+                mesTXT=4;
+            }else if(cbxMeses.getSelectedItem().equals("MAYO")){
+                mesTXT=5;
+            }else if(cbxMeses.getSelectedItem().equals("JUNIO")){
+                mesTXT=6;
+            }else if(cbxMeses.getSelectedItem().equals("JULIO")){
+                mesTXT=7;
+            }else if(cbxMeses.getSelectedItem().equals("AGOSTO")){
+                mesTXT=8;
+            }else if(cbxMeses.getSelectedItem().equals("SETIEMBRE")){
+                mesTXT=9;
+            }else if(cbxMeses.getSelectedItem().equals("OCTUBRE")){
+                mesTXT=10;
+            }else if(cbxMeses.getSelectedItem().equals("NOVIEMBRE")){
+                mesTXT=11;
+            }else if(cbxMeses.getSelectedItem().equals("DICIEMBRE")){
+                mesTXT=12;
+            }
+        
         String anio= (cbxAnios.getSelectedItem().toString());
         String mes= (cbxMeses.getSelectedItem().toString());
         String carp = "C:\\Libro_Electronico\\" + anio + "\\";
@@ -539,12 +589,21 @@ DefaultTableModel m, m1, msb;
         
         
         String ubicacion = "C:\\Libro_Electronico\\" + anio + "\\" + mes + "\\";
-        
-        String archivo = "LE"+ruc.factura_ruc() + "20171000" + 
+        String archivo="";
+        if(mesTXT==10 || mesTXT==11 || mesTXT==12){
+            archivo = "LE"+ruc.factura_ruc() + anio + mesTXT + "00" +
                 "140100" + 
                 "00" + "1" +
                 "1" + "1" + 
-                "1" + ".TXT";
+                "1" + ".txt";
+        }else{
+            archivo = "LE"+ruc.factura_ruc() + anio + "0" +mesTXT + "00" +
+                "140100" + 
+                "00" + "1" +
+                "1" + "1" + 
+                "1" + ".txt";
+        }
+                
         File crea_archivo = new File(archivo);
         if(TB_VENTAS_LE.getRowCount()==0){
             JOptionPane.showMessageDialog(this,"No hay registros");
@@ -559,7 +618,6 @@ DefaultTableModel m, m1, msb;
                         String bloc1 = "";
                         for (int c = 0; c < TB_VENTAS_LE.getRowCount(); c++){   
                             bloc1 = bloc1 + 
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 0)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 1)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 2)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 3)) + "|" +
@@ -574,7 +632,26 @@ DefaultTableModel m, m1, msb;
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 12)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 13)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 14)) + "|" +
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 15)) + "\r\n";
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 15)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 16)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 17)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 18)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 19)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 20)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 21)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 22)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 23)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 24)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 25)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 26)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 27)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 28)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 29)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 30)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 31)) + "|" + 
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 32)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 33)) + "|" +
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 34)) + "\r\n";
                             
                             System.out.println("datos guardados txt");
                             Contabilidad_LE ER=new Contabilidad_LE();
@@ -666,11 +743,14 @@ DefaultTableModel m, m1, msb;
     public void inicializar_tabla_VENTAS_LE(){       
         try {
             
-            String titulosb[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha de Vencimiento",
-            "Tipo de Comprobante","Nro de Serie","Nro Comprobante","Fecha Examen","Codigo Documento","DOCE","TRECE","CATORCE","QUINCE","6"};
+            String titulosb[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Fecha Venc","Tipo Comp.",
+            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Val Fac Exp",
+            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Dscto","Inafecta","ISC","Base Imp. IVAP","IVAP",
+            "Otros Trib. y Cargos","Importe Total","Tipo Moneda","Tipo Cambio","Fecha Modifica","Tipo Modifica",
+            "Nro Serie Modifica","Nro Comp Modifica","Identificación","Error TC","Medios de Pago","Estado Comp."};
             msb=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb);
-            String filasb[]=new String[16];
+            String filasb[]=new String[35];
             TB_VENTAS_LE.setModel(msb);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
             TB_VENTAS_LE.setRowSorter(elQueOrdenasb);
@@ -700,6 +780,25 @@ DefaultTableModel m, m1, msb;
             TB_VENTAS_LE.getColumnModel().getColumn(13).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(14).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(15).setPreferredWidth(180);
+            TB_VENTAS_LE.getColumnModel().getColumn(16).setPreferredWidth(80); 
+            TB_VENTAS_LE.getColumnModel().getColumn(17).setPreferredWidth(50);
+            TB_VENTAS_LE.getColumnModel().getColumn(18).setPreferredWidth(100);
+            TB_VENTAS_LE.getColumnModel().getColumn(19).setPreferredWidth(100);                
+            TB_VENTAS_LE.getColumnModel().getColumn(20).setPreferredWidth(150); 
+            TB_VENTAS_LE.getColumnModel().getColumn(21).setPreferredWidth(150);
+            TB_VENTAS_LE.getColumnModel().getColumn(22).setPreferredWidth(220); 
+            TB_VENTAS_LE.getColumnModel().getColumn(23).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(24).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(25).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(26).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(27).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(28).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(29).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(30).setPreferredWidth(180);
+            TB_VENTAS_LE.getColumnModel().getColumn(31).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(32).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(33).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(34).setPreferredWidth(90);
             
     }
     
