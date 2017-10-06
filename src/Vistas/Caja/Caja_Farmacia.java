@@ -20,7 +20,7 @@ public class Caja_Farmacia extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         Caja_Farmacos CF = new Caja_Farmacos();
-        CF.LISTA_FARMACOS(tb_CPT);
+        CF.LISTA_FARMACOS("",tb_CPT);
     }
 
     /**
@@ -268,10 +268,9 @@ public class Caja_Farmacia extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
-//        Caja_CPT A = new Caja_CPT();
-//        A.LISTA_CPT(buscartodo.getText(),tb_CPT);
-//        Paginas.setSelectedIndex(0);
-//        jLabel33.setText("Resultados de la Busqueda");
+        Caja_Farmacos CF = new Caja_Farmacos();
+        CF.LISTA_FARMACOS(buscartodo.getText(),tb_CPT);
+        jLabel33.setText("Resultados de la Busqueda");
     }//GEN-LAST:event_buscartodoCaretUpdate
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed

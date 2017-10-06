@@ -238,6 +238,28 @@ public boolean guardarUsuario()
         }
         return con;
     }
+    
+    public boolean CAMBIO_CONTRASENA(){
+        boolean resp = false;
+        try{
+            String sql = "exec SISTEMA_CAMBIAR_CONTRASEÑA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getUsu_Usuario());
+            cmd.setString(2, getUsu_Contrasena());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL CAMBIAR LA CONTRASEÑA  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public String Contrasena(String usu,String pregunta)
     {
         String con="";

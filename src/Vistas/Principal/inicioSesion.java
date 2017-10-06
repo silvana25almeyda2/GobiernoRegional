@@ -70,7 +70,10 @@ String hora, minutos, segundos, ampm;
         jDialog1.setVisible(false);
         panelRecuperar.setVisible(false);
         panelError.setVisible(false);
+        lblCambio.setVisible(false);
+        panelCambio.setVisible(false);
         lblError.setVisible(false);
+        estable.setVisible(false);
         jLabel2.setForeground(new Color(255,255,255)); 
         jLabel17.setForeground(new Color(255,255,255)); 
         h1 = new Thread(this);
@@ -120,6 +123,7 @@ String hora, minutos, segundos, ampm;
             st.close();
             Usuario u=new Usuario();
             if(cap.equalsIgnoreCase("")){
+                estable.setVisible(false);
                 panelError.setVisible(true);
                 lblError.setText("Usuario y/o Contraseña Incorrectos");
                 lblError.setVisible(true);
@@ -175,6 +179,42 @@ String hora, minutos, segundos, ampm;
         JOptionPane.showMessageDialog(this,e.getMessage()+ "Error al Iniciar Sesión");
     }
 }
+    
+    public void CAMBIO_CONTRASENA_v(){
+        if(txtContra1.getText().equalsIgnoreCase(txtContra2.getText())==false){
+            estable.setVisible(false);
+            panelError.setVisible(true);
+            lblError.setText("Las Contraseñas no coinciden");
+            lblError.setVisible(true);
+            txtContra2.requestFocus();
+            
+        } else {
+                Usuario cno1 = new Usuario();
+                cno1.setUsu_Usuario(txtUsuario.getText());
+                cno1.setUsu_Contrasena(txtContra2.getText());
+                    if(cno1.CAMBIO_CONTRASENA()==true){
+                        jLabel9.setText("Cuenta");
+                        jLabel2.setForeground(new Color(255,255,255)); 
+                        jLabel17.setForeground(new Color(255,255,255)); 
+                        jPanel7.setVisible(true);
+                        jDialog1.setVisible(false);
+                        txtContra.requestFocus();    
+                        panelError.setVisible(false);
+                        lblError.setVisible(false);
+                        lblCambio.setVisible(true);
+                        panelCambio.setVisible(true);
+//                        jLabel3.setVisible(true);
+//                        jPanel5.setVisible(true);
+                        estable.setVisible(false);
+                        System.out.println("Datos Guardados de forma correcta");
+                            
+                    } else {
+                        panelError.setVisible(true);
+                        lblError.setText("Ocurrio un error, Verifique");
+                        lblError.setVisible(true);
+                    }
+        }                  
+    }
 
     
     //CODIGO DE ADMINISTRADOR
@@ -242,11 +282,11 @@ String hora, minutos, segundos, ampm;
         jLabel17 = new javax.swing.JLabel();
         jDialog1 = new javax.swing.JPanel();
         panelCPT11 = new javax.swing.JPanel();
-        txtPregunta1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        txtContra1 = new javax.swing.JPasswordField();
         panelCPT12 = new javax.swing.JPanel();
-        txtRespuesta1 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        txtContra2 = new javax.swing.JPasswordField();
         jPanel21 = new javax.swing.JPanel();
         btnRecuperar1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -256,6 +296,10 @@ String hora, minutos, segundos, ampm;
         panelError = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         lblError = new javax.swing.JLabel();
+        panelCambio = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lblCambio = new javax.swing.JLabel();
+        estable = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conecta");
@@ -611,27 +655,18 @@ String hora, minutos, segundos, ampm;
         panelCPT11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         panelCPT11.setPreferredSize(new java.awt.Dimension(50, 33));
 
-        txtPregunta1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPregunta1.setForeground(new java.awt.Color(51, 51, 51));
-        txtPregunta1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtPregunta1.setBorder(null);
-        txtPregunta1.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPregunta1CaretUpdate(evt);
-            }
-        });
-        txtPregunta1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPregunta1KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPregunta1KeyTyped(evt);
-            }
-        });
-
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
         jLabel20.setText("Nueva Contraseña");
+
+        txtContra1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtContra1.setForeground(new java.awt.Color(51, 51, 51));
+        txtContra1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        txtContra1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContra1KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCPT11Layout = new javax.swing.GroupLayout(panelCPT11);
         panelCPT11.setLayout(panelCPT11Layout);
@@ -641,44 +676,31 @@ String hora, minutos, segundos, ampm;
                 .addGap(7, 7, 7)
                 .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(txtPregunta1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(txtContra1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelCPT11Layout.setVerticalGroup(
             panelCPT11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCPT11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtPregunta1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtContra1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
         );
 
         panelCPT12.setBackground(new java.awt.Color(255, 255, 255));
         panelCPT12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         panelCPT12.setPreferredSize(new java.awt.Dimension(308, 33));
 
-        txtRespuesta1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtRespuesta1.setForeground(new java.awt.Color(51, 51, 51));
-        txtRespuesta1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtRespuesta1.setBorder(null);
-        txtRespuesta1.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtRespuesta1CaretUpdate(evt);
-            }
-        });
-        txtRespuesta1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtRespuesta1KeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtRespuesta1KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRespuesta1KeyTyped(evt);
-            }
-        });
-
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Repita");
+
+        txtContra2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtContra2.setForeground(new java.awt.Color(51, 51, 51));
+        txtContra2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        txtContra2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContra2KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCPT12Layout = new javax.swing.GroupLayout(panelCPT12);
         panelCPT12.setLayout(panelCPT12Layout);
@@ -688,14 +710,14 @@ String hora, minutos, segundos, ampm;
                 .addGap(7, 7, 7)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtContra2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelCPT12Layout.setVerticalGroup(
             panelCPT12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCPT12Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-            .addComponent(txtRespuesta1)
+            .addComponent(txtContra2, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         jPanel21.setBackground(new java.awt.Color(102, 102, 102));
@@ -849,6 +871,49 @@ String hora, minutos, segundos, ampm;
             }
         });
 
+        panelCambio.setBackground(new java.awt.Color(39, 174, 96));
+        panelCambio.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("!");
+
+        javax.swing.GroupLayout panelCambioLayout = new javax.swing.GroupLayout(panelCambio);
+        panelCambio.setLayout(panelCambioLayout);
+        panelCambioLayout.setHorizontalGroup(
+            panelCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+        panelCambioLayout.setVerticalGroup(
+            panelCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        lblCambio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCambio.setForeground(new java.awt.Color(255, 255, 255));
+        lblCambio.setText("Se cambió la contraseña");
+        lblCambio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCambio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCambioMouseClicked(evt);
+            }
+        });
+
+        estable.setBackground(new java.awt.Color(69, 70, 74));
+        estable.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        javax.swing.GroupLayout estableLayout = new javax.swing.GroupLayout(estable);
+        estable.setLayout(estableLayout);
+        estableLayout.setHorizontalGroup(
+            estableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 25, Short.MAX_VALUE)
+        );
+        estableLayout.setVerticalGroup(
+            estableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 25, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -865,7 +930,12 @@ String hora, minutos, segundos, ampm;
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(panelError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblError)))
+                        .addComponent(lblError))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(panelCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCambio))
+                    .addComponent(estable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -883,7 +953,13 @@ String hora, minutos, segundos, ampm;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(estable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -914,6 +990,8 @@ String hora, minutos, segundos, ampm;
         // TODO add your handling code here:
         panelError.setVisible(false);
         lblError.setVisible(false);
+        lblCambio.setVisible(false);
+        panelCambio.setVisible(false);
         Usuario u=new Usuario();
         Usuario u1=new Usuario();
         if(txtUsuario.getText().equalsIgnoreCase("")){
@@ -927,6 +1005,9 @@ String hora, minutos, segundos, ampm;
             JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
             panelRecuperar.setVisible(false);
         }else{
+            jLabel3.setVisible(false);
+            jPanel5.setVisible(false);
+            estable.setVisible(true);
             jLabel9.setText("Recuperación");
             jPanel7.setVisible(false);
             panelRecuperar.setVisible(true);
@@ -1017,26 +1098,30 @@ String hora, minutos, segundos, ampm;
             lblError.setVisible(true);
 //            JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");
         } else if(txtRespuesta.getText().equalsIgnoreCase("")){
-          
+            estable.setVisible(false);
             panelError.setVisible(true);
             lblError.setText("Escriba su Respuesta");
             lblError.setVisible(true);
 //            JOptionPane.showMessageDialog(rootPane, "Escriba su Respuesta");
         }else if(u.Respuesta(txtUsuario.getText(), txtPregunta.getText()).equalsIgnoreCase(txtRespuesta.getText())){
-            
+            jLabel9.setText("Cambio de contraseña");
+            estable.setVisible(true);
+            panelError.setVisible(false);
+            lblError.setVisible(false);
             jPanel7.setVisible(false);
             panelRecuperar.setVisible(false);
             String a ="";
             a=us.Contrasena(txtUsuario.getText(), txtPregunta.getText());
-            jLabel2.setForeground(new Color(102,102,102)); 
-            jLabel17.setForeground(new Color(102,102,102)); 
+            jLabel2.setForeground(new Color(255,255,255)); 
+            jLabel17.setForeground(new Color(255,255,255)); 
             jLabel2.setText("Su contraseña de Recuperación es    "+a);
             jDialog1.setVisible(true);
             txtPregunta.setText("");
             txtRespuesta.setText("");
-            txtPregunta1.requestFocus();
+            txtContra1.requestFocus();
         }
         else{
+            estable.setVisible(false);
             panelError.setVisible(true);
             lblError.setText("La Respuesta es Incorrecta");
             lblError.setVisible(true);
@@ -1049,42 +1134,27 @@ String hora, minutos, segundos, ampm;
         txtRespuesta.setText(txtRespuesta.getText().toUpperCase());
     }//GEN-LAST:event_txtRespuestaKeyReleased
 
-    private void txtPregunta1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPregunta1CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPregunta1CaretUpdate
-
-    private void txtPregunta1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPregunta1KeyPressed
-
-    private void txtPregunta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPregunta1KeyTyped
-
-    private void txtRespuesta1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtRespuesta1CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuesta1CaretUpdate
-
-    private void txtRespuesta1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRespuesta1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuesta1KeyPressed
-
-    private void txtRespuesta1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRespuesta1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuesta1KeyReleased
-
-    private void txtRespuesta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRespuesta1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuesta1KeyTyped
-
     private void btnRecuperar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperar1ActionPerformed
-        jLabel9.setText("Cuenta");
-        jLabel2.setForeground(new Color(255,255,255)); 
-        jLabel17.setForeground(new Color(255,255,255)); 
-        jPanel7.setVisible(true);
-        jDialog1.setVisible(false);
-        txtContra.requestFocus();
+        CAMBIO_CONTRASENA_v();
+        
     }//GEN-LAST:event_btnRecuperar1ActionPerformed
+
+    private void txtContra1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContra1KeyPressed
+        // TODO add your handling code here:
+
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnIniciarSesion.doClick();
+        }
+    }//GEN-LAST:event_txtContra1KeyPressed
+
+    private void txtContra2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContra2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContra2KeyPressed
+
+    private void lblCambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCambioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCambioMouseClicked
   class TimerListener implements ActionListener{
 
         @Override
@@ -1223,11 +1293,13 @@ String hora, minutos, segundos, ampm;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JButton btnRecuperar1;
+    private javax.swing.JPanel estable;
     private javax.swing.JPanel jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1247,6 +1319,7 @@ String hora, minutos, segundos, ampm;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblCambio;
     private javax.swing.JLabel lblError;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;
@@ -1254,13 +1327,14 @@ String hora, minutos, segundos, ampm;
     private javax.swing.JPanel panelCPT11;
     private javax.swing.JPanel panelCPT12;
     private javax.swing.JPanel panelCPT9;
+    private javax.swing.JPanel panelCambio;
     private javax.swing.JPanel panelError;
     private javax.swing.JPanel panelRecuperar;
     public static javax.swing.JPasswordField txtContra;
+    public static javax.swing.JPasswordField txtContra1;
+    public static javax.swing.JPasswordField txtContra2;
     public static javax.swing.JTextField txtPregunta;
-    public static javax.swing.JTextField txtPregunta1;
     public static javax.swing.JTextField txtRespuesta;
-    public static javax.swing.JTextField txtRespuesta1;
     public static javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

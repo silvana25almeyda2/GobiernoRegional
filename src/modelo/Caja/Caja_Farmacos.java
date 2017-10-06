@@ -24,23 +24,24 @@ DefaultTableModel m;
 private Connection cn;
 Conexion con = new Conexion(); 
 
-    public void LISTA_FARMACOS(JTable tabla){
+    public void LISTA_FARMACOS(String Descripcion,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Código","Ítem"};
+            String titulos[]={"Código","Ítem","Precio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_LISTAR_FARMACOS ";
+            consulta="EXEC CAJA_LISTAR_FARMACOS ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-//            cmd.setString(1, descripcion);
+            cmd.setString(1, Descripcion);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
                 fila[0]=r.getString(1); 
                 fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
                     m.addRow(fila);
                     c++;
             }
@@ -50,13 +51,14 @@ Conexion con = new Conexion();
             tabla.setModel(m);
             Formato(tabla);
         } catch (Exception e) {
-            System.out.println("ERROR AL LISTAR : " + e.getMessage());
+            System.out.println("ERROR AL LISTAR FARMACOS: " + e.getMessage());
         }
     }
     
     public void Formato(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(400);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);
         tabla.setRowHeight(40);
     }
     
