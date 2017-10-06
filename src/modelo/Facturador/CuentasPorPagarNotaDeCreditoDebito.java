@@ -32,6 +32,48 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         cn = con.conectar();
     }
     
+    public boolean CAMBIAR_ESTADO_DOCUMENTO_CAJA_CREDITO(int id_documento){
+         boolean resp = false;
+        try{
+            String sql = "EXEC CUENTAS_POR_PAGAR_NOTA_CREDITO_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, id_documento);
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ESTADO CAJA CREDITO: " + ex.getMessage());
+        }
+        return resp;
+    }
+       
+    public boolean CAMBIAR_ESTADO_DOCUMENTO_CAJA_DEBITO(int id_documento){
+         boolean resp = false;
+        try{
+            String sql = "EXEC CUENTAS_POR_PAGAR_NOTA_DEBITO_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, id_documento);
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ESTADO CAJA DEBITO: " + ex.getMessage());
+        }
+        return resp;
+    }   
+       
     public String generarSerieCorrelativo(String serie){
         String cor="";
         try {
