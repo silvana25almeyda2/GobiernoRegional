@@ -1972,9 +1972,6 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[563, 210]"/>
         </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[563, 200]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
