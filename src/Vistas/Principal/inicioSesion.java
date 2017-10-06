@@ -995,14 +995,18 @@ String hora, minutos, segundos, ampm;
         Usuario u=new Usuario();
         Usuario u1=new Usuario();
         if(txtUsuario.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(this, "Ingrese su Nombre de Usuario");     
+            panelError.setVisible(true);
+            lblError.setText("Ingrese su Nombre de Usuario");
+            lblError.setVisible(true); 
             panelRecuperar.setVisible(false);
 //        } else if(u.ver_usuario(txtUsuario.getText(),"1")==0){
 //        } else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
 
 
         }else if(u.ver_usuario(txtUsuario.getText(),"2")==0){
-            JOptionPane.showMessageDialog(this, "El usuario no existe en el Sistema");     
+            panelError.setVisible(true);
+            lblError.setText("El usuario no existe en el Sistema");
+            lblError.setVisible(true);     
             panelRecuperar.setVisible(false);
         }else{
             jLabel3.setVisible(false);
