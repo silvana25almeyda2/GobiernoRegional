@@ -2492,17 +2492,33 @@ public class Facturador extends javax.swing.JFrame {
         sumDescuento=0.00;
         sumExonerada=0.00;
         double igv,importeTotalVenta,inaf,grav, dscto, exonerada;
-        for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
-            sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
-            sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());
-            sumDescuento = sumDescuento + Double.parseDouble(tbFacturacion.getValueAt(i, 6).toString());
-            if( tbFacturacion.getValueAt(i,5).toString().equalsIgnoreCase("0.00")){
-                sumInafectas= sumInafectas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
-                        *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+        for (int i = 0; i < tbFacturacion.getRowCount(); i++){
+            if(LBL_FORMA_DE_PAGO.getText().equalsIgnoreCase("DONACIONES")){
+                sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
+                sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());
+                sumDescuento = 0.00;
+                sumExonerada = sumExonerada + Double.parseDouble(tbFacturacion.getValueAt(i, 6).toString());
+                if( tbFacturacion.getValueAt(i,5).toString().equalsIgnoreCase("0.00")){
+                    sumInafectas= sumInafectas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
+                            *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+                }else{
+                    sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
+                            *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+                }
             }else{
-                sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
-                        *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+                sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
+                sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());
+                sumDescuento = sumDescuento + Double.parseDouble(tbFacturacion.getValueAt(i, 6).toString());
+                sumExonerada = 0.00;
+                if( tbFacturacion.getValueAt(i,5).toString().equalsIgnoreCase("0.00")){
+                    sumInafectas= sumInafectas+(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())
+                            *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+                }else{
+                    sumGravadas=sumGravadas+((Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())/1.18)
+                            *Double.parseDouble(tbFacturacion.getValueAt(i,3).toString())); 
+                }
             }
+            
                 
         }
         igv = sumatoriaIGV;
