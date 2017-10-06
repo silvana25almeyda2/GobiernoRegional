@@ -120,6 +120,7 @@ public class Facturador extends javax.swing.JFrame {
         inicializar_TB_FACTURADOR();
         TXT_ID_CLIENTE_F.setVisible(false);
         lbl_id_cabecera_factura.setVisible(false);
+        LBL_FORMA_DE_PAGO.setVisible(false);
         cbxTipoOperacion.setBackground(Color.WHITE);
         cbxCodUnidad.setBackground(Color.WHITE);
         cbxDocumento.setBackground(Color.WHITE);
@@ -1574,7 +1575,6 @@ public class Facturador extends javax.swing.JFrame {
                             .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(LBL_FORMA_DE_PAGO, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(254, 254, 254))))
             );
@@ -2255,7 +2255,7 @@ public class Facturador extends javax.swing.JFrame {
                             .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap())
             );
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2541,11 +2541,16 @@ public class Facturador extends javax.swing.JFrame {
         BigDecimal bdD = new BigDecimal(dscto);
         bdD = bdD.setScale(2, BigDecimal.ROUND_HALF_UP);
         
+        exonerada = sumExonerada;
+        BigDecimal bdx = new BigDecimal(exonerada);
+        bdx = bdx.setScale(2, BigDecimal.ROUND_HALF_UP);
+        
         txtMtoIGV.setText(String.valueOf(bd2));
         txtImporteTotalVenta.setText(String.valueOf(bdImporte));
         txtValorVentaInafectada.setText(String.valueOf(bdI));
         txtValorVentaGravada.setText(String.valueOf(bdG));
         txtTotalDscto.setText(String.valueOf(bdD));
+        txtVentaExonerada.setText(String.valueOf(bdx));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void TXT_ID_CLIENTE_FCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_ID_CLIENTE_FCaretUpdate
