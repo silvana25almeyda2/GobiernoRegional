@@ -182,6 +182,47 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             
     }
     
+    
+    
+    private void MostrarPreventa_REMOTO(){
+        Caja_NuevaVenta CPPFR= new Caja_NuevaVenta();
+        Caja_NuevaVenta CPPFRDNI= new Caja_NuevaVenta();
+        CPPFR.CAJA_PREVENTAS_FR(lblDocumento.getText(),tbFR);
+        if(tbFR.getRowCount()==0){
+            CPPFRDNI.CAJA_PREVENTAS_FR(lblCliente.getText(),tbFR);
+        }
+        if(tbFR.getRowCount()>0){
+            CuentasPorPagarFacturasCabecera bf = new CuentasPorPagarFacturasCabecera();
+            if(cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
+            bf.generarSerieCorrelativoFARMACIA("F",lblusu.getText());
+            }else if(cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
+            bf.generarSerieCorrelativoFARMACIA("B",lblusu.getText());
+            }
+            jPanel15.setVisible(true);
+            System.out.println("SE ENCONTRO UNA PREVENTA");
+            jLabel35.setText("Farmacia ["+String.valueOf(tbFR.getRowCount())+"]"); 
+            tbFR.getSelectionModel().setSelectionInterval (0,0) ;
+            try {
+                int fila=tbFR.getSelectedRow();
+                Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
+                CPFR.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDet);
+                lblID_CAB_PREVENTAS.setText(String.valueOf(tbFR.getValueAt(fila, 4)));
+            } catch (Exception e) {
+            }
+            panelCPT1.setVisible(false);
+            lbl6.setVisible(false);
+            
+        }else if(tbFR.getRowCount()==0){
+            System.out.println("No existe Preventa");
+            panelCPT1.setVisible(true);
+            lbl6.setVisible(true);
+            CPT.setVisible(true);
+        }
+            
+    }
+    
+    
+    
     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
         ActionListener escAction = new ActionListener() {
         @Override
@@ -3970,6 +4011,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        btnBuscarCPT1.setEnabled(true);
         if(lblTIPO_DOC.getText().equals("N")){
 //           if(tb_CPT.getRowCount()!=0 && cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
 //                    btnImprimir.setEnabled(true);
@@ -4455,6 +4497,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
         btnTerminiarVenta.setEnabled(false);
+        btnBuscarCPT1.setEnabled(true);
         if(cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
@@ -4463,7 +4506,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 ACTUALIZAR_PREVENTA();
                 ACTUALIZAR_PREVENTA_CAB();
             }
-            
             nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
             panelAnular.setVisible(false);
             panelEliminacion.setVisible(false);
@@ -4542,7 +4584,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 //            CARGAR_PREVENTA(); 
 //            CARGAR();
             NUEVO_REGISTRO(ConexionS);   
-            MostrarPreventa();
+            MostrarPreventa_REMOTO();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
