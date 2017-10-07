@@ -547,10 +547,7 @@ public class Facturador extends javax.swing.JFrame {
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
-//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-//                        String.valueOf("") +
-//                        String.valueOf("") + 
+                        "01" +
                             "|" +
                         String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                         String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA

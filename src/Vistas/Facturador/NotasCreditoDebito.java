@@ -5644,7 +5644,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                 txtISC.getText() + "|" + 
 //                                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) +
-                                        String.valueOf("") +
+                                        String.valueOf("01") +
                                          "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                                 String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
@@ -5664,7 +5664,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                 txtISC.getText() + "|" + 
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
-                                        String.valueOf("") +
+                                        String.valueOf("01") +
                                         "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                                 String.valueOf(tbFacturacion.getValueAt(c, 7)) //VALOR DE VENTA 
@@ -6016,8 +6016,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                 txtISCDebito.getText()+ "|" + 
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1))+
-                                        String.valueOf("") +
-                                        String.valueOf("") +
+                                        
+                                        String.valueOf("01") +
                                     "|" +
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 4)) + "|" + //PRECIO DE VENTA
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 7)) //VALOR DE VENTA 
