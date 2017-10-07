@@ -4538,6 +4538,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             Facturador.txtSerieF.setText(txtSerieC.getText());
             Facturador.lblNroCorrelativo.setText(lblNroCorrelativoC.getText());
             Facturador.LBL_FORMA_DE_PAGO.setText(cbxFormaPago.getSelectedItem().toString());
+            Facturador.lblusu.setText(Caja_Ventas.lblusu.getText());
             CARGAR_TB_FACTURADOR();
         }
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed

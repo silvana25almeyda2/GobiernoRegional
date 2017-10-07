@@ -1570,13 +1570,15 @@ public class Facturador extends javax.swing.JFrame {
                             .addGap(22, 22, 22))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(lblDNI3)
-                            .addGap(18, 18, 18)
-                            .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(LBL_FORMA_DE_PAGO, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(254, 254, 254))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblDNI3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap())
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(LBL_FORMA_DE_PAGO, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(254, 254, 254))))))
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2731,7 +2733,7 @@ public class Facturador extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNroCorrelativo;
     private javax.swing.JLabel lblTitulo;
     public static javax.swing.JLabel lbl_id_cabecera_factura;
-    private javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblusu;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;
     private javax.swing.JPanel panelCPT15;
