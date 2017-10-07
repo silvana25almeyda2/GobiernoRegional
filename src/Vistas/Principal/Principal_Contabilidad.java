@@ -5,6 +5,7 @@
  */
 package Vistas.Principal;
 
+import Contabilidad.Contabilidad_Retenciones;
 import Contabilidad.Contabilidad_Ventas;
 import java.awt.Dimension;
 import javax.swing.JComponent;
@@ -49,6 +50,8 @@ private Dimension DimensionBarra = null;
         btnCaja1 = new javax.swing.JButton();
         PanelCaja4 = new javax.swing.JPanel();
         btnCaja2 = new javax.swing.JButton();
+        PanelCaja5 = new javax.swing.JPanel();
+        btnCaja3 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
@@ -180,6 +183,47 @@ private Dimension DimensionBarra = null;
             .addComponent(btnCaja2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
+        PanelCaja5.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCaja3.setBackground(new java.awt.Color(102, 102, 102));
+        btnCaja3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        btnCaja3.setForeground(new java.awt.Color(51, 51, 51));
+        btnCaja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Move Stock-64.png"))); // NOI18N
+        btnCaja3.setText("Retenciones");
+        btnCaja3.setContentAreaFilled(false);
+        btnCaja3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja3.setFocusPainted(false);
+        btnCaja3.setFocusable(false);
+        btnCaja3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaja3.setIconTextGap(30);
+        btnCaja3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Move Stock-64(1).png"))); // NOI18N
+        btnCaja3.setVerifyInputWhenFocusTarget(false);
+        btnCaja3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCaja3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCaja3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCaja3MouseEntered(evt);
+            }
+        });
+        btnCaja3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaja3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCaja5Layout = new javax.swing.GroupLayout(PanelCaja5);
+        PanelCaja5.setLayout(PanelCaja5Layout);
+        PanelCaja5Layout.setHorizontalGroup(
+            PanelCaja5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+        );
+        PanelCaja5Layout.setVerticalGroup(
+            PanelCaja5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCaja3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -189,13 +233,16 @@ private Dimension DimensionBarra = null;
                 .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelCaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(PanelCaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelCaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelCaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(158, Short.MAX_VALUE))
@@ -250,12 +297,28 @@ private Dimension DimensionBarra = null;
         CTV.setVisible(true);
     }//GEN-LAST:event_btnCaja2ActionPerformed
 
+    private void btnCaja3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja3MouseClicked
+
+    private void btnCaja3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaja3MouseEntered
+
+    private void btnCaja3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja3ActionPerformed
+        Contabilidad_Retenciones CTR = new Contabilidad_Retenciones();
+        CTR.lblusu.setText(Principal.lblUsu.getText());
+        CTR.setVisible(true);
+    }//GEN-LAST:event_btnCaja3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelCaja3;
     private javax.swing.JPanel PanelCaja4;
+    private javax.swing.JPanel PanelCaja5;
     public static javax.swing.JButton btnCaja1;
     public static javax.swing.JButton btnCaja2;
+    public static javax.swing.JButton btnCaja3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel38;
