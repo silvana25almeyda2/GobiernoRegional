@@ -1,4 +1,3 @@
-//OFICIAL
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,21 +14,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
- * @author Profe
+ * @author MYS1
  */
-public class Conexion {
+public class Conexion_siga {
+    
+    static String servidor_siga="";
+    static String puerto_siga="";
+    static String user_siga="";
+    static String password_siga="";
+    static String baseDatos_siga="";  
 
-
-    static String servidor="";
-    static String puerto="";
-    static String user="";
-    static String password="";
-    static String baseDatos="";    
-   
     public void leerTexto(String direccion){
         try {
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
@@ -38,19 +34,19 @@ public class Conexion {
             while((bfRead = bf.readLine()) != null){
                 cont = cont + 1;
                 if (cont ==1){
-                    servidor = "" + bfRead + "";
+                    servidor_siga = "" + bfRead + "";
                 }
                 if (cont ==2){
-                    puerto = "" + bfRead + "";
+                    puerto_siga = "" + bfRead + "";
                 }
                 if (cont ==3){
-                    user = "" + bfRead + "";
+                    user_siga = "" + bfRead + "";
                 }
                 if (cont ==4){
-                    password = "" + bfRead + "";
+                    password_siga = "" + bfRead + "";
                 }
                 if (cont ==5){
-                    baseDatos = "" + bfRead + "";
+                    baseDatos_siga = "" + bfRead + "";
                 }
             }
         } catch (Exception e) {
@@ -62,10 +58,10 @@ public class Conexion {
        
      public Connection conectar(){
         try{
-            leerTexto("C:\\SOF\\conexion.txt");
+            leerTexto("C:\\SOF\\conexion_siga.txt");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
-                    +";user="+user+";password="+password;
+            String url="jdbc:sqlserver://"+servidor_siga+":"+puerto_siga+";"+"databaseName="+baseDatos_siga
+                    +";user="+user_siga+";password="+password_siga;
             conexion=DriverManager.getConnection(url);
 //             System.out.println("Conexión exitosa");
         }
@@ -79,8 +75,8 @@ public class Conexion {
      
      public ResultSet Listar(String cad){
         try {
-            String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
-                    +";user="+user+";password="+password;
+            String url="jdbc:sqlserver://"+servidor_siga+":"+puerto_siga+";"+"databaseName="+baseDatos_siga
+                    +";user="+user_siga+";password="+password_siga;
             conexion=DriverManager.getConnection(url);
             
             PreparedStatement da=conexion.prepareStatement(cad);
@@ -90,11 +86,11 @@ public class Conexion {
             return null;
         }
     }
-//
-////     
-//        public static void main(String[] args) throws SQLException {
+    
+//    public static void main(String[] args) throws SQLException {
 //        Conexion conexion = new Conexion();
-//        Connection con = conexion.conectar();      
-//        }
-
-     }
+//        Connection con = conexion.conectar();
+//       
+//    }
+    
+}
