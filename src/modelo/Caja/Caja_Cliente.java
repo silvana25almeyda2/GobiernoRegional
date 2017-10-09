@@ -34,7 +34,7 @@ private String RAZON_SOCIAL;
 private String DIRECCION;
 private String CORREO;
 private String TIPO_MONEDA;
-private int CODIGO_FISCAL;
+private String CODIGO_FISCAL;
 private String TIPO_DOCUMENTO;
 private String USUARIO;
 private String ESTADO; 
@@ -56,7 +56,7 @@ Conexion con = new Conexion();
             cmd.setString(7, getDIRECCION());
             cmd.setString(8, getCORREO());
             cmd.setString(9, getTIPO_MONEDA());
-            cmd.setInt(10, getCODIGO_FISCAL());
+            cmd.setString(10, getCODIGO_FISCAL());
             cmd.setString(11, getTIPO_DOCUMENTO());
             cmd.setString(12, getUSUARIO());
             if(!cmd.execute())
@@ -72,6 +72,53 @@ Conexion con = new Conexion();
         }
         return resp;
     }
+    
+    public boolean NUEVO_CLIENTE_SM(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CLIENTES_NUEVO_SM "
+                        + "?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getDNI());
+            cmd.setString(2, getNOMBRES());
+            cmd.setString(3, getAPELLIDO_PATERNO());
+            cmd.setString(4, getAPELLIDO_MATERNO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL REGISTRAR CLIENTE EN SISMED " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean NUEVO_CLIENTE_SM_F(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CLIENTES_NUEVO_SM_F "
+                        + "?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getDNI());
+            cmd.setString(2, getRAZON_SOCIAL());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL REGISTRAR CLIENTE EN SISMED " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     
     public boolean MODIFICAR_CLIENTE(){
         boolean resp = false;
@@ -89,7 +136,7 @@ Conexion con = new Conexion();
             cmd.setString(8, getDIRECCION());
             cmd.setString(9, getCORREO());
             cmd.setString(10, getTIPO_MONEDA());
-            cmd.setInt(11, getCODIGO_FISCAL());
+            cmd.setString(11, getCODIGO_FISCAL());
             cmd.setString(12, getTIPO_DOCUMENTO());
             cmd.setString(13, getUSUARIO());
             if(!cmd.execute())
@@ -337,11 +384,11 @@ Conexion con = new Conexion();
         this.TIPO_MONEDA = TIPO_MONEDA;
     }
 
-    public int getCODIGO_FISCAL() {
+    public String getCODIGO_FISCAL() {
         return CODIGO_FISCAL;
     }
 
-    public void setCODIGO_FISCAL(int CODIGO_FISCAL) {
+    public void setCODIGO_FISCAL(String CODIGO_FISCAL) {
         this.CODIGO_FISCAL = CODIGO_FISCAL;
     }
 

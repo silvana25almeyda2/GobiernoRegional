@@ -141,6 +141,36 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         }
     }
     
+    public void NUEVO_REGISTRO_SM_N(){
+       
+                Caja_Cliente cno1 = new Caja_Cliente();
+                cno1.setDNI(txtDOC.getText());
+                cno1.setNOMBRES(txtNom.getText());
+                cno1.setAPELLIDO_PATERNO(txtApeP.getText());
+                cno1.setAPELLIDO_MATERNO(txtApeM.getText());
+                    if(cno1.NUEVO_CLIENTE_SM()==true){ 
+                            System.out.println("Datos Guardados de forma correcta");
+                           
+                    } else {
+                        System.out.println("Ocurrio un error, Verifique");
+
+                    }     
+    }
+    
+    public void NUEVO_REGISTRO_SM_J(){
+       
+                Caja_Cliente cno1 = new Caja_Cliente();
+                cno1.setDNI(txtDOC.getText());
+                cno1.setRAZON_SOCIAL(txtRazonS.getText());
+                    if(cno1.NUEVO_CLIENTE_SM_F()==true){ 
+                            System.out.println("Datos Guardados de forma correcta");
+                           
+                    } else {
+                        System.out.println("Ocurrio un error, Verifique");
+
+                    }     
+    }
+    
     public void NUEVO_REGISTRO(){
         if(valida_Email(txtCorreo.getText())==false){
             System.out.println("correo no valido");
@@ -166,11 +196,15 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 cno1.setDIRECCION(txtDireccion.getText());
                 cno1.setCORREO(txtCorreo.getText());
                 cno1.setTIPO_MONEDA(cbxMoneda.getSelectedItem().toString());
-                cno1.setCODIGO_FISCAL(Integer.parseInt(txtCodigo.getText()));
+                cno1.setCODIGO_FISCAL(txtCodigo.getText());
                 cno1.setTIPO_DOCUMENTO(cbxTipoDoc.getSelectedItem().toString());
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.NUEVO_CLIENTE()==true){
                         if(lblTipoR.getText().equals("N")){
+                            if(txtT1.getText().equals("X"))
+                                    NUEVO_REGISTRO_SM_N();
+                            else if(txtT2.getText().equals("X"))
+                                    NUEVO_REGISTRO_SM_J();
                             cargareliminar.setVisible(true);
                             cargareliminar.setBackground(new Color(0,153,102)); 
                             Mensaje.setText("Datos Guardados de forma correcta");
@@ -186,6 +220,10 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                             jLabel33.setText("Listado");
                             Paginas.setSelectedIndex(0);
                         }else if(lblTipoR.getText().equals("C")){
+                            if(txtT1.getText().equals("X"))
+                                    NUEVO_REGISTRO_SM_N();
+                            else if(txtT2.getText().equals("X"))
+                                    NUEVO_REGISTRO_SM_J();
                             Caja_NuevaVenta CNC = new Caja_NuevaVenta();
                             CNC.ULTIMO_CLIENTE_REGISTRADO(Principal.lblUsu.getText());
                             Caja_Ventas.jButton1.doClick();
@@ -218,7 +256,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 cno1.setDIRECCION(txtDireccion.getText());
                 cno1.setCORREO(txtCorreo.getText());
                 cno1.setTIPO_MONEDA(cbxMoneda.getSelectedItem().toString());
-                cno1.setCODIGO_FISCAL(Integer.parseInt(txtCodigo.getText()));
+                cno1.setCODIGO_FISCAL(txtCodigo.getText());
                 cno1.setTIPO_DOCUMENTO(cbxTipoDoc.getSelectedItem().toString());
                 cno1.setUSUARIO(lblusu.getText());
                     if(cno1.MODIFICAR_CLIENTE()==true){
