@@ -175,7 +175,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                  
                 if(tFRDetINAFECTO.getRowCount()>0){
                     jLabel36.setText("INAFECTO AL IGV  ["+String.valueOf(tFRDetINAFECTO.getRowCount())+"]"); 
-                    lblA.setText(String.valueOf(tFRDetINAFECTO.getRowCount()));
+                    lblI.setText(String.valueOf(tFRDetINAFECTO.getRowCount()));
                     panelINAFECTO.setVisible(true);
                     panelAFECTO.setVisible(false);
                     jLabel35.setForeground(new Color(153,153,153)); 
@@ -183,13 +183,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     lblEstadoFR.setText("I");
                 }else if(tFRDetINAFECTO.getRowCount()==0){
                     jLabel36.setText("INAFECTO AL IGV  [0]"); 
-                    lblA.setText("0");
+                    lblI.setText("0");
                     panelINAFECTO.setVisible(false);
                     panelAFECTO.setVisible(true);
                 }
                 if(tFRDet.getRowCount()>0){
                     jLabel35.setText("AFECTO AL IGV  ["+String.valueOf(tFRDet.getRowCount())+"]"); 
-                    lblI.setText(String.valueOf(tFRDet.getRowCount()));
+                    lblA.setText(String.valueOf(tFRDet.getRowCount()));
                     panelAFECTO.setVisible(true);
                     panelINAFECTO.setVisible(false);
                     jLabel35.setForeground(new Color(153,153,153)); 
@@ -198,7 +198,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 }else if(tFRDet.getRowCount()==0){
                     
                     jLabel35.setText("AFECTO AL IGV  [0]"); 
-                    lblI.setText("0");
+                    lblA.setText("0");
                     panelAFECTO.setVisible(false);
                     panelINAFECTO.setVisible(true);
                 }
