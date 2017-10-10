@@ -180,8 +180,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     jLabel35.setForeground(new Color(153,153,153)); 
                     jLabel36.setForeground(new Color(102,102,102)); 
                     lblEstadoFR.setText("I");
-                }else if(tFRDetINAFECTO.getRowCount()>0){
-                    jLabel36.setText("AFECTO AL IGV  [0]"); 
+                }else if(tFRDetINAFECTO.getRowCount()==0){
+                    jLabel36.setText("INAFECTO AL IGV  [0]"); 
                     panelINAFECTO.setVisible(false);
                     panelAFECTO.setVisible(true);
                 }
@@ -194,7 +194,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     lblEstadoFR.setText("A");
                 }else if(tFRDet.getRowCount()==0){
                     
-                    jLabel35.setText("INAFECTO AL IGV  [0]"); 
+                    jLabel35.setText("AFECTO AL IGV  [0]"); 
                     panelAFECTO.setVisible(false);
                     panelINAFECTO.setVisible(true);
                     
@@ -757,7 +757,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 cno1.setDESCRIP_PRE(lblID_DETALLE.getText());
                 cno1.ANULAR_PREVENTA();
                 Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
-                CPFR.CAJA_PREVENTAS_FR_DETALLE(lblID_CAB.getName(),tFRDetINAFECTO);
+                CPFR.CAJA_PREVENTAS_FR_DETALLE_INAFECTO(lblID_CAB.getName(),tFRDetINAFECTO);
                 panelEliminarFR.setVisible(false);
                 System.out.println("SE ANULO LA PREVENTA"); 
                    
@@ -4872,13 +4872,17 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_btnImprimir2ActionPerformed
 
     private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
-        if(tFRDet.getRowCount()>0){
+//        if(tFRDet.getRowCount()>0){
+            int fila=tbFR.getSelectedRow();
+            Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
+            CPFR.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDet);
+            btnEliminarHOS1.setEnabled(false);
             panelAFECTO.setVisible(true);
             panelINAFECTO.setVisible(false);
             jLabel36.setForeground(new Color(153,153,153)); 
             jLabel35.setForeground(new Color(102,102,102)); 
             lblEstadoFR.setText("A");
-        }
+//        }
         
     }//GEN-LAST:event_jLabel35MouseClicked
 
@@ -4896,8 +4900,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 //            FPFR.CONSULTAR_COD_FP_FR(txtFormaPago.getText());
             ////////////////////////////////////////////////////////////////////
             CPFR.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDet);
-            CPFRI.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDetINAFECTO);
-            
+            CPFRI.CAJA_PREVENTAS_FR_DETALLE_INAFECTO(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDetINAFECTO);
+            jLabel35.setText("AFECTO AL IGV  ["+String.valueOf(tFRDet.getRowCount())+"]"); 
+            jLabel36.setText("INAFECTO AL IGV  ["+String.valueOf(tFRDetINAFECTO.getRowCount())+"]"); 
         }
     }//GEN-LAST:event_tbFRMouseClicked
 
@@ -5006,13 +5011,17 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_eli10ActionPerformed
 
     private void jLabel36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel36MouseClicked
-        if(tFRDetINAFECTO.getRowCount()>0){
+//        if(tFRDetINAFECTO.getRowCount()>0){
+            int fila=tbFR.getSelectedRow();
+            Caja_NuevaVenta CPFRI = new Caja_NuevaVenta();
+            CPFRI.CAJA_PREVENTAS_FR_DETALLE_INAFECTO(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDetINAFECTO);
+            btnEliminarHOS1.setEnabled(false);
             panelAFECTO.setVisible(false);
             panelINAFECTO.setVisible(true);
             jLabel35.setForeground(new Color(153,153,153)); 
             jLabel36.setForeground(new Color(102,102,102)); 
             lblEstadoFR.setText("I");
-        }
+//        }
         
     }//GEN-LAST:event_jLabel36MouseClicked
 
