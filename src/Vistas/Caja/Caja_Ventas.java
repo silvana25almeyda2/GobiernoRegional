@@ -758,10 +758,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }
         
         public void CAMBIAR_ESTADO_PREVENTA_DETALLE_INAFECTO(){
-            for(int i = 0; i < tFRDet.getRowCount(); i++){
+            for(int i = 0; i < tFRDetINAFECTO.getRowCount(); i++){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
-                cno1.setID_PREVENTA(String.valueOf(tFRDet.getValueAt(i, 0)));
-                cno1.setCOD_FR(String.valueOf(tFRDet.getValueAt(i, 10)));
+                cno1.setID_PREVENTA(String.valueOf(tFRDetINAFECTO.getValueAt(i, 0)));
+                cno1.setCOD_FR(String.valueOf(tFRDetINAFECTO.getValueAt(i, 10)));
                 cno1.ACTUALIZAR_PREVENTA();
                 System.out.println("SE ACTUALIZO EL ESTADO DE LA PREVENTA"); 
 //                    } else {
@@ -4679,7 +4679,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     CAMBIAR_ESTADO_PREVENTA_DETALLE_AFECTO();
                     
                 }else if(lblI.getText().equals("0")||!lblA.getText().equals("0")){
-                    CAMBIAR_ESTADO_PREVENTA_DETALLE_AFECTO();
+                    CAMBIAR_ESTADO_PREVENTA_DETALLE_INAFECTO();
                     System.out.println("VAMO DEJANDO UNA PARTE DE LA PREVENTA");
                 }
                 if(lblA.getText().equals("0")||lblI.getText().equals("0")){
@@ -4879,10 +4879,18 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnCargarHOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarHOS1ActionPerformed
         if(!lblID_CAB_PREVENTAS.getText().equals("lblID_CAB_PREVENTAS")){
-            lblGrupo.setText("10 GRAVADO-OPERACIÓN ONEROSA");
-            CARGAR_TB_FR();
-            SUMA();
-            jPanel15.setVisible(false);
+            if(lblEstadoFR.getText().equals("A")){
+                lblGrupo.setText("10 GRAVADO-OPERACIÓN ONEROSA");
+                CARGAR_TB_FR();
+                SUMA();
+                jPanel15.setVisible(false);
+            }else if(lblEstadoFR.getText().equals("I")){
+                        lblGrupo.setText("30 INAFECTO-OPERACIÓN ONEROSA");
+                        CARGAR_TB_FR();
+                        SUMA();
+                        jPanel15.setVisible(false);
+            }
+            
         }
     }//GEN-LAST:event_btnCargarHOS1ActionPerformed
 
