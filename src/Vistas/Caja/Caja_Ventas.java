@@ -423,6 +423,55 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         }
     }
     
+    public void CARGAR_TB_FR_INAFECTO(){
+        try {        
+            modeloFR = (DefaultTableModel) tFRDetINAFECTO.getModel();          
+            if(tFRDetINAFECTO.getRowCount()==0){
+                JOptionPane.showMessageDialog(null, "No hay registros que cargar");
+            }else{
+            //pasar datos de una tabla a otra
+            for (int i=0;i<modeloFR.getRowCount(); i++){
+                String  ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,SUBTOTAL,DESCUENTO;
+                
+                ////////////////////////////////////////////////////////////////
+                ID_CPT = tFRDetINAFECTO.getValueAt(i, 7).toString();
+                ID_GRUPO = tFRDetINAFECTO.getValueAt(i, 10).toString();
+                CPTs = tFRDetINAFECTO.getValueAt(i, 9).toString();
+                DESCRIPCION = tFRDetINAFECTO.getValueAt(i, 4).toString();
+                //Cargar los datos a la otra tabla 
+                CANTIDAD=tFRDetINAFECTO.getValueAt(i, 3).toString();
+                double c=0.00,p=0.00,t=0.00,DESCT=0.00,DC=0.00;
+                c=Double.parseDouble(tFRDetINAFECTO.getValueAt(i, 3).toString());
+                p=Double.parseDouble(tFRDetINAFECTO.getValueAt(i, 4).toString());
+                DESCT=Double.parseDouble(txtPorcentaje.getText());  
+                t=c*p;
+                DC=t*(DESCT/100);
+                SUBTOTAL=(String.valueOf(t) );
+                BigDecimal ST = new BigDecimal(SUBTOTAL);
+                ST = ST.setScale(2, BigDecimal.ROUND_HALF_UP);
+                
+                BigDecimal STDC = new BigDecimal(DC);
+                STDC = STDC.setScale(2, BigDecimal.ROUND_HALF_UP);
+                
+                String STS;
+                STS=(String.valueOf(ST) );
+                DESCUENTO=(String.valueOf(STDC) );
+                //Cargar los datos a la otra tabla 
+                modeloFR2 = (DefaultTableModel) tb_CPT.getModel();
+                String filaelemento[] = {ID_CPT, ID_GRUPO,CPTs,DESCRIPCION,CANTIDAD,STS,DESCUENTO};
+                modeloFR2.addRow(filaelemento);     
+            }   
+                PanelCantidad.setVisible(false);
+                jScrollPane4.setVisible(true); 
+                panelNumeros.setVisible(true); 
+                Formato();
+                Preventas.dispose();
+        }    
+        } catch (Exception e) {
+            System.out.println("ERROR AL CARGAR LOS DATOSsss " + e.getMessage()); 
+        }
+    }
+    
     public boolean repiteDetalle(){
          int filaselec=tb_CPTBUSCAR.getSelectedRow();
          boolean c=false;
@@ -699,6 +748,16 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 cno1.ANULAR_PREVENTA();
                 Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
                 CPFR.CAJA_PREVENTAS_FR_DETALLE(lblID_CAB.getName(),tFRDet);
+                panelEliminarFR.setVisible(false);
+                System.out.println("SE ANULO LA PREVENTA"); 
+                   
+    }
+    public void ANULAR_PREVENTA_INAFECTO(){
+                Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
+                cno1.setDESCRIP_PRE(lblID_DETALLE.getText());
+                cno1.ANULAR_PREVENTA();
+                Caja_NuevaVenta CPFR = new Caja_NuevaVenta();
+                CPFR.CAJA_PREVENTAS_FR_DETALLE(lblID_CAB.getName(),tFRDetINAFECTO);
                 panelEliminarFR.setVisible(false);
                 System.out.println("SE ANULO LA PREVENTA"); 
                    
@@ -4870,7 +4929,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tFRDetKeyPressed
 
     private void eli9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli9ActionPerformed
-        ANULAR_PREVENTA();
+        if(lblEstadoFR.getText().equals("A")){
+            ANULAR_PREVENTA();
+        }else if(lblEstadoFR.getText().equals("I")){
+            ANULAR_PREVENTA_INAFECTO();
+        }
     }//GEN-LAST:event_eli9ActionPerformed
 
     private void noeli7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeli7ActionPerformed
@@ -4886,7 +4949,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 jPanel15.setVisible(false);
             }else if(lblEstadoFR.getText().equals("I")){
                         lblGrupo.setText("30 INAFECTO-OPERACIÓN ONEROSA");
-                        CARGAR_TB_FR();
+                        CARGAR_TB_FR_INAFECTO();
                         SUMA();
                         jPanel15.setVisible(false);
             }
@@ -4953,7 +5016,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_jLabel36MouseClicked
 
     private void tFRDetINAFECTOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFRDetINAFECTOMouseClicked
-        // TODO add your handling code here:
+        int fila=tFRDetINAFECTO.getSelectedRow();
+        if(evt.getClickCount()==1){
+            lblID_DETALLE.setText(String.valueOf(tFRDetINAFECTO.getValueAt(fila, 2)));
+            System.out.println("VAMO ELIMINANDO       "+String.valueOf(tFRDetINAFECTO.getValueAt(fila, 2)));
+            lblID_CAB.setText(String.valueOf(tFRDetINAFECTO.getValueAt(fila, 0)));
+            btnEliminarHOS1.setEnabled(true);
+        }
     }//GEN-LAST:event_tFRDetINAFECTOMouseClicked
 
     private void tFRDetINAFECTOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFRDetINAFECTOKeyPressed
