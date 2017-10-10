@@ -63,7 +63,8 @@ private double TOTAL ;
 private double IGVD ;
 private double GRAVADA;
 private double INAFECTA;
-private double DESCUENTOD;                
+private double DESCUENTOD;   
+private String COD_FR;
     
 
     
@@ -319,9 +320,10 @@ private double DESCUENTOD;
     public boolean ACTUALIZAR_PREVENTA(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_PREVENTA_ACTUALIZAR_ESTADO ?";
+            String sql = "exec CAJA_PREVENTA_ACTUALIZAR_ESTADO ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getID_PREVENTA());
+            cmd.setString(2, getCOD_FR());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1149,6 +1151,45 @@ private double DESCUENTOD;
             System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
         }
     }
+    public void CAJA_PREVENTAS_FR_DETALLE_INAFECTO(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID_CABECERA","ID_CABECERA","Descripción","Cantidad","Precio","Estado","ID_CABECERA",
+            "ID_PRECIO","ID_CTP","NOMBRE","ITEM"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA_DETALLE_INAFECTO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR_DETALLE(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
+        }
+    }
 public void formatoPreventaFR_DETALLE(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -1415,6 +1456,13 @@ public void formatoPreventaFR_DETALLE(JTable tabla){
     public void setDESCUENTOD(double DESCUENTOD) {
         this.DESCUENTOD = DESCUENTOD;
     }
-     
+
+    public String getCOD_FR() {
+        return COD_FR;
+    }
+
+    public void setCOD_FR(String COD_FR) {
+        this.COD_FR = COD_FR;
+    }
     
 }

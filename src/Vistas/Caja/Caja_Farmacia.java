@@ -535,6 +535,7 @@ Connection ConexionS=c.conectar();
             CARGAR();
             jLabel33.setText("Listado");
             panelIGV.setVisible(false);
+            cargareliminar.setVisible(false);
         }
        
     }//GEN-LAST:event_tb_FARMACIAMouseClicked
@@ -551,6 +552,7 @@ Connection ConexionS=c.conectar();
             CARGAR();
             btneditar.setEnabled(false);
             btnguardar.setEnabled(true);
+            cargareliminar.setVisible(false);
         }
     }//GEN-LAST:event_tb_FARMACIAKeyPressed
 
