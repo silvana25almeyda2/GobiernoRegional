@@ -175,6 +175,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                  
                 if(tFRDetINAFECTO.getRowCount()>0){
                     jLabel36.setText("INAFECTO AL IGV  ["+String.valueOf(tFRDetINAFECTO.getRowCount())+"]"); 
+                    lblA.setText(String.valueOf(tFRDetINAFECTO.getRowCount()));
                     panelINAFECTO.setVisible(true);
                     panelAFECTO.setVisible(false);
                     jLabel35.setForeground(new Color(153,153,153)); 
@@ -182,11 +183,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     lblEstadoFR.setText("I");
                 }else if(tFRDetINAFECTO.getRowCount()==0){
                     jLabel36.setText("INAFECTO AL IGV  [0]"); 
+                    lblA.setText("0");
                     panelINAFECTO.setVisible(false);
                     panelAFECTO.setVisible(true);
                 }
                 if(tFRDet.getRowCount()>0){
                     jLabel35.setText("AFECTO AL IGV  ["+String.valueOf(tFRDet.getRowCount())+"]"); 
+                    lblI.setText(String.valueOf(tFRDet.getRowCount()));
                     panelAFECTO.setVisible(true);
                     panelINAFECTO.setVisible(false);
                     jLabel35.setForeground(new Color(153,153,153)); 
@@ -195,12 +198,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 }else if(tFRDet.getRowCount()==0){
                     
                     jLabel35.setText("AFECTO AL IGV  [0]"); 
+                    lblI.setText("0");
                     panelAFECTO.setVisible(false);
                     panelINAFECTO.setVisible(true);
-                    
                 }
-                   
-                
             } catch (Exception e) {
             }
             panelCPT1.setVisible(false);
@@ -4735,17 +4736,15 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             if(!lblID_CAB_PREVENTAS.getText().equals("jLabel1")){
 //                ACTUALIZAR_PREVENTA();
                 if(lblA.getText().equals("0")||!lblI.getText().equals("0")){
-                    CAMBIAR_ESTADO_PREVENTA_DETALLE_AFECTO();
-                    
-                }else if(lblI.getText().equals("0")||!lblA.getText().equals("0")){
+                    CAMBIAR_ESTADO_PREVENTA_DETALLE_AFECTO();  
+                } 
+                if(lblI.getText().equals("0")||!lblA.getText().equals("0")){
                     CAMBIAR_ESTADO_PREVENTA_DETALLE_INAFECTO();
-                    System.out.println("VAMO DEJANDO UNA PARTE DE LA PREVENTA");
                 }
                 if(lblA.getText().equals("0")||lblI.getText().equals("0")){
                     ACTUALIZAR_PREVENTA_CAB();
                 }
-                
-                
+
             }
             nuevaV.reporteVenta(Integer.parseInt(lblID_CABECERA.getText()));
             panelAnular.setVisible(false);
@@ -4902,7 +4901,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CPFR.CAJA_PREVENTAS_FR_DETALLE(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDet);
             CPFRI.CAJA_PREVENTAS_FR_DETALLE_INAFECTO(String.valueOf(tbFR.getValueAt(fila, 4)),tFRDetINAFECTO);
             jLabel35.setText("AFECTO AL IGV  ["+String.valueOf(tFRDet.getRowCount())+"]"); 
+            lblA.setText(String.valueOf(tFRDet.getRowCount()));
             jLabel36.setText("INAFECTO AL IGV  ["+String.valueOf(tFRDetINAFECTO.getRowCount())+"]"); 
+            lblI.setText(String.valueOf(tFRDetINAFECTO.getRowCount()));
         }
     }//GEN-LAST:event_tbFRMouseClicked
 
@@ -4952,13 +4953,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 CARGAR_TB_FR();
                 SUMA();
                 jPanel15.setVisible(false);
-                lblA.setText("A");
             }else if(lblEstadoFR.getText().equals("I")){
                         lblGrupo.setText("30 INAFECTO-OPERACIÓN ONEROSA");
                         CARGAR_TB_FR_INAFECTO();
                         SUMA();
                         jPanel15.setVisible(false);
-                        lblI.setText("I");
             }
         }
     }//GEN-LAST:event_btnCargarHOS1ActionPerformed
