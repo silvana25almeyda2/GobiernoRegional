@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ public class Contabilidad_Ventas extends javax.swing.JFrame {
 ResultSet r;
 Conexion c=new Conexion();
 Connection conexion=c.conectar();
-
+static Contabilidad_LE DT = new Contabilidad_LE();
 DefaultTableModel m, m1, msb;
     /**
      * Creates new form Contabilidad_Ventas
@@ -50,7 +51,7 @@ DefaultTableModel m, m1, msb;
         this.cbxAnios.setModel(Anio());
         cbxAnios.setBackground(Color.white);
         cbxMeses.setBackground(Color.white);
-        
+        LBL_FECHA_ACTUAL.setText(fechaActual());
         inicializar_tabla_VENTAS_LE();
     }
 
@@ -77,6 +78,7 @@ DefaultTableModel m, m1, msb;
         cbxAnios = new javax.swing.JComboBox();
         cbxMeses = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        LBL_FECHA_ACTUAL = new javax.swing.JLabel();
         cargareliminar = new javax.swing.JPanel();
         Mensaje = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -214,7 +216,7 @@ DefaultTableModel m, m1, msb;
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
-        jButton1.setText("Generar  TXT");
+        jButton1.setText("Generar  Archivo");
         jButton1.setContentAreaFilled(false);
         jButton1.setIconTextGap(30);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +224,8 @@ DefaultTableModel m, m1, msb;
                 jButton1ActionPerformed(evt);
             }
         });
+
+        LBL_FECHA_ACTUAL.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,7 +249,10 @@ DefaultTableModel m, m1, msb;
                         .addComponent(lblPermiso))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(LBL_FECHA_ACTUAL, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -257,7 +264,9 @@ DefaultTableModel m, m1, msb;
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153)
+                .addGap(74, 74, 74)
+                .addComponent(LBL_FECHA_ACTUAL, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivel)
                     .addComponent(lblPermiso))
@@ -379,7 +388,46 @@ DefaultTableModel m, m1, msb;
     }//GEN-LAST:event_btnBuscarPActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        generar_libro_electronico();
+        int anio = Integer.parseInt(cbxAnios.getSelectedItem().toString());
+        String fecha= LBL_FECHA_ACTUAL.getText();
+        int mes = Integer.parseInt(fecha.substring(3, 5));
+        
+        int mesT=00;
+            if(cbxMeses.getSelectedItem().equals("ENERO")){
+                mesT=1;
+            }else if(cbxMeses.getSelectedItem().equals("FEBRERO")){
+                mesT=2;
+            }else if(cbxMeses.getSelectedItem().equals("MARZO")){
+                mesT=3;
+            }else if(cbxMeses.getSelectedItem().equals("ABRIL")){
+                mesT=4;
+            }else if(cbxMeses.getSelectedItem().equals("MAYO")){
+                mesT=5;
+            }else if(cbxMeses.getSelectedItem().equals("JUNIO")){
+                mesT=6;
+            }else if(cbxMeses.getSelectedItem().equals("JULIO")){
+                mesT=7;
+            }else if(cbxMeses.getSelectedItem().equals("AGOSTO")){
+                mesT=8;
+            }else if(cbxMeses.getSelectedItem().equals("SETIEMBRE")){
+                mesT=9;
+            }else if(cbxMeses.getSelectedItem().equals("OCTUBRE")){
+                mesT=10;
+            }else if(cbxMeses.getSelectedItem().equals("NOVIEMBRE")){
+                mesT=11;
+            }else if(cbxMeses.getSelectedItem().equals("DICIEMBRE")){
+                mesT=12;
+            }
+            
+            if(mesT==mes){
+                cargareliminar.setVisible(true);
+                Mensaje.setText("Error, No se puede crear el archivo del mes actual");
+                jPanel3.setVisible(false);
+            }else{
+                generar_libro_electronico();
+                
+            }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -507,6 +555,44 @@ DefaultTableModel m, m1, msb;
                 fila[32]=r.getString(33);
                 fila[33]=r.getString(34);
                 fila[34]=r.getString(35);
+                
+                if(r.getString(7).equalsIgnoreCase("07") ){
+                    String consulta_NC="";
+                    try {
+                        consulta_NC="EXEC LIBRO_ELECTRONICO_DATOS_NC_ND ?";
+                        PreparedStatement cmd_NC = DT.getCn().prepareStatement(consulta_NC);
+                        cmd_NC.setString(1, r.getString(1));
+                        ResultSet r_NC= cmd_NC.executeQuery();
+                        int c_NC=1;
+                        while(r_NC.next()){
+                            fila[4]=(r_NC.getString(1));
+                            fila[8]=(r_NC.getString(2));
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Error carga cod cabecera: " + e.getMessage());
+                    }
+                }else{
+                    if(r.getString(7).equalsIgnoreCase("08")){
+                        String consulta_ND="";
+                        try {
+                            consulta_ND="EXEC LIBRO_ELECTRONICO_DATOS_NOTA_DEBITO ?";
+                            PreparedStatement cmd_ND = DT.getCn().prepareStatement(consulta_ND);
+                            cmd_ND.setString(1, r.getString(1));
+                            ResultSet r_ND= cmd_ND.executeQuery();
+                            int c_NC=1;
+                            while(r_ND.next()){
+                                fila[4]=(r_ND.getString(1));
+                                fila[8]=(r_ND.getString(2));
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Error carga cod cabecera: " + e.getMessage());
+                        }
+                    }else{
+                        fila[4]=r.getString(5);
+                        fila[8]=r.getString(9);
+                    }
+                    
+                }
                 
                 m.addRow(fila);
                 c++;
@@ -651,7 +737,7 @@ DefaultTableModel m, m1, msb;
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 31)) + "|" + 
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 32)) + "|" +
                             String.valueOf(TB_VENTAS_LE.getValueAt(c, 33)) + "|" +
-                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 34)) + "\r\n";
+                            String.valueOf(TB_VENTAS_LE.getValueAt(c, 34)) + "|" + "\r\n";
                             
                             System.out.println("datos guardados txt");
                             Contabilidad_LE ER=new Contabilidad_LE();
@@ -661,7 +747,7 @@ DefaultTableModel m, m1, msb;
                         crea.format(bloc1);
                         cargareliminar.setVisible(true);
                         cargareliminar.setBackground(new Color(164,192,79));
-                        Mensaje.setText("Archivo TXT Generado");
+                        Mensaje.setText("Archivo de Texto Generado");
                         eli.setText("Abrir Ubicacion");
                     } 
                     crea.close();
@@ -743,7 +829,7 @@ DefaultTableModel m, m1, msb;
     public void inicializar_tabla_VENTAS_LE(){       
         try {
             
-            String titulosb[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Fecha Venc","Tipo Comp.",
+            String titulosb[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha Venc","Tipo Comp.",
             "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Val Fac Exp",
             "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Dscto","Inafecta","ISC","Base Imp. IVAP","IVAP",
             "Otros Trib. y Cargos","Importe Total","Tipo Moneda","Tipo Cambio","Fecha Modifica","Tipo Modifica",
@@ -769,14 +855,14 @@ DefaultTableModel m, m1, msb;
             TB_VENTAS_LE.getColumnModel().getColumn(2).setPreferredWidth(50);
             TB_VENTAS_LE.getColumnModel().getColumn(3).setPreferredWidth(100);
             TB_VENTAS_LE.getColumnModel().getColumn(4).setPreferredWidth(100);                
-            TB_VENTAS_LE.getColumnModel().getColumn(5).setPreferredWidth(150); 
-            TB_VENTAS_LE.getColumnModel().getColumn(6).setPreferredWidth(150);
-            TB_VENTAS_LE.getColumnModel().getColumn(7).setPreferredWidth(220); 
-            TB_VENTAS_LE.getColumnModel().getColumn(8).setPreferredWidth(60);
-            TB_VENTAS_LE.getColumnModel().getColumn(9).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(5).setPreferredWidth(90); 
+            TB_VENTAS_LE.getColumnModel().getColumn(6).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(7).setPreferredWidth(90); 
+            TB_VENTAS_LE.getColumnModel().getColumn(8).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(9).setPreferredWidth(120);
             TB_VENTAS_LE.getColumnModel().getColumn(10).setPreferredWidth(60);
-            TB_VENTAS_LE.getColumnModel().getColumn(11).setPreferredWidth(60);
-            TB_VENTAS_LE.getColumnModel().getColumn(12).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(11).setPreferredWidth(100);
+            TB_VENTAS_LE.getColumnModel().getColumn(12).setPreferredWidth(200);
             TB_VENTAS_LE.getColumnModel().getColumn(13).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(14).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(15).setPreferredWidth(180);
@@ -800,6 +886,12 @@ DefaultTableModel m, m1, msb;
             TB_VENTAS_LE.getColumnModel().getColumn(33).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(34).setPreferredWidth(90);
             
+    }
+    
+    public static String fechaActual(){
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+        return date.format(now);
     }
     
     /**
@@ -838,6 +930,7 @@ DefaultTableModel m, m1, msb;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LBL_FECHA_ACTUAL;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JTable TB_VENTAS_LE;
     private javax.swing.JButton btnBuscarP;

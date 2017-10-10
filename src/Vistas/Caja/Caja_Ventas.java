@@ -2982,7 +2982,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                                                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGap(0, 0, 0)
-                                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                                                                     .addGap(0, 0, 0)
                                                                     .addComponent(panelDetalleHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             );
@@ -3400,7 +3400,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                                                     .addContainerGap()
-                                                                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                                                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, Short.MAX_VALUE)
                                                                     .addGap(43, 43, 43))
                                                             );
 
@@ -3982,7 +3982,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                 .addComponent(lblValorVentaInafectada))
                                                                             .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                     .addGap(20, 20, 20)
-                                                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                                                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                                                                     .addGap(0, 0, 0)
                                                                     .addComponent(panelEliminacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGap(0, 0, 0)
@@ -4142,7 +4142,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                                                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGap(0, 0, 0)
-                                                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                                                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
                                                                     .addGap(0, 0, 0)
                                                                     .addComponent(panelDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             );
@@ -4160,8 +4160,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                             );
                                                             layout.setVerticalGroup(
                                                                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
-                                                                .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
+                                                                .addComponent(Paginas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
                                                             );
 
                                                             pack();
@@ -4947,13 +4947,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 CARGAR_TB_FR();
                 SUMA();
                 jPanel15.setVisible(false);
+                lblA.setText("A");
             }else if(lblEstadoFR.getText().equals("I")){
                         lblGrupo.setText("30 INAFECTO-OPERACIÓN ONEROSA");
                         CARGAR_TB_FR_INAFECTO();
                         SUMA();
                         jPanel15.setVisible(false);
+                        lblI.setText("I");
             }
-            
         }
     }//GEN-LAST:event_btnCargarHOS1ActionPerformed
 
