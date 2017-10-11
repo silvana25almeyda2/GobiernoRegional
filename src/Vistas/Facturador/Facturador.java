@@ -121,11 +121,14 @@ public class Facturador extends javax.swing.JFrame {
         TXT_ID_CLIENTE_F.setVisible(false);
         lbl_id_cabecera_factura.setVisible(false);
         LBL_FORMA_DE_PAGO.setVisible(false);
+        jPanel32.setVisible(false);
+        jPanel19.setVisible(false);
+        jPanel9.setVisible(false);
         cbxTipoOperacion.setBackground(Color.WHITE);
         cbxCodUnidad.setBackground(Color.WHITE);
         cbxDocumento.setBackground(Color.WHITE);
         cbxTipoDocumento.setBackground(Color.WHITE);
-        cbxGravado.setBackground(Color.WHITE);
+
         cbxTipoMoneda.setBackground(Color.WHITE);
         cbxAfecIGV.setBackground(Color.WHITE);
         cbxAfecISC.setBackground(Color.WHITE);
@@ -166,7 +169,7 @@ public class Facturador extends javax.swing.JFrame {
         cbxAfecISC.setSelectedIndex(0);
         cbxCodUnidad.setSelectedIndex(0);
         cbxDocumento.setSelectedIndex(0);
-        cbxGravado.setSelectedIndex(0);
+
         cbxTipoDocumento.setSelectedIndex(0);
         cbxTipoMoneda.setSelectedIndex(0);
         cbxTipoOperacion.setSelectedIndex(0);
@@ -267,7 +270,7 @@ public class Facturador extends javax.swing.JFrame {
                     for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
                         CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
                         facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
-                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+                        facturaDetalle.setCpdGrav(cbxAfecIGV.getSelectedItem().toString());
                         facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
                         facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
                         facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
@@ -634,8 +637,6 @@ public class Facturador extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         panelCPT2 = new javax.swing.JPanel();
         txtCorreo = new javax.swing.JTextField();
-        jPanel18 = new javax.swing.JPanel();
-        cbxGravado = new javax.swing.JComboBox();
         jPanel19 = new javax.swing.JPanel();
         cbxCodUnidad = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
@@ -716,7 +717,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel6.setFocusable(false);
 
             jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel2.setForeground(new java.awt.Color(255, 51, 51));
             jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Tipo de Operación:");
 
@@ -724,6 +725,7 @@ public class Facturador extends javax.swing.JFrame {
             cbxTipoOperacion.setForeground(new java.awt.Color(102, 102, 102));
             cbxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01 VENTA INTERNA", "02 EXPORTACIÓN", "03 NO DOMICILIADOS", "04 VENTA INTERNA- ANTICIPOS", "05 VENTA ITINERANTE" }));
             cbxTipoOperacion.setBorder(null);
+            cbxTipoOperacion.setEnabled(false);
             cbxTipoOperacion.setLightWeightPopupEnabled(false);
             cbxTipoOperacion.setOpaque(false);
             cbxTipoOperacion.setRequestFocusEnabled(false);
@@ -810,7 +812,7 @@ public class Facturador extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCodDomicilioFiscal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
             );
@@ -870,6 +872,7 @@ public class Facturador extends javax.swing.JFrame {
             cbxDocumento.setForeground(new java.awt.Color(102, 102, 102));
             cbxDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01 FACTURA", "03 BOLETA" }));
             cbxDocumento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            cbxDocumento.setEnabled(false);
             cbxDocumento.addItemListener(new java.awt.event.ItemListener() {
                 public void itemStateChanged(java.awt.event.ItemEvent evt) {
                     cbxDocumentoItemStateChanged(evt);
@@ -915,8 +918,8 @@ public class Facturador extends javax.swing.JFrame {
             jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel9.setText("Nº Correlativo");
 
-            lblNroCorrelativo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-            lblNroCorrelativo.setForeground(new java.awt.Color(51, 51, 51));
+            lblNroCorrelativo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNroCorrelativo.setForeground(new java.awt.Color(102, 102, 102));
             lblNroCorrelativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblNroCorrelativo.setText("000000003");
 
@@ -925,8 +928,8 @@ public class Facturador extends javax.swing.JFrame {
             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel8.setText("Serie");
 
-            txtSerieF.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-            txtSerieF.setForeground(new java.awt.Color(51, 51, 51));
+            txtSerieF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            txtSerieF.setForeground(new java.awt.Color(102, 102, 102));
             txtSerieF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             txtSerieF.setText("F001");
 
@@ -981,6 +984,7 @@ public class Facturador extends javax.swing.JFrame {
             cbxTipoDocumento.setForeground(new java.awt.Color(102, 102, 102));
             cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
             cbxTipoDocumento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            cbxTipoDocumento.setEnabled(false);
             cbxTipoDocumento.addItemListener(new java.awt.event.ItemListener() {
                 public void itemStateChanged(java.awt.event.ItemEvent evt) {
                     cbxTipoDocumentoItemStateChanged(evt);
@@ -1204,36 +1208,6 @@ public class Facturador extends javax.swing.JFrame {
                     .addContainerGap())
             );
 
-            jPanel18.setBackground(new java.awt.Color(255, 255, 255));
-            jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-            cbxGravado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-            cbxGravado.setForeground(new java.awt.Color(102, 102, 102));
-            cbxGravado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GRAVADO", "EXONERADO", "INAFECTO", "EXPORTACION", "GRATUITAS" }));
-            cbxGravado.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-            cbxGravado.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxGravadoActionPerformed(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-            jPanel18.setLayout(jPanel18Layout);
-            jPanel18Layout.setHorizontalGroup(
-                jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel18Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(cbxGravado, 0, 0, Short.MAX_VALUE)
-                    .addContainerGap())
-            );
-            jPanel18Layout.setVerticalGroup(
-                jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel18Layout.createSequentialGroup()
-                    .addGap(35, 35, 35)
-                    .addComponent(cbxGravado)
-                    .addContainerGap())
-            );
-
             jPanel19.setBackground(new java.awt.Color(255, 255, 255));
             jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
@@ -1261,7 +1235,7 @@ public class Facturador extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(cbxCodUnidad, 0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                    .addContainerGap(13, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel19Layout.setVerticalGroup(
                 jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1269,7 +1243,7 @@ public class Facturador extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(jLabel15)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(cbxCodUnidad)
+                    .addComponent(cbxCodUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addContainerGap())
             );
 
@@ -1285,6 +1259,7 @@ public class Facturador extends javax.swing.JFrame {
             cbxAfecIGV.setForeground(new java.awt.Color(102, 102, 102));
             cbxAfecIGV.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 GRAVADO-OPERACIÓN ONEROSA", "11 GRAVADO-RETIRO POR PREMIO", "12 GRAVADO-RETIRO POR DONACIÓN", "13 GRAVADO-RETIRO", "14 GRAVADO-RETIRO POR PUBLICIDAD", "15 GRAVADO-BONIFICACIONES", "16 GRAVADO-RETIRO POR ENTREGA A TRABAJADORES", "20 EXONERADO-OPERACIÓN ONEROSA", "30 INAFECTO-OPERACIÓN ONEROSA", "31 INAFECTO-RETIRO POR BONIFICACIÓN", "32 INAFECTO-RETIRO", "33 INAFECTO-RETIRO POR MUESTRAS MÉDICAS", "34 INAFECTO-RETIRO POR CONVENIO COLECTIVO", "35 INAFECTO-RETIRO POR PREMIO", "36 INAFECTO-RETIRO POR PUBLICIDAD", "40 EXPORTACIÓN" }));
             cbxAfecIGV.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            cbxAfecIGV.setEnabled(false);
             cbxAfecIGV.setLightWeightPopupEnabled(false);
             cbxAfecIGV.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1303,7 +1278,7 @@ public class Facturador extends javax.swing.JFrame {
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(38, 38, 38))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
-                            .addComponent(cbxAfecIGV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxAfecIGV, 0, 0, Short.MAX_VALUE)
                             .addContainerGap())))
             );
             jPanel30Layout.setVerticalGroup(
@@ -1364,10 +1339,7 @@ public class Facturador extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                            .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1376,22 +1348,20 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(8, 8, 8)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
             );
             jPanel5Layout.setVerticalGroup(
@@ -1407,27 +1377,20 @@ public class Facturador extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
@@ -1505,12 +1468,12 @@ public class Facturador extends javax.swing.JFrame {
             });
 
             lblDNI3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-            lblDNI3.setForeground(new java.awt.Color(255, 255, 255));
+            lblDNI3.setForeground(new java.awt.Color(41, 127, 184));
             lblDNI3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             lblDNI3.setText("RUC del Cliente");
 
             lblDNI.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-            lblDNI.setForeground(new java.awt.Color(255, 255, 255));
+            lblDNI.setForeground(new java.awt.Color(41, 127, 184));
             lblDNI.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             lblDNI.setText("DNI");
 
@@ -1537,6 +1500,7 @@ public class Facturador extends javax.swing.JFrame {
 
             LBL_FORMA_DE_PAGO.setText("jLabel1");
 
+            LBL_PORCENTAJE.setForeground(new java.awt.Color(41, 127, 184));
             LBL_PORCENTAJE.setText("jLabel1");
 
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -2222,7 +2186,7 @@ public class Facturador extends javax.swing.JFrame {
                 .addGroup(jPanel45Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panelCPT24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
             );
@@ -2247,7 +2211,8 @@ public class Facturador extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2261,8 +2226,8 @@ public class Facturador extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap())
+                            .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap())))
             );
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2347,10 +2312,6 @@ public class Facturador extends javax.swing.JFrame {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void cbxGravadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxGravadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxGravadoActionPerformed
 
     private void cbxCodUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCodUnidadActionPerformed
         // TODO add your handling code here:
@@ -2673,7 +2634,6 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JComboBox cbxAfecISC;
     private javax.swing.JComboBox cbxCodUnidad;
     private javax.swing.JComboBox cbxDocumento;
-    private javax.swing.JComboBox cbxGravado;
     private javax.swing.JComboBox cbxTipoDocumento;
     private javax.swing.JComboBox cbxTipoMoneda;
     private javax.swing.JComboBox cbxTipoOperacion;
@@ -2709,7 +2669,6 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel30;
