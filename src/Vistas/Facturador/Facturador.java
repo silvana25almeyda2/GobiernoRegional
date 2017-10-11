@@ -273,7 +273,7 @@ public class Facturador extends javax.swing.JFrame {
                         facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
                         facturaDetalle.setCpdCodProdSunat("");
                         facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
-                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble("0.00")));
+                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble(LBL_PORCENTAJE.getText())));
                         facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
                         facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
                         facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
@@ -663,6 +663,7 @@ public class Facturador extends javax.swing.JFrame {
             lblusu = new javax.swing.JLabel();
             btnGenerarDoc = new javax.swing.JButton();
             LBL_FORMA_DE_PAGO = new javax.swing.JLabel();
+            LBL_PORCENTAJE = new javax.swing.JLabel();
             jPanel1 = new javax.swing.JPanel();
             jPanel39 = new javax.swing.JPanel();
             jLabel32 = new javax.swing.JLabel();
@@ -1536,6 +1537,8 @@ public class Facturador extends javax.swing.JFrame {
 
             LBL_FORMA_DE_PAGO.setText("jLabel1");
 
+            LBL_PORCENTAJE.setText("jLabel1");
+
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
             jPanel2Layout.setHorizontalGroup(
@@ -1549,14 +1552,17 @@ public class Facturador extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(btnGenerarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(lblId)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblMant)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblEmpresa)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblEmpresa))
+                        .addComponent(LBL_PORCENTAJE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(btnGuardar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(TXT_ID_CLIENTE_F, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1565,7 +1571,7 @@ public class Facturador extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(22, 22, 22))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -1602,7 +1608,9 @@ public class Facturador extends javax.swing.JFrame {
                             .addGap(19, 19, 19))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnGenerarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnGenerarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LBL_PORCENTAJE))
                             .addContainerGap())))
             );
 
@@ -2657,6 +2665,7 @@ public class Facturador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel LBL_FORMA_DE_PAGO;
+    public static javax.swing.JLabel LBL_PORCENTAJE;
     public static javax.swing.JTextField TXT_ID_CLIENTE_F;
     private javax.swing.JButton btnGenerarDoc;
     public static javax.swing.JButton btnGuardar;
