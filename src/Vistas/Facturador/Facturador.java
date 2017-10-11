@@ -766,7 +766,7 @@ public class Facturador extends javax.swing.JFrame {
             lblFechaEmision.setText("2017-05-30");
 
             jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel4.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel4.setForeground(new java.awt.Color(102, 102, 102));
             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel4.setText("Fecha de Emisión");
 
@@ -828,7 +828,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel6.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel6.setForeground(new java.awt.Color(102, 102, 102));
             jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel6.setText("Tipo Moneda");
 
@@ -882,7 +882,7 @@ public class Facturador extends javax.swing.JFrame {
             });
 
             jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel7.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel7.setForeground(new java.awt.Color(102, 102, 102));
             jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel7.setText("Documento");
 
@@ -911,7 +911,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel9.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel9.setForeground(new java.awt.Color(102, 102, 102));
             jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel9.setText("Nº Correlativo");
 
@@ -921,7 +921,7 @@ public class Facturador extends javax.swing.JFrame {
             lblNroCorrelativo.setText("000000003");
 
             jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel8.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel8.setForeground(new java.awt.Color(102, 102, 102));
             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel8.setText("Serie");
 
@@ -1017,7 +1017,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel11.setForeground(new java.awt.Color(102, 102, 102));
             jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel11.setText("Nro de Documento");
 
@@ -1084,7 +1084,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel12.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel12.setForeground(new java.awt.Color(102, 102, 102));
             jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel12.setText("Apellidos y Nombres / Razón Social");
 
@@ -1146,7 +1146,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel13.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel13.setForeground(new java.awt.Color(102, 102, 102));
             jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel13.setText("Correo Electrónico");
 
@@ -1248,7 +1248,7 @@ public class Facturador extends javax.swing.JFrame {
             });
 
             jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-            jLabel15.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel15.setForeground(new java.awt.Color(102, 102, 102));
             jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel15.setText("Cod. Unidad");
 
@@ -1277,7 +1277,7 @@ public class Facturador extends javax.swing.JFrame {
             jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
             jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-            jLabel24.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel24.setForeground(new java.awt.Color(102, 102, 102));
             jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel24.setText("Afec. IGV");
 
