@@ -155,6 +155,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CPPFRDNI.CAJA_PREVENTAS_FR(lblNOMBRE_PREVENTA.getText(),tbFR);
         }
         if(tbFR.getRowCount()>0){
+            if(!cbxTipoDocumento.getSelectedItem().equals("RECIBO")){
             CuentasPorPagarFacturasCabecera bf = new CuentasPorPagarFacturasCabecera();
             if(cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
             bf.generarSerieCorrelativoFARMACIA("F",lblusu.getText());
@@ -206,7 +207,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             }
             panelCPT1.setVisible(false);
             lbl6.setVisible(false);
-            
+        }else if(tbFR.getRowCount()>0 && cbxTipoDocumento.getSelectedItem().equals("RECIBO")){
+            panelCPT1.setVisible(true);
+            lbl6.setVisible(true);
+            CPT.setVisible(true);
+        }    
         }else if(tbFR.getRowCount()==0){
             System.out.println("No existe Preventa");
             panelCPT1.setVisible(true);
@@ -4457,7 +4462,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CLIENTES.dispose();
             NUEVO_REGISTRO(ConexionS);   
             MostrarPreventa();
-            
+    
         }
     }//GEN-LAST:event_tbClientesMouseClicked
 
