@@ -23,6 +23,7 @@ public class CuentasPorPagarComunicacionDeBaja {
     private String descripcion;
     private String numero;
     private String cod_usu;
+    private int ID_DOCUMENTO;
     
        public CuentasPorPagarComunicacionDeBaja()
     {
@@ -112,6 +113,32 @@ public class CuentasPorPagarComunicacionDeBaja {
         return resp;
     }
     
+    public boolean COMUNICACION_DE_BAJA_MODIFICAR_CAJA()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CUENTAS_POR_PAGAR_COMUNICACION_DE_BAJA_ESTADO_CAJA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DOCUMENTO());
+            cmd.setString(2, getNumero());
+            
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar CAJA: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    
     /**
      * @return the con
      */
@@ -194,6 +221,14 @@ public class CuentasPorPagarComunicacionDeBaja {
      */
     public void setCod_usu(String cod_usu) {
         this.cod_usu = cod_usu;
+    }
+
+    public int getID_DOCUMENTO() {
+        return ID_DOCUMENTO;
+    }
+
+    public void setID_DOCUMENTO(int ID_DOCUMENTO) {
+        this.ID_DOCUMENTO = ID_DOCUMENTO;
     }
 
     

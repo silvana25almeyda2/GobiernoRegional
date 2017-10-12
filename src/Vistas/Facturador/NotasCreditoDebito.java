@@ -59,6 +59,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
         Paginas.setEnabledAt(1, false);
         
         LBL_ID_DOCUMENTO.setVisible(false);
+        jPanel4.setVisible(false);
         
         //Debito
         cbxTipoNotaDebito.setBackground(Color.WHITE);
@@ -450,13 +451,14 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
+            LBL_ID_DOCUMENTO = new javax.swing.JLabel();
+            lblIdDebito = new javax.swing.JLabel();
+            lblIdCredito = new javax.swing.JLabel();
+            jPanel4 = new javax.swing.JPanel();
             jPanel84 = new javax.swing.JPanel();
             lblCredito = new javax.swing.JLabel();
             jPanel85 = new javax.swing.JPanel();
             lblDebito = new javax.swing.JLabel();
-            LBL_ID_DOCUMENTO = new javax.swing.JLabel();
-            lblIdDebito = new javax.swing.JLabel();
-            lblIdCredito = new javax.swing.JLabel();
             Paginas = new javax.swing.JTabbedPane();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
@@ -540,6 +542,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                 jLabel31 = new javax.swing.JLabel();
                 panelCPT17 = new javax.swing.JPanel();
                 txtMtoIGVCredito = new javax.swing.JTextField();
+                cargareliminar = new javax.swing.JPanel();
+                Mensaje = new javax.swing.JLabel();
                 jPanel8 = new javax.swing.JPanel();
                 jPanel11 = new javax.swing.JPanel();
                 jLabel3 = new javax.swing.JLabel();
@@ -851,6 +855,15 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                     lblUsu.setText("o");
 
+                    LBL_ID_DOCUMENTO.setForeground(new java.awt.Color(41, 127, 184));
+                    LBL_ID_DOCUMENTO.setText("jLabel14");
+
+                    lblIdDebito.setForeground(new java.awt.Color(41, 127, 184));
+                    lblIdDebito.setText("jLabel70");
+
+                    lblIdCredito.setForeground(new java.awt.Color(41, 127, 184));
+                    lblIdCredito.setText("jLabel70");
+
                     jPanel84.setBackground(new java.awt.Color(41, 127, 184));
 
                     lblCredito.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -873,7 +886,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
                     jPanel84Layout.setVerticalGroup(
                         jPanel84Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblCredito, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                        .addComponent(lblCredito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
 
                     jPanel85.setBackground(new java.awt.Color(41, 127, 184));
@@ -899,17 +912,29 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
                     jPanel85Layout.setVerticalGroup(
                         jPanel85Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblDebito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     );
 
-                    LBL_ID_DOCUMENTO.setForeground(new java.awt.Color(41, 127, 184));
-                    LBL_ID_DOCUMENTO.setText("jLabel14");
-
-                    lblIdDebito.setForeground(new java.awt.Color(41, 127, 184));
-                    lblIdDebito.setText("jLabel70");
-
-                    lblIdCredito.setForeground(new java.awt.Color(41, 127, 184));
-                    lblIdCredito.setText("jLabel70");
+                    javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+                    jPanel4.setLayout(jPanel4Layout);
+                    jPanel4Layout.setHorizontalGroup(
+                        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(jPanel85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                    );
+                    jPanel4Layout.setVerticalGroup(
+                        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap())
+                    );
 
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
@@ -917,23 +942,18 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jPanel84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(jPanel85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(lblIdDebito)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(LBL_ID_DOCUMENTO)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lblIdCredito)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap())))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(55, 55, 55)
+                            .addComponent(lblIdDebito)
+                            .addGap(18, 18, 18)
+                            .addComponent(LBL_ID_DOCUMENTO)
+                            .addGap(18, 18, 18)
+                            .addComponent(lblIdCredito)
+                            .addGap(18, 18, 18)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
                     );
                     jPanel1Layout.setVerticalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -942,18 +962,16 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                                        .addComponent(jLabel1)
                                         .addComponent(LBL_ID_DOCUMENTO)
                                         .addComponent(lblIdDebito)
                                         .addComponent(lblIdCredito))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                                    .addContainerGap(18, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblUsu)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel85, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(7, 7, 7))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblUsu))
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     );
 
                     Paginas.setForeground(new java.awt.Color(255, 255, 255));
@@ -963,7 +981,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
                     jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
                     jPanel6.setDoubleBuffered(false);
                     jPanel6.setFocusable(false);
 
@@ -1008,7 +1026,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     lblFechaEmision.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     lblFechaEmision.setForeground(new java.awt.Color(102, 102, 102));
@@ -1042,7 +1060,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -1084,7 +1102,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     cbxDocumento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                     cbxDocumento.setForeground(new java.awt.Color(102, 102, 102));
@@ -1129,7 +1147,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel10.setForeground(new java.awt.Color(102, 102, 102));
@@ -1174,7 +1192,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel11.setForeground(new java.awt.Color(102, 102, 102));
@@ -1182,7 +1200,6 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel11.setText("Nro de Documento Cliente");
 
                     panelCPT.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
                     txtNroDocumento.setEditable(false);
                     txtNroDocumento.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -1241,7 +1258,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel12.setForeground(new java.awt.Color(102, 102, 102));
@@ -1249,7 +1266,6 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel12.setText("Apellidos y Nombres / Razón Social");
 
                     panelCPT1.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
                     txtApeNom.setEditable(false);
                     txtApeNom.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -1329,7 +1345,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         .addGroup(jPanel30Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbxAfecIGV, 0, 405, Short.MAX_VALUE)
+                                .addComponent(cbxAfecIGV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addContainerGap())
                     );
@@ -1357,7 +1373,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         }
                     ));
                     tbFacturacion.setGridColor(new java.awt.Color(255, 255, 255));
-                    tbFacturacion.setRowHeight(25);
+                    tbFacturacion.setRowHeight(38);
                     tbFacturacion.setSelectionBackground(new java.awt.Color(102, 102, 102));
                     tbFacturacion.getTableHeader().setReorderingAllowed(false);
                     tbFacturacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1376,7 +1392,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     tablaS.setViewportView(tbFacturacion);
 
                     jPanel31.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                     jLabel25.setForeground(new java.awt.Color(102, 102, 102));
@@ -1429,7 +1445,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel32.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel26.setForeground(new java.awt.Color(255, 51, 51));
@@ -1437,7 +1453,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel26.setText("Descripción de motivo o sustento");
 
                     panelCPT13.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtDescripcionSustento.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
                     txtDescripcionSustento.setForeground(new java.awt.Color(51, 51, 51));
@@ -1562,7 +1578,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
                     jPanel51.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel41.setForeground(new java.awt.Color(255, 51, 51));
@@ -1570,7 +1586,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel41.setText("Correlativo de la Nota");
 
                     panelCPT27.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     lblCorrelativoCreditoF.setEditable(false);
                     lblCorrelativoCreditoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1625,7 +1641,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel37.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel30.setForeground(new java.awt.Color(102, 102, 102));
@@ -1633,7 +1649,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel30.setText("Sum. otros Cargos");
 
                     panelCPT16.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtOtrosCargosCredito.setEditable(false);
                     txtOtrosCargosCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1688,15 +1704,15 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel39.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel32.setForeground(new java.awt.Color(255, 51, 51));
                     jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    jLabel32.setText("Total Valor de Ventas Gravadas");
+                    jLabel32.setText("Total de Ventas Gravadas");
 
                     panelCPT18.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtValorVentaGravada.setEditable(false);
                     txtValorVentaGravada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1751,7 +1767,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel44.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel37.setForeground(new java.awt.Color(255, 51, 51));
@@ -1759,7 +1775,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel37.setText("Total de Ventas Exoneradas");
 
                     panelCPT23.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtVentaExonerada.setEditable(false);
                     txtVentaExonerada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1814,15 +1830,15 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel40.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel33.setForeground(new java.awt.Color(255, 51, 51));
                     jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    jLabel33.setText("Total Valor de Ventas Inafectadas");
+                    jLabel33.setText("Total de Ventas Inafectadas");
 
                     panelCPT19.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtValorVentaInafectada.setEditable(false);
                     txtValorVentaInafectada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1877,7 +1893,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel42.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel35.setForeground(new java.awt.Color(102, 102, 102));
@@ -1885,7 +1901,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel35.setText("Sum. otros Tributos");
 
                     panelCPT21.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtOtrosTributosCredito.setEditable(false);
                     txtOtrosTributosCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1940,7 +1956,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel43.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel36.setForeground(new java.awt.Color(102, 102, 102));
@@ -1948,7 +1964,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel36.setText("Sumatoria ISC");
 
                     panelCPT22.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtMtoISC.setEditable(false);
                     txtMtoISC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2003,7 +2019,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel45.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel38.setForeground(new java.awt.Color(255, 51, 51));
@@ -2011,7 +2027,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel38.setText("Importe Total de Venta");
 
                     panelCPT24.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtImporteTotalVenta.setEditable(false);
                     txtImporteTotalVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2051,7 +2067,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         .addGroup(jPanel45Layout.createSequentialGroup()
                             .addGap(5, 5, 5)
                             .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(panelCPT24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(5, 5, 5))
                     );
@@ -2066,7 +2082,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel38.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel31.setForeground(new java.awt.Color(102, 102, 102));
@@ -2074,7 +2090,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel31.setText("Sumatoria IGV");
 
                     panelCPT17.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtMtoIGVCredito.setEditable(false);
                     txtMtoIGVCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2157,17 +2173,39 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel44, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel40, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel51, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel44, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel43, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel45, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(0, 5, Short.MAX_VALUE))
+                                .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    );
+
+                    cargareliminar.setBackground(new java.awt.Color(0, 153, 102));
+
+                    Mensaje.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    Mensaje.setForeground(new java.awt.Color(255, 255, 255));
+                    Mensaje.setText("Desea Actualizar el Registro ?");
+
+                    javax.swing.GroupLayout cargareliminarLayout = new javax.swing.GroupLayout(cargareliminar);
+                    cargareliminar.setLayout(cargareliminarLayout);
+                    cargareliminarLayout.setHorizontalGroup(
+                        cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cargareliminarLayout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(Mensaje)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    );
+                    cargareliminarLayout.setVerticalGroup(
+                        cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cargareliminarLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
 
                     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -2176,12 +2214,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(tablaS)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
@@ -2202,15 +2239,17 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                             .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addContainerGap())))
-                        .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addContainerGap())
+                        .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(0, 0, 0)
+                            .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2226,7 +2265,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tablaS, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(tablaS, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                             .addGap(0, 0, 0)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0))
@@ -2237,7 +2276,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
                     jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
                     jPanel11.setDoubleBuffered(false);
                     jPanel11.setFocusable(false);
 
@@ -2282,7 +2321,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     lblFechaEmisionDebito.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     lblFechaEmisionDebito.setForeground(new java.awt.Color(102, 102, 102));
@@ -2316,7 +2355,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel16.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel8.setForeground(new java.awt.Color(102, 102, 102));
@@ -2356,7 +2395,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel36.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     cbxDocumentoDebito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                     cbxDocumentoDebito.setForeground(new java.awt.Color(102, 102, 102));
@@ -2401,7 +2440,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel41.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel13.setForeground(new java.awt.Color(102, 102, 102));
@@ -2446,7 +2485,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel52.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel29.setForeground(new java.awt.Color(102, 102, 102));
@@ -2454,7 +2493,6 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel29.setText("Nro de Documento Cliente");
 
                     panelCPT2.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                     panelCPT2.setEnabled(false);
 
                     txtNroDocumentoDebito.setEditable(false);
@@ -2514,7 +2552,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel53.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel34.setForeground(new java.awt.Color(102, 102, 102));
@@ -2522,7 +2560,6 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel34.setText("Apellidos y Nombres / Razón Social");
 
                     panelCPT15.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                     panelCPT15.setEnabled(false);
 
                     txtApeNomDebito.setEditable(false);
@@ -2630,7 +2667,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         }
                     ));
                     tbFacturacionDebito.setGridColor(new java.awt.Color(255, 255, 255));
-                    tbFacturacionDebito.setRowHeight(25);
+                    tbFacturacionDebito.setRowHeight(38);
                     tbFacturacionDebito.setSelectionBackground(new java.awt.Color(102, 102, 102));
                     tbFacturacionDebito.getTableHeader().setReorderingAllowed(false);
                     tbFacturacionDebito.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2649,7 +2686,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     tablaS1.setViewportView(tbFacturacionDebito);
 
                     jPanel76.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                     jLabel61.setForeground(new java.awt.Color(102, 102, 102));
@@ -2700,7 +2737,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel77.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                     jLabel62.setForeground(new java.awt.Color(255, 51, 51));
@@ -2708,7 +2745,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel62.setText("Descripción de motivo o sustento");
 
                     panelCPT45.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtDescripcionDebito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
                     txtDescripcionDebito.setForeground(new java.awt.Color(51, 51, 51));
@@ -2835,15 +2872,15 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
                     jPanel69.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel69.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel69.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel55.setForeground(new java.awt.Color(255, 51, 51));
                     jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    jLabel55.setText("Total Valor de Ventas Inafectadas");
+                    jLabel55.setText("Total de Ventas Inafectadas");
 
                     panelCPT38.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtValorVentaInafectadaDebito.setEditable(false);
                     txtValorVentaInafectadaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2894,19 +2931,19 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel55)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT38, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel67.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel53.setForeground(new java.awt.Color(255, 51, 51));
                     jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    jLabel53.setText("Total Valor de Ventas Gravadas");
+                    jLabel53.setText("Total de Ventas Gravadas");
 
                     panelCPT36.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtValorVentaGravadaDebito.setEditable(false);
                     txtValorVentaGravadaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2957,11 +2994,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel53)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT36, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel70.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel70.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel70.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel56.setForeground(new java.awt.Color(255, 51, 51));
@@ -2969,7 +3006,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel56.setText("Total de Ventas Exoneradas");
 
                     panelCPT39.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtVentaExoneradaDebito.setEditable(false);
                     txtVentaExoneradaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3024,7 +3061,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     );
 
                     jPanel74.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel60.setForeground(new java.awt.Color(102, 102, 102));
@@ -3032,7 +3069,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel60.setText("Sum. otros Tributos");
 
                     panelCPT43.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtOtrosTributosDebito.setEditable(false);
                     txtOtrosTributosDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3083,11 +3120,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel60)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel68.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel54.setForeground(new java.awt.Color(255, 51, 51));
@@ -3095,7 +3132,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel54.setText("Importe Total de Venta");
 
                     panelCPT37.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtImporteTotalVentaDebito.setEditable(false);
                     txtImporteTotalVentaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3146,11 +3183,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel54)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT37, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel83.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel83.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel83.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel67.setForeground(new java.awt.Color(255, 51, 51));
@@ -3158,7 +3195,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel67.setText("Correlativo de la Nota");
 
                     panelCPT49.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     lblCorrelativoDebitoF.setEditable(false);
                     lblCorrelativoDebitoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3209,11 +3246,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel67)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT49, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel72.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel58.setForeground(new java.awt.Color(102, 102, 102));
@@ -3221,7 +3258,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel58.setText("Sumatoria IGV");
 
                     panelCPT41.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtMtoIGVDebito.setEditable(false);
                     txtMtoIGVDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3272,11 +3309,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel58)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT41, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel73.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
                     jPanel73.setPreferredSize(new java.awt.Dimension(107, 63));
 
                     jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -3285,7 +3322,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel59.setText("Sum. otros Cargos");
 
                     panelCPT42.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtOtrosCargosDebito.setEditable(false);
                     txtOtrosCargosDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3336,11 +3373,11 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel59)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT42, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jPanel71.setBackground(new java.awt.Color(255, 255, 255));
-                    jPanel71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+                    jPanel71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
                     jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     jLabel57.setForeground(new java.awt.Color(102, 102, 102));
@@ -3348,7 +3385,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel57.setText("Sumatoria ISC");
 
                     panelCPT40.setBackground(new java.awt.Color(255, 255, 255));
-                    panelCPT40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                    panelCPT40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 184, 184)));
 
                     txtMtoISCDebito.setEditable(false);
                     txtMtoISCDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3399,7 +3436,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jLabel57)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelCPT40, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -3423,7 +3460,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addComponent(jPanel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(0, 0, 0)
                             .addComponent(jPanel68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addContainerGap())
                     );
@@ -3431,17 +3468,17 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel69, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(5, 5, 5))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel73, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel72, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel69, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel67, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel83, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel74, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel71, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel70, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel68, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -3476,7 +3513,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                         .addComponent(jPanel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addContainerGap())
                         .addComponent(tablaS1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel78, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+                        .addComponent(jPanel78, javax.swing.GroupLayout.DEFAULT_SIZE, 1176, Short.MAX_VALUE)
                     );
                     jPanel8Layout.setVerticalGroup(
                         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3498,7 +3535,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
-                            .addComponent(tablaS1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                            .addComponent(tablaS1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                             .addGap(0, 0, 0)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
@@ -3509,13 +3546,13 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     getContentPane().setLayout(layout);
                     layout.setHorizontalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1215, Short.MAX_VALUE)
-                        .addComponent(Paginas, javax.swing.GroupLayout.DEFAULT_SIZE, 1215, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
+                        .addComponent(Paginas)
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(Paginas))
                     );
@@ -3791,7 +3828,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 //                
 //            }
                 if(estado==1){
-                    ESTADO_ID_DOCUMENTO_CABECERA_CREDITO();
+                    MODIFICAR_DATOS_CAJA_CREDITO();
                     JOptionPane.showMessageDialog(this, "Nota de Crédito Generada");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdCredito.getText()),"1");
@@ -4063,7 +4100,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 //                
 //            }
                 if(estado==1){
-                    ESTADO_ID_DOCUMENTO_CABECERA_DEBITO();
+                    MODIFICAR_DATOS_CAJA_DEBITO();
                     JOptionPane.showMessageDialog(this, "Nota de Débito Generada");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdDebito.getText()),"2");
@@ -4345,14 +4382,37 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
         }
     }
      
-    public void ESTADO_ID_DOCUMENTO_CABECERA_CREDITO(){
-        CuentasPorPagarNotaDeCreditoDebito ER=new CuentasPorPagarNotaDeCreditoDebito();
-        ER.CAMBIAR_ESTADO_DOCUMENTO_CAJA_CREDITO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));    
+    
+    public void MODIFICAR_DATOS_CAJA_CREDITO(){
+        
+        try {
+         
+        CuentasPorPagarNotaDeCreditoDebito MP = new CuentasPorPagarNotaDeCreditoDebito();
+        
+        MP.setID_DOCUMENTO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));
+        MP.setCorrelativo(lblCorrelativoCreditoF.getText());
+        
+        MP.NOTA_CREDITO_MODIFICAR_CAJA();
+        
+        } catch (Exception e) {
+            System.out.println("error modificar DATOS CAJA CREDITO" + e.getMessage());
+        }
     }
-     
-    public void ESTADO_ID_DOCUMENTO_CABECERA_DEBITO(){
-        CuentasPorPagarNotaDeCreditoDebito ER=new CuentasPorPagarNotaDeCreditoDebito();
-        ER.CAMBIAR_ESTADO_DOCUMENTO_CAJA_DEBITO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));    
+    
+    public void MODIFICAR_DATOS_CAJA_DEBITO(){
+        
+        try {
+         
+        CuentasPorPagarNotaDeCreditoDebito MP = new CuentasPorPagarNotaDeCreditoDebito();
+        
+        MP.setID_DOCUMENTO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));
+        MP.setCorrelativo(lblCorrelativoDebitoF.getText());
+        
+        MP.NOTA_DEBITO_MODIFICAR_CAJA();
+        
+        } catch (Exception e) {
+            System.out.println("error modificar DATOS CAJA DEBITO" + e.getMessage());
+        }
     }
     /**
      * @param args the command line arguments
@@ -4395,6 +4455,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BUSCAR_FACTURA_BOLETA;
     private javax.swing.JLabel LBL_ID_DOCUMENTO;
+    private javax.swing.JLabel Mensaje;
     public static javax.swing.JTabbedPane Paginas;
     private javax.swing.JPopupMenu Serie;
     private javax.swing.JButton btnAgregarFactura;
@@ -4404,6 +4465,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     private javax.swing.JButton btnGenerarND;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
+    private javax.swing.JPanel cargareliminar;
     private javax.swing.JComboBox cbxAfecIGV;
     private javax.swing.JComboBox cbxAfecIGVDebito;
     private javax.swing.JComboBox cbxBuscarDocumento;
@@ -4415,7 +4477,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     private javax.swing.JComboBox cbxTipoMonedaDebito;
     private javax.swing.JComboBox cbxTipoNotaCredito;
     private javax.swing.JComboBox cbxTipoNotaDebito;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -4476,6 +4538,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel39;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel42;

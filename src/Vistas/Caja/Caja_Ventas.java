@@ -4732,9 +4732,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_txtEnterEscapeEnterActionPerformed
 
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
-        btnTerminiarVenta.setEnabled(false);
+
         btnBuscarCPT1.setEnabled(true);
         if(cbxTipoDocumento.getSelectedItem().equals("BOLETA")){
+            btnTerminiarVenta.setEnabled(false);
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
             GENERAR_BOLETA_ELECTRONICA(conexion);
@@ -4761,6 +4762,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             cbxTipoDocumento.requestFocus();
             
         }if(cbxTipoDocumento.getSelectedItem().equals("RECIBO")){
+            btnTerminiarVenta.setEnabled(false);
             NUEVO_REGISTRO_DETALLE();
             ACTUALIZAR_CABECERA();
 //            GENERAR_BOLETA_ELECTRONICA();
@@ -4775,6 +4777,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             cbxTipoDocumento.requestFocus();
             
         }else if(cbxTipoDocumento.getSelectedItem().equals("FACTURA")){
+            btnTerminiarVenta.setEnabled(true);
             Facturador frm_F = new Facturador();
             frm_F.setVisible(true);
             Facturador.TXT_ID_CLIENTE_F.setText(lblIDCliente.getText());

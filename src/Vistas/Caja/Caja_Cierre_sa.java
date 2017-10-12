@@ -156,8 +156,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel25 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnImprimir1 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        btnImprimir = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         btnImprimir2 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
@@ -530,7 +528,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Caja cerrada correctamente");
 
         jPanel4.setBackground(new java.awt.Color(230, 230, 230));
@@ -571,35 +568,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnImprimir1)
                 .addGap(0, 0, 0))
-        );
-
-        btnImprimir.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
-        btnImprimir.setForeground(new java.awt.Color(51, 51, 51));
-        btnImprimir.setText("Especifico Ticket");
-        btnImprimir.setContentAreaFilled(false);
-        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnImprimir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnImprimir.setIconTextGap(5);
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(btnImprimir)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         btnImprimir2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
@@ -704,7 +672,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -721,8 +688,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(21, 21, 21)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -735,15 +700,16 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -794,16 +760,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
         dispose();
     }//GEN-LAST:event_btnNuevo1ActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
-        if(tbCANTIDAD.getRowCount()==0){
-            nuevaV.reporteCierreV(Integer.parseInt(lblID_APERTURA.getText()));
-        }else if(tbCANTIDAD.getRowCount()>0){
-            nuevaV.reporteCierre(Integer.parseInt(lblID_APERTURA.getText()));
-            nuevaV.reporteCierreANULADAS(Integer.parseInt(lblID_APERTURA.getText()));
-        }
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
         jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
@@ -872,7 +828,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ImprimirCierre;
-    public static javax.swing.JButton btnImprimir;
     public static javax.swing.JButton btnImprimir1;
     public static javax.swing.JButton btnImprimir2;
     public static javax.swing.JButton btnImprimir3;
@@ -907,7 +862,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     public static javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JLabel lblBaseA;
     public static javax.swing.JLabel lblCorrelativo;

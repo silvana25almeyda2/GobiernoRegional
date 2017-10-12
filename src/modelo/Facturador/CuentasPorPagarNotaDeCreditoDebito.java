@@ -25,6 +25,7 @@ public class CuentasPorPagarNotaDeCreditoDebito {
     private String correlativo;
     private String fechaEmision;
     private String cod_usu;
+    private int ID_DOCUMENTO;
     
        public CuentasPorPagarNotaDeCreditoDebito()
     {
@@ -53,6 +54,54 @@ public class CuentasPorPagarNotaDeCreditoDebito {
         return resp;
     }
        
+    public boolean NOTA_CREDITO_MODIFICAR_CAJA()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CUENTAS_POR_PAGAR_NOTA_CREDITO_ESTADO_CAJA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DOCUMENTO());
+            cmd.setString(2, getCorrelativo());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar CAJA CREDITO: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean NOTA_DEBITO_MODIFICAR_CAJA()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CUENTAS_POR_PAGAR_NOTA_DEBITO_ESTADO_CAJA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DOCUMENTO());
+            cmd.setString(2, getCorrelativo());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar CAJA DEBITO: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public boolean CAMBIAR_ESTADO_DOCUMENTO_CAJA_DEBITO(int id_documento){
          boolean resp = false;
         try{
@@ -304,6 +353,15 @@ public class CuentasPorPagarNotaDeCreditoDebito {
     public void setCod_usu(String cod_usu) {
         this.cod_usu = cod_usu;
     }
+
+    public int getID_DOCUMENTO() {
+        return ID_DOCUMENTO;
+    }
+
+    public void setID_DOCUMENTO(int ID_DOCUMENTO) {
+        this.ID_DOCUMENTO = ID_DOCUMENTO;
+    }
+    
     
     
 }

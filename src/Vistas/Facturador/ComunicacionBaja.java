@@ -1064,7 +1064,7 @@ Conexion c=new Conexion();
                
             }
                 if(estado==1){
-                    ESTADO_ID_DOCUMENTO_CABECERA();
+                    MODIFICAR_DATOS_CAJA();
                     JOptionPane.showMessageDialog(this, "La Comunicación de Baja fue generada");
                     CuentasPorPagarComunicacionDeBaja est=new CuentasPorPagarComunicacionDeBaja();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdFactura.getText()),"3");
@@ -1077,10 +1077,20 @@ Conexion c=new Conexion();
         }
     }//GEN-LAST:event_btnGuardar2ActionPerformed
 
-    public void ESTADO_ID_DOCUMENTO_CABECERA(){
+    public void MODIFICAR_DATOS_CAJA(){
         
-        CuentasPorPagarComunicacionDeBaja ER=new CuentasPorPagarComunicacionDeBaja();
-        ER.CAMBIAR_ESTADO_DOCUMENTO_CAJA(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));    
+        try {
+         
+        CuentasPorPagarComunicacionDeBaja MP = new CuentasPorPagarComunicacionDeBaja();
+        
+        MP.setID_DOCUMENTO(Integer.parseInt(LBL_ID_DOCUMENTO.getText()));
+        MP.setNumero(lblNroBaja.getText());
+        
+        MP.COMUNICACION_DE_BAJA_MODIFICAR_CAJA();
+        
+        } catch (Exception e) {
+            System.out.println("error modificar DATOS CAJA" + e.getMessage());
+        }
     }
     
      public void mostrarFacturacionDetalle( JTable table){
