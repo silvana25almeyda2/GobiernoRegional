@@ -64,8 +64,8 @@ Conexion con = new Conexion();
             while(r.next()){
                 Principal_Configuracion.jLabel7.setText(r.getString(4));
                 Principal_Configuracion.jLabel3.setText("SEDE   "+r.getString(5));
-                Principal_Configuracion.jLabel6.setText("DIRECCIÓN   "+r.getString(6));
-                Principal_Configuracion.jLabel9.setText("TELÉFONOS   "+r.getString(7));
+                Principal_Configuracion.jLabel6.setText(r.getString(6));
+                Principal_Configuracion.jLabel9.setText(r.getString(7));
                 
                 }
             //

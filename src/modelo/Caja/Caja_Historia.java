@@ -295,6 +295,49 @@ Conexion con = new Conexion();
         tabla.getColumnModel().getColumn(24).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
+    
+    public void LISTA_UBICACION(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Departamento Provincia Distrito","dep","prov","dist"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_BUSCAR_SEDES_CLIENTES ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formato_TB_UNIDAD_EJECUTORA(tabla);
+        } catch (Exception e) {
+            System.out.println("ERROR AL LISTAR LUGAR NACIMIENTO O RESIDENCIA : " + e.getMessage());
+        }
+    }
+    
+    public void formato_TB_UNIDAD_EJECUTORA(JTable tabla){        
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(500);       
+            //Ocultar
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(2).setMinWidth(0);
+            tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+    }
 
 
     public Caja_Historia(){

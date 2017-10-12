@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="624"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -63,7 +63,7 @@
 				<staticText>
 					<reportElement x="-6" y="3" width="211" height="20" uuid="95386466-684b-41c7-a4b4-fd08edfafb4f"/>
 					<textElement textAlignment="Center">
-						<font size="12"/>
+						<font size="9"/>
 					</textElement>
 					<text><![CDATA[NO SE REALIZARON VENTAS]]></text>
 				</staticText>
@@ -119,7 +119,7 @@
 			<staticText>
 				<reportElement x="-6" y="83" width="207" height="20" uuid="cbcfcad7-457b-4d50-87e1-86b5648ed12b"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIERRE DE CAJA]]></text>
 			</staticText>
@@ -147,7 +147,7 @@
 			<textField>
 				<reportElement x="-6" y="99" width="207" height="20" uuid="b9b0b0d3-0ee6-4a76-90c1-8131771c9b67"/>
 				<textElement textAlignment="Center">
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_SESION}]]></textFieldExpression>
 			</textField>
@@ -175,7 +175,7 @@
 			<textField isStretchWithOverflow="true">
 				<reportElement x="-6" y="0" width="207" height="32" uuid="37f610b1-87c2-4233-9e11-cc82f074102d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
 			</textField>
@@ -217,7 +217,7 @@
 			<textField>
 				<reportElement x="-6" y="66" width="206" height="20" uuid="053fa58a-0ec2-4a72-989d-b0cb95404d5e"/>
 				<textElement textAlignment="Center">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["SEDE "+$F{nombre_distrito}]]></textFieldExpression>
 			</textField>
@@ -288,7 +288,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="23" y="130" width="148" height="20" uuid="5e3e721b-9ee9-4b9f-8f04-3b46c6f25680"/>
@@ -326,14 +326,14 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="104" y="68" width="15" height="14" uuid="4e6ccc8c-c385-4cdb-99a6-4c6ddb20530a"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[S/.]]></text>
+				<text><![CDATA[S/]]></text>
 			</staticText>
 			<line>
 				<reportElement x="23" y="194" width="148" height="1" uuid="2eb04937-a16a-4b8c-9296-b4b3eed8880f"/>
@@ -341,7 +341,7 @@
 			<staticText>
 				<reportElement x="-6" y="8" width="206" height="21" uuid="89fc8a83-edca-4eaf-bfec-c06c11acd3f3"/>
 				<textElement textAlignment="Center">
-					<font size="12" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[RESUMEN]]></text>
 			</staticText>

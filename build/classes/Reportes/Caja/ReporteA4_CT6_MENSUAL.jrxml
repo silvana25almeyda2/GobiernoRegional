@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4CT6_MENSUAL" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2776cc3-1a0a-42ae-bc7a-3d99edfa7590">
-	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.zoom" value="1.331000000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="181"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="MES" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -30,30 +30,30 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="148" splitType="Stretch">
+		<band height="130" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="45" width="199" height="20" uuid="3f83846a-f707-4b5e-a140-985758fbe074"/>
+				<reportElement x="0" y="35" width="199" height="20" uuid="3f83846a-f707-4b5e-a140-985758fbe074"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["RUC "+$F{RUC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="59" width="198" height="20" uuid="4bb88e1f-62fb-4d4b-a591-8b212029cbb9"/>
+				<reportElement x="0" y="49" width="198" height="20" uuid="4bb88e1f-62fb-4d4b-a591-8b212029cbb9"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="3" width="427" height="32" uuid="5bbac117-f705-4f42-a6c1-460c262bd4d6"/>
+				<reportElement x="0" y="0" width="427" height="32" uuid="5bbac117-f705-4f42-a6c1-460c262bd4d6"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semibold" size="18" isBold="true"/>
+					<font fontName="Segoe UI Semibold" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="81" width="199" height="20" uuid="79b584d4-e0fd-4874-9224-1784590c48af"/>
+				<reportElement x="0" y="70" width="199" height="20" uuid="79b584d4-e0fd-4874-9224-1784590c48af"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
@@ -70,57 +70,65 @@
 				<text><![CDATA[CUENTA]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="107" width="229" height="20" uuid="3b4234bc-8a4f-4a70-bb00-0ac8d538f7fd"/>
+				<reportElement x="0" y="92" width="229" height="20" uuid="3b4234bc-8a4f-4a70-bb00-0ac8d538f7fd"/>
 				<textElement>
-					<font size="11" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{MEES}+" (*)"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="128" width="127" height="20" uuid="f8a49a78-059f-46b9-a058-e5dec6fb6e9e"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="0" y="107" width="127" height="20" uuid="f8a49a78-059f-46b9-a058-e5dec6fb6e9e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Registros Actualizados al]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="118" y="128" width="266" height="20" uuid="92287e43-f5bd-48ff-8fc0-c53021f02594"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="118" y="107" width="266" height="20" uuid="92287e43-f5bd-48ff-8fc0-c53021f02594"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHA_HORA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="12" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="555" height="24" forecolor="#D6D9DF" backcolor="#D6D9DF" uuid="5ca00c3a-e663-459a-af18-fca95625cbd2"/>
+				<reportElement x="0" y="0" width="555" height="16" forecolor="#D6D9DF" backcolor="#D6D9DF" uuid="5ca00c3a-e663-459a-af18-fca95625cbd2"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="512" y="0" width="43" height="24" uuid="687beb8c-bceb-494a-a73b-222f15aff8a5"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="512" y="0" width="43" height="16" uuid="687beb8c-bceb-494a-a73b-222f15aff8a5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="0" width="100" height="24" uuid="66824a62-9f8e-49ac-8a50-db9b39670b99"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="8" y="0" width="100" height="16" uuid="66824a62-9f8e-49ac-8a50-db9b39670b99"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
 				<text><![CDATA[CUENTA]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="17" splitType="Stretch">
 			<textField>
-				<reportElement x="499" y="1" width="43" height="23" uuid="6129c428-4b3b-4336-827b-a5d65e4af0a5"/>
+				<reportElement x="499" y="3" width="43" height="12" uuid="6129c428-4b3b-4336-827b-a5d65e4af0a5"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10"/>
+					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="494" height="24" forecolor="#333333" uuid="7f0d746c-ad03-4955-922e-9833960f3819"/>
+				<reportElement x="8" y="2" width="486" height="13" forecolor="#333333" uuid="7f0d746c-ad03-4955-922e-9833960f3819"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10"/>
+					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
 			</textField>
@@ -147,21 +155,21 @@
 			<staticText>
 				<reportElement x="0" y="31" width="100" height="14" uuid="c94396ab-b49d-4c0b-9605-870e14e08553"/>
 				<textElement>
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Total de Ventas (*)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="165" y="31" width="15" height="14" uuid="cecc01df-fc10-4f12-9ddb-5af86a5c03d4"/>
 				<textElement>
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[S/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="7" width="200" height="21" uuid="1930a554-c0b5-4623-ac23-144033f947ae"/>
 				<textElement>
-					<font size="10" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[RESUMEN]]></text>
 			</staticText>
@@ -185,7 +193,7 @@
 			<textField>
 				<reportElement x="180" y="31" width="100" height="20" uuid="eecb8af1-1a7f-4a2b-9f0e-0b95cd798f78"/>
 				<textElement>
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL_TOTAL}]]></textFieldExpression>
 			</textField>

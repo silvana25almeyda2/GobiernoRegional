@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,10 @@ import java.util.Date;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import modelo.Caja.Caja_Cliente;
 import modelo.Caja.Caja_Historia;
 import modelo.Caja.Caja_NuevaVenta;
@@ -36,6 +41,7 @@ Connection conexion=c.conectar();
 ResultSet r;
 byte tg;
 byte tgm;
+DefaultTableModel m4;
 Caja_Historia hC = new Caja_Historia();
     /**
      * Creates new form Caja_Historia_Clinica
@@ -46,22 +52,33 @@ Caja_Historia hC = new Caja_Historia();
         this.setExtendedState(MAXIMIZED_BOTH);
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Mind Map-100.png")).getImage());
         cargareliminar.setVisible(false);
+        DEP_NAC.setBackground(Color.WHITE);
+        DEP_REC.setBackground(Color.WHITE);
         Caja_Historia A = new Caja_Historia();
         Caja_Historia N = new Caja_Historia();
+        Caja_Historia BU = new Caja_Historia();
+        Caja_Historia BR = new Caja_Historia();
         N.LISTAR_PERMISOS_HC(Principal.lblUsu.getText());
         A.LISTA_CLIENTES("",tb_Clientes);
-        cbxDepartamentoNac.setBackground(Color.WHITE);
-        cbxProvinciaNac.setBackground(Color.WHITE);
-        cbxDistritoNac.setBackground(Color.WHITE);
-        cbxDepartamentoNac1.setBackground(Color.WHITE);
-        cbxProvinciaNac1.setBackground(Color.WHITE);
-        cbxDistritoNac1.setBackground(Color.WHITE);
+        
+        BR.LISTA_UBICACION("",tbResidencia);
+        BU.LISTA_UBICACION("",tbNacimiento);
+
         cbxGenero.setBackground(Color.WHITE);
         cbxEstadoCivil1.setBackground(Color.WHITE);
-        this.cbxDepartamentoNac.setModel(CargarDEPARTAMENTO());
-        this.cbxDepartamentoNac1.setModel(CargarDEPARTAMENTO());
         NivelSuperior.setLocationRelativeTo(null);//en el centro
+        DEP_NAC.setLocationRelativeTo(null);//en el centro
+        DEP_REC.setLocationRelativeTo(null);//en el centro
+        
+        tbResidencia.getTableHeader().setVisible(false);
+        tbResidencia.setTableHeader(null);
+        tbNacimiento.getTableHeader().setVisible(false);
+        tbNacimiento.setTableHeader(null);
+        
         btnCaja.setVisible(false);
+        Paginas.setEnabled(false);
+        Paginas.setEnabledAt(0,false);
+        Paginas.setEnabledAt(1, false);
     }
     public void LIMPIAR(){
        txtDni.setText("");
@@ -79,12 +96,8 @@ Caja_Historia hC = new Caja_Historia();
        txtReligion2.setText("");  
        txtDni.requestFocus();
        txtFecha.setDate(null);
-       cbxDepartamentoNac.setSelectedIndex(0);
-       cbxProvinciaNac.removeAllItems();
-       cbxDistritoNac.removeAllItems();
-       cbxDepartamentoNac1.setSelectedIndex(0);
-       cbxProvinciaNac1.removeAllItems();
-       cbxDistritoNac1.removeAllItems();
+       txtNacimiento.setText(""); 
+       txtActual.setText(""); 
        cbxGenero.setSelectedIndex(0);
        cbxEstadoCivil1.setSelectedIndex(0);
     }
@@ -131,6 +144,7 @@ Caja_Historia hC = new Caja_Historia();
        }
          
     }
+
     public void HABILITAR(boolean opcion){
        txtDni.setEditable(opcion);
        txtCodigo.setEditable(opcion); 
@@ -146,12 +160,8 @@ Caja_Historia hC = new Caja_Historia();
        txtTelefono.setEditable(opcion); 
        txtReligion2.setEditable(opcion); 
        txtFecha.setEnabled(opcion);
-       cbxDepartamentoNac.setEnabled(opcion);
-       cbxProvinciaNac.setEnabled(opcion);
-       cbxDistritoNac.setEnabled(opcion);
-       cbxDepartamentoNac1.setEnabled(opcion);
-       cbxProvinciaNac1.setEnabled(opcion);
-       cbxDistritoNac1.setEnabled(opcion);
+       txtNacimiento.setEditable(opcion);
+       txtActual.setEditable(opcion);
        cbxGenero.setEnabled(opcion);
        cbxEstadoCivil1.setEnabled(opcion); 
     }
@@ -191,24 +201,7 @@ Caja_Historia hC = new Caja_Historia();
         return fecha;
     }
     
-    public DefaultComboBoxModel CargarDEPARTAMENTO(){
-       DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
-       String   sql = null;
-       ResultSet rs = null;
-       Statement  st = null;   
-        try {
-              st = conexion.createStatement();
-              r = st.executeQuery ("select nombre_departamento from SISTEMA_DEPARTAMENTO"); 
-//              listmodel.addElement("Seleccionar...");
-            while( r.next() ){
-                listmodel.addElement( r.getString( "nombre_departamento" ) );                
-             }
-            r.close();
-        } catch (SQLException ex) {            
-            System.err.println( "ERROR CARGAR DEPARTAMENTO :" + ex.getMessage() );
-        }        
-        return listmodel;
-    }
+    
     
     public void mostrarNumHC(){
         char c1 = txtCodigo.getText().charAt(0);
@@ -244,12 +237,16 @@ Caja_Historia hC = new Caja_Historia();
         } catch (Exception e) {
         }
         txtNacionalidad.setText(String.valueOf(tb_Clientes.getValueAt(fila, 9))); 
-        cbxDepartamentoNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 19))); 
-        cbxProvinciaNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 20))); 
-        cbxDistritoNac.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 21))); 
-        cbxDepartamentoNac1.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 22))); 
-        cbxProvinciaNac1.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 23))); 
-        cbxDistritoNac1.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 24)));
+        
+        txtNacimiento.setText(String.valueOf(tb_Clientes.getValueAt(fila, 8))); 
+        txtActual.setText(String.valueOf(tb_Clientes.getValueAt(fila, 10))); 
+        
+        lblDEP.setText(String.valueOf(tb_Clientes.getValueAt(fila, 19))); 
+        lblPROV.setText(String.valueOf(tb_Clientes.getValueAt(fila, 20))); 
+        lblDIST.setText(String.valueOf(tb_Clientes.getValueAt(fila, 21))); 
+        lblDEP1.setText(String.valueOf(tb_Clientes.getValueAt(fila, 22))); 
+        lblPROV1.setText(String.valueOf(tb_Clientes.getValueAt(fila, 23))); 
+        lblDIST1.setText(String.valueOf(tb_Clientes.getValueAt(fila, 24))); 
         
         cbxGenero.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 6)));
         cbxEstadoCivil1.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 12)));  
@@ -287,9 +284,9 @@ Caja_Historia hC = new Caja_Historia();
                 cno1.setCOD_HC(codigo);
                 cno1.setSEXO(cbxGenero.getSelectedItem().toString());
                 cno1.setFECHA_NAC(determinarFecha(txtFecha));
-                cno1.setDEP_NAC(cbxDepartamentoNac.getSelectedItem().toString());
-                cno1.setPROV_NAC(cbxProvinciaNac.getSelectedItem().toString());
-                cno1.setDIS_NAC(cbxDistritoNac.getSelectedItem().toString());
+                cno1.setDEP_NAC(lblDEP.getText());
+                cno1.setPROV_NAC(lblPROV.getText());
+                cno1.setDIS_NAC(lblDIST.getText());
                 cno1.setOCUPACION(txtOcupacion.getText());
                 cno1.setESTADO_CIVIL(cbxEstadoCivil1.getSelectedItem().toString());
                 cno1.setGRUPO_SANGUINEO(txtGrupoSan.getText());
@@ -298,9 +295,9 @@ Caja_Historia hC = new Caja_Historia();
                 cno1.setCELULAR(txtReligion2.getText());
                 cno1.setGRADO_INST(txtGradoIns.getText());
                 cno1.setNACIONALIDAD(txtNacionalidad.getText());
-                cno1.setDESP_R(cbxDepartamentoNac1.getSelectedItem().toString());
-                cno1.setPROV_R(cbxProvinciaNac1.getSelectedItem().toString());
-                cno1.setDIST_R(cbxDistritoNac1.getSelectedItem().toString());
+                cno1.setDESP_R(lblDEP1.getText());
+                cno1.setPROV_R(lblPROV1.getText());
+                cno1.setDIST_R(lblDIST1.getText());
                 cno1.setRIESGO(txtRiesgo.getText());
                 
                     if(cno1.NUEVA_HISTORIA()==true){
@@ -353,9 +350,9 @@ Caja_Historia hC = new Caja_Historia();
                 cno1.setCOD_HC(codigo);
                 cno1.setSEXO(cbxGenero.getSelectedItem().toString());
                 cno1.setFECHA_NAC(determinarFecha(txtFecha));
-                cno1.setDEP_NAC(cbxDepartamentoNac.getSelectedItem().toString());
-                cno1.setPROV_NAC(cbxProvinciaNac.getSelectedItem().toString());
-                cno1.setDIS_NAC(cbxDistritoNac.getSelectedItem().toString());
+                cno1.setDEP_NAC(lblDEP.getText());
+                cno1.setPROV_NAC(lblPROV.getText());
+                cno1.setDIS_NAC(lblDIST.getText());
                 cno1.setOCUPACION(txtOcupacion.getText());
                 cno1.setESTADO_CIVIL(cbxEstadoCivil1.getSelectedItem().toString());
                 cno1.setGRUPO_SANGUINEO(txtGrupoSan.getText());
@@ -364,9 +361,9 @@ Caja_Historia hC = new Caja_Historia();
                 cno1.setCELULAR(txtReligion2.getText());
                 cno1.setGRADO_INST(txtGradoIns.getText());
                 cno1.setNACIONALIDAD(txtNacionalidad.getText());
-                cno1.setDESP_R(cbxDepartamentoNac1.getSelectedItem().toString());
-                cno1.setPROV_R(cbxProvinciaNac1.getSelectedItem().toString());
-                cno1.setDIST_R(cbxDistritoNac1.getSelectedItem().toString());
+                cno1.setDESP_R(lblDEP1.getText());
+                cno1.setPROV_R(lblPROV1.getText());
+                cno1.setDIST_R(lblDIST1.getText());
                 cno1.setRIESGO(txtRiesgo.getText());
                     if(cno1.MODIFICAR_HISTORIA()==true){
                         cargareliminar.setVisible(true);
@@ -407,6 +404,36 @@ Caja_Historia hC = new Caja_Historia();
         jPanel146 = new javax.swing.JPanel();
         btnAlertConsulta10 = new javax.swing.JButton();
         jLabel67 = new javax.swing.JLabel();
+        DEP_NAC = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbNacimiento = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        bus = new javax.swing.JLabel();
+        bus3 = new javax.swing.JLabel();
+        lblDNI_PREVENTA = new javax.swing.JLabel();
+        lblNOMBRE_PREVENTA = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        btnBuscarPaciente2 = new javax.swing.JButton();
+        jPanel33 = new javax.swing.JPanel();
+        txtBuscarNacimiento = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel36 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        DEP_REC = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbResidencia = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        bus1 = new javax.swing.JLabel();
+        bus4 = new javax.swing.JLabel();
+        lblDNI_PREVENTA1 = new javax.swing.JLabel();
+        lblNOMBRE_PREVENTA1 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        btnBuscarPaciente3 = new javax.swing.JButton();
+        jPanel34 = new javax.swing.JPanel();
+        txtBuscarUnidadEjecutora1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel48 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -447,17 +474,6 @@ Caja_Historia hC = new Caja_Historia();
             jLabel25 = new javax.swing.JLabel();
             txtNacionalidad = new javax.swing.JTextField();
             jLabel18 = new javax.swing.JLabel();
-            jLabel17 = new javax.swing.JLabel();
-            jLabel16 = new javax.swing.JLabel();
-            cbxDistritoNac = new javax.swing.JComboBox<String>();
-            cbxProvinciaNac = new javax.swing.JComboBox<String>();
-            cbxDepartamentoNac = new javax.swing.JComboBox<String>();
-            jLabel19 = new javax.swing.JLabel();
-            cbxDepartamentoNac1 = new javax.swing.JComboBox<String>();
-            jLabel20 = new javax.swing.JLabel();
-            jLabel21 = new javax.swing.JLabel();
-            cbxProvinciaNac1 = new javax.swing.JComboBox<String>();
-            cbxDistritoNac1 = new javax.swing.JComboBox<String>();
             jLabel22 = new javax.swing.JLabel();
             jLabel12 = new javax.swing.JLabel();
             cbxGenero = new javax.swing.JComboBox<String>();
@@ -484,6 +500,18 @@ Caja_Historia hC = new Caja_Historia();
             jLabel7 = new javax.swing.JLabel();
             jLabel10 = new javax.swing.JLabel();
             jLabel11 = new javax.swing.JLabel();
+            panelCPT1 = new javax.swing.JPanel();
+            txtNacimiento = new javax.swing.JTextField();
+            btnBuscarCPT = new javax.swing.JButton();
+            panelCPT2 = new javax.swing.JPanel();
+            txtActual = new javax.swing.JTextField();
+            btnBuscarCPT1 = new javax.swing.JButton();
+            lblDEP = new javax.swing.JLabel();
+            lblPROV = new javax.swing.JLabel();
+            lblDIST = new javax.swing.JLabel();
+            lblDEP1 = new javax.swing.JLabel();
+            lblPROV1 = new javax.swing.JLabel();
+            lblDIST1 = new javax.swing.JLabel();
             cargareliminar = new javax.swing.JPanel();
             Mensaje = new javax.swing.JLabel();
             eli = new javax.swing.JButton();
@@ -567,6 +595,410 @@ Caja_Historia hC = new Caja_Historia();
             NivelSuperiorLayout.setVerticalGroup(
                 NivelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel145, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+
+            DEP_NAC.setMinimumSize(new java.awt.Dimension(761, 423));
+
+            jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+            tbNacimiento = new javax.swing.JTable(){
+                public boolean isCellEditable(int rowIndex, int colIndex) {
+                    return false; //Disallow the editing of any cell
+                }
+            };
+            tbNacimiento.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            tbNacimiento.setRowHeight(35);
+            tbNacimiento.setSelectionBackground(new java.awt.Color(102, 102, 102));
+            tbNacimiento.getTableHeader().setReorderingAllowed(false);
+            tbNacimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tbNacimientoMouseClicked(evt);
+                }
+            });
+            tbNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    tbNacimientoKeyPressed(evt);
+                }
+            });
+            jScrollPane2.setViewportView(tbNacimiento);
+
+            jPanel7.setBackground(new java.awt.Color(230, 230, 230));
+            jPanel7.setMinimumSize(new java.awt.Dimension(310, 441));
+
+            bus.setForeground(new java.awt.Color(230, 230, 230));
+            bus.setText("jLabel37");
+
+            bus3.setForeground(new java.awt.Color(230, 230, 230));
+            bus3.setText("jLabel37");
+
+            lblDNI_PREVENTA.setForeground(new java.awt.Color(230, 230, 230));
+            lblDNI_PREVENTA.setText("jLabel1");
+
+            lblNOMBRE_PREVENTA.setForeground(new java.awt.Color(230, 230, 230));
+            lblNOMBRE_PREVENTA.setText("jLabel1");
+
+            jLabel26.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+            jLabel26.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel26.setText("Lugar de Nacimiento");
+
+            btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+            btnBuscarPaciente2.setContentAreaFilled(false);
+            btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarPaciente2ActionPerformed(evt);
+                }
+            });
+
+            jPanel33.setBackground(new java.awt.Color(255, 255, 255));
+
+            txtBuscarNacimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            txtBuscarNacimiento.setForeground(new java.awt.Color(98, 98, 98));
+            txtBuscarNacimiento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            txtBuscarNacimiento.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarNacimientoCaretUpdate(evt);
+                }
+            });
+            txtBuscarNacimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    txtBuscarNacimientoMouseClicked(evt);
+                }
+            });
+            txtBuscarNacimiento.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtBuscarNacimientoActionPerformed(evt);
+                }
+            });
+            txtBuscarNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    txtBuscarNacimientoKeyPressed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+            jPanel33.setLayout(jPanel33Layout);
+            jPanel33Layout.setHorizontalGroup(
+                jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(txtBuscarNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addContainerGap())
+            );
+            jPanel33Layout.setVerticalGroup(
+                jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                    .addGap(2, 2, 2)
+                    .addComponent(txtBuscarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+            );
+
+            jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel15.setText("Departamento, Provincia o Distrito");
+
+            javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+            jPanel7.setLayout(jPanel7Layout);
+            jPanel7Layout.setHorizontalGroup(
+                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel15)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel26))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(bus)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblNOMBRE_PREVENTA)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bus3))
+                        .addComponent(lblDNI_PREVENTA))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            jPanel7Layout.setVerticalGroup(
+                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                    .addComponent(jLabel26)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel15))
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(lblDNI_PREVENTA)
+                            .addGap(52, 52, 52)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bus)
+                                .addComponent(bus3)
+                                .addComponent(lblNOMBRE_PREVENTA))))
+                    .addGap(17, 17, 17))
+            );
+
+            jPanel36.setBackground(new java.awt.Color(102, 102, 102));
+            jPanel36.setPreferredSize(new java.awt.Dimension(0, 2));
+
+            javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+            jPanel36.setLayout(jPanel36Layout);
+            jPanel36Layout.setHorizontalGroup(
+                jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 0, Short.MAX_VALUE)
+            );
+            jPanel36Layout.setVerticalGroup(
+                jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 2, Short.MAX_VALUE)
+            );
+
+            jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+            jLabel47.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel47.setText(" Departamento Proncia y Distriito");
+
+            javax.swing.GroupLayout DEP_NACLayout = new javax.swing.GroupLayout(DEP_NAC.getContentPane());
+            DEP_NAC.getContentPane().setLayout(DEP_NACLayout);
+            DEP_NACLayout.setHorizontalGroup(
+                DEP_NACLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DEP_NACLayout.createSequentialGroup()
+                    .addGroup(DEP_NACLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+                        .addGroup(DEP_NACLayout.createSequentialGroup()
+                            .addComponent(jLabel47)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
+                .addGroup(DEP_NACLayout.createSequentialGroup()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
+            );
+            DEP_NACLayout.setVerticalGroup(
+                DEP_NACLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DEP_NACLayout.createSequentialGroup()
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+            );
+
+            DEP_REC.setMinimumSize(new java.awt.Dimension(761, 423));
+
+            jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+            tbNacimiento = new javax.swing.JTable(){
+                public boolean isCellEditable(int rowIndex, int colIndex) {
+                    return false; //Disallow the editing of any cell
+                }
+            };
+            tbResidencia.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            tbResidencia.setRowHeight(35);
+            tbResidencia.setSelectionBackground(new java.awt.Color(102, 102, 102));
+            tbResidencia.getTableHeader().setReorderingAllowed(false);
+            tbResidencia.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tbResidenciaMouseClicked(evt);
+                }
+            });
+            tbResidencia.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    tbResidenciaKeyPressed(evt);
+                }
+            });
+            jScrollPane4.setViewportView(tbResidencia);
+
+            jPanel8.setBackground(new java.awt.Color(230, 230, 230));
+            jPanel8.setMinimumSize(new java.awt.Dimension(310, 441));
+
+            bus1.setForeground(new java.awt.Color(230, 230, 230));
+            bus1.setText("jLabel37");
+
+            bus4.setForeground(new java.awt.Color(230, 230, 230));
+            bus4.setText("jLabel37");
+
+            lblDNI_PREVENTA1.setForeground(new java.awt.Color(230, 230, 230));
+            lblDNI_PREVENTA1.setText("jLabel1");
+
+            lblNOMBRE_PREVENTA1.setForeground(new java.awt.Color(230, 230, 230));
+            lblNOMBRE_PREVENTA1.setText("jLabel1");
+
+            jLabel32.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+            jLabel32.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel32.setText("Residencia Actual");
+
+            btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+            btnBuscarPaciente3.setContentAreaFilled(false);
+            btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarPaciente3ActionPerformed(evt);
+                }
+            });
+
+            jPanel34.setBackground(new java.awt.Color(255, 255, 255));
+
+            txtBuscarUnidadEjecutora1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            txtBuscarUnidadEjecutora1.setForeground(new java.awt.Color(98, 98, 98));
+            txtBuscarUnidadEjecutora1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            txtBuscarUnidadEjecutora1.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarUnidadEjecutora1CaretUpdate(evt);
+                }
+            });
+            txtBuscarUnidadEjecutora1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    txtBuscarUnidadEjecutora1MouseClicked(evt);
+                }
+            });
+            txtBuscarUnidadEjecutora1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtBuscarUnidadEjecutora1ActionPerformed(evt);
+                }
+            });
+            txtBuscarUnidadEjecutora1.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    txtBuscarUnidadEjecutora1KeyPressed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
+            jPanel34.setLayout(jPanel34Layout);
+            jPanel34Layout.setHorizontalGroup(
+                jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(txtBuscarUnidadEjecutora1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addContainerGap())
+            );
+            jPanel34Layout.setVerticalGroup(
+                jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                    .addGap(2, 2, 2)
+                    .addComponent(txtBuscarUnidadEjecutora1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+            );
+
+            jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel16.setText("Departamento, Provincia o Distrito");
+
+            javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+            jPanel8.setLayout(jPanel8Layout);
+            jPanel8Layout.setHorizontalGroup(
+                jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel16)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel32))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(bus1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblNOMBRE_PREVENTA1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bus4))
+                        .addComponent(lblDNI_PREVENTA1))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            jPanel8Layout.setVerticalGroup(
+                jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(jLabel32)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel16))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(lblDNI_PREVENTA1)
+                            .addGap(52, 52, 52)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bus1)
+                                .addComponent(bus4)
+                                .addComponent(lblNOMBRE_PREVENTA1))))
+                    .addGap(17, 17, 17))
+            );
+
+            jPanel37.setBackground(new java.awt.Color(102, 102, 102));
+            jPanel37.setPreferredSize(new java.awt.Dimension(0, 2));
+
+            javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+            jPanel37.setLayout(jPanel37Layout);
+            jPanel37Layout.setHorizontalGroup(
+                jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 0, Short.MAX_VALUE)
+            );
+            jPanel37Layout.setVerticalGroup(
+                jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 2, Short.MAX_VALUE)
+            );
+
+            jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+            jLabel48.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel48.setText(" Departamento Proncia y Distriito");
+
+            javax.swing.GroupLayout DEP_RECLayout = new javax.swing.GroupLayout(DEP_REC.getContentPane());
+            DEP_REC.getContentPane().setLayout(DEP_RECLayout);
+            DEP_RECLayout.setHorizontalGroup(
+                DEP_RECLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DEP_RECLayout.createSequentialGroup()
+                    .addGroup(DEP_RECLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+                        .addGroup(DEP_RECLayout.createSequentialGroup()
+                            .addComponent(jLabel48)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
+                .addGroup(DEP_RECLayout.createSequentialGroup()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
+            );
+            DEP_RECLayout.setVerticalGroup(
+                DEP_RECLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DEP_RECLayout.createSequentialGroup()
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -988,135 +1420,11 @@ Caja_Historia hC = new Caja_Historia();
 
             jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel18.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel18.setText("Departamento");
-
-            jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel17.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel17.setText("Provincia");
-
-            jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel16.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel16.setText("Distrito");
-
-            cbxDistritoNac.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxDistritoNac.setForeground(new java.awt.Color(102, 102, 102));
-            cbxDistritoNac.setEnabled(false);
-            cbxDistritoNac.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxDistritoNacActionPerformed(evt);
-                }
-            });
-            cbxDistritoNac.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxDistritoNacKeyPressed(evt);
-                }
-            });
-
-            cbxProvinciaNac.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxProvinciaNac.setForeground(new java.awt.Color(102, 102, 102));
-            cbxProvinciaNac.setEnabled(false);
-            cbxProvinciaNac.addItemListener(new java.awt.event.ItemListener() {
-                public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                    cbxProvinciaNacItemStateChanged(evt);
-                }
-            });
-            cbxProvinciaNac.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxProvinciaNacActionPerformed(evt);
-                }
-            });
-            cbxProvinciaNac.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxProvinciaNacKeyPressed(evt);
-                }
-            });
-
-            cbxDepartamentoNac.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxDepartamentoNac.setForeground(new java.awt.Color(102, 102, 102));
-            cbxDepartamentoNac.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
-            cbxDepartamentoNac.addItemListener(new java.awt.event.ItemListener() {
-                public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                    cbxDepartamentoNacItemStateChanged(evt);
-                }
-            });
-            cbxDepartamentoNac.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxDepartamentoNacActionPerformed(evt);
-                }
-            });
-            cbxDepartamentoNac.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxDepartamentoNacKeyPressed(evt);
-                }
-            });
-
-            jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel19.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel19.setText("Departamento");
-
-            cbxDepartamentoNac1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxDepartamentoNac1.setForeground(new java.awt.Color(102, 102, 102));
-            cbxDepartamentoNac1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
-            cbxDepartamentoNac1.addItemListener(new java.awt.event.ItemListener() {
-                public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                    cbxDepartamentoNac1ItemStateChanged(evt);
-                }
-            });
-            cbxDepartamentoNac1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxDepartamentoNac1ActionPerformed(evt);
-                }
-            });
-            cbxDepartamentoNac1.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxDepartamentoNac1KeyPressed(evt);
-                }
-            });
-
-            jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel20.setText("Provincia");
-
-            jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel21.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel21.setText("Distrito");
-
-            cbxProvinciaNac1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxProvinciaNac1.setForeground(new java.awt.Color(102, 102, 102));
-            cbxProvinciaNac1.setEnabled(false);
-            cbxProvinciaNac1.addItemListener(new java.awt.event.ItemListener() {
-                public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                    cbxProvinciaNac1ItemStateChanged(evt);
-                }
-            });
-            cbxProvinciaNac1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxProvinciaNac1ActionPerformed(evt);
-                }
-            });
-            cbxProvinciaNac1.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxProvinciaNac1KeyPressed(evt);
-                }
-            });
-
-            cbxDistritoNac1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxDistritoNac1.setForeground(new java.awt.Color(102, 102, 102));
-            cbxDistritoNac1.setEnabled(false);
-            cbxDistritoNac1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cbxDistritoNac1ActionPerformed(evt);
-                }
-            });
-            cbxDistritoNac1.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    cbxDistritoNac1KeyPressed(evt);
-                }
-            });
+            jLabel18.setText("Lugar de Nacimiento");
 
             jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel22.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel22.setText("Lugar de Residencia Actual");
+            jLabel22.setText("Residencia Actual");
 
             jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel12.setForeground(new java.awt.Color(51, 51, 51));
@@ -1279,6 +1587,120 @@ Caja_Historia hC = new Caja_Historia();
             jLabel11.setForeground(new java.awt.Color(255, 51, 51));
             jLabel11.setText("*");
 
+            panelCPT1.setBackground(new java.awt.Color(255, 255, 255));
+            panelCPT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+            txtNacimiento.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+            txtNacimiento.setForeground(new java.awt.Color(51, 51, 51));
+            txtNacimiento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+            txtNacimiento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            txtNacimiento.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtNacimientoCaretUpdate(evt);
+                }
+            });
+
+            btnBuscarCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+            btnBuscarCPT.setContentAreaFilled(false);
+            btnBuscarCPT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarCPT.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarCPTActionPerformed(evt);
+                }
+            });
+            btnBuscarCPT.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    btnBuscarCPTKeyPressed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout panelCPT1Layout = new javax.swing.GroupLayout(panelCPT1);
+            panelCPT1.setLayout(panelCPT1Layout);
+            panelCPT1Layout.setHorizontalGroup(
+                panelCPT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCPT1Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(txtNacimiento)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnBuscarCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(3, 3, 3))
+            );
+            panelCPT1Layout.setVerticalGroup(
+                panelCPT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCPT1Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addGroup(panelCPT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(btnBuscarCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
+            panelCPT2.setBackground(new java.awt.Color(255, 255, 255));
+            panelCPT2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+            txtActual.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+            txtActual.setForeground(new java.awt.Color(51, 51, 51));
+            txtActual.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+            txtActual.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            txtActual.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtActualCaretUpdate(evt);
+                }
+            });
+
+            btnBuscarCPT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
+            btnBuscarCPT1.setContentAreaFilled(false);
+            btnBuscarCPT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarCPT1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarCPT1ActionPerformed(evt);
+                }
+            });
+            btnBuscarCPT1.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    btnBuscarCPT1KeyPressed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout panelCPT2Layout = new javax.swing.GroupLayout(panelCPT2);
+            panelCPT2.setLayout(panelCPT2Layout);
+            panelCPT2Layout.setHorizontalGroup(
+                panelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCPT2Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(txtActual)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnBuscarCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(3, 3, 3))
+            );
+            panelCPT2Layout.setVerticalGroup(
+                panelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCPT2Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addGroup(panelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtActual, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(btnBuscarCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
+            lblDEP.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblDEP.setText("jLabel16");
+
+            lblPROV.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblPROV.setText("jLabel17");
+
+            lblDIST.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblDIST.setText("jLabel19");
+
+            lblDEP1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblDEP1.setText("jLabel16");
+
+            lblPROV1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblPROV1.setText("jLabel17");
+
+            lblDIST1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+            lblDIST1.setText("jLabel19");
+
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
             jPanel2Layout.setHorizontalGroup(
@@ -1293,117 +1715,99 @@ Caja_Historia hC = new Caja_Historia();
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel17)
-                                        .addComponent(jLabel16)
-                                        .addComponent(jLabel12)
-                                        .addComponent(jLabel31))
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(61, 61, 61)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(cbxEstadoCivil1, javax.swing.GroupLayout.Alignment.LEADING, 0, 178, Short.MAX_VALUE)
-                                                .addComponent(cbxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtGrupoSan))
-                                            .addGap(48, 48, 48)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel13)
-                                                .addComponent(jLabel14)
-                                                .addComponent(jLabel28))
-                                            .addGap(25, 25, 25))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(60, 60, 60)
-                                            .addComponent(cbxDistritoNac, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel9))
-                                    .addGap(29, 29, 29)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(txtCodigo))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(lblID)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addGap(66, 66, 66)
-                                            .addComponent(txtApellidoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel7))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel4)
-                                                        .addComponent(jLabel8))
-                                                    .addGap(40, 40, 40)
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel18)
-                                                        .addComponent(jLabel25))
-                                                    .addGap(78, 78, 78)
-                                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(cbxDepartamentoNac, javax.swing.GroupLayout.Alignment.LEADING, 0, 260, Short.MAX_VALUE)
-                                                        .addComponent(cbxProvinciaNac, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(txtNacionalidad))))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel10)))
-                                    .addGap(80, 91, Short.MAX_VALUE)))
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel31))
+                            .addGap(61, 61, 61)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cbxEstadoCivil1, javax.swing.GroupLayout.Alignment.LEADING, 0, 178, Short.MAX_VALUE)
+                                .addComponent(cbxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtGrupoSan))
+                            .addGap(48, 48, 48)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel20)
-                                            .addComponent(jLabel21))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtNombre1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(cbxDistritoNac1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cbxProvinciaNac1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cbxDepartamentoNac1, javax.swing.GroupLayout.Alignment.LEADING, 0, 211, Short.MAX_VALUE))
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel11)
-                                        .addGap(45, 45, 45))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel22)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(5, 5, 5)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtGradoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                        .addComponent(txtOcupacion)
-                                        .addComponent(txtRiesgo))
-                                    .addGap(30, 30, 30)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel29)
-                                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel34))
-                                    .addGap(42, 42, 42)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtReligion2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(45, 45, 45))))
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel28))
+                            .addGap(25, 25, 25))
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel27)
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9))
+                            .addGap(29, 29, 29)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                .addComponent(txtCodigo))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblID)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(66, 66, 66)
+                                    .addComponent(txtApellidoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel7))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel4)
+                                                    .addComponent(jLabel8))
+                                                .addGap(40, 40, 40)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel25)
+                                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(panelCPT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(panelCPT2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jLabel27)
+                                        .addComponent(jLabel22))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(lblDEP1)
+                                        .addComponent(lblDEP)
+                                        .addComponent(lblPROV)
+                                        .addComponent(lblPROV1)
+                                        .addComponent(lblDIST)
+                                        .addComponent(lblDIST1))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNombre1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel11))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtGradoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                .addComponent(txtOcupacion)
+                                .addComponent(txtRiesgo))
+                            .addGap(30, 30, 30)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel29)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel34))
+                            .addGap(42, 42, 42)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtReligion2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(45, 45, 45))
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1436,32 +1840,35 @@ Caja_Historia hC = new Caja_Historia();
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel8)
-                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel22))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel25)
-                        .addComponent(jLabel19)
-                        .addComponent(cbxDepartamentoNac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel18)
-                        .addComponent(cbxDepartamentoNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel20)
-                        .addComponent(cbxProvinciaNac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cbxProvinciaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel21)
-                            .addComponent(cbxDistritoNac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel25))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(lblDEP)
+                            .addGap(5, 5, 5)
+                            .addComponent(lblDEP1)
+                            .addGap(5, 5, 5)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(lblPROV)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPROV1))
+                        .addComponent(panelCPT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel16)
-                        .addComponent(cbxDistritoNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(lblDIST)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDIST1))
+                        .addComponent(panelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(18, 18, 18)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1487,7 +1894,7 @@ Caja_Historia hC = new Caja_Historia();
                         .addComponent(jLabel28)
                         .addComponent(jLabel31)
                         .addComponent(txtGrupoSan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(31, Short.MAX_VALUE))
+                    .addContainerGap(59, Short.MAX_VALUE))
             );
 
             Paginas.addTab("tab2", jPanel2);
@@ -1842,8 +2249,7 @@ Caja_Historia hC = new Caja_Historia();
 
     private void txtNacionalidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalidadKeyPressed
         if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-            cbxDepartamentoNac.requestFocus();
-            cbxDepartamentoNac.showPopup();
+            btnBuscarCPT.requestFocus();
         }
     }//GEN-LAST:event_txtNacionalidadKeyPressed
 
@@ -1859,169 +2265,6 @@ Caja_Historia hC = new Caja_Historia();
             getToolkit().beep();
         }
     }//GEN-LAST:event_txtNacionalidadKeyTyped
-
-    private void cbxDistritoNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistritoNacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxDistritoNacActionPerformed
-
-    private void cbxDistritoNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDistritoNacKeyPressed
-//        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-//            cbxDepartamento.requestFocus();
-//            cbxDepartamento.showPopup();
-//        }
-    }//GEN-LAST:event_cbxDistritoNacKeyPressed
-
-    private void cbxProvinciaNacItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinciaNacItemStateChanged
-        try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.cbxProvinciaNac.getSelectedIndex()>0){
-                        this.cbxDistritoNac.removeAllItems(); 
-                    Statement sta=conexion.createStatement();
-                    String dpto=cbxProvinciaNac.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC CAJA_HISTORIA_MOSTRAR_DISTRITO '"+dpto+"'");
-                    
-                    while(rs.next()){
-                     this.cbxDistritoNac.addItem(rs.getString("nombre_distrito"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                    
-                     }else{
-                            this.cbxDistritoNac.removeAllItems();
-
-                        this.cbxDistritoNac.addItem("Seleccione");
-                            }
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("ERROR AL CARGAR DISTRITO" + ex.getMessage());
-            }
-    }//GEN-LAST:event_cbxProvinciaNacItemStateChanged
-
-    private void cbxProvinciaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinciaNacActionPerformed
-        cbxDistritoNac.enable(true);
-    }//GEN-LAST:event_cbxProvinciaNacActionPerformed
-
-    private void cbxProvinciaNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxProvinciaNacKeyPressed
-        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-            cbxDistritoNac.requestFocus();
-            cbxDistritoNac.showPopup();
-        }
-    }//GEN-LAST:event_cbxProvinciaNacKeyPressed
-
-    private void cbxDepartamentoNacItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDepartamentoNacItemStateChanged
-                try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.cbxDepartamentoNac.getSelectedIndex()>0){
-                        this.cbxProvinciaNac.removeAllItems(); 
-                    Statement sta=conexion.createStatement();
-                    String dpto=cbxDepartamentoNac.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC CAJA_HISTORIA_MOSTRAR_PROVINCIA '"+dpto+"'");
-                    
-                    while(rs.next()){
-                     this.cbxProvinciaNac.addItem(rs.getString("nombre_provincia"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                    
-                     }else{
-                            this.cbxProvinciaNac.removeAllItems();
-
-                        this.cbxProvinciaNac.addItem("Seleccione");
-                            }
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error CARGAR PROVINCIA" + ex.getMessage());
-            }
-    }//GEN-LAST:event_cbxDepartamentoNacItemStateChanged
-
-    private void cbxDepartamentoNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDepartamentoNacActionPerformed
-        cbxProvinciaNac.enable(true);
-        cbxDistritoNac.enable(false);
-        cbxDistritoNac.removeAllItems();
-    }//GEN-LAST:event_cbxDepartamentoNacActionPerformed
-
-    private void cbxDepartamentoNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDepartamentoNacKeyPressed
-        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
-            cbxProvinciaNac.requestFocus();
-            cbxProvinciaNac.showPopup();
-        }
-    }//GEN-LAST:event_cbxDepartamentoNacKeyPressed
-
-    private void cbxDepartamentoNac1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDepartamentoNac1ItemStateChanged
-        try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.cbxDepartamentoNac1.getSelectedIndex()>0){
-                        this.cbxProvinciaNac1.removeAllItems(); 
-                    Statement sta=conexion.createStatement();
-                    String dpto=cbxDepartamentoNac1.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC CAJA_HISTORIA_MOSTRAR_PROVINCIA '"+dpto+"'");
-                    
-                    while(rs.next()){
-                     this.cbxProvinciaNac1.addItem(rs.getString("nombre_provincia"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                    
-                     }else{
-                            this.cbxProvinciaNac1.removeAllItems();
-
-                        this.cbxProvinciaNac1.addItem("Seleccione");
-                            }
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error CARGAR PROVINCIA" + ex.getMessage());
-            }
-    }//GEN-LAST:event_cbxDepartamentoNac1ItemStateChanged
-
-    private void cbxDepartamentoNac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDepartamentoNac1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxDepartamentoNac1ActionPerformed
-
-    private void cbxDepartamentoNac1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDepartamentoNac1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxDepartamentoNac1KeyPressed
-
-    private void cbxProvinciaNac1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinciaNac1ItemStateChanged
-                try{  
-                if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.cbxProvinciaNac1.getSelectedIndex()>0){
-                        this.cbxDistritoNac1.removeAllItems(); 
-                    Statement sta=conexion.createStatement();
-                    String dpto=cbxProvinciaNac1.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC CAJA_HISTORIA_MOSTRAR_DISTRITO '"+dpto+"'");
-                    
-                    while(rs.next()){
-                     this.cbxDistritoNac1.addItem(rs.getString("nombre_distrito"));
-                  //  this.cbxProvincia.setModel(null);
-                    }
-                    
-                     }else{
-                            this.cbxDistritoNac1.removeAllItems();
-
-                        this.cbxDistritoNac1.addItem("Seleccione");
-                            }
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("ERROR AL CARGAR DISTRITO" + ex.getMessage());
-            }
-    }//GEN-LAST:event_cbxProvinciaNac1ItemStateChanged
-
-    private void cbxProvinciaNac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinciaNac1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxProvinciaNac1ActionPerformed
-
-    private void cbxProvinciaNac1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxProvinciaNac1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxProvinciaNac1KeyPressed
-
-    private void cbxDistritoNac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistritoNac1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxDistritoNac1ActionPerformed
-
-    private void cbxDistritoNac1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDistritoNac1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxDistritoNac1KeyPressed
 
     private void cbxGeneroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxGeneroKeyPressed
         if(evt.getKeyChar()==KeyEvent.VK_ENTER){
@@ -2169,6 +2412,183 @@ Caja_Historia hC = new Caja_Historia();
         }
     }//GEN-LAST:event_btneliminarActionPerformed
 
+    private void txtNacimientoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNacimientoCaretUpdate
+
+    }//GEN-LAST:event_txtNacimientoCaretUpdate
+
+    private void btnBuscarCPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCPTActionPerformed
+
+        txtBuscarNacimiento.requestFocus();
+        DEP_NAC.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCPTActionPerformed
+
+    private void btnBuscarCPTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscarCPTKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            DEP_NAC.setVisible(true);
+            txtBuscarNacimiento.requestFocus();
+        }
+    }//GEN-LAST:event_btnBuscarCPTKeyPressed
+
+    private void txtActualCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActualCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtActualCaretUpdate
+
+    private void btnBuscarCPT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCPT1ActionPerformed
+        DEP_REC.setVisible(true);
+        txtBuscarUnidadEjecutora1.requestFocus();
+    }//GEN-LAST:event_btnBuscarCPT1ActionPerformed
+
+    private void btnBuscarCPT1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscarCPT1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCPT1KeyPressed
+
+    private void tbNacimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNacimientoMouseClicked
+        if(evt.getClickCount()==2){
+            int filaselec=tbNacimiento.getSelectedRow();
+
+            if(filaselec<0){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("Seleccione un Registro");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+            }else{
+
+                txtNacimiento.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 8)));
+
+                lblDEP.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 1)));
+                lblPROV.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 2)));
+                lblDIST.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 3)));
+
+            }
+            DEP_NAC.dispose();
+            btnBuscarCPT1.requestFocus();
+
+        }
+    }//GEN-LAST:event_tbNacimientoMouseClicked
+
+    private void tbNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNacimientoKeyPressed
+        int filaselec=tbNacimiento.getSelectedRow();
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            if(filaselec<0){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("Seleccione un Registro");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+            }else{
+
+                txtNacimiento.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 8)));
+
+                lblDEP.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 1)));
+                lblPROV.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 2)));
+                lblDIST.setText(String.valueOf(tbNacimiento.getValueAt(filaselec, 3)));
+
+            }
+            DEP_NAC.dispose();
+            btnBuscarCPT1.requestFocus();
+        }
+    }//GEN-LAST:event_tbNacimientoKeyPressed
+
+    private void btnBuscarPaciente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente2ActionPerformed
+
+    private void txtBuscarNacimientoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarNacimientoCaretUpdate
+        Caja_Historia BU = new Caja_Historia();
+        BU.LISTA_UBICACION(txtBuscarNacimiento.getText(),tbNacimiento);
+    }//GEN-LAST:event_txtBuscarNacimientoCaretUpdate
+
+    private void txtBuscarNacimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarNacimientoMouseClicked
+
+    }//GEN-LAST:event_txtBuscarNacimientoMouseClicked
+
+    private void txtBuscarNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarNacimientoActionPerformed
+
+    private void txtBuscarNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarNacimientoKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            //int fila = tb_Grupo3.getSelectedRow();
+            tbNacimiento.getSelectionModel().setSelectionInterval (0,0) ;
+            tbNacimiento.requestFocus();
+
+        }
+    }//GEN-LAST:event_txtBuscarNacimientoKeyPressed
+
+    private void tbResidenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbResidenciaMouseClicked
+        if(evt.getClickCount()==2){
+            int filaselec=tbResidencia.getSelectedRow();
+
+            if(filaselec<0){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("Seleccione un Registro");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+            }else{
+
+                txtActual.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 9)));
+
+                lblDEP1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 1)));
+                lblPROV1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 2)));
+                lblDIST1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 3)));
+
+            }
+            DEP_REC.dispose();
+//            btnBuscarCPT1.requestFocus();
+
+        }
+    }//GEN-LAST:event_tbResidenciaMouseClicked
+
+    private void tbResidenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbResidenciaKeyPressed
+        int filaselec=tbResidencia.getSelectedRow();
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            if(filaselec<0){
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("Seleccione un Registro");
+                eli.setVisible(false);
+                noeli.setVisible(false);
+            }else{
+
+                txtActual.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 9)));
+
+                lblDEP1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 1)));
+                lblPROV1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 2)));
+                lblDIST1.setText(String.valueOf(tbResidencia.getValueAt(filaselec, 3)));
+
+            }
+            DEP_NAC.dispose();
+//            cbxGenero.requestFocus();
+        }
+    }//GEN-LAST:event_tbResidenciaKeyPressed
+
+    private void btnBuscarPaciente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente3ActionPerformed
+
+    private void txtBuscarUnidadEjecutora1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutora1CaretUpdate
+        Caja_Historia BR = new Caja_Historia();
+        BR.LISTA_UBICACION(txtBuscarUnidadEjecutora1.getText(),tbResidencia);
+    }//GEN-LAST:event_txtBuscarUnidadEjecutora1CaretUpdate
+
+    private void txtBuscarUnidadEjecutora1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutora1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarUnidadEjecutora1MouseClicked
+
+    private void txtBuscarUnidadEjecutora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutora1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarUnidadEjecutora1ActionPerformed
+
+    private void txtBuscarUnidadEjecutora1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUnidadEjecutora1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarUnidadEjecutora1KeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -2205,27 +2625,31 @@ Caja_Historia hC = new Caja_Historia();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog DEP_NAC;
+    private javax.swing.JDialog DEP_REC;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JDialog NivelSuperior;
     private javax.swing.JTabbedPane Paginas;
     private javax.swing.JButton btnAlertConsulta10;
+    private javax.swing.JButton btnBuscarCPT;
+    private javax.swing.JButton btnBuscarCPT1;
     private javax.swing.JButton btnBuscarPaciente;
+    private javax.swing.JButton btnBuscarPaciente2;
+    private javax.swing.JButton btnBuscarPaciente3;
     public static javax.swing.JButton btnCaja;
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
+    private javax.swing.JLabel bus;
+    private javax.swing.JLabel bus1;
+    private javax.swing.JLabel bus3;
+    private javax.swing.JLabel bus4;
     public static javax.swing.JTextField buscartodo;
     private javax.swing.JPanel cargareliminar;
-    public static javax.swing.JComboBox<String> cbxDepartamentoNac;
-    public static javax.swing.JComboBox<String> cbxDepartamentoNac1;
-    public static javax.swing.JComboBox<String> cbxDistritoNac;
-    public static javax.swing.JComboBox<String> cbxDistritoNac1;
     public static javax.swing.JComboBox<String> cbxEstadoCivil1;
     public static javax.swing.JComboBox<String> cbxGenero;
-    public static javax.swing.JComboBox<String> cbxProvinciaNac;
-    public static javax.swing.JComboBox<String> cbxProvinciaNac1;
     private javax.swing.JButton eli;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2233,24 +2657,25 @@ Caja_Historia hC = new Caja_Historia();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel64;
@@ -2263,25 +2688,51 @@ Caja_Historia hC = new Caja_Historia();
     private javax.swing.JPanel jPanel146;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
     public static javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblDEP;
+    private javax.swing.JLabel lblDEP1;
+    private javax.swing.JLabel lblDIST;
+    private javax.swing.JLabel lblDIST1;
+    private javax.swing.JLabel lblDNI_PREVENTA;
+    private javax.swing.JLabel lblDNI_PREVENTA1;
     private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblNOMBRE_PREVENTA;
+    private javax.swing.JLabel lblNOMBRE_PREVENTA1;
     public static javax.swing.JLabel lblNivel;
+    private javax.swing.JLabel lblPROV;
+    private javax.swing.JLabel lblPROV1;
     public static javax.swing.JLabel lblPermiso;
     private javax.swing.JLabel lblTipoR;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;
+    private javax.swing.JPanel panelCPT1;
+    private javax.swing.JPanel panelCPT2;
+    private javax.swing.JTable tbNacimiento;
+    private javax.swing.JTable tbResidencia;
     private javax.swing.JTable tb_Clientes;
+    public static javax.swing.JTextField txtActual;
     public static javax.swing.JTextField txtApellidoMat;
     public static javax.swing.JTextField txtApellidoPat;
+    private javax.swing.JTextField txtBuscarNacimiento;
+    private javax.swing.JTextField txtBuscarUnidadEjecutora1;
     public static javax.swing.JTextField txtCodigo;
     public static javax.swing.JTextField txtDni;
     private com.toedter.calendar.JDateChooser txtFecha;
     public static javax.swing.JTextField txtGradoIns;
     public static javax.swing.JTextField txtGrupoSan;
+    public static javax.swing.JTextField txtNacimiento;
     public static javax.swing.JTextField txtNacionalidad;
     public static javax.swing.JTextField txtNombre1;
     public static javax.swing.JTextField txtOcupacion;

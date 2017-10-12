@@ -73,6 +73,8 @@ private Dimension DimensionBarra = null;
             jLabel7 = new javax.swing.JTextField();
             jLabel9 = new javax.swing.JTextField();
             jLabel5 = new javax.swing.JLabel();
+            jLabel4 = new javax.swing.JLabel();
+            jLabel11 = new javax.swing.JLabel();
 
             setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
@@ -242,7 +244,7 @@ private Dimension DimensionBarra = null;
 
             jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel3.setText("   ");
+            jLabel3.setText("direccion");
             jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             jLabel3.setSelectionColor(new java.awt.Color(243, 156, 18));
 
@@ -254,9 +256,14 @@ private Dimension DimensionBarra = null;
 
             jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel7.setText("   ");
+            jLabel7.setText("sede");
             jLabel7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             jLabel7.setSelectionColor(new java.awt.Color(243, 156, 18));
+            jLabel7.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jLabel7ActionPerformed(evt);
+                }
+            });
 
             jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel9.setForeground(new java.awt.Color(51, 51, 51));
@@ -269,12 +276,17 @@ private Dimension DimensionBarra = null;
             jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Marker-32N.png"))); // NOI18N
             jLabel5.setText("Ubicación e Información");
 
+            jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel4.setText("DIRECCIÓN");
+
+            jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel11.setText("TELÉFONOS");
+
             javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
             jPanel5.setLayout(jPanel5Layout);
             jPanel5Layout.setHorizontalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel5)
                         .addGroup(jPanel5Layout.createSequentialGroup()
@@ -282,8 +294,14 @@ private Dimension DimensionBarra = null;
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel11))
+                                    .addGap(18, 18, Short.MAX_VALUE)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                                        .addComponent(jLabel9))))))
                     .addContainerGap())
             );
             jPanel5Layout.setVerticalGroup(
@@ -296,9 +314,13 @@ private Dimension DimensionBarra = null;
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11))
                     .addContainerGap())
             );
 
@@ -393,20 +415,24 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        
-      
+        btnguardar.setEnabled(false);
+        btnNuevo.setEnabled(true);
     }//GEN-LAST:event_btnguardarActionPerformed
 
-
+    private void jLabel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabel7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnguardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JTextField jLabel3;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JTextField jLabel6;
     public static javax.swing.JTextField jLabel7;

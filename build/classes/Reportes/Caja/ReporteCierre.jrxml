@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.7715610000000017"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -136,7 +136,7 @@
 			<staticText>
 				<reportElement x="-6" y="83" width="207" height="20" uuid="cbcfcad7-457b-4d50-87e1-86b5648ed12b"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIERRE DE CAJA]]></text>
 			</staticText>
@@ -164,7 +164,7 @@
 			<textField>
 				<reportElement x="-6" y="99" width="207" height="20" uuid="b9b0b0d3-0ee6-4a76-90c1-8131771c9b67"/>
 				<textElement textAlignment="Center">
-					<font isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_SESION}]]></textFieldExpression>
 			</textField>
@@ -192,7 +192,7 @@
 			<textField isStretchWithOverflow="true">
 				<reportElement x="-6" y="0" width="207" height="32" uuid="37f610b1-87c2-4233-9e11-cc82f074102d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
 			</textField>
@@ -358,7 +358,7 @@
 			<staticText>
 				<reportElement x="-6" y="8" width="206" height="21" uuid="89fc8a83-edca-4eaf-bfec-c06c11acd3f3"/>
 				<textElement textAlignment="Center">
-					<font size="12" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[RESUMEN]]></text>
 			</staticText>

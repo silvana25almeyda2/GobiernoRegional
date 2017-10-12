@@ -328,7 +328,6 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                         .addComponent(bus3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDNI_PREVENTA)
                         .addGap(148, 148, 148))))
         );
@@ -371,7 +370,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel47.setText("Nro.");
+        jLabel47.setText(" Nro.");
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(51, 51, 51));
@@ -396,7 +395,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UNIDAD_EJECUTORALayout.createSequentialGroup()
                 .addGroup(UNIDAD_EJECUTORALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
                     .addGroup(UNIDAD_EJECUTORALayout.createSequentialGroup()
                         .addComponent(jLabel47)
                         .addGap(24, 24, 24)
@@ -406,8 +405,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                         .addGap(8, 8, 8)
                         .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(UNIDAD_EJECUTORALayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2379,7 +2377,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         
         try {
        
-            TB_PERSONAL.setModel(new DefaultTableModel());
+            tbUnidadEjecutora.setModel(new DefaultTableModel());
             String titulos[]={"Nº","UE_ID","COD_DIS","Departamento","Provincia","Distrito","Unidad Ejecutora"};
             m4=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m4);

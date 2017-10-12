@@ -17,7 +17,7 @@
               <Component id="jPanel7" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel36" alignment="0" pref="776" max="32767" attributes="0"/>
+                      <Component id="jPanel36" alignment="0" pref="766" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -28,7 +28,6 @@
                           <Component id="jLabel51" min="-2" pref="143" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Component id="jLabel52" min="-2" pref="143" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -162,7 +161,6 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="lblDNI_PREVENTA" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                           </Group>
@@ -353,7 +351,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nro."/>
+            <Property name="text" type="java.lang.String" value=" Nro."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel40">
