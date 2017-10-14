@@ -51,6 +51,7 @@ Conexion c=new Conexion();
         
         cbxDocumento.setBackground(Color.WHITE);
         panelSFS.setVisible(false);
+        cargareliminar.setVisible(false);
         
         //SFS
 //        agregarFacturas();
@@ -277,6 +278,8 @@ Conexion c=new Conexion();
             lblFechaEmision = new javax.swing.JLabel();
             jLabel4 = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
+            cargareliminar = new javax.swing.JPanel();
+            Mensaje = new javax.swing.JLabel();
 
             jPanel22.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -862,13 +865,33 @@ Conexion c=new Conexion();
                     .addContainerGap())
             );
 
+            cargareliminar.setBackground(new java.awt.Color(255, 153, 51));
+
+            Mensaje.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+            Mensaje.setForeground(new java.awt.Color(255, 255, 255));
+            Mensaje.setText("Desea Actualizar el Registro ?");
+
+            javax.swing.GroupLayout cargareliminarLayout = new javax.swing.GroupLayout(cargareliminar);
+            cargareliminar.setLayout(cargareliminarLayout);
+            cargareliminarLayout.setHorizontalGroup(
+                cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cargareliminarLayout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addComponent(Mensaje)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            cargareliminarLayout.setVerticalGroup(
+                cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cargareliminarLayout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(Mensaje)
+                    .addContainerGap(16, Short.MAX_VALUE))
+            );
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(jLabel69)
@@ -887,12 +910,17 @@ Conexion c=new Conexion();
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addComponent(jScrollPane2)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(0, 0, 0)
+                    .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(panelSFS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1018,7 +1046,9 @@ Conexion c=new Conexion();
         String correlativo="";
        Usuario cabecera = new Usuario();
          if(txtDescripcion.getText().equals("")){
-             JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Comunicación de Baja");
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,91,70)); 
+            Mensaje.setText("Describa el Motivo o Sustento de la Comunicación de Baja");
          }
          else if(!lblIdFactura.getText().equals("")){
                 CuentasPorPagarComunicacionDeBaja comunicacion = new CuentasPorPagarComunicacionDeBaja();
@@ -1040,11 +1070,15 @@ Conexion c=new Conexion();
 //        File crea_ubicacion = new File(ubicacion);
                 File crea_archivo = new File(archivo);
                 if(lblIdFactura.getText().equals("")){
-                    JOptionPane.showMessageDialog(this,"No hay ID");
+                    cargareliminar.setVisible(true);
+                    cargareliminar.setBackground(new Color(255,91,70)); 
+                    Mensaje.setText("Ocurrió un error, No se encontró el identificador");
                 } else {
                     try {
                         if(crea_archivo.exists()){
-                        JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                            cargareliminar.setVisible(true);
+                            cargareliminar.setBackground(new Color(255,91,70)); 
+                            Mensaje.setText("Ocurrió un error, El registro ya existe");
                         } else {
                         Formatter crea = new Formatter(ubicacion+archivo);
                         crea.format(lblFechaDocumento.getText()+"|"+
@@ -1058,21 +1092,27 @@ Conexion c=new Conexion();
                         estado=1;
                         }   
                     } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
+                            cargareliminar.setVisible(true);
+                            cargareliminar.setBackground(new Color(255,91,70)); 
+                            Mensaje.setText("Ocurrió un error, Verifique");
             }
         }
                
             }
                 if(estado==1){
                     MODIFICAR_DATOS_CAJA();
-                    JOptionPane.showMessageDialog(this, "La Comunicación de Baja fue generada");
+                    cargareliminar.setVisible(true);
+                    cargareliminar.setBackground(new Color(0,153,102)); 
+                    Mensaje.setText("La Comunicación de Baja fue generada de forma correcta");
                     CuentasPorPagarComunicacionDeBaja est=new CuentasPorPagarComunicacionDeBaja();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdFactura.getText()),"3");
                     limpiar();
                 }
         }
         else{
-                                JOptionPane.showMessageDialog(this, "ERROR");
+                cargareliminar.setVisible(true);
+                cargareliminar.setBackground(new Color(255,91,70)); 
+                Mensaje.setText("Ocurrió un error, Verifique");
 
         }
     }//GEN-LAST:event_btnGuardar2ActionPerformed
@@ -1215,9 +1255,11 @@ Conexion c=new Conexion();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BUSCAR_FACTURA_BOLETA;
     private javax.swing.JLabel LBL_ID_DOCUMENTO;
+    private javax.swing.JLabel Mensaje;
     private javax.swing.JPopupMenu Serie;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
+    private javax.swing.JPanel cargareliminar;
     private javax.swing.JComboBox cbxBuscarDocumento;
     private javax.swing.JComboBox cbxDocumento;
     private javax.swing.JButton jButton1;

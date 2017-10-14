@@ -60,6 +60,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
         
         LBL_ID_DOCUMENTO.setVisible(false);
         jPanel4.setVisible(false);
+        cargareliminarC.setVisible(false);
+        cargareliminarD.setVisible(false);
         
         //Debito
         cbxTipoNotaDebito.setBackground(Color.WHITE);
@@ -118,6 +120,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     }
      
     public void limpiar(){
+        
         cbxAfecIGV.setSelectedIndex(0);
          
         
@@ -542,7 +545,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                 jLabel31 = new javax.swing.JLabel();
                 panelCPT17 = new javax.swing.JPanel();
                 txtMtoIGVCredito = new javax.swing.JTextField();
-                cargareliminar = new javax.swing.JPanel();
+                cargareliminarC = new javax.swing.JPanel();
                 Mensaje = new javax.swing.JLabel();
                 jPanel8 = new javax.swing.JPanel();
                 jPanel11 = new javax.swing.JPanel();
@@ -626,6 +629,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     jLabel57 = new javax.swing.JLabel();
                     panelCPT40 = new javax.swing.JPanel();
                     txtMtoISCDebito = new javax.swing.JTextField();
+                    cargareliminarD = new javax.swing.JPanel();
+                    Mensaje1 = new javax.swing.JLabel();
 
                     jPanel22.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -2186,24 +2191,24 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
-                    cargareliminar.setBackground(new java.awt.Color(0, 153, 102));
+                    cargareliminarC.setBackground(new java.awt.Color(0, 153, 102));
 
                     Mensaje.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                     Mensaje.setForeground(new java.awt.Color(255, 255, 255));
                     Mensaje.setText("Desea Actualizar el Registro ?");
 
-                    javax.swing.GroupLayout cargareliminarLayout = new javax.swing.GroupLayout(cargareliminar);
-                    cargareliminar.setLayout(cargareliminarLayout);
-                    cargareliminarLayout.setHorizontalGroup(
-                        cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(cargareliminarLayout.createSequentialGroup()
+                    javax.swing.GroupLayout cargareliminarCLayout = new javax.swing.GroupLayout(cargareliminarC);
+                    cargareliminarC.setLayout(cargareliminarCLayout);
+                    cargareliminarCLayout.setHorizontalGroup(
+                        cargareliminarCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cargareliminarCLayout.createSequentialGroup()
                             .addGap(19, 19, 19)
                             .addComponent(Mensaje)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
-                    cargareliminarLayout.setVerticalGroup(
-                        cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cargareliminarLayout.createSequentialGroup()
+                    cargareliminarCLayout.setVerticalGroup(
+                        cargareliminarCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cargareliminarCLayout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
@@ -2241,14 +2246,14 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                                             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addContainerGap())
-                        .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cargareliminarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cargareliminarC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2265,7 +2270,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tablaS, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                            .addComponent(tablaS, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                             .addGap(0, 0, 0)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0))
@@ -3172,7 +3177,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                         .addGroup(jPanel68Layout.createSequentialGroup()
                             .addGap(5, 5, 5)
                             .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                 .addComponent(panelCPT37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(5, 5, 5))
                     );
@@ -3481,6 +3486,28 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
+                    cargareliminarD.setBackground(new java.awt.Color(0, 153, 102));
+
+                    Mensaje1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    Mensaje1.setForeground(new java.awt.Color(255, 255, 255));
+                    Mensaje1.setText("Desea Actualizar el Registro ?");
+
+                    javax.swing.GroupLayout cargareliminarDLayout = new javax.swing.GroupLayout(cargareliminarD);
+                    cargareliminarD.setLayout(cargareliminarDLayout);
+                    cargareliminarDLayout.setHorizontalGroup(
+                        cargareliminarDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cargareliminarDLayout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(Mensaje1)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    );
+                    cargareliminarDLayout.setVerticalGroup(
+                        cargareliminarDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cargareliminarDLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(Mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    );
+
                     javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
                     jPanel8.setLayout(jPanel8Layout);
                     jPanel8Layout.setHorizontalGroup(
@@ -3514,12 +3541,15 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addContainerGap())
                         .addComponent(tablaS1, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanel78, javax.swing.GroupLayout.DEFAULT_SIZE, 1176, Short.MAX_VALUE)
+                        .addComponent(cargareliminarD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     jPanel8Layout.setVerticalGroup(
                         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel8Layout.createSequentialGroup()
                             .addComponent(jPanel78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(0, 0, 0)
+                            .addComponent(cargareliminarD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3535,7 +3565,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
-                            .addComponent(tablaS1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                            .addComponent(tablaS1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                             .addGap(0, 0, 0)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
@@ -3706,7 +3736,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
         String correlativo="";
         Usuario cabecera = new Usuario();
          if(txtDescripcionSustento.getText().equals("")){
-             JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Crédito");
+            cargareliminarC.setVisible(true);
+            cargareliminarC.setBackground(new Color(255,91,70)); 
+            Mensaje.setText("Describa el Motivo o Sustento de la Nota de Crédito");
          }
              
          else if(!txtNroDocumento.getText().equals("")){
@@ -3767,7 +3799,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     try {
                         Formatter crea = new Formatter(ubicacion+archivo);
                         if(crea_archivo.exists()){
-                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                            cargareliminarC.setVisible(true);
+                            cargareliminarC.setBackground(new Color(255,91,70)); 
+                            Mensaje.setText("Ocurrió un error, El registro ya existe");
                         } else {
                             String bloc1 = "";
                             for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
@@ -3819,7 +3853,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             
                         }   
                     } catch (Exception e) {
-                            JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
+                            cargareliminarC.setVisible(true);
+                            cargareliminarC.setBackground(new Color(255,91,70)); 
+                            Mensaje.setText("Ocurrió un error, Verifique");
                     }
 //                        //
 //                        //
@@ -3829,7 +3865,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 //            }
                 if(estado==1){
                     MODIFICAR_DATOS_CAJA_CREDITO();
-                    JOptionPane.showMessageDialog(this, "Nota de Crédito Generada");
+                    cargareliminarC.setVisible(true);
+                    cargareliminarC.setBackground(new Color(0,153,102)); 
+                    Mensaje.setText("Nota de Crédito Generada correctamente");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdCredito.getText()),"1");
                     limpiar();
@@ -3855,6 +3893,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 
     private void btnAgregarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFacturaActionPerformed
         BUSCAR_FACTURA_BOLETA.setVisible(true);
+        cargareliminarC.setVisible(false);
         lblEstado.setText("1");
        
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar("","1");
@@ -4002,10 +4041,12 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     }//GEN-LAST:event_txtOtrosTributosDebitoActionPerformed
 
     private void btnGenerarNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarNDActionPerformed
-          int estado=0; 
+        int estado=0; 
         Usuario cabecera = new Usuario();
          if(txtDescripcionDebito.getText().equals("")){
-             JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Débito");
+            cargareliminarD.setVisible(true);
+            cargareliminarD.setBackground(new Color(255,91,70)); 
+            Mensaje1.setText("Describa el Motivo o Sustento de la Nota de Débito");
          }
              
          else if(!txtNroDocumentoDebito.getText().equals("")){
@@ -4035,7 +4076,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                     try {
                         Formatter crea = new Formatter(ubicacion+archivo);
                         if(crea_archivo.exists()){
-                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                            cargareliminarD.setVisible(true);
+                            cargareliminarD.setBackground(new Color(255,91,70)); 
+                            Mensaje1.setText("Ocurrió un error, El registro ya existe");
                         } else {
                             String bloc1 = "";
                             for (int c = 0; c < tbFacturacionDebito.getRowCount(); c++){    
@@ -4091,7 +4134,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
                             
                         }   
                     } catch (Exception e) {
-                            JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
+                            cargareliminarD.setVisible(true);
+                            cargareliminarD.setBackground(new Color(255,91,70)); 
+                            Mensaje1.setText("Ocurrió un error, Verifique");
                     }
 //                        //
 //                        //
@@ -4101,7 +4146,9 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 //            }
                 if(estado==1){
                     MODIFICAR_DATOS_CAJA_DEBITO();
-                    JOptionPane.showMessageDialog(this, "Nota de Débito Generada");
+                    cargareliminarD.setVisible(true);
+                    cargareliminarD.setBackground(new Color(0,153,102)); 
+                    Mensaje1.setText("Nota de Débito Generada correctamente");
                     CuentasPorPagarNotaDeCreditoDebito est=new CuentasPorPagarNotaDeCreditoDebito();
                     est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdDebito.getText()),"2");
                     limpiar();
@@ -4122,6 +4169,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 
     private void btnGenerarDoc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDoc3ActionPerformed
       BUSCAR_FACTURA_BOLETA.setVisible(true);
+      cargareliminarD.setVisible(false);
         lblEstado.setText("2");
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar("","1");
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_formato();
@@ -4290,6 +4338,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
 
     private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
         limpiar();
+        cargareliminarC.setVisible(false);
+        cargareliminarD.setVisible(false);
     }//GEN-LAST:event_btnGuardar2ActionPerformed
 
     private void txtMtoISCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoISCActionPerformed
@@ -4456,6 +4506,7 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     private javax.swing.JDialog BUSCAR_FACTURA_BOLETA;
     private javax.swing.JLabel LBL_ID_DOCUMENTO;
     private javax.swing.JLabel Mensaje;
+    private javax.swing.JLabel Mensaje1;
     public static javax.swing.JTabbedPane Paginas;
     private javax.swing.JPopupMenu Serie;
     private javax.swing.JButton btnAgregarFactura;
@@ -4465,7 +4516,8 @@ CuentasPorPagarNotaDeCreditoDebito serie = new CuentasPorPagarNotaDeCreditoDebit
     private javax.swing.JButton btnGenerarND;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
-    private javax.swing.JPanel cargareliminar;
+    private javax.swing.JPanel cargareliminarC;
+    private javax.swing.JPanel cargareliminarD;
     private javax.swing.JComboBox cbxAfecIGV;
     private javax.swing.JComboBox cbxAfecIGVDebito;
     private javax.swing.JComboBox cbxBuscarDocumento;

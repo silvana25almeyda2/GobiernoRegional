@@ -470,12 +470,12 @@ Connection ConexionS=c.conectar();
             cargareliminarLayout.setVerticalGroup(
                 cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cargareliminarLayout.createSequentialGroup()
-                    .addGap(17, 17, 17)
+                    .addGap(19, 19, 19)
                     .addGroup(cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Mensaje)
                         .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Mensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -489,7 +489,6 @@ Connection ConexionS=c.conectar();
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                         .addComponent(panelIGV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(0, 0, 0)
                             .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addContainerGap())))
             );
@@ -536,6 +535,8 @@ Connection ConexionS=c.conectar();
             jLabel33.setText("Listado");
             panelIGV.setVisible(false);
             cargareliminar.setVisible(false);
+            btneditar.setEnabled(true);
+            btnguardar.setEnabled(false);
         }
        
     }//GEN-LAST:event_tb_FARMACIAMouseClicked
