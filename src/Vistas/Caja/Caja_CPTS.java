@@ -105,10 +105,11 @@ byte tgm;
     }
     
     public void NUEVO_REGISTRO(){
-       if((txtITEM.getText().equals(""))){
+       if(txtITEM.getText().equals("")||cbxTipoDocumento.getSelectedItem().equals("Seleccionar...")||txtct6.getText().equals("")){
             cargareliminar.setVisible(true);        
             cargareliminar.setBackground(new Color(255,91,70)); 
             Mensaje.setText("Debe completar los campos requeridos");
+            eli.setText("Ok");
             eli.setVisible(true);
             noeli.setVisible(false);
             tgm=0;                 
@@ -1313,7 +1314,7 @@ byte tgm;
             NivelSuperior.setVisible(true);
             
         }    
-            btnguardar.setEnabled(true);
+            btnguardar.setEnabled(false);
             btneditar.setEnabled(false);
             btneliminar.setEnabled(false);
         } else
@@ -1324,7 +1325,7 @@ byte tgm;
             NivelSuperior.setUndecorated(true);
             NivelSuperior.setVisible(true);
         }
-            btnguardar.setEnabled(true);
+            btnguardar.setEnabled(false);
             btneditar.setEnabled(false);
             btneliminar.setEnabled(false);
         }
@@ -1422,6 +1423,13 @@ byte tgm;
     private void cbxTipoDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoItemStateChanged
         Caja_CPT cno2 = new Caja_CPT();
         cno2.DATOS_GRUPO_CPT(cbxTipoDocumento.getSelectedItem().toString());
+        if(cbxTipoDocumento.getSelectedItem().equals("FUT")){
+            txtct6.setText("RECIBOS");
+            lblIDCTA6.setText("4");
+            b1.setVisible(false);
+        }else if(!cbxTipoDocumento.getSelectedItem().equals("FUT")){
+            b1.setVisible(true);
+        }
     }//GEN-LAST:event_cbxTipoDocumentoItemStateChanged
 
     private void cbxTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoActionPerformed

@@ -960,13 +960,13 @@ Caja_Grupo cnn = new Caja_Grupo();
     private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
        if (tgm==3){
      Modificar();
-        btnguardar.setEnabled(true);
+        btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
    } else   
      if (tgm==8){
      Eliminar();
-        btnguardar.setEnabled(true);
+        btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
    }   

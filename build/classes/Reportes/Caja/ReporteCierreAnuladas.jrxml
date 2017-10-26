@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4FGGF" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72ad8611-73f2-4301-a3bf-e366795d0cba">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="1.4641000000000017"/>
+	<property name="ireport.zoom" value="2.8531167061100047"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="250"/>
+	<property name="ireport.y" value="945"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -27,6 +27,8 @@
 	<field name="descripcion_7" class="java.lang.String"/>
 	<field name="cantidad" class="java.lang.Integer"/>
 	<field name="PRECIO" class="java.math.BigDecimal"/>
+	<field name="DESCUENTO" class="java.math.BigDecimal"/>
+	<field name="SUBTOTAL" class="java.math.BigDecimal"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
 	<field name="IGV" class="java.math.BigDecimal"/>
 	<field name="NOMBRE" class="java.lang.String"/>
@@ -56,40 +58,40 @@
 		<groupHeader>
 			<band height="39">
 				<staticText>
-					<reportElement x="171" y="19" width="91" height="20" uuid="3cf2cbb0-d38c-4595-8118-a947bd63fdd5"/>
+					<reportElement x="175" y="19" width="91" height="20" uuid="3cf2cbb0-d38c-4595-8118-a947bd63fdd5"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="125" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
+					<reportElement x="105" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Cant]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="146" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
+					<reportElement x="124" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Precio]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="-6" y="3" width="157" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
+					<reportElement x="-6" y="3" width="206" height="20" uuid="57408822-abf4-4b5b-ba55-af0d61a7add8"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPO_VENTA}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="93" y="3" width="94" height="20" uuid="fd240649-822d-4f3d-b2a7-a899cb70d08a"/>
-					<textElement textAlignment="Right">
-						<font size="9"/>
+				<staticText>
+					<reportElement x="150" y="19" width="42" height="20" uuid="cca63ae5-c6de-403a-9c78-fa1199ca0586"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA["S/. "+$F{TOTALCCT7}]]></textFieldExpression>
-				</textField>
+					<text><![CDATA[Dscto.]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -263,32 +265,39 @@
 	<detail>
 		<band height="31" splitType="Stretch">
 			<textField>
-				<reportElement x="171" y="0" width="29" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
+				<reportElement x="175" y="0" width="25" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
 				<textElement>
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
+				<reportElement x="105" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="146" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
+				<reportElement x="124" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
 				<textElement>
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="-6" y="0" width="126" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
+				<reportElement x="-6" y="0" width="110" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="23" height="20" uuid="c9e75960-8960-45e5-abb5-75d0ee063f49"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCUENTO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -305,7 +314,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Total de Ventas]]></text>
+				<text><![CDATA[Total de Ventas Anuladas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="104" y="54" width="15" height="14" uuid="ea97f56c-7ae8-4250-99b4-95b2b7ae2286"/>

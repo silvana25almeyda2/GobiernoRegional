@@ -116,7 +116,7 @@ DefaultTableModel m, m1, msb;
 
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel57.setText("<html>Ventas<span style=\"font-size:'14px'\"><br>Libro Electronico</br></span></html>");
+        jLabel57.setText("<html>Ventas<span style=\"font-size:'17px'\"><br>Libro Electronico</br></span></html>");
 
         lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,10 +191,9 @@ DefaultTableModel m, m1, msb;
                     .addComponent(cbxAnios, 0, 157, Short.MAX_VALUE)
                     .addComponent(cbxMeses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscarP)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(btnBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +224,7 @@ DefaultTableModel m, m1, msb;
             }
         });
 
+        LBL_FECHA_ACTUAL.setForeground(new java.awt.Color(243, 156, 18));
         LBL_FECHA_ACTUAL.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -248,11 +248,11 @@ DefaultTableModel m, m1, msb;
                         .addGap(18, 18, 18)
                         .addComponent(lblPermiso))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(LBL_FECHA_ACTUAL, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(LBL_FECHA_ACTUAL, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -502,9 +502,9 @@ DefaultTableModel m, m1, msb;
         String consulta="";
         try {
             TB_VENTAS_LE.setModel(new DefaultTableModel());
-            String titulos[]={"ID_DOC","Periodo","CUO","ID OPERACION","Fecha Emisión","Fecha Venc","Tipo Comp.",
-            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Val Fac Exp",
-            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Dscto","Inafecta","ISC","Base Imp. IVAP","IVAP",
+            String titulos[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha Vencimiento","Tipo Comp.",
+            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Valor Facturado Exp.",
+            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Importe Op. Exonerada","Inafecta","ISC","Base Imp. IVAP","IVAP",
             "Otros Trib. y Cargos","Importe Total","Tipo Moneda","Tipo Cambio","Fecha Modifica","Tipo Modifica",
             "Nro Serie Modifica","Nro Comp Modifica","Identificación","Error TC","Medios de Pago","Estado Comp."};
             m=new DefaultTableModel(null,titulos);
@@ -555,44 +555,6 @@ DefaultTableModel m, m1, msb;
                 fila[32]=r.getString(33);
                 fila[33]=r.getString(34);
                 fila[34]=r.getString(35);
-                
-                if(r.getString(7).equalsIgnoreCase("07") ){
-                    String consulta_NC="";
-                    try {
-                        consulta_NC="EXEC LIBRO_ELECTRONICO_DATOS_NC_ND ?";
-                        PreparedStatement cmd_NC = DT.getCn().prepareStatement(consulta_NC);
-                        cmd_NC.setString(1, r.getString(1));
-                        ResultSet r_NC= cmd_NC.executeQuery();
-                        int c_NC=1;
-                        while(r_NC.next()){
-                            fila[4]=(r_NC.getString(1));
-                            fila[8]=(r_NC.getString(2));
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Error carga cod cabecera: " + e.getMessage());
-                    }
-                }else{
-                    if(r.getString(7).equalsIgnoreCase("08")){
-                        String consulta_ND="";
-                        try {
-                            consulta_ND="EXEC LIBRO_ELECTRONICO_DATOS_NOTA_DEBITO ?";
-                            PreparedStatement cmd_ND = DT.getCn().prepareStatement(consulta_ND);
-                            cmd_ND.setString(1, r.getString(1));
-                            ResultSet r_ND= cmd_ND.executeQuery();
-                            int c_NC=1;
-                            while(r_ND.next()){
-                                fila[4]=(r_ND.getString(1));
-                                fila[8]=(r_ND.getString(2));
-                            }
-                        } catch (Exception e) {
-                            System.out.println("Error carga cod cabecera: " + e.getMessage());
-                        }
-                    }else{
-                        fila[4]=r.getString(5);
-                        fila[8]=r.getString(9);
-                    }
-                    
-                }
                 
                 m.addRow(fila);
                 c++;
@@ -658,10 +620,17 @@ DefaultTableModel m, m1, msb;
         
         String anio= (cbxAnios.getSelectedItem().toString());
         String mes= (cbxMeses.getSelectedItem().toString());
+        String carp_principal= "C:\\Libro_Electronico\\";
         String carp = "C:\\Libro_Electronico\\" + anio + "\\";
         String carp_mes = "C:\\Libro_Electronico\\" + anio + "\\" + mes + "\\" ;
+        File crea_carp_principal = new File(carp_principal);
         File crea_carpeta_anio = new File(carp);
         File crea_carpeta_mes = new File(carp_mes);
+        if(crea_carp_principal.exists()){
+            System.out.println("carpeta principal ya creada");
+        }else{
+            crear_carpeta_principal();
+        }
         if(crea_carpeta_anio.exists()){
             System.out.println("carpeta ya creada");
         }else{
@@ -761,6 +730,24 @@ DefaultTableModel m, m1, msb;
         return retorna;
     } 
     
+    public void crear_carpeta_principal(){
+        String carpeta_principal = "C:\\Libro_Electronico";
+        
+        File crea_carpeta_principal = new File(carpeta_principal);
+        if(crea_carpeta_principal.exists()){
+            System.out.println("la carpeta ya existe");
+        }else{
+            crea_carpeta_principal.mkdirs();
+            try {
+                if(crea_carpeta_principal.createNewFile()){
+                    System.out.println("carpeta creada");
+                }
+            } catch (Exception e) {
+                System.out.println("error crear carpetas principal" + e.getMessage());
+            }
+        }
+    }
+    
     public void crear_carpeta(){
         String A = cbxAnios.getSelectedItem().toString();
         String carpeta = "C:\\Libro_Electronico\\" + A ;
@@ -829,9 +816,9 @@ DefaultTableModel m, m1, msb;
     public void inicializar_tabla_VENTAS_LE(){       
         try {
             
-            String titulosb[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha Venc","Tipo Comp.",
-            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Val Fac Exp",
-            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Dscto","Inafecta","ISC","Base Imp. IVAP","IVAP",
+            String titulosb[]={"ID_DOC","Periodo","CUO","ID Operación","Fecha Emisión","Fecha Vencimiento","Tipo Comp.",
+            "Nro Serie","Nro Comp.","Imp. Op. Realizada","Tipo Doc","Nro Documento","Nombres/Razon Social","Valor Facturado Exp.",
+            "Base Imp.","Dscto Base Imp.","IGV","Dsto IGV","Importe Op. Exonerada","Inafecta","ISC","Base Imp. IVAP","IVAP",
             "Otros Trib. y Cargos","Importe Total","Tipo Moneda","Tipo Cambio","Fecha Modifica","Tipo Modifica",
             "Nro Serie Modifica","Nro Comp Modifica","Identificación","Error TC","Medios de Pago","Estado Comp."};
             msb=new DefaultTableModel(null,titulosb);
@@ -863,16 +850,16 @@ DefaultTableModel m, m1, msb;
             TB_VENTAS_LE.getColumnModel().getColumn(10).setPreferredWidth(60);
             TB_VENTAS_LE.getColumnModel().getColumn(11).setPreferredWidth(100);
             TB_VENTAS_LE.getColumnModel().getColumn(12).setPreferredWidth(200);
-            TB_VENTAS_LE.getColumnModel().getColumn(13).setPreferredWidth(90);
+            TB_VENTAS_LE.getColumnModel().getColumn(13).setPreferredWidth(130);
             TB_VENTAS_LE.getColumnModel().getColumn(14).setPreferredWidth(90);
-            TB_VENTAS_LE.getColumnModel().getColumn(15).setPreferredWidth(180);
-            TB_VENTAS_LE.getColumnModel().getColumn(16).setPreferredWidth(80); 
-            TB_VENTAS_LE.getColumnModel().getColumn(17).setPreferredWidth(50);
-            TB_VENTAS_LE.getColumnModel().getColumn(18).setPreferredWidth(100);
-            TB_VENTAS_LE.getColumnModel().getColumn(19).setPreferredWidth(100);                
-            TB_VENTAS_LE.getColumnModel().getColumn(20).setPreferredWidth(150); 
-            TB_VENTAS_LE.getColumnModel().getColumn(21).setPreferredWidth(150);
-            TB_VENTAS_LE.getColumnModel().getColumn(22).setPreferredWidth(220); 
+            TB_VENTAS_LE.getColumnModel().getColumn(15).setPreferredWidth(110);
+            TB_VENTAS_LE.getColumnModel().getColumn(16).setPreferredWidth(50); 
+            TB_VENTAS_LE.getColumnModel().getColumn(17).setPreferredWidth(60);
+            TB_VENTAS_LE.getColumnModel().getColumn(18).setPreferredWidth(140);
+            TB_VENTAS_LE.getColumnModel().getColumn(19).setPreferredWidth(80);                
+            TB_VENTAS_LE.getColumnModel().getColumn(20).setPreferredWidth(80); 
+            TB_VENTAS_LE.getColumnModel().getColumn(21).setPreferredWidth(50);
+            TB_VENTAS_LE.getColumnModel().getColumn(22).setPreferredWidth(50); 
             TB_VENTAS_LE.getColumnModel().getColumn(23).setPreferredWidth(60);
             TB_VENTAS_LE.getColumnModel().getColumn(24).setPreferredWidth(60);
             TB_VENTAS_LE.getColumnModel().getColumn(25).setPreferredWidth(60);
@@ -886,6 +873,8 @@ DefaultTableModel m, m1, msb;
             TB_VENTAS_LE.getColumnModel().getColumn(33).setPreferredWidth(90);
             TB_VENTAS_LE.getColumnModel().getColumn(34).setPreferredWidth(90);
             
+            TB_VENTAS_LE.getColumnModel().getColumn(0).setMinWidth(0);
+            TB_VENTAS_LE.getColumnModel().getColumn(0).setMaxWidth(0);
     }
     
     public static String fechaActual(){

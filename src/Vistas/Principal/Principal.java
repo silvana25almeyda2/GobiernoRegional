@@ -16,6 +16,7 @@ import Vistas.Caja.Caja_Transaccion;
 import Vistas.Caja.Caja_Ventas;
 import Vistas.Personal.Personal;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -1466,7 +1467,10 @@ Connection ConexionS=c.conectar();
     }//GEN-LAST:event_btnAnularVentaActionPerformed
 
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
-
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnAlertConsulta10.doClick();
+        }
     }//GEN-LAST:event_txtContraKeyPressed
 
     private void btnAlertConsulta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta10ActionPerformed

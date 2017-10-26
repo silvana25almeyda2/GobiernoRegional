@@ -327,14 +327,14 @@ Por Item]]></text>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="61" uuid="5559022e-5e20-4159-a1a7-51c9edd27074">
+					<jr:column width="59" uuid="5559022e-5e20-4159-a1a7-51c9edd27074">
 						<jr:detailCell height="28" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="61" height="20" uuid="0e2a3afb-52c1-459e-82fb-83f3a4d15ff3"/>
+								<reportElement x="0" y="0" width="58" height="20" uuid="0e2a3afb-52c1-459e-82fb-83f3a4d15ff3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="8"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{CPD_DESC_PORCEN}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{CPD_DESC_PORCEN}+" %"]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

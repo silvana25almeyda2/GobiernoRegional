@@ -442,7 +442,11 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        NUEVO_REGISTRO(conexion);
+        if(txtNRO.getText().equals("")){
+            txtNRO.setText("0");
+            NUEVO_REGISTRO(conexion);
+        }
+        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtNROCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNROCaretUpdate
@@ -450,7 +454,19 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }//GEN-LAST:event_txtNROCaretUpdate
 
     private void txtNROKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNROKeyTyped
-
+        try {
+            
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !='.'){
+            evt.consume();            
+        }
+        if(tecla =='.' && txtNRO.getText().contains(".")){
+            evt.consume();            
+        }
+    
+    } catch (Exception e) {
+    }
     }//GEN-LAST:event_txtNROKeyTyped
 
     private void txtNROKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNROKeyPressed

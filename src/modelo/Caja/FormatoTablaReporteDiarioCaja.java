@@ -28,10 +28,10 @@ public class FormatoTablaReporteDiarioCaja extends DefaultTableCellRenderer{
 ////            [0,153,187]
 //        }
         
-        if(table.getValueAt(row, 9).equals("2")){
+        if(table.getValueAt(row, 10).equals("2")){
             componente.setBackground(new Color(243,156,18));//
             componente.setForeground(new Color(255,255,255));//
-        }else if(!table.getValueAt(row, 9).equals("2")){
+        }else if(!table.getValueAt(row, 10).equals("2")){
             componente.setBackground(new Color(255,255,255));//
             componente.setForeground(new Color(51,51,51));//
         }

@@ -360,9 +360,10 @@ private String COD_FR;
     public boolean ANULAR_PREVENTA(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_PREVENTA_ANULAR ?";
+            String sql = "exec CAJA_PREVENTA_ANULAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getDESCRIP_PRE());
+            cmd.setString(2, getID_PREVENTA());
             if(!cmd.execute())
             {
                 resp = true;
@@ -381,10 +382,10 @@ private String COD_FR;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Descuento","Total","Fecha","Hora","ID","TIPO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[10];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CONSULTAR_HISTORIAL ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -401,6 +402,7 @@ private String COD_FR;
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
                     m.addRow(fila);
                     c++;
             }
@@ -595,10 +597,10 @@ private String COD_FR;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Cuenta","Item","Cantidad","Precio","Total","TOTAL_TOTAL"};
+            String titulos[]={"Cuenta","Item","Cantidad","Precio","SubTotal","Descuentos","Total","TOTAL_TOTAL"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[8];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_REPORTE_MENSUAL_CTA7 ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -614,6 +616,8 @@ private String COD_FR;
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
                     m.addRow(fila);
                     c++;
             }
@@ -773,10 +777,10 @@ private String COD_FR;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Total","Fecha","Hora","ID","TIPO","ANULADO"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Cliente","Descuento","Total","Fecha","Hora","ID","TIPO","ANULADO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[10];
+            String fila[]=new String[11];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -795,6 +799,7 @@ private String COD_FR;
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
                 fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
                     m.addRow(fila);
                     c++;
             }
@@ -812,10 +817,10 @@ private String COD_FR;
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Item","Descripción","Precio","Cantidad","Total"};
+            String titulos[]={"Item","Descripción","Precio","Cantidad","Descuento","Total"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[5];
+            String fila[]=new String[6];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_VENTA_REPORTE_DETALLE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -828,6 +833,7 @@ private String COD_FR;
                 fila[2]=r.getString(3);
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
                     m.addRow(fila);
                     c++;
             }
@@ -848,6 +854,7 @@ private String COD_FR;
             tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(80);
         tabla.setRowHeight(40);
         
     }
@@ -859,8 +866,10 @@ private String COD_FR;
             tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
-            tabla.getColumnModel().getColumn(5).setMinWidth(0);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
         tabla.setRowHeight(40);
         
     }
@@ -962,14 +971,15 @@ private String COD_FR;
             tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(360);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(90);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
-            tabla.getColumnModel().getColumn(7).setMinWidth(0);
-            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
             tabla.getColumnModel().getColumn(9).setMinWidth(0);
             tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(10).setMinWidth(0);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(0);
             tabla.setRowHeight(40);  
     }
     public void formatoTablaReporteCabeceraBUSQUEDA(JTable tabla){
@@ -979,13 +989,31 @@ private String COD_FR;
             tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(360);
             tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(90);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
-            tabla.getColumnModel().getColumn(7).setMinWidth(0);
-            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(90);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(9).setMinWidth(0);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(0);
             tabla.setRowHeight(48);
+    }
+    
+    public void TIPO_REPORTE(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_TIPO_IMPRESORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Ventas.lblTIPOREPORTE.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
     }
     
     public void ReporteMENSUAL_DETALLE_LOCAL(Integer MES,Integer ANIO, String LUGAR) {
@@ -1037,6 +1065,17 @@ private String COD_FR;
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Ticket.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Ventas.ErrorExistente.setVisible(true);   
+            }
+    }
+    
+    public void reporteVenta_RECIBO(int id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/Ticket_RECIBO.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Ventas.ErrorExistente.setVisible(true);   

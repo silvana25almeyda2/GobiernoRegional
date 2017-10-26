@@ -136,6 +136,22 @@ public void reporteAperura(int id) {
                 System.out.println("ERROR AL IMPRIMIR");
             }
     } 
+     
+     ////////////////////////////////////////////////////////////////////////////
+    //REPORTE CIERRE DETALLE ANULADAS
+     public void reporteCierreCT6_C_ANULADAS(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteA4_CCT6_ANULADOS.jasper"), parametros, con.conectar());   
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Cierre de Caja - ANULADOS");
+            ventanavisor.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
     
     ////////////////////////////////////////////////////////////////////////////
     //REPORTE CIERRE ESPECIFICO 4A
@@ -159,10 +175,10 @@ public void reporteAperura(int id) {
             parametros.put("SESION",SESION);
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/ReporteCierreA4Anulados.jasper"), parametros, con.conectar());   
             JasperViewer ventanavisor = new JasperViewer(informe, false);
-            ventanavisor.setTitle("Cierre de Caja");
+            ventanavisor.setTitle("Cierre de Caja - ANULADOS");
             ventanavisor.setVisible(true);
             } catch (Exception e) {
-                System.out.println("ERROR AL IMPRIMIR");
+                System.out.println("ERROR AL IMPRIMIR ANULADOS");
             }
     } 
     
@@ -707,6 +723,57 @@ public void Caja_Verificar_SESIONES(String usu,JTable tabla){
             columna.setPreferredWidth(1);
             tabla.doLayout();
         tabla.setRowHeight(38);
+    }
+    
+    public void TIPO_REPORTE_CIERRE(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_TIPO_IMPRESORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre.lblTIPO_IMPRESORA.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void TIPO_REPORTE_CIERRE_REPORTE(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_TIPO_IMPRESORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Reportes.lblTIPO_IMP.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
+    }
+    
+    public void TIPO_REPORTE_CIERRE_SA(String usu){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_TIPO_IMPRESORA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Cierre_sa.lblTIPO_IMPRE.setText(r.getString(1)); 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PERMISOS: " + e.getMessage());
+        }
     }
     
 

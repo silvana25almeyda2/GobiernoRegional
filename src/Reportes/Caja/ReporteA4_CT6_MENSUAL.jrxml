@@ -90,6 +90,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHA_HORA}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="257" y="95" width="100" height="20" uuid="72b31e34-ddb2-4c12-998c-93db4185c0f8"/>
+				<textFieldExpression><![CDATA[$F{MEES}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

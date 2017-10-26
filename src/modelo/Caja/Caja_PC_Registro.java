@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Servicios.Conexion;
+import Vistas.Caja.Caja_Ajustes;
 import Vistas.Caja.Caja_Registro;
 import Vistas.Principal.Principal_Configuracion;
 import java.util.HashMap;
@@ -33,6 +34,9 @@ private int NRO_PC;
 private int AR_ID; 
 private String PA_MODULO;
 private String IMPRESORA;
+private int UE_ID;
+private String TELEFONO;
+private String DIRECCION;
 Conexion con = new Conexion();
 
     public void CajaPC_Listar(){
@@ -64,14 +68,39 @@ Conexion con = new Conexion();
             while(r.next()){
                 Principal_Configuracion.jLabel7.setText(r.getString(4));
                 Principal_Configuracion.jLabel3.setText("SEDE   "+r.getString(5));
-                Principal_Configuracion.jLabel6.setText(r.getString(6));
-                Principal_Configuracion.jLabel9.setText(r.getString(7));
+                Principal_Configuracion.lblDireccion.setText(r.getString(6));
+                Principal_Configuracion.txtTelefono.setText(r.getString(7));
+                Principal_Configuracion.lblUE_ID.setText(r.getString(8));
                 
                 }
             //
         } catch (Exception e) {
             System.out.println("Error: PC: " + e.getMessage());
         }
+    }
+    
+    public boolean ACTUALIZAR_INFO(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec SISTEMA_ACTUALIZAR_UE ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getUE_ID());
+            cmd.setString(2, getDIRECCION());
+            cmd.setString(3, getTELEFONO());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
     }
 
     public void PERFIL_USUARIO(String cp_id){
@@ -90,6 +119,47 @@ Conexion con = new Conexion();
         } catch (Exception e) {
             System.out.println("Error: PC: " + e.getMessage());
         }
+    }
+    
+    public void LISTAR_CONFIGURACION(String cp_id){
+        String consulta="";
+        try {
+            consulta="EXEC CAJA_LISTAR_CONFIGURACION_TERMINAL ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Ajustes.txtNRO.setText(r.getString(1));
+                Caja_Ajustes.txtNRO1.setText(r.getString(2));
+                Caja_Ajustes.cbxImpresoras.setSelectedItem(r.getString(3));
+                
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: PC: " + e.getMessage());
+        }
+    }
+    
+    public boolean ACTUALIZAR_CONFIGURACION(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_ACTUALIZAR_CONFIGURACION_TERMINAL ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getIMPRESORA());
+            cmd.setString(2, getNOM_USU());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ERROR AL ACTUALIZAR EL REGISTRO " + ex.getMessage());
+        }
+        return resp;
     }
     
         public void VerificarExistencia(String Usuario,String M ,JTable tabla){
@@ -262,6 +332,17 @@ Conexion con = new Conexion();
             }
     } 
     
+    public void reportePRUEBA_RECIBO(String H) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("H",H);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/Caja/PRUEBA_RECIBO.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+            }
+    } 
+    
     public void NUMERACION(){
         String consulta="";
         try {
@@ -330,6 +411,30 @@ Conexion con = new Conexion();
 
     public void setIMPRESORA(String IMPRESORA) {
         this.IMPRESORA = IMPRESORA;
+    }
+
+    public int getUE_ID() {
+        return UE_ID;
+    }
+
+    public void setUE_ID(int UE_ID) {
+        this.UE_ID = UE_ID;
+    }
+
+    public String getTELEFONO() {
+        return TELEFONO;
+    }
+
+    public void setTELEFONO(String TELEFONO) {
+        this.TELEFONO = TELEFONO;
+    }
+
+    public String getDIRECCION() {
+        return DIRECCION;
+    }
+
+    public void setDIRECCION(String DIRECCION) {
+        this.DIRECCION = DIRECCION;
     }
     
     

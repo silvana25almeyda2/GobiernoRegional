@@ -152,7 +152,7 @@ private String AFECTO;
         int resultado=0;
         try
         {
-            String sql = "SELECT * FROM CAJA_CPT where NRO_ITEM=?  AND ESTADO='A'";
+            String sql = "SELECT * FROM CAJA_CPT where NRO_ITEM=?  AND ESTADO='A' AND ID_GRUPO =1";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nombre);
             ResultSet rs = cmd.executeQuery();
@@ -175,7 +175,7 @@ private String AFECTO;
         int resultado=0;
         try
         {
-            String sql = "SELECT * FROM CAJA_CPT where NOMBRE=?  AND ESTADO='A'";
+            String sql = "SELECT * FROM CAJA_CPT where NOMBRE=?  AND ESTADO='A' AND ID_GRUPO = 1";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nombre);
             ResultSet rs = cmd.executeQuery();
@@ -492,7 +492,7 @@ private String AFECTO;
                 Caja_ReporteMensual.lblTipo_Sede.setText(r.getString(1));
                 Caja_ReporteMensual.txtUbicacion.setText(r.getString(2));
                 if(Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
-                    Caja_ReporteMensual.txtUbicacion.setEditable(true);
+                    Caja_ReporteMensual.txtUbicacion.setEditable(false);
                     Caja_ReporteMensual.lblA.setText("A");
                 }else if(!Caja_ReporteMensual.lblTipo_Sede.getText().equals("P")){
                     Caja_ReporteMensual.txtUbicacion.setEditable(false);

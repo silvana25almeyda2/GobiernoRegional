@@ -76,7 +76,7 @@ public boolean modificarGrupoNomenclatura(){
         return resp;
     }
 
- public boolean eliminarCajaNomenclatura(){
+    public boolean eliminarCajaNomenclatura(){
         boolean resp = false;
         try
         {

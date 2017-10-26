@@ -333,7 +333,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Documento-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Documento-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -358,7 +358,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Editar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Editar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -384,7 +384,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Guardar-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Guardar-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -410,7 +410,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/Basura-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Basura-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -436,7 +436,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Usuario-40.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Usuario-40.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SILVANA"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -507,7 +507,7 @@
         <Component class="javax.swing.JButton" name="btnBuscarPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-27.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Buscar-32.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -538,7 +538,7 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Orden de compra-32.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos/Imagen/Orden de compra-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Listado"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -1035,7 +1035,7 @@
             <Component class="javax.swing.JButton" name="btnBuscarPersonal">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Iconos/B&#xfa;squeda-25.png"/>
+                  <Image iconType="3" name="/Imagenes/Iconos/Imagen/B&#xfa;squeda-25.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>

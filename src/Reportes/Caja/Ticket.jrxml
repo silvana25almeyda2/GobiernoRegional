@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.200000000000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="336"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -60,9 +60,7 @@ FROM            CAJA_PRECIOS INNER JOIN
                          CAJA_CPT ON CAJA_PRECIOS.ID_CPT = CAJA_CPT.ID_CPT INNER JOIN
                          CAJA_DOCUMENTO_DETALLE ON CAJA_PRECIOS.ID_PRECIO = CAJA_DOCUMENTO_DETALLE.ID_PRECIO
 						 where CAJA_DOCUMENTO_DETALLE.ESTADO='A' and
-						 id_documento=$P{id}
-
-						 SELECT * FROM CAJA_DOCUMENTO_DETALLE]]>
+						 id_documento=$P{id}]]>
 		</queryString>
 		<field name="CPT" class="java.lang.String"/>
 		<field name="PRECIO" class="java.lang.String"/>
@@ -212,7 +210,7 @@ FROM            CAJA_PRECIOS INNER JOIN
 					</datasetRun>
 					<jr:column width="0" uuid="4eba2c7c-b8be-45b5-b218-46957eac49e8">
 						<jr:columnHeader height="14" rowSpan="1"/>
-						<jr:detailCell height="17" rowSpan="1"/>
+						<jr:detailCell height="14" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="156" uuid="2a6803ea-70d2-44d9-aade-4aceb27f4e38">
 						<jr:columnHeader height="14" rowSpan="1">
@@ -230,9 +228,9 @@ FROM            CAJA_PRECIOS INNER JOIN
 								</graphicElement>
 							</line>
 						</jr:columnHeader>
-						<jr:detailCell height="17" rowSpan="1">
+						<jr:detailCell height="14" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement x="0" y="3" width="156" height="12" uuid="2e3825d1-7dde-4a53-8719-9dbe9db3409d"/>
+								<reportElement x="0" y="1" width="156" height="12" uuid="2e3825d1-7dde-4a53-8719-9dbe9db3409d"/>
 								<textElement verticalAlignment="Middle">
 									<font fontName="SansSerif" size="7"/>
 								</textElement>
@@ -256,9 +254,9 @@ FROM            CAJA_PRECIOS INNER JOIN
 								</graphicElement>
 							</line>
 						</jr:columnHeader>
-						<jr:detailCell height="17" rowSpan="1">
+						<jr:detailCell height="14" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="3" width="34" height="12" uuid="4702059d-b63f-4b11-93b6-3b50c30f88ab"/>
+								<reportElement x="0" y="1" width="34" height="12" uuid="4702059d-b63f-4b11-93b6-3b50c30f88ab"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Lucida Sans Typewriter" size="7"/>
 								</textElement>

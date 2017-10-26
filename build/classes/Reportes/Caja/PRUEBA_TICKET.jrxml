@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.4641000000000033"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="148"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -50,7 +50,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[exec caja_pc_nombre ]]>
+		<![CDATA[exec caja_pc_nombre]]>
 	</queryString>
 	<field name="pc" class="java.lang.String"/>
 	<background>
@@ -103,8 +103,7 @@ De comprobantes
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Felicidades
-Si Puede leer esta información, Configuro correctamente
-La impresora de este terminal y está listo para emitir comprobantes de pago
+Si Puede leer esta información, Configuro correctamente la impresora de este terminal y está listo para emitir comprobantes de pago
 ]]></text>
 			</staticText>
 			<textField>

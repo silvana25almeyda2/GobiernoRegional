@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4FGGF" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="72ad8611-73f2-4301-a3bf-e366795d0cba">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.zoom" value="2.3579476910000032"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="775"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -27,6 +27,8 @@
 	<field name="descripcion_7" class="java.lang.String"/>
 	<field name="cantidad" class="java.lang.Integer"/>
 	<field name="PRECIO" class="java.math.BigDecimal"/>
+	<field name="DESCUENTO" class="java.math.BigDecimal"/>
+	<field name="SUBTOTAL" class="java.math.BigDecimal"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
 	<field name="IGV" class="java.math.BigDecimal"/>
 	<field name="NOMBRE" class="java.lang.String"/>
@@ -54,23 +56,23 @@
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{TIPO_VENTA}]]></groupExpression>
 		<groupHeader>
-			<band height="39">
+			<band height="34">
 				<staticText>
-					<reportElement x="171" y="19" width="91" height="20" uuid="3cf2cbb0-d38c-4595-8118-a947bd63fdd5"/>
+					<reportElement x="175" y="12" width="23" height="20" uuid="3cf2cbb0-d38c-4595-8118-a947bd63fdd5"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="123" y="19" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
+					<reportElement x="104" y="12" width="26" height="20" uuid="6b659c86-b919-4070-aabc-e50eec85228c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<text><![CDATA[Cant]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="144" y="19" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
+					<reportElement x="125" y="12" width="34" height="20" uuid="7c48490c-b0e7-4b69-9627-50ab63afe04c"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
@@ -83,11 +85,18 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPO_VENTA}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement x="151" y="12" width="24" height="20" uuid="9f374897-d9b3-4df6-8579-d7f4ed956869"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Dscto.]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="3"/>
-			<band height="2"/>
+			<band/>
+			<band/>
 		</groupFooter>
 	</group>
 	<group name="Group2">
@@ -247,42 +256,49 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="26" splitType="Stretch">
+		<band height="27" splitType="Stretch">
 			<textField>
-				<reportElement x="171" y="0" width="29" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
+				<reportElement x="175" y="0" width="23" height="20" uuid="0091b9da-5fd3-480f-b889-06c2964785a8"/>
 				<textElement>
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="123" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
+				<reportElement x="104" y="0" width="15" height="20" uuid="978ca7f1-7ddb-48d7-b50b-cde68620c82f"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="144" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
+				<reportElement x="125" y="0" width="34" height="20" uuid="43ffab97-c00e-49db-b652-b3fce38f2085"/>
 				<textElement>
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="-6" y="0" width="126" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
+				<reportElement x="-6" y="0" width="110" height="23" uuid="7da63a1b-85e1-4c51-8550-631d59234671"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="151" y="0" width="24" height="20" uuid="118a74f7-93f9-400b-8150-c277b0cc3553"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCUENTO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="2" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="2" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="245" splitType="Stretch">
@@ -322,8 +338,8 @@
 				<text><![CDATA[CAJERO]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="120" y="40" width="80" height="14" uuid="108a1533-fa14-479e-a6b2-82fbb9f68c87"/>
-				<textElement>
+				<reportElement x="120" y="40" width="55" height="14" uuid="108a1533-fa14-479e-a6b2-82fbb9f68c87"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BASE}]]></textFieldExpression>
@@ -380,15 +396,15 @@
 				<text><![CDATA[(*) En este documento no se contemplan las ventas que fueron anuladas.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="120" y="54" width="100" height="20" uuid="e9c348e0-e03b-471d-9533-2d450d40d7e4"/>
-				<textElement>
+				<reportElement x="120" y="54" width="55" height="20" uuid="e9c348e0-e03b-471d-9533-2d450d40d7e4"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL DE VENTAS}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="120" y="68" width="100" height="20" uuid="59cea68a-3f01-44a2-bdab-07e9ceadb71a"/>
-				<textElement>
+				<reportElement x="120" y="68" width="55" height="20" uuid="59cea68a-3f01-44a2-bdab-07e9ceadb71a"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL DE GENERAL}]]></textFieldExpression>

@@ -784,7 +784,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
 
                 Caja_Jerarquias hCEl = new Caja_Jerarquias();
                 hCEl.setCod_jerar_forma_pago(Integer.parseInt(lblCodigoAE.getText()));
-                if(hCEl.eliminarjerarquia()){
+                if(hCEl.eliminarjerarquia()==true){
                      cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
                                 Mensaje.setText("Registro eliminado de forma correcta");
@@ -795,7 +795,13 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                                  if(lblNivel.getText().equals("0")){
                              cnn.LISTARNIVEL0(tbNivel0);  
                            }
-                }     
+                }else{
+                    cargareliminar.setVisible(true);
+                    cargareliminar.setBackground(new Color(255,91,70)); 
+                    Mensaje.setText("No se pudo eliminar el registro, puede que esté protegido");
+                    eli.setVisible(false);
+                    noeli.setVisible(false);
+                }
             }
             
             

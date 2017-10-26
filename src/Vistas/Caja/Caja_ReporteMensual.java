@@ -243,7 +243,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-Marker-32.png"))); // NOI18N
 
                 txtUbicacion.setBackground(new java.awt.Color(39, 174, 96));
-                txtUbicacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                txtUbicacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                 txtUbicacion.setForeground(new java.awt.Color(255, 255, 255));
                 txtUbicacion.setText("ICA");
                 txtUbicacion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -307,38 +307,45 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 jPanel1Layout.setHorizontalGroup(
                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblusu1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBuscarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(jLabel2)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lbldetalle))
-                                                    .addComponent(jLabel1)
-                                                    .addComponent(jLabel3)
-                                                    .addComponent(jLabel4))
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbldetalle))
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(cbxAnios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(cbxMeses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cbxMeses1, 0, 154, Short.MAX_VALUE)
-                                                    .addComponent(txtUbicacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                    .addComponent(cbxMeses1, 0, 154, Short.MAX_VALUE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblusu1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnBuscarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -513,7 +520,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(jScrollPane12))
                 );
 
@@ -570,7 +577,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                 tb_ReporteDiario1.getSelectionModel().setSelectionInterval (0,0) ;
                 try {
                     int filaE = tb_ReporteDiario1.getSelectedRow();
-                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(filaE, 6)));
+                    jLabel6.setText("Total General S/ "+String.valueOf(tb_ReporteDiario1.getValueAt(filaE, 7)));
                 } catch (Exception e) {
                 }
             ////////////////////////////////////////////////////////////////////
@@ -705,24 +712,24 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }//GEN-LAST:event_tbSEDESKeyPressed
 
     private void txtUbicacionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtUbicacionCaretUpdate
-        
-        if(lblA.getText().equals("A")){
-        if(txtUbicacion.getText().equals("TODOS")||txtUbicacion.getText().equals("TODO")){
-            jPanel2.setVisible(false);
-        }else  if(!txtUbicacion.getText().equals("TODOS")||!txtUbicacion.getText().equals("TODO")){
-            jPanel2.setVisible(true);
-            Caja_NuevaVenta Cbu = new  Caja_NuevaVenta();
-            Cbu.LISTAR_SEDES(txtUbicacion.getText(),tbSEDES);
-            tbSEDES.getSelectionModel().setSelectionInterval (0,0) ;
-                try {
-                    int fila = tbSEDES.getSelectedRow();
-                    jLabel7.setText(String.valueOf(tbSEDES.getValueAt(fila, 0)));
-                } catch (Exception e) {
-                }
-        }
-    }else if(!lblA.getText().equals("A")){
-         jPanel2.setVisible(false);
-    }
+//        
+//        if(lblA.getText().equals("A")){
+//        if(txtUbicacion.getText().equals("TODOS")||txtUbicacion.getText().equals("TODO")){
+//            jPanel2.setVisible(false);
+//        }else  if(!txtUbicacion.getText().equals("TODOS")||!txtUbicacion.getText().equals("TODO")){
+//            jPanel2.setVisible(true);
+//            Caja_NuevaVenta Cbu = new  Caja_NuevaVenta();
+//            Cbu.LISTAR_SEDES(txtUbicacion.getText(),tbSEDES);
+//            tbSEDES.getSelectionModel().setSelectionInterval (0,0) ;
+//                try {
+//                    int fila = tbSEDES.getSelectedRow();
+//                    jLabel7.setText(String.valueOf(tbSEDES.getValueAt(fila, 0)));
+//                } catch (Exception e) {
+//                }
+//        }
+//    }else if(!lblA.getText().equals("A")){
+//         jPanel2.setVisible(false);
+//    }
         
         
     }//GEN-LAST:event_txtUbicacionCaretUpdate

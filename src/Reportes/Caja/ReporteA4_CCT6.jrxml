@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteA4_CCT6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68aa4cbc-4f9e-4b97-8f4d-81d5a1c0415e">
-	<property name="ireport.zoom" value="1.210000000000001"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="62"/>
+	<property name="ireport.zoom" value="2.1435888100000056"/>
+	<property name="ireport.x" value="482"/>
+	<property name="ireport.y" value="288"/>
 	<parameter name="SESION" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,6 +10,8 @@
 		<![CDATA[exec CAJA_REPORTE_CIERRE_CTA6 $P{SESION}]]>
 	</queryString>
 	<field name="CUENTA" class="java.lang.String"/>
+	<field name="DESCUENTOS" class="java.math.BigDecimal"/>
+	<field name="SUBTOTAL" class="java.math.BigDecimal"/>
 	<field name="TOTAL" class="java.math.BigDecimal"/>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>
@@ -161,37 +163,67 @@
 	<columnHeader>
 		<band height="18" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="1" width="555" height="16" forecolor="#D6D9DF" backcolor="#D6D9DF" uuid="af8e9194-9b3a-400e-9959-0608c270a07d"/>
+				<reportElement x="0" y="1" width="556" height="16" forecolor="#D6D9DF" backcolor="#D6D9DF" uuid="af8e9194-9b3a-400e-9959-0608c270a07d"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="510" y="1" width="43" height="16" uuid="652364a6-842a-4a98-81dc-851bcb8d1d02"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="494" y="1" width="44" height="16" uuid="652364a6-842a-4a98-81dc-851bcb8d1d02"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="4" y="1" width="100" height="16" uuid="c82c18d4-78bd-4e6e-9e30-88ea77ee57fe"/>
 				<textElement verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="1" width="76" height="16" uuid="7549a7c8-17cf-4af1-bea6-a1badd965eee"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DESCUENTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="1" width="61" height="16" uuid="cf17391e-c0bb-48ae-a44b-28763c174223"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="16" splitType="Stretch">
 			<textField>
-				<reportElement x="510" y="1" width="43" height="14" uuid="9774df8b-162c-4042-a3aa-0ae98753968d"/>
+				<reportElement x="494" y="1" width="44" height="14" uuid="9774df8b-162c-4042-a3aa-0ae98753968d"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="4" y="1" width="490" height="14" forecolor="#333333" uuid="514c3d24-bcdf-4a33-8786-e6164db986b9"/>
+				<reportElement x="4" y="1" width="339" height="14" forecolor="#333333" uuid="514c3d24-bcdf-4a33-8786-e6164db986b9"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="1" width="76" height="14" uuid="ce78909a-4f87-4941-a776-bc9210789ad4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCUENTOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="1" width="61" height="14" uuid="db9341dd-b8f2-4a7c-86e0-34067c2ba63e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -236,8 +268,8 @@
 				<reportElement x="166" y="58" width="81" height="1" uuid="a17a04ff-e6f9-406c-ba97-c8fb528c4b5e"/>
 			</line>
 			<textField>
-				<reportElement x="181" y="42" width="79" height="14" uuid="7b27ec24-475a-4b03-ac9d-331371bdb8b3"/>
-				<textElement>
+				<reportElement x="181" y="42" width="55" height="14" uuid="7b27ec24-475a-4b03-ac9d-331371bdb8b3"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BASE}]]></textFieldExpression>
@@ -257,8 +289,8 @@
 				<text><![CDATA[S/.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="181" y="25" width="136" height="20" uuid="45050da8-1cbe-4154-976a-add9f9bc78c6"/>
-				<textElement>
+				<reportElement x="181" y="25" width="55" height="20" uuid="45050da8-1cbe-4154-976a-add9f9bc78c6"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL DE VENTAS}]]></textFieldExpression>
@@ -271,8 +303,8 @@
 				<text><![CDATA[Saldo Inicial de Caja]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="181" y="61" width="136" height="20" uuid="ba1497b1-3471-4fcc-97ce-663e38f60e22"/>
-				<textElement>
+				<reportElement x="181" y="61" width="55" height="20" uuid="ba1497b1-3471-4fcc-97ce-663e38f60e22"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL DE GENERAL}]]></textFieldExpression>

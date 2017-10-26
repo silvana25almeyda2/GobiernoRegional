@@ -5197,7 +5197,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         lblMant.setText("7");
         txtespedet.setEditable(true);
         txtdesEd.setEditable(true);
-        b6.setVisible(true);
+        b7.setVisible(true);
 
         txtespe3.setText("");
         txted2.setText("");

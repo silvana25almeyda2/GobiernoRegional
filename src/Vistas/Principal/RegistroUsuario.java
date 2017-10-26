@@ -447,7 +447,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
-                        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Documento-32.png"))); // NOI18N
+                        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Documento-32.png"))); // NOI18N
                         btnNuevo.setText("Nuevo");
                         btnNuevo.setContentAreaFilled(false);
                         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -463,7 +463,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         btnmodificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         btnmodificar.setForeground(new java.awt.Color(240, 240, 240));
-                        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Editar-32.png"))); // NOI18N
+                        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Editar-32.png"))); // NOI18N
                         btnmodificar.setText("Editar");
                         btnmodificar.setContentAreaFilled(false);
                         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -480,7 +480,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         btnguardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-                        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Guardar-32.png"))); // NOI18N
+                        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Guardar-32.png"))); // NOI18N
                         btnguardar.setText("Guardar");
                         btnguardar.setContentAreaFilled(false);
                         btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -497,7 +497,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         btneliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-                        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Basura-32.png"))); // NOI18N
+                        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Basura-32.png"))); // NOI18N
                         btneliminar.setText("Eliminar");
                         btneliminar.setContentAreaFilled(false);
                         btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -514,7 +514,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                        lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                        lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Usuario-40.png"))); // NOI18N
                         lblusu.setText("SILVANA");
                         lblusu.setFocusable(false);
                         lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -554,7 +554,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
 
-                        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Buscar-32.png"))); // NOI18N
                         btnBuscarPaciente.setContentAreaFilled(false);
                         btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -569,7 +569,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
                         btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         btnLista.setForeground(new java.awt.Color(240, 240, 240));
-                        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Orden de compra-32.png"))); // NOI18N
+                        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Orden de compra-32.png"))); // NOI18N
                         btnLista.setText("Listado");
                         btnLista.setContentAreaFilled(false);
                         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -811,7 +811,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         jLabel1.setText("Personal");
 
-                        btnBuscarPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Búsqueda-25.png"))); // NOI18N
+                        btnBuscarPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/Búsqueda-25.png"))); // NOI18N
                         btnBuscarPersonal.setBorder(null);
                         btnBuscarPersonal.setContentAreaFilled(false);
                         btnBuscarPersonal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -55,6 +55,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         Paginas.setEnabledAt(0,false);
         Paginas.setEnabledAt(1, false);
         btnCaja.setVisible(false);
+        jLabel18.setVisible(false);
+        panelCPT3.setVisible(false);
     }
     
     private final static Pattern RTRIM = Pattern.compile("\\s+$");
@@ -105,6 +107,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         try {
         int fila=tb_Clientes.getSelectedRow();
         lblID.setText(String.valueOf(tb_Clientes.getValueAt(fila, 0)));  
+            System.out.println("ID  "+String.valueOf(tb_Clientes.getValueAt(fila, 0)));
         cbxTipoDoc.setSelectedItem(String.valueOf(tb_Clientes.getValueAt(fila, 1))); 
         txtDOC.setText(String.valueOf(tb_Clientes.getValueAt(fila, 2)));  
         txtNom.setText(String.valueOf(tb_Clientes.getValueAt(fila, 3))); 
@@ -172,13 +175,14 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     }
     
     public void NUEVO_REGISTRO(){
-        if(valida_Email(txtCorreo.getText())==false){
-            System.out.println("correo no valido");
-        }
-        if((txtDOC.getText().equals(""))){
+//        if(valida_Email(txtCorreo.getText())==false){
+//            System.out.println("correo no valido");
+//        }
+        if(txtDOC.getText().equals("")||cbxTipoDoc.getSelectedItem().equals("Seleccione...")){
             cargareliminar.setVisible(true);        
             cargareliminar.setBackground(new Color(255,91,70)); 
             Mensaje.setText("Debe completar los campos requeridos");
+            eli.setText("Ok");
             eli.setVisible(true);
             noeli.setVisible(false);
             tgm=0;                 
@@ -194,7 +198,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     cno1.setRUC("J");
                 cno1.setRAZON_SOCIAL(txtRazonS.getText());
                 cno1.setDIRECCION(txtDireccion.getText());
-                cno1.setCORREO(txtCorreo.getText());
+                cno1.setCORREO("");
                 cno1.setTIPO_MONEDA(cbxMoneda.getSelectedItem().toString());
                 cno1.setCODIGO_FISCAL(txtCodigo.getText());
                 cno1.setTIPO_DOCUMENTO(cbxTipoDoc.getSelectedItem().toString());
@@ -254,7 +258,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     cno1.setRUC("J");
                 cno1.setRAZON_SOCIAL(txtRazonS.getText());
                 cno1.setDIRECCION(txtDireccion.getText());
-                cno1.setCORREO(txtCorreo.getText());
+                cno1.setCORREO("");
                 cno1.setTIPO_MONEDA(cbxMoneda.getSelectedItem().toString());
                 cno1.setCODIGO_FISCAL(txtCodigo.getText());
                 cno1.setTIPO_DOCUMENTO(cbxTipoDoc.getSelectedItem().toString());
@@ -285,9 +289,9 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     
     public void ELIMINAR_CLIENTE(){ 
         try{
-                Caja_Cliente hCEl = new Caja_Cliente();
-                hCEl.setID_CLIENTE(Integer.parseInt(lblID.getText()));
-                if(hCEl.ELIMINAR_CLIENTE()){
+                Caja_Cliente CE = new Caja_Cliente();
+                CE.setID_CLIENTE(Integer.parseInt(lblID.getText()));
+                if(CE.ELIMINAR_CLIENTE()){
                     cargareliminar.setBackground(new Color(0,153,102)); 
                     Mensaje.setText("Registro Eliminado");
                     eli.setText("OK");
@@ -631,32 +635,38 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(24, 24, 24)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbldetalle)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbldetalle)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lblNivel)
                                         .addComponent(lblPermiso)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(40, 40, 40)
                                     .addComponent(btnCaja)))
-                            .addGap(0, 9, Short.MAX_VALUE)))
+                            .addGap(0, 9, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addContainerGap())
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1489,6 +1499,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             LIMPIAR();
             HABILITAR(true);
             Paginas.setSelectedIndex(1);
+            cargareliminar.setVisible(false);
 //        }else if(!lblPermiso.getText().equals("E")){
 //            NivelSuperior.setUndecorated(true);
 //            NivelSuperior.setVisible(true);
@@ -1503,6 +1514,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             btneditar.setEnabled(false);
             HABILITAR(true);
             Paginas.setSelectedIndex(1);
+            cargareliminar.setVisible(false);
         }else if(!lblPermiso.getText().equals("E")){
             System.out.println("tg");
             NivelSuperior.setUndecorated(true);
@@ -1534,14 +1546,16 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     eli.setVisible(false);
                     noeli.setVisible(false);
                     txtDOC.requestFocus(); 
-                    } else if(valida_Email(txtCorreo.getText())==false){
-                        cargareliminar.setVisible(true);
-                        cargareliminar.setBackground(new Color(255,91,70)); 
-                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
-                        eli.setVisible(false);
-                        noeli.setVisible(false);
-                        txtCorreo.requestFocus();    
-                    }else if(cn.VALIDAR_DOCUMENTO(txtDOC.getText())>0){
+                    } 
+//                    else if(valida_Email(txtCorreo.getText())==false){
+//                        cargareliminar.setVisible(true);
+//                        cargareliminar.setBackground(new Color(255,91,70)); 
+//                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
+//                        eli.setVisible(false);
+//                        noeli.setVisible(false);
+//                        txtCorreo.requestFocus();    
+//                    }
+                    else if(cn.VALIDAR_DOCUMENTO(txtDOC.getText())>0){
                         cargareliminar.setVisible(true);
                         cargareliminar.setBackground(new Color(255,91,70)); 
                         Mensaje.setText("El Nª de Documento ingresado ya existe, Verifique ");
@@ -1595,6 +1609,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         Caja_Cliente A = new Caja_Cliente();
         A.LISTA_CLIENTES("",tb_Clientes);
         Paginas.setSelectedIndex(0);
+        cargareliminar.setVisible(false);
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void tb_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ClientesMouseClicked
@@ -1638,6 +1653,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             txtCodigo.setText("0");
             lblCab.setText("Datos del Cliente");
             lblDet.setVisible(false);
+            cbxTipoDoc.setSelectedIndex(1);
+            txtDOC.setText("");
 
         }else
         if(txtT1.getText().equals("X") && evt.getClickCount()==1){
@@ -1646,6 +1663,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel7.setVisible(false);
             jPanel6.setVisible(false);
             jPanel8.setVisible(false);
+            cbxTipoDoc.setSelectedIndex(0);
         }
         }
         
@@ -1672,6 +1690,8 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             lblCab.setText("Datos del Representante");
             lblDet.setText("Datos de la Empresa");
             txtCodigo.setText("");
+            cbxTipoDoc.setSelectedIndex(3);
+            txtDOC.setText("");
 
         }else
         if(txtT2.getText().equals("X") && evt.getClickCount()==1){
@@ -1680,6 +1700,7 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
             jPanel7.setVisible(false);
             jPanel6.setVisible(false);
             jPanel8.setVisible(false);
+            cbxTipoDoc.setSelectedIndex(0);
         }
         }
         
@@ -1745,13 +1766,14 @@ private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
                     eli.setVisible(false);
                     noeli.setVisible(false);
                     txtDOC.requestFocus(); 
-                    } else if(valida_Email(txtCorreo.getText())==false){
-                        cargareliminar.setVisible(true);
-                        cargareliminar.setBackground(new Color(255,91,70)); 
-                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
-                        eli.setVisible(false);
-                        noeli.setVisible(false);
-                        txtCorreo.requestFocus();    
+//                    } 
+//                else if(valida_Email(txtCorreo.getText())==false){
+//                        cargareliminar.setVisible(true);
+//                        cargareliminar.setBackground(new Color(255,91,70)); 
+//                        Mensaje.setText("El Correo Electronico ingresado no es valido, Verifique ");
+//                        eli.setVisible(false);
+//                        noeli.setVisible(false);
+//                        txtCorreo.requestFocus();    
             }else
                           
             

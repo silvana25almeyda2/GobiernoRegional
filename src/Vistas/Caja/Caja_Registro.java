@@ -413,7 +413,6 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         panelCPT4.setBackground(new java.awt.Color(255, 255, 255));
         panelCPT4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        txtNRO.setEditable(false);
         txtNRO.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNRO.setForeground(new java.awt.Color(51, 51, 51));
         txtNRO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -452,7 +451,6 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         panelCPT7.setBackground(new java.awt.Color(255, 255, 255));
         panelCPT7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        txtNRO1.setEditable(false);
         txtNRO1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNRO1.setForeground(new java.awt.Color(51, 51, 51));
         txtNRO1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -619,7 +617,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 
         cbxImpresoras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxImpresoras.setForeground(new java.awt.Color(51, 51, 51));
-        cbxImpresoras.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ticket - Papel Termico", "Recibo 25cm x 12cm" }));
+        cbxImpresoras.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ticket - Papel Termico", "Recibo 15.9 cm x 10.7 cm" }));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -851,7 +849,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         }else if(tbPaneles.getSelectedIndex()==1){
             btnAlertConsulta1.setEnabled(true);
             Caja_PC_Registro cn = new Caja_PC_Registro();
-//            if(txtModulo.getText().equals("CAJA / FACTURADOR")){
+            if(txtModulo.getText().equals("CAJA / FACTURADOR")){
                 tbPaneles.setSelectedIndex(2);
 //                if(cn.VerificarNumero(jLabel2.getText(),txtNRO.getText())>0){
 //                     jLabel1.setForeground(new Color(255,255,255));
@@ -859,9 +857,9 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
 //                    jLabel1.setForeground(new Color(255,51,51));
 //                    tbPaneles.setSelectedIndex(2);
 //                }   
-//                }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
-//                    tbPaneles.setSelectedIndex(2);
-//                } 
+                }else if(!txtModulo.getText().equals("CAJA / FACTURADOR")){
+                    tbPaneles.setSelectedIndex(3);
+                } 
         }else if(tbPaneles.getSelectedIndex()==2){
             btnAlertConsulta1.setEnabled(true);
             lblResumenPC.setText("<HTML>"+"Terminal "+txtPC.getText()+"<br>"+"Nº "+txtNRO.getText());
@@ -884,7 +882,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
         if(cbxImpresoras.getSelectedItem().equals("Ticket - Papel Termico")){
             nuevaV.reportePRUEBA_TICKET("");
         }else if(!cbxImpresoras.getSelectedItem().equals("Ticket - Papel Termico")){
-            
+            nuevaV.reportePRUEBA_RECIBO("");
         }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
@@ -895,10 +893,7 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     }//GEN-LAST:event_lblUsu1MouseClicked
 
     private void txtNROKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNROKeyTyped
-        if (txtNRO.getText().length()==1){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+
         char tecla;
         tecla = evt.getKeyChar();
         if(!Character.isDigit(tecla)){
@@ -977,7 +972,12 @@ Caja_PC_Registro nuevaV = new Caja_PC_Registro();
     }//GEN-LAST:event_txtNRO1CaretUpdate
 
     private void txtNRO1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNRO1KeyTyped
-        // TODO add your handling code here:
+         char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)){
+            evt.consume();
+            getToolkit().beep();            
+        }    
     }//GEN-LAST:event_txtNRO1KeyTyped
 
     /**
