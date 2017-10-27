@@ -26,6 +26,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 import Servicios.Conexion;
+import groovyjarjarasm.asm.tree.TryCatchBlockNode;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import modelo.Caja.Caja_AperturaCierre;
@@ -79,17 +80,29 @@ String hora, minutos, segundos, ampm;
         h1 = new Thread(this);
         h1.start();
         
-        
+        createImageIcon();
 //        barra.setBackground(new Color(155,155,155));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         //ICONO DE FORMULARIO
-//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/Imagen/icons8-Mind Map-100.png")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono/icons8-Mind Map-100.png")).getImage());
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
 //        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/iconos/Imagen/icons8-Mind Map-100.png"));
 //        setIconImage(icon);
 //        setVisible(true);
  
     }
+    
+    protected ImageIcon createImageIcon() {
+    java.net.URL imgURL = getClass().getResource("/imagenes/icono/icons8-Mind Map-100.png");
+    if (imgURL != null) {
+        return new ImageIcon(imgURL);
+    } else {
+        System.err.println("Couldn't find file: " );
+        return null;
+    }
+}
+
+    
     public void calcula() {
         Calendar calendario = new GregorianCalendar();
         java.util.Date fechaHoraActual = new java.util.Date();

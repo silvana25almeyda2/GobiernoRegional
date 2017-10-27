@@ -5,6 +5,7 @@
  */
 package Vistas.Principal;
 
+import Contabilidad.Contabilidad_Compras;
 import Contabilidad.Contabilidad_Retenciones;
 import Contabilidad.Contabilidad_Ventas;
 import java.awt.Dimension;
@@ -280,7 +281,9 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnCaja1MouseEntered
 
     private void btnCaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaja1ActionPerformed
-      
+        Contabilidad_Compras CTC = new Contabilidad_Compras();
+        CTC.lblusu.setText(Principal.lblUsu.getText());
+        CTC.setVisible(true);
     }//GEN-LAST:event_btnCaja1ActionPerformed
 
     private void btnCaja2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCaja2MouseClicked

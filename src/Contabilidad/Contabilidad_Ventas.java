@@ -522,8 +522,8 @@ DefaultTableModel m, m1, msb;
             while(r.next()){               
                 fila[0]=r.getString(1);
                 fila[1]=r.getString(2);
-                fila[2]=String.valueOf(c);
-                fila[3]=r.getString(4);
+                fila[2]=String.valueOf("V"+c);
+                fila[3]=String.valueOf("M"+c);
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
@@ -793,7 +793,7 @@ DefaultTableModel m, m1, msb;
        Statement  st = null;   
         try {
               st = conexion.createStatement();
-              r = st.executeQuery ("CAJA_MOSTRAR_AÑO"); 
+              r = st.executeQuery ("EXEC CAJA_MOSTRAR_AÑO"); 
               listmodel.addElement("Seleccionar...");
             while( r.next() ){
                 listmodel.addElement( r.getString( "ANIO" ) );                

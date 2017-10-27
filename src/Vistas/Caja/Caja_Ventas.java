@@ -522,7 +522,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         ////////////////////////////////////////////////////////////////////////
         
         BigDecimal bd2 = new BigDecimal(total);
-        bd2 = bd2.setScale(1, BigDecimal.ROUND_HALF_UP);
+        bd2 = bd2.setScale(2, BigDecimal.ROUND_HALF_UP);
         
         BigDecimal bd3 = new BigDecimal(IGV);
         bd3 = bd3.setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -537,7 +537,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         bd6 = bd6.setScale(2, BigDecimal.ROUND_HALF_UP);
         
         BigDecimal bd7 = new BigDecimal(TD);
-        bd7 = bd7.setScale(1, BigDecimal.ROUND_HALF_UP);
+        bd7 = bd7.setScale(4, BigDecimal.ROUND_HALF_UP);
         ////////////////////////////////////////////////////////////////////////
         //Ventas Gravadas e Inafectas
 

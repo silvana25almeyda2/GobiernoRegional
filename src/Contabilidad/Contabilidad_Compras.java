@@ -47,6 +47,9 @@ DefaultTableModel m, m1, msb;
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         cargareliminar.setVisible(false);
+        espere.setLocationRelativeTo(null);//en el centro
+        jScrollPane1.setVisible(false);
+//        panelespere.setVisible(false);
         
         this.cbxAnios.setModel(Anio());
         cbxAnios.setBackground(Color.white);
@@ -64,6 +67,12 @@ DefaultTableModel m, m1, msb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        espere = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -85,6 +94,73 @@ DefaultTableModel m, m1, msb;
         eli = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TB_COMPRAS_LE = new javax.swing.JTable();
+        panelespere = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        espere.setAlwaysOnTop(true);
+        espere.setMinimumSize(new java.awt.Dimension(531, 248));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Estamos comunicándonos con SIAF, Espere…");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-laptop.png"))); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-laptop.png"))); // NOI18N
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/agiphy.gif"))); // NOI18N
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel6)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel5)
+                .addGap(36, 36, 36))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout espereLayout = new javax.swing.GroupLayout(espere.getContentPane());
+        espere.getContentPane().setLayout(espereLayout);
+        espereLayout.setHorizontalGroup(
+            espereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        espereLayout.setVerticalGroup(
+            espereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,7 +178,7 @@ DefaultTableModel m, m1, msb;
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(565, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,6 +419,53 @@ DefaultTableModel m, m1, msb;
         TB_COMPRAS_LE.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(TB_COMPRAS_LE);
 
+        panelespere.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Estamos comunicándonos con SIAF, Espere…");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-laptop.png"))); // NOI18N
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/icons8-laptop.png"))); // NOI18N
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos/Imagen/agiphy.gif"))); // NOI18N
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout panelespereLayout = new javax.swing.GroupLayout(panelespere);
+        panelespere.setLayout(panelespereLayout);
+        panelespereLayout.setHorizontalGroup(
+            panelespereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelespereLayout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(panelespereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelespereLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelespereLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        panelespereLayout.setVerticalGroup(
+            panelespereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelespereLayout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(panelespereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelespereLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel9))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -351,8 +474,11 @@ DefaultTableModel m, m1, msb;
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(panelespere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,7 +487,9 @@ DefaultTableModel m, m1, msb;
                 .addGap(0, 0, 0)
                 .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(panelespere, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -375,6 +503,7 @@ DefaultTableModel m, m1, msb;
     }//GEN-LAST:event_eliActionPerformed
 
     private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
+
         try{
                  BUSCAR_VENTAS_ESTADO();
                  cargareliminar.setVisible(false);
@@ -425,7 +554,7 @@ DefaultTableModel m, m1, msb;
                 jPanel3.setVisible(false);
             }else{
                 generar_libro_electronico_COMPRAS();
-                
+
             }
         
         
@@ -438,7 +567,7 @@ DefaultTableModel m, m1, msb;
                     this.cbxMeses.removeAllItems();
                     Statement sta=conexion.createStatement();
                     String dpto=cbxAnios.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC CAJA_MOSTRAR_MES '"+dpto+"'");
+                    ResultSet rs=sta.executeQuery("EXEC CAJA_MOSTRAR_MES_SIAF '"+dpto+"'");
 
                     while(rs.next()){
                         this.cbxMeses.addItem(rs.getString("MES"));
@@ -519,8 +648,8 @@ DefaultTableModel m, m1, msb;
             int c=1;
             while(r.next()){               
                 fila[0]=r.getString(1);
-                fila[1]=r.getString(2);
-                fila[2]=String.valueOf(c);
+                fila[1]=String.valueOf("C"+c);
+                fila[2]=String.valueOf("M"+c);
                 fila[3]=r.getString(4);
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
@@ -543,6 +672,8 @@ DefaultTableModel m, m1, msb;
             this.TB_COMPRAS_LE.setModel(m);
             
             formato_COMPRAS_LE();
+            panelespere.setVisible(false);
+            jScrollPane1.setVisible(true);
             
         }catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
@@ -554,6 +685,7 @@ DefaultTableModel m, m1, msb;
             if(TB_COMPRAS_LE.getRowCount()>0){
                 
                 crearArchivo();
+                crearArchivo_COMPRAS_VACIO();
                 Clear_TB_VENTAS_LE();
                 cbxAnios.setSelectedIndex(0);
                 cbxMeses.setSelectedIndex(0);
@@ -703,6 +835,8 @@ DefaultTableModel m, m1, msb;
                         cargareliminar.setBackground(new Color(164,192,79));
                         Mensaje.setText("Archivo de Texto Generado");
                         eli.setText("Abrir Ubicacion");
+                        jScrollPane1.setVisible(false);
+                        panelespere.setVisible(true);
                     } 
                     crea.close();
                     retorna = true;
@@ -778,7 +912,7 @@ DefaultTableModel m, m1, msb;
        Statement  st = null;   
         try {
               st = conexion.createStatement();
-              r = st.executeQuery ("CAJA_MOSTRAR_AÑO"); 
+              r = st.executeQuery ("EXEC CAJA_MOSTRAR_AÑO_SIAF"); 
               listmodel.addElement("Seleccionar...");
             while( r.next() ){
                 listmodel.addElement( r.getString( "ANIO" ) );                
@@ -813,6 +947,7 @@ DefaultTableModel m, m1, msb;
             TB_COMPRAS_LE.setModel(msb);
             
             formato_COMPRAS_LE();
+           
             
         } catch (Exception e) {
             System.out.println("error inicializar tabla_RV: " + e);
@@ -998,18 +1133,29 @@ DefaultTableModel m, m1, msb;
     private javax.swing.JComboBox cbxAnios;
     private javax.swing.JComboBox cbxMeses;
     private javax.swing.JButton eli;
+    private javax.swing.JDialog espere;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblNivel;
     public static javax.swing.JLabel lblPermiso;
     public static javax.swing.JLabel lblusu;
+    private javax.swing.JPanel panelespere;
     // End of variables declaration//GEN-END:variables
 }
